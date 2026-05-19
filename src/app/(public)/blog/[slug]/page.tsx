@@ -301,117 +301,125 @@ export default async function BlogArticlePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
-          <ol className="flex items-center gap-1.5">
-            <li>
-              <Link href="/" className="hover:text-foreground transition-colors">
-                Acasă
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li>
-              <Link href="/blog" className="hover:text-foreground transition-colors">
-                Blog
-              </Link>
-            </li>
-            <li aria-hidden="true">/</li>
-            <li className="text-foreground font-medium truncate max-w-[200px] sm:max-w-none">
+      <div className="min-h-screen bg-[#04040A]">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-[#8B8D97]">
+            <ol className="flex items-center gap-1.5">
+              <li>
+                <Link href="/" className="hover:text-white transition-colors">
+                  Acasa
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/blog" className="hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li className="text-white font-medium truncate max-w-[200px] sm:max-w-none">
+                {article.title}
+              </li>
+            </ol>
+          </nav>
+
+          {/* Article header */}
+          <header className="mb-8 space-y-4">
+            <div className="flex items-center gap-3">
+              <Badge className="bg-[#FF2D2D]/10 text-[#FF2D2D] border border-[#FF2D2D]/20 hover:bg-[#FF2D2D]/20">
+                {article.category}
+              </Badge>
+              <span className="text-sm text-[#8B8D97]">
+                {article.readingTime} min citire
+              </span>
+            </div>
+            <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl leading-tight sm:text-4xl text-white">
               {article.title}
-            </li>
-          </ol>
-        </nav>
+            </h1>
+            <p className="text-[#8B8D97]">
+              Publicat pe{" "}
+              {new Date(article.date).toLocaleDateString("ro-RO", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+          </header>
 
-        {/* Article header */}
-        <header className="mb-8 space-y-4">
-          <div className="flex items-center gap-3">
-            <Badge variant="secondary">{article.category}</Badge>
-            <span className="text-sm text-muted-foreground">
-              {article.readingTime} min citire
-            </span>
-          </div>
-          <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl leading-tight sm:text-4xl text-[#0A2540]">
-            {article.title}
-          </h1>
-          <p className="text-muted-foreground">
-            Publicat pe{" "}
-            {new Date(article.date).toLocaleDateString("ro-RO", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
-        </header>
-
-        {/* Article content */}
-        <article className="prose prose-gray max-w-none">
-          {article.content.split("\n\n").map((block, i) => {
-            if (block.startsWith("## ")) {
+          {/* Article content */}
+          <article className="max-w-none">
+            {article.content.split("\n\n").map((block, i) => {
+              if (block.startsWith("## ")) {
+                return (
+                  <h2
+                    key={i}
+                    className="mt-8 mb-4 text-xl font-semibold text-white sm:text-2xl"
+                  >
+                    {block.replace("## ", "")}
+                  </h2>
+                );
+              }
+              if (block.startsWith("- ")) {
+                const items = block.split("\n").filter((line) => line.startsWith("- "));
+                return (
+                  <ul key={i} className="my-4 list-disc space-y-2 pl-6 text-[#E2E4E9]">
+                    {items.map((item, j) => (
+                      <li
+                        key={j}
+                        dangerouslySetInnerHTML={{
+                          __html: item
+                            .replace("- ", "")
+                            .replace(/\*\*(.*?)\*\*/g, "<strong class='text-white'>$1</strong>"),
+                        }}
+                      />
+                    ))}
+                  </ul>
+                );
+              }
               return (
-                <h2
+                <p
                   key={i}
-                  className="mt-8 mb-4 text-xl font-semibold text-[#0A2540] sm:text-2xl"
-                >
-                  {block.replace("## ", "")}
-                </h2>
+                  className="my-4 leading-relaxed text-[#E2E4E9]"
+                  dangerouslySetInnerHTML={{
+                    __html: block.replace(/\*\*(.*?)\*\*/g, "<strong class='text-white'>$1</strong>"),
+                  }}
+                />
               );
-            }
-            if (block.startsWith("- ")) {
-              const items = block.split("\n").filter((line) => line.startsWith("- "));
-              return (
-                <ul key={i} className="my-4 list-disc space-y-2 pl-6 text-gray-700">
-                  {items.map((item, j) => (
-                    <li
-                      key={j}
-                      dangerouslySetInnerHTML={{
-                        __html: item
-                          .replace("- ", "")
-                          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"),
-                      }}
-                    />
-                  ))}
-                </ul>
-              );
-            }
-            return (
-              <p
-                key={i}
-                className="my-4 leading-relaxed text-gray-700"
-                dangerouslySetInnerHTML={{
-                  __html: block.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>"),
-                }}
-              />
-            );
-          })}
-        </article>
+            })}
+          </article>
 
-        {/* Similar articles */}
-        <section className="mt-16">
-          <h2 className="mb-6 text-2xl font-semibold text-[#0A2540]">
-            Articole similare
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {similarArticles.map((related) => (
-              <Link key={related.slug} href={`/blog/${related.slug}`}>
-                <Card className="h-full hover:shadow-md transition-shadow">
-                  <CardContent className="p-6 space-y-3">
-                    <div className="flex items-center gap-2">
-                      <Badge variant="secondary">{related.category}</Badge>
-                      <span className="text-xs text-muted-foreground">
-                        {related.readingTime} min citire
-                      </span>
+          {/* Similar articles */}
+          <section className="mt-16">
+            <h2 className="mb-6 text-2xl font-semibold text-white">
+              Articole similare
+            </h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {similarArticles.map((related) => (
+                <Link key={related.slug} href={`/blog/${related.slug}`}>
+                  <div className="group relative h-full rounded-2xl bg-[#0F1017] border border-white/[0.08] overflow-hidden transition-all hover:border-white/[0.15] hover:shadow-lg hover:shadow-black/20">
+                    {/* Gradient accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="p-6 space-y-3">
+                      <div className="flex items-center gap-2">
+                        <Badge className="bg-[#FF2D2D]/10 text-[#FF2D2D] border border-[#FF2D2D]/20 hover:bg-[#FF2D2D]/20 text-xs">
+                          {related.category}
+                        </Badge>
+                        <span className="text-xs text-[#8B8D97]">
+                          {related.readingTime} min citire
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-semibold leading-tight text-white">
+                        {related.title}
+                      </h3>
+                      <p className="text-sm text-[#8B8D97]">{related.excerpt}</p>
                     </div>
-                    <h3 className="text-lg font-semibold leading-tight">
-                      {related.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{related.excerpt}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </section>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </>
   );

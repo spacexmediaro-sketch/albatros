@@ -24,7 +24,7 @@ const MARCI = [
   "Fiat",
   "Volvo",
   "Nissan",
-  "Altă marcă",
+  "Alta marca",
 ] as const;
 
 interface DamageResult {
@@ -39,27 +39,27 @@ interface DamageResult {
 const MOCK_RESULT: DamageResult = {
   damages: [
     {
-      zone: "Bara față",
+      zone: "Bara fata",
       severity: "Medie",
-      description: "Fisură și deformare bara față, necesită înlocuire.",
+      description: "Fisura si deformare bara fata, necesita inlocuire.",
     },
     {
-      zone: "Aripă stânga față",
-      severity: "Ușoară",
-      description: "Zgârieturi superficiale și lovituri minore pe aripă.",
+      zone: "Aripa stanga fata",
+      severity: "Usoara",
+      description: "Zgarieturi superficiale si lovituri minore pe aripa.",
     },
     {
-      zone: "Far stânga",
-      severity: "Severă",
-      description: "Far spart, necesită înlocuire completă.",
+      zone: "Far stanga",
+      severity: "Severa",
+      description: "Far spart, necesita inlocuire completa.",
     },
   ],
   operations: [
-    "Demontare / montare bară față",
-    "Înlocuire bară față (piesă nouă)",
-    "Tinichigerie aripă stânga față — îndreptare și pregătire",
-    "Vopsire aripă stânga față",
-    "Înlocuire far stânga",
+    "Demontare / montare bara fata",
+    "Inlocuire bara fata (piesa noua)",
+    "Tinichigerie aripa stanga fata — indreptare si pregatire",
+    "Vopsire aripa stanga fata",
+    "Inlocuire far stanga",
     "Reglaj faruri",
     "Verificare senzori parcare",
   ],
@@ -67,22 +67,22 @@ const MOCK_RESULT: DamageResult = {
   costMax: 4200,
   confidence: 82,
   warnings: [
-    "Estimarea nu include eventuale avarii ascunse la structura interioară.",
-    "Prețul pieselor poate varia în funcție de disponibilitate și producător.",
-    "Culoarea poate necesita bitonare pentru potrivire perfectă.",
+    "Estimarea nu include eventuale avarii ascunse la structura interioara.",
+    "Pretul pieselor poate varia in functie de disponibilitate si producator.",
+    "Culoarea poate necesita bitonare pentru potrivire perfecta.",
   ],
 };
 
 function severityColor(severity: string) {
   switch (severity) {
-    case "Ușoară":
-      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+    case "Usoara":
+      return "bg-[#F59E0B]/10 text-[#F59E0B] border-[#F59E0B]/20";
     case "Medie":
-      return "bg-orange-100 text-orange-800 border-orange-300";
-    case "Severă":
-      return "bg-red-100 text-red-800 border-red-300";
+      return "bg-[#F97316]/10 text-[#F97316] border-[#F97316]/20";
+    case "Severa":
+      return "bg-[#EF4444]/10 text-[#EF4444] border-[#EF4444]/20";
     default:
-      return "bg-gray-100 text-gray-800 border-gray-300";
+      return "bg-white/5 text-[#8B8D97] border-white/10";
   }
 }
 
@@ -143,34 +143,51 @@ export default function EstimatorPage() {
   return (
     <>
       {/* Dark Hero Section */}
-      <section className="relative overflow-hidden bg-[#0A2540] bg-grid-pattern px-4 py-20 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-[#04040A] px-4 py-20 sm:px-6 lg:px-8">
+        {/* Grid pattern overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,45,45,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,45,45,0.03) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
         {/* Gradient orbs */}
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#E63946]/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#3B82F6]/10 blur-3xl" />
+        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#FF2D2D]/10 blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
+
         <div className="relative mx-auto max-w-4xl text-center">
-          <span className="inline-block rounded-full bg-[#E63946]/20 px-4 py-1.5 text-sm font-semibold text-[#E63946]">
-            {"Nou \u2014 Tehnologie AI"}
+          {/* Badge with pulsing dot */}
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#FF2D2D]/20 bg-[#FF2D2D]/10 px-4 py-1.5 text-sm font-semibold text-[#FF2D2D]">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF2D2D] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF2D2D]" />
+            </span>
+            Tehnologie AI
           </span>
           <h1 className="mt-4 font-[family-name:var(--font-dm-serif)] text-4xl text-white sm:text-5xl">
             Estimator avarii auto cu{" "}
-            <span className="gradient-text">AI</span>
+            <span className="bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] bg-clip-text text-transparent">
+              AI
+            </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
-            Încarcă fotografii cu avariile mașinii tale și primești o estimare
-            instantanee a costurilor de reparație. Tehnologia noastră AI
-            analizează imaginile și identifică daunele, operațiile necesare și un
-            interval de preț orientativ.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-[#8B8D97]">
+            Incarca fotografii cu avariile masinii tale si primesti o estimare
+            instantanee a costurilor de reparatie. Tehnologia noastra AI
+            analizeaza imaginile si identifica daunele, operatiile necesare si un
+            interval de pret orientativ.
           </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="bg-[#04040A] px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           {/* Upload Section */}
           <div>
-            <Label className="mb-2 block text-sm font-semibold text-[#0A2540]">
-              Fotografii avarii (1–4 imagini)
+            <Label className="mb-2 block text-sm font-semibold text-[#E2E4E9]">
+              Fotografii avarii (1-4 imagini)
             </Label>
             <div
               onDragOver={(e) => {
@@ -181,25 +198,15 @@ export default function EstimatorPage() {
               onDrop={handleDrop}
               className={`group relative flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-all duration-300 ${
                 dragOver
-                  ? "border-[#E63946] bg-red-50 shadow-lg shadow-[#E63946]/10"
-                  : "border-gray-300 bg-gray-50 hover:border-transparent hover:bg-gradient-to-br hover:from-[#E63946]/5 hover:to-[#3B82F6]/5 hover:shadow-lg hover:shadow-[#E63946]/5"
+                  ? "border-[#FF2D2D] bg-[#FF2D2D]/10"
+                  : "border-white/10 bg-[#080808] hover:border-[#FF2D2D]/40 hover:bg-[#FF2D2D]/5"
               }`}
-              style={
-                !dragOver
-                  ? {
-                      backgroundImage:
-                        "linear-gradient(white, white), linear-gradient(135deg, #E63946, #3B82F6)",
-                      backgroundOrigin: "border-box",
-                      backgroundClip: "padding-box, border-box",
-                    }
-                  : undefined
-              }
               onClick={() =>
                 document.getElementById("file-upload")?.click()
               }
             >
               <svg
-                className="mb-3 h-10 w-10 text-gray-400 transition-colors group-hover:text-[#E63946]"
+                className="mb-3 h-10 w-10 text-[#8B8D97] transition-colors group-hover:text-[#FF2D2D]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -211,13 +218,13 @@ export default function EstimatorPage() {
                   d="M12 16V4m0 0l-4 4m4-4 4 4M4 14v4a2 2 0 002 2h12a2 2 0 002-2v-4"
                 />
               </svg>
-              <p className="text-sm text-gray-600">
-                <span className="font-semibold text-[#E63946]">
+              <p className="text-sm text-[#8B8D97]">
+                <span className="font-semibold text-[#FF2D2D]">
                   Click pentru upload
                 </span>{" "}
                 sau trage imaginile aici
               </p>
-              <p className="mt-1 text-xs text-gray-400">
+              <p className="mt-1 text-xs text-[#4A4B55]">
                 JPG, PNG sau WebP — maximum 4 fotografii
               </p>
               <input
@@ -236,7 +243,7 @@ export default function EstimatorPage() {
                 {files.map((file, i) => (
                   <div
                     key={`${file.name}-${i}`}
-                    className="group relative h-24 w-24 overflow-hidden rounded-lg border border-gray-200"
+                    className="group relative h-24 w-24 overflow-hidden rounded-lg border border-white/10 bg-[#0F1017]"
                   >
                     <img
                       src={URL.createObjectURL(file)}
@@ -249,7 +256,7 @@ export default function EstimatorPage() {
                         e.stopPropagation();
                         removeFile(i);
                       }}
-                      className="absolute top-1 right-1 flex h-5 w-5 items-center justify-center rounded-full bg-black/60 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100"
+                      className="absolute top-1 right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#0F1017]/80 text-xs text-white opacity-0 transition-opacity hover:bg-[#FF2D2D] group-hover:opacity-100"
                     >
                       x
                     </button>
@@ -259,25 +266,25 @@ export default function EstimatorPage() {
             )}
           </div>
 
-          {/* Form Fields — Glassmorphism */}
-          <div className="mt-8 rounded-2xl border border-white/20 bg-white/60 p-6 shadow-xl backdrop-blur-sm sm:p-8">
-            <h3 className="mb-5 text-lg font-semibold text-[#0A2540]">
+          {/* Form Fields — Dark Glassmorphism */}
+          <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 shadow-xl sm:p-8">
+            <h3 className="mb-5 text-lg font-semibold text-white">
               Detalii vehicul
             </h3>
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <Label htmlFor="marca" className="mb-1.5 block text-sm font-medium text-[#0A2540]">
+                <Label htmlFor="marca" className="mb-1.5 block text-sm font-medium text-[#E2E4E9]">
                   Marca *
                 </Label>
                 <select
                   id="marca"
                   value={marca}
                   onChange={(e) => setMarca(e.target.value)}
-                  className="flex h-9 w-full rounded-lg border border-input bg-background px-3 py-1 text-sm shadow-xs transition-colors placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 outline-none"
+                  className="flex h-9 w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-xs transition-colors placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/30 focus-visible:outline-none"
                 >
-                  <option value="">Selectează marca</option>
+                  <option value="" className="bg-[#080808] text-[#4A4B55]">Selecteaza marca</option>
                   {MARCI.map((m) => (
-                    <option key={m} value={m}>
+                    <option key={m} value={m} className="bg-[#080808] text-white">
                       {m}
                     </option>
                   ))}
@@ -285,7 +292,7 @@ export default function EstimatorPage() {
               </div>
 
               <div>
-                <Label htmlFor="model" className="mb-1.5 block text-sm font-medium text-[#0A2540]">
+                <Label htmlFor="model" className="mb-1.5 block text-sm font-medium text-[#E2E4E9]">
                   Model *
                 </Label>
                 <Input
@@ -293,12 +300,13 @@ export default function EstimatorPage() {
                   placeholder="ex: Serie 3, Golf, Logan"
                   value={model}
                   onChange={(e) => setModel(e.target.value)}
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
                 />
               </div>
 
               <div>
-                <Label htmlFor="an" className="mb-1.5 block text-sm font-medium text-[#0A2540]">
-                  An fabricație *
+                <Label htmlFor="an" className="mb-1.5 block text-sm font-medium text-[#E2E4E9]">
+                  An fabricatie *
                 </Label>
                 <Input
                   id="an"
@@ -308,11 +316,12 @@ export default function EstimatorPage() {
                   placeholder="ex: 2019"
                   value={an}
                   onChange={(e) => setAn(e.target.value)}
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
                 />
               </div>
 
               <div>
-                <Label htmlFor="culoare" className="mb-1.5 block text-sm font-medium text-[#0A2540]">
+                <Label htmlFor="culoare" className="mb-1.5 block text-sm font-medium text-[#E2E4E9]">
                   Culoare
                 </Label>
                 <Input
@@ -320,19 +329,21 @@ export default function EstimatorPage() {
                   placeholder="ex: Negru metalic"
                   value={culoare}
                   onChange={(e) => setCuloare(e.target.value)}
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
                 />
               </div>
 
               <div className="sm:col-span-2">
-                <Label htmlFor="descriere" className="mb-1.5 block text-sm font-medium text-[#0A2540]">
+                <Label htmlFor="descriere" className="mb-1.5 block text-sm font-medium text-[#E2E4E9]">
                   Descrierea problemei
                 </Label>
                 <Textarea
                   id="descriere"
                   rows={3}
-                  placeholder="Descrieți pe scurt ce s-a întâmplat — coliziune, zgârieturi, grindină etc."
+                  placeholder="Descrieti pe scurt ce s-a intamplat — coliziune, zgarieturi, grindina etc."
                   value={descriere}
                   onChange={(e) => setDescriere(e.target.value)}
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
                 />
               </div>
             </div>
@@ -344,7 +355,7 @@ export default function EstimatorPage() {
               size="lg"
               disabled={!isValid || loading}
               onClick={handleSubmit}
-              className="bg-[#E63946] px-8 py-3 text-base font-semibold text-white hover:bg-[#d42d3a] disabled:opacity-50"
+              className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)] disabled:opacity-50 disabled:shadow-none"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
@@ -367,10 +378,10 @@ export default function EstimatorPage() {
                       d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                     />
                   </svg>
-                  Se analizează...
+                  Se analizeaza...
                 </span>
               ) : (
-                "Analizează avariile"
+                "Analizeaza avariile"
               )}
             </Button>
           </div>
@@ -380,94 +391,95 @@ export default function EstimatorPage() {
             <div className="mt-12 space-y-8">
               {/* Confidence Badge */}
               <div className="flex justify-center">
-                <Badge className="bg-gradient-to-r from-[#E63946] to-[#3B82F6] px-6 py-2 text-base font-bold text-white shadow-lg">
-                  Încredere analiză: {result.confidence}%
+                <Badge className="bg-[#FF2D2D] px-6 py-2 text-base font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)]">
+                  Incredere analiza: {result.confidence}%
                 </Badge>
               </div>
 
               {/* Damages Detected */}
               <div>
-                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-[#0A2540]">
+                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
                   Avarii detectate
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {result.damages.map((d) => (
-                    <Card key={d.zone} className="card-hover relative overflow-hidden">
+                    <div
+                      key={d.zone}
+                      className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0F1017] p-5"
+                    >
                       {/* Gradient accent at top */}
-                      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#E63946] to-[#3B82F6]" />
-                      <CardHeader>
-                        <div className="flex items-center justify-between">
-                          <CardTitle className="text-[#0A2540]">
-                            {d.zone}
-                          </CardTitle>
-                          <span
-                            className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-medium ${severityColor(d.severity)}`}
-                          >
-                            {d.severity}
-                          </span>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-gray-600">{d.description}</p>
-                      </CardContent>
-                    </Card>
+                      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6]" />
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-white">
+                          {d.zone}
+                        </h3>
+                        <span
+                          className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-medium ${severityColor(d.severity)}`}
+                        >
+                          {d.severity}
+                        </span>
+                      </div>
+                      <p className="mt-3 text-sm text-[#8B8D97]">{d.description}</p>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Repair Operations */}
               <div>
-                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-[#0A2540]">
-                  Operații de reparație
+                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
+                  Operatii de reparatie
                 </h2>
-                <Card>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {result.operations.map((op, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                          <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#E63946]" />
-                          {op}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                <div className="rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6">
+                  <ul className="space-y-2">
+                    {result.operations.map((op, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-[#8B8D97]">
+                        <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF2D2D]" />
+                        {op}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               {/* Cost Estimate */}
               <div>
-                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-[#0A2540]">
+                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
                   Estimare cost
                 </h2>
-                <Card className="glow-pulse relative overflow-hidden border-2 border-[#0A2540]/10">
-                  {/* Gradient accent at top */}
-                  <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#E63946] to-[#3B82F6]" />
-                  <CardContent className="flex flex-col items-center py-8">
-                    <p className="text-sm font-medium uppercase tracking-wider text-gray-500">
-                      Interval estimat
-                    </p>
-                    <p className="mt-2 bg-gradient-to-r from-[#0A2540] to-[#3B82F6] bg-clip-text text-5xl font-bold text-transparent">
-                      {result.costMin.toLocaleString("ro-RO")} –{" "}
-                      {result.costMax.toLocaleString("ro-RO")} LEI
-                    </p>
-                    <p className="mt-1 text-sm text-gray-500">
-                      inclusiv manoperă și piese
-                    </p>
-                  </CardContent>
-                </Card>
+                <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080808] p-1 animate-pulse-glow">
+                  {/* Gradient top line */}
+                  <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6]" />
+                  {/* Gradient border glow */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#FF2D2D]/20 via-transparent to-[#3B82F6]/20 opacity-50" />
+                  <div className="relative rounded-xl bg-[#080808] px-6 py-8">
+                    <div className="flex flex-col items-center">
+                      <p className="text-sm font-medium uppercase tracking-wider text-[#8B8D97]">
+                        Interval estimat
+                      </p>
+                      <p className="mt-2 bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] bg-clip-text text-5xl font-bold text-transparent">
+                        {result.costMin.toLocaleString("ro-RO")} -{" "}
+                        {result.costMax.toLocaleString("ro-RO")} LEI
+                      </p>
+                      <p className="mt-1 text-sm text-[#4A4B55]">
+                        inclusiv manopera si piese
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Warnings */}
               {result.warnings.length > 0 && (
                 <div>
-                  <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-[#0A2540]">
-                    Atenționări
+                  <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
+                    Atentionari
                   </h2>
-                  <div className="rounded-xl border border-yellow-200 bg-yellow-50 p-5">
+                  <div className="rounded-xl border border-[#F59E0B]/20 bg-[#F59E0B]/5 p-5">
                     <ul className="space-y-2">
                       {result.warnings.map((w, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-yellow-900">
-                          <span className="mt-0.5 text-yellow-600">{"\u26A0"}</span>
+                        <li key={i} className="flex items-start gap-2 text-sm text-[#F59E0B]">
+                          <span className="mt-0.5 text-[#F59E0B]">{"\u26A0"}</span>
                           {w}
                         </li>
                       ))}
@@ -477,10 +489,10 @@ export default function EstimatorPage() {
               )}
 
               {/* Disclaimer */}
-              <div className="rounded-xl border border-gray-200 bg-gray-50 p-5 text-center">
-                <p className="text-sm text-gray-600">
-                  Estimarea este orientativă, prețul final se stabilește la
-                  inspecția fizică. Nu reprezintă ofertă fermă.
+              <div className="rounded-2xl border border-white/[0.08] bg-[#0F1017] p-5 text-center">
+                <p className="text-sm text-[#8B8D97]">
+                  Estimarea este orientativa, pretul final se stabileste la
+                  inspectia fizica. Nu reprezinta oferta ferma.
                 </p>
               </div>
 
@@ -489,9 +501,9 @@ export default function EstimatorPage() {
                 <Link href="/programare">
                   <Button
                     size="lg"
-                    className="bg-[#E63946] px-8 py-3 text-base font-semibold text-white hover:bg-[#d42d3a]"
+                    className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)]"
                   >
-                    Programează inspecție gratuită
+                    Programeaza inspectie gratuita
                   </Button>
                 </Link>
               </div>
@@ -499,6 +511,17 @@ export default function EstimatorPage() {
           )}
         </div>
       </section>
+
+      {/* Inline style for glow-pulse animation */}
+      <style jsx global>{`
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 15px rgba(255, 45, 45, 0.15), 0 0 30px rgba(59, 130, 246, 0.1); }
+          50% { box-shadow: 0 0 25px rgba(255, 45, 45, 0.3), 0 0 50px rgba(59, 130, 246, 0.2); }
+        }
+        .animate-pulse-glow {
+          animation: pulse-glow 3s ease-in-out infinite;
+        }
+      `}</style>
     </>
   );
 }

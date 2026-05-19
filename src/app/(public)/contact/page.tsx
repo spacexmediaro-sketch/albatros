@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { generatePageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/seo";
 import { ContactForm } from "./contact-form";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export const metadata = generatePageMetadata({
   title: "Contact",
@@ -12,68 +13,151 @@ export const metadata = generatePageMetadata({
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold sm:text-4xl">Contact</h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Suntem aici sa te ajutam. Contacteaza-ne prin orice metoda.
-        </p>
-      </div>
+    <div className="min-h-screen bg-[#04040A]">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#04040A] pt-24 pb-16">
+        {/* Grid pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+        {/* Gradient orbs */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#FF2D2D]/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#3B82F6]/[0.04] rounded-full blur-[120px]" />
 
-      <div className="grid gap-8 lg:grid-cols-2">
-        {/* Info */}
-        <div className="space-y-6">
-          <Card>
-            <CardContent className="p-6 space-y-4">
-              <div>
-                <h3 className="font-semibold">Adresa</h3>
-                <p className="text-sm text-muted-foreground">
-                  {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.county} {siteConfig.address.postalCode}
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Telefon</h3>
-                <p className="text-sm text-muted-foreground">
-                  Mobil: {siteConfig.phone}
-                  <br />
-                  Fix: {siteConfig.phoneLandline}
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Email</h3>
-                <p className="text-sm text-muted-foreground">{siteConfig.email}</p>
-              </div>
-              <div>
-                <h3 className="font-semibold">Program</h3>
-                <p className="text-sm text-muted-foreground">
-                  Luni - Vineri: 08:00 - 17:00
-                  <br />
-                  Sambata: 08:00 - 13:00
-                  <br />
-                  Duminica: Inchis
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Google Maps embed */}
-          <div className="aspect-video rounded-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.5!2d26.032!3d44.9886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDU5JzE5LjAiTiAyNsKwMDEnNTUuMiJF!5e0!3m2!1sro!2sro!4v1"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Albatros A Service - Locatie pe harta"
-            />
-          </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+            Contact
+          </h1>
+          <p className="mt-4 text-lg text-[#8B8D97] max-w-2xl mx-auto">
+            Suntem aici sa te ajutam. Contacteaza-ne prin orice metoda.
+          </p>
         </div>
+      </section>
 
-        {/* Form */}
-        <ContactForm />
-      </div>
+      {/* CONTENT */}
+      <section className="relative mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* LEFT column */}
+          <div className="space-y-8">
+            {/* Contact info card */}
+            <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl shadow-none">
+              <CardContent className="p-8 space-y-0">
+                {/* Adresa */}
+                <div className="flex items-start gap-4 py-6 first:pt-0">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
+                    <MapPin className="h-5 w-5 text-[#FF2D2D]" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#E2E4E9]">
+                      Adresa
+                    </h3>
+                    <p className="mt-1 text-sm text-[#8B8D97]">
+                      {siteConfig.address.street}, {siteConfig.address.city},{" "}
+                      {siteConfig.address.county} {siteConfig.address.postalCode}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/[0.06]" />
+
+                {/* Telefon */}
+                <div className="flex items-start gap-4 py-6">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
+                    <Phone className="h-5 w-5 text-[#FF2D2D]" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#E2E4E9]">
+                      Telefon
+                    </h3>
+                    <p className="mt-1 text-sm text-[#8B8D97]">
+                      Mobil:{" "}
+                      <a
+                        href={`tel:${siteConfig.phone}`}
+                        className="hover:text-[#FF2D2D] transition-colors"
+                      >
+                        {siteConfig.phone}
+                      </a>
+                      <br />
+                      Fix:{" "}
+                      <a
+                        href={`tel:${siteConfig.phoneLandline}`}
+                        className="hover:text-[#FF2D2D] transition-colors"
+                      >
+                        {siteConfig.phoneLandline}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/[0.06]" />
+
+                {/* Email */}
+                <div className="flex items-start gap-4 py-6">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
+                    <Mail className="h-5 w-5 text-[#FF2D2D]" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#E2E4E9]">
+                      Email
+                    </h3>
+                    <p className="mt-1 text-sm text-[#8B8D97]">
+                      <a
+                        href={`mailto:${siteConfig.email}`}
+                        className="hover:text-[#FF2D2D] transition-colors"
+                      >
+                        {siteConfig.email}
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-t border-white/[0.06]" />
+
+                {/* Program */}
+                <div className="flex items-start gap-4 py-6 last:pb-0">
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
+                    <Clock className="h-5 w-5 text-[#FF2D2D]" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-[#E2E4E9]">
+                      Program
+                    </h3>
+                    <p className="mt-1 text-sm text-[#8B8D97]">
+                      Luni - Vineri: 08:00 - 17:00
+                      <br />
+                      Sambata: 08:00 - 13:00
+                      <br />
+                      Duminica: Inchis
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Google Maps */}
+            <div className="aspect-video overflow-hidden rounded-2xl border border-white/[0.08]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.5!2d26.032!3d44.9886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDU5JzE5LjAiTiAyNsKwMDEnNTUuMiJF!5e0!3m2!1sro!2sro!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Albatros A Service - Locatie pe harta"
+              />
+            </div>
+          </div>
+
+          {/* RIGHT column */}
+          <ContactForm />
+        </div>
+      </section>
     </div>
   );
 }

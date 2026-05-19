@@ -105,11 +105,11 @@ function SearchForm({
             onSearch(value.trim());
           }
         }}
-        className="h-10 text-base"
+        className="h-10 text-base border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/20"
       />
       <Button
         size="lg"
-        className="bg-[#E63946] text-white hover:bg-[#d32f3c] shrink-0"
+        className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF5555] shrink-0"
         onClick={() => {
           if (value.trim()) onSearch(value.trim());
         }}
@@ -137,7 +137,7 @@ function StatusStepper({ currentStatus }: { currentStatus: StatusKey }) {
               {index > 0 && (
                 <div
                   className={`absolute top-4 right-1/2 w-full h-0.5 -translate-y-1/2 ${
-                    isCompleted ? "bg-[#0A2540]" : "bg-gray-200"
+                    isCompleted ? "bg-white/20" : "bg-white/[0.06]"
                   }`}
                   style={{ zIndex: 0 }}
                 />
@@ -147,10 +147,10 @@ function StatusStepper({ currentStatus }: { currentStatus: StatusKey }) {
               <div
                 className={`relative z-10 flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-all ${
                   isCompleted
-                    ? "bg-[#0A2540] text-white"
+                    ? "bg-white text-[#04040A]"
                     : isCurrent
-                      ? "bg-[#E63946] text-white ring-4 ring-[#E63946]/20"
-                      : "bg-gray-200 text-gray-500"
+                      ? "bg-[#FF2D2D] text-white ring-4 ring-[#FF2D2D]/20"
+                      : "bg-[#1A1B25] text-[#4A4B55]"
                 }`}
               >
                 {isCompleted ? (
@@ -176,10 +176,10 @@ function StatusStepper({ currentStatus }: { currentStatus: StatusKey }) {
               <span
                 className={`mt-2 text-center text-xs font-medium leading-tight ${
                   isCurrent
-                    ? "text-[#E63946] font-semibold"
+                    ? "text-[#FF2D2D] font-semibold"
                     : isCompleted
-                      ? "text-[#0A2540]"
-                      : "text-gray-400"
+                      ? "text-white"
+                      : "text-[#4A4B55]"
                 } ${isPending ? "" : ""}`}
               >
                 {status.label}
@@ -199,15 +199,15 @@ function Timeline({ events }: { events: TimelineEvent[] }) {
         <div key={index} className="relative flex gap-4 pb-8 last:pb-0">
           {/* Vertical line */}
           {index < events.length - 1 && (
-            <div className="absolute left-[11px] top-6 h-full w-0.5 bg-gray-200" />
+            <div className="absolute left-[11px] top-6 h-full w-0.5 bg-white/[0.06]" />
           )}
 
           {/* Dot */}
           <div
             className={`relative z-10 mt-1 h-6 w-6 shrink-0 rounded-full border-2 ${
               index === events.length - 1
-                ? "border-[#E63946] bg-[#E63946]"
-                : "border-[#0A2540] bg-[#0A2540]"
+                ? "border-[#FF2D2D] bg-[#FF2D2D]"
+                : "border-white bg-white"
             }`}
           />
 
@@ -218,17 +218,17 @@ function Timeline({ events }: { events: TimelineEvent[] }) {
                 variant={index === events.length - 1 ? "default" : "secondary"}
                 className={
                   index === events.length - 1
-                    ? "bg-[#E63946] text-white"
-                    : ""
+                    ? "bg-[#FF2D2D] text-white border-transparent"
+                    : "bg-[#1A1B25] text-[#E2E4E9] border-white/[0.08]"
                 }
               >
                 {getStatusLabel(event.status)}
               </Badge>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-[#8B8D97]">
                 {formatDateTime(event.timestamp)}
               </span>
             </div>
-            <p className="text-sm text-gray-700 leading-relaxed">
+            <p className="text-sm text-[#E2E4E9] leading-relaxed">
               {event.message}
             </p>
           </div>
@@ -255,136 +255,33 @@ export default function TrackerPage() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="text-center mb-10">
-        <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl text-[#0A2540] sm:text-4xl">
-          Urmărire comandă service
-        </h1>
-        <p className="mt-3 text-muted-foreground">
-          Introdu codul de urmărire primit la recepția mașinii pentru a vedea stadiul lucrării.
-        </p>
-      </div>
+    <div className="bg-[#04040A] min-h-screen">
+      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl text-white sm:text-4xl">
+            Urmărire comandă service
+          </h1>
+          <p className="mt-3 text-[#8B8D97]">
+            Introdu codul de urmărire primit la recepția mașinii pentru a vedea stadiul lucrării.
+          </p>
+        </div>
 
-      {/* Search form — always visible */}
-      <div className="flex justify-center mb-10">
-        <SearchForm
-          initialCode={showSearch ? "" : code}
-          onSearch={handleSearch}
-        />
-      </div>
+        {/* Search form — always visible */}
+        <div className="flex justify-center mb-10">
+          <SearchForm
+            initialCode={showSearch ? "" : code}
+            onSearch={handleSearch}
+          />
+        </div>
 
-      {/* Empty state */}
-      {showSearch && (
-        <Card className="text-center">
-          <CardContent className="py-12 px-6">
-            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
-              <svg
-                className="h-8 w-8 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
-            </div>
-            <p className="text-lg font-medium text-[#0A2540]">
-              Introdu codul de urmărire
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Codul se găsește pe bonul de recepție sau în SMS-ul/email-ul primit la predarea mașinii.
-            </p>
-            <p className="mt-4 text-xs text-muted-foreground">
-              Demo: încearcă codul <strong>ALB-2024-0847</strong>
-            </p>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Not found */}
-      {notFound && (
-        <Card className="text-center border-[#E63946]/20">
-          <CardContent className="py-12 px-6">
-            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-50">
-              <svg
-                className="h-8 w-8 text-[#E63946]"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
-                />
-              </svg>
-            </div>
-            <p className="text-lg font-medium text-[#0A2540]">
-              Comanda nu a fost găsită
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Codul <strong className="text-foreground">{code}</strong> nu corespunde niciunei comenzi active.
-              Verifică dacă l-ai introdus corect sau contactează-ne la{" "}
-              <a
-                href="tel:+40723177032"
-                className="text-[#E63946] font-medium hover:underline"
-              >
-                0723 177 032
-              </a>
-              .
-            </p>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Job found */}
-      {job && (
-        <div className="space-y-8">
-          {/* Vehicle info */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-[#0A2540]">
-                {job.vehicle}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                <div>
-                  <span className="text-muted-foreground">Număr înmatriculare:</span>{" "}
-                  <strong>{job.licensePlate}</strong>
-                </div>
-                <div>
-                  <span className="text-muted-foreground">Cod urmărire:</span>{" "}
-                  <strong>{job.code}</strong>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Status stepper */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-[#0A2540]">
-                Stadiu curent
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <StatusStepper currentStatus={job.currentStatus} />
-            </CardContent>
-          </Card>
-
-          {/* ETA */}
-          <Card className="border-[#E63946]/20 bg-red-50/30">
-            <CardContent className="flex items-center gap-4 py-5">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E63946]/10">
+        {/* Empty state */}
+        {showSearch && (
+          <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl text-center">
+            <div className="py-12 px-6">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#1A1B25]">
                 <svg
-                  className="h-6 w-6 text-[#E63946]"
+                  className="h-8 w-8 text-[#4A4B55]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -393,39 +290,144 @@ export default function TrackerPage() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
                   />
                 </svg>
               </div>
-              <div>
-                <p className="text-sm font-medium text-[#0A2540]">
-                  Dată estimată de finalizare
-                </p>
-                <p className="text-lg font-semibold text-[#E63946]">
-                  {new Date(job.eta).toLocaleDateString("ro-RO", {
-                    weekday: "long",
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+              <p className="text-lg font-medium text-white">
+                Introdu codul de urmărire
+              </p>
+              <p className="mt-2 text-sm text-[#8B8D97]">
+                Codul se găsește pe bonul de recepție sau în SMS-ul/email-ul primit la predarea mașinii.
+              </p>
+              <p className="mt-4 text-xs text-[#8B8D97]">
+                Demo: încearcă codul <strong className="text-[#E2E4E9]">ALB-2024-0847</strong>
+              </p>
+            </div>
+          </div>
+        )}
 
-          {/* Timeline */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-[#0A2540]">
-                Istoric actualizări
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Timeline events={[...job.events].reverse()} />
-            </CardContent>
-          </Card>
-        </div>
-      )}
+        {/* Not found */}
+        {notFound && (
+          <div className="bg-[#0F1017] border border-[#FF2D2D]/20 rounded-2xl text-center">
+            <div className="py-12 px-6">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#FF2D2D]/10">
+                <svg
+                  className="h-8 w-8 text-[#FF2D2D]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+                  />
+                </svg>
+              </div>
+              <p className="text-lg font-medium text-white">
+                Comanda nu a fost găsită
+              </p>
+              <p className="mt-2 text-sm text-[#8B8D97]">
+                Codul <strong className="text-[#E2E4E9]">{code}</strong> nu corespunde niciunei comenzi active.
+                Verifică dacă l-ai introdus corect sau contactează-ne la{" "}
+                <a
+                  href="tel:+40723177032"
+                  className="text-[#FF2D2D] font-medium hover:underline"
+                >
+                  0723 177 032
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Job found */}
+        {job && (
+          <div className="space-y-8">
+            {/* Vehicle info */}
+            <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
+              <div className="px-6 pt-6 pb-2">
+                <h3 className="text-lg font-semibold text-white">
+                  {job.vehicle}
+                </h3>
+              </div>
+              <div className="px-6 pb-6 space-y-2">
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                  <div>
+                    <span className="text-[#8B8D97]">Număr înmatriculare:</span>{" "}
+                    <strong className="text-[#E2E4E9]">{job.licensePlate}</strong>
+                  </div>
+                  <div>
+                    <span className="text-[#8B8D97]">Cod urmărire:</span>{" "}
+                    <strong className="text-[#E2E4E9]">{job.code}</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Status stepper */}
+            <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
+              <div className="px-6 pt-6 pb-2">
+                <h3 className="text-lg font-semibold text-white">
+                  Stadiu curent
+                </h3>
+              </div>
+              <div className="px-6 pb-6">
+                <StatusStepper currentStatus={job.currentStatus} />
+              </div>
+            </div>
+
+            {/* ETA */}
+            <div className="bg-[#FF2D2D]/5 border border-[#FF2D2D]/20 rounded-2xl">
+              <div className="flex items-center gap-4 py-5 px-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D2D]/10">
+                  <svg
+                    className="h-6 w-6 text-[#FF2D2D]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-[#E2E4E9]">
+                    Dată estimată de finalizare
+                  </p>
+                  <p className="text-lg font-semibold text-[#FF2D2D]">
+                    {new Date(job.eta).toLocaleDateString("ro-RO", {
+                      weekday: "long",
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Timeline */}
+            <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
+              <div className="px-6 pt-6 pb-2">
+                <h3 className="text-lg font-semibold text-white">
+                  Istoric actualizări
+                </h3>
+              </div>
+              <div className="px-6 pb-6">
+                <Timeline events={[...job.events].reverse()} />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
