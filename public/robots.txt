@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /garaj
+
+Sitemap: https://albatrosa.ro/sitemap.xml
