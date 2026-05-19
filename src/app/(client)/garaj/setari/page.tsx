@@ -20,12 +20,12 @@ export default function SetariPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-white">Setari cont</h1>
+      <h1 className="text-2xl font-bold text-white">Setări cont</h1>
 
       {/* Profile form */}
       <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle className="text-white">Informatii profil</CardTitle>
+          <CardTitle className="text-white">Informații profil</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSave} className="space-y-4">
@@ -63,7 +63,7 @@ export default function SetariPage() {
               className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
               disabled={saving}
             >
-              {saving ? "Se salveaza..." : "Salveaza modificarile"}
+              {saving ? "Se salvează..." : "Salvează modificările"}
             </Button>
           </form>
         </CardContent>
@@ -72,11 +72,11 @@ export default function SetariPage() {
       {/* Notification preferences */}
       <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle className="text-white">Preferinte notificari</CardTitle>
+          <CardTitle className="text-white">Preferințe notificări</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm text-[#8B8D97]">
-            Alege cum doresti sa primesti notificarile despre programari, ITP si RCA.
+            Alege cum dorești să primești notificările despre programări, ITP și RCA.
           </p>
           <div className="space-y-3">
             <label className="flex items-center gap-3 cursor-pointer">
@@ -89,7 +89,7 @@ export default function SetariPage() {
               <div>
                 <p className="text-sm font-medium text-[#E2E4E9]">Email</p>
                 <p className="text-xs text-[#4A4B55]">
-                  Primesti notificari pe adresa de email din cont
+                  Primești notificări pe adresa de email din cont
                 </p>
               </div>
             </label>
@@ -103,7 +103,7 @@ export default function SetariPage() {
               <div>
                 <p className="text-sm font-medium text-[#E2E4E9]">WhatsApp</p>
                 <p className="text-xs text-[#4A4B55]">
-                  Primesti mesaje pe WhatsApp la numarul de telefon din cont
+                  Primești mesaje pe WhatsApp la numărul de telefon din cont
                 </p>
               </div>
             </label>
@@ -114,17 +114,17 @@ export default function SetariPage() {
       {/* Data & account actions */}
       <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle className="text-white">Date si confidentialitate</CardTitle>
+          <CardTitle className="text-white">Date și confidențialitate</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
             <p className="text-sm text-[#8B8D97]">
-              Descarca toate datele asociate contului tau (masini, programari, istoric).
+              Descarcă toate datele asociate contului tău (mașini, programări, istoric).
             </p>
             <Button
               className="mt-2 bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
             >
-              Descarca datele mele
+              Descarcă datele mele
             </Button>
           </div>
 
@@ -132,21 +132,21 @@ export default function SetariPage() {
 
           <div>
             <p className="text-sm text-red-400">
-              Stergerea contului este permanenta. Toate datele tale vor fi eliminate.
+              Ștergerea contului este permanentă. Toate datele tale vor fi eliminate.
             </p>
             <Button
               className="mt-2 bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20"
               onClick={() => {
                 if (
                   window.confirm(
-                    "Esti sigur ca doresti sa stergi contul? Aceasta actiune este ireversibila."
+                    "Ești sigur că dorești să ștergi contul? Această acțiune este ireversibilă."
                   )
                 ) {
                   // Mock delete - will connect to API
                 }
               }}
             >
-              Sterge contul
+              Șterge contul
             </Button>
           </div>
         </CardContent>

@@ -6,15 +6,15 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 
 const services = [
-  'Diagnoza computerizata',
-  'Schimb ulei si filtre',
-  'Reparatii motor diesel',
+  'Diagnoză computerizată',
+  'Schimb ulei și filtre',
+  'Reparații motor diesel',
   'Tinichigerie auto',
   'Vopsitorie auto',
-  'Geometrie roti 3D',
-  'Electrica auto',
-  'Revizie periodica',
-  'Pregatire ITP',
+  'Geometrie roți 3D',
+  'Electrică auto',
+  'Revizie periodică',
+  'Pregătire ITP',
   'Altele',
 ];
 
@@ -59,11 +59,11 @@ export function ProgramareForm() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
-            <label htmlFor="car" className={labelClasses}>Masina (marca + model) *</label>
+            <label htmlFor="car" className={labelClasses}>Mașina (marcă + model) *</label>
             <input id="car" name="car" placeholder="ex: VW Golf 7 2.0 TDI" required className={inputClasses} />
           </div>
           <div className="space-y-2">
-            <label htmlFor="year" className={labelClasses}>An fabricatie</label>
+            <label htmlFor="year" className={labelClasses}>An fabricație</label>
             <input id="year" name="year" type="number" placeholder="2019" className={inputClasses} />
           </div>
         </div>
@@ -80,13 +80,13 @@ export function ProgramareForm() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
-            <label htmlFor="date" className={labelClasses}>Data preferata</label>
+            <label htmlFor="date" className={labelClasses}>Data preferată</label>
             <input id="date" name="date" type="date" className={inputClasses} />
           </div>
           <div className="space-y-2">
-            <label htmlFor="time" className={labelClasses}>Ora preferata</label>
+            <label htmlFor="time" className={labelClasses}>Ora preferată</label>
             <select id="time" name="time" className={selectClasses}>
-              <option value="" className="bg-[#080808] text-[#4A4B55]">Orice ora</option>
+              <option value="" className="bg-[#080808] text-[#4A4B55]">Orice oră</option>
               <option value="08:00" className="bg-[#080808] text-white">08:00</option>
               <option value="09:00" className="bg-[#080808] text-white">09:00</option>
               <option value="10:00" className="bg-[#080808] text-white">10:00</option>
@@ -105,7 +105,7 @@ export function ProgramareForm() {
           <Textarea
             id="notes"
             name="notes"
-            placeholder="Descrie problema sau ce doresti..."
+            placeholder="Descrie problema sau ce dorești..."
             rows={4}
             className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
           />

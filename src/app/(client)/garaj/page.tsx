@@ -7,7 +7,7 @@ import { generatePageMetadata } from "@/lib/seo";
 export const metadata = generatePageMetadata({
   title: "Garajul meu",
   description:
-    "Gestioneaza masinile tale, vezi istoricul reparatiilor si programeaza-te online la Albatros A Service.",
+    "Gestionează mașinile tale, vezi istoricul reparațiilor și programează-te online la Albatros A Service.",
   path: "/garaj",
 });
 
@@ -20,7 +20,7 @@ const mockCars = [
     fuel: "Diesel",
     plate: "PH-01-ABC",
     km: 125000,
-    itp: { label: "ITP", status: "Expira in 45 zile", color: "warning" as const },
+    itp: { label: "ITP", status: "Expiră în 45 zile", color: "warning" as const },
     rca: { label: "RCA", status: "Valid", color: "success" as const },
     lastService: { label: "Ultima revizie", status: "Acum 3 luni", color: "success" as const },
   },
@@ -71,7 +71,7 @@ export default function GarajPage() {
           className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
           asChild
         >
-          <Link href="/garaj/adauga-masina">Adauga masina</Link>
+          <Link href="/garaj/adauga-masina">Adaugă mașină</Link>
         </Button>
       </div>
 
@@ -119,7 +119,7 @@ export default function GarajPage() {
                 className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
                 asChild
               >
-                <Link href={`/garaj/programari`}>Programeaza</Link>
+                <Link href={`/garaj/programari`}>Programează</Link>
               </Button>
               <Button
                 size="sm"

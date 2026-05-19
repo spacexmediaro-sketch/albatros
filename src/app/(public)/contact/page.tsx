@@ -7,7 +7,7 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 export const metadata = generatePageMetadata({
   title: "Contact",
   description:
-    "Contacteaza Albatros A Service Ploiesti. Telefon: 0723 177 032, email: albatros_service@q-service.ro. Program: L-V 08:00-17:00, S 08:00-13:00.",
+    "Contactează Albatros A Service Ploiești. Telefon: 0723 177 032, email: albatros_service@q-service.ro. Program: L-V 08:00-17:00, S 08:00-13:00.",
   path: "/contact",
 });
 
@@ -34,7 +34,7 @@ export default function ContactPage() {
             Contact
           </h1>
           <p className="mt-4 text-lg text-[#8B8D97] max-w-2xl mx-auto">
-            Suntem aici sa te ajutam. Contacteaza-ne prin orice metoda.
+            Suntem aici să te ajutăm. Contactează-ne prin orice metodă.
           </p>
         </div>
       </section>
@@ -130,9 +130,9 @@ export default function ContactPage() {
                     <p className="mt-1 text-sm text-[#8B8D97]">
                       Luni - Vineri: 08:00 - 17:00
                       <br />
-                      Sambata: 08:00 - 13:00
+                      Sâmbătă: 08:00 - 13:00
                       <br />
-                      Duminica: Inchis
+                      Duminică: Închis
                     </p>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Albatros A Service - Locatie pe harta"
+                title="Albatros A Service - Locație pe hartă"
               />
             </div>
           </div>

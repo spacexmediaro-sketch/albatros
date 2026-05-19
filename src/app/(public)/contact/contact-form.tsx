@@ -34,7 +34,7 @@ export function ContactForm() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-[#E2E4E9]">Nume</Label>
-              <Input id="name" name="name" placeholder="Numele tau" required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
+              <Input id="name" name="name" placeholder="Numele tău" required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-[#E2E4E9]">Telefon</Label>
@@ -47,7 +47,7 @@ export function ContactForm() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="message" className="text-[#E2E4E9]">Mesaj</Label>
-            <Textarea id="message" name="message" placeholder="Descrie problema sau intrebarea ta..." rows={5} required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
+            <Textarea id="message" name="message" placeholder="Descrie problema sau întrebarea ta..." rows={5} required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
           </div>
           <Button type="submit" className="w-full bg-[#FF2D2D] text-[#050505] font-semibold shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF5555]" disabled={pending}>
             {pending ? 'Se trimite...' : 'Trimite mesajul'}

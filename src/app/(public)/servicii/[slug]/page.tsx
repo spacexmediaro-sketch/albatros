@@ -19,200 +19,200 @@ interface ServiceData {
 
 const servicesData: Record<string, ServiceData> = {
   "diagnoza-auto": {
-    name: "Diagnoza auto computerizata",
-    category: "Diagnoza",
+    name: "Diagnoză auto computerizată",
+    category: "Diagnoză",
     description:
-      "Diagnoza computerizata completa pentru toate marcile auto. Citire si stergere coduri de eroare, testare live senzori si actuatori.",
+      "Diagnoză computerizată completă pentru toate mărcile auto. Citire și ștergere coduri de eroare, testare live senzori și actuatori.",
     paragraphs: [
-      "Diagnoza auto computerizata este primul pas esential in identificarea oricarei probleme a masinii tale. La Albatros A Service folosim echipamente profesionale de diagnoza multimarca, capabile sa comunice cu toate unitatile electronice ale vehiculului: motor, transmisie, ABS, airbag-uri, climatizare si multe altele.",
-      "Procesul de diagnoza presupune conectarea la portul OBD-II al masinii si citirea codurilor de eroare (DTC) stocate in memoria calculatoarelor de bord. Dar nu ne oprim aici — tehnicianul nostru interpreteaza fiecare cod in contextul simptomelor pe care le descrii, realizand teste suplimentare pentru a identifica cauza reala a problemei.",
-      "Folosim echipamente de nivel dealer pentru marcile cele mai populare: Volkswagen, Audi, BMW, Mercedes-Benz, Opel, Ford, Dacia, Renault, Skoda, Peugeot, Citroen si multe altele. Aceasta ne permite accesul la functii avansate precum adaptari, codari si programari ale unitatilor de control.",
-      "Diagnoza computerizata este recomandata nu doar atunci cand apare un martor pe bord, ci si preventiv — la achizitia unui vehicul second-hand sau periodic, la revizii. O verificare completa poate dezvalui probleme ascunse care, depistate din timp, economisesc reparatii costisitoare.",
+      "Diagnoza auto computerizată este primul pas esențial în identificarea oricărei probleme a mașinii tale. La Albatros A Service folosim echipamente profesionale de diagnoză multimarcă, capabile să comunice cu toate unitățile electronice ale vehiculului: motor, transmisie, ABS, airbag-uri, climatizare și multe altele.",
+      "Procesul de diagnoză presupune conectarea la portul OBD-II al mașinii și citirea codurilor de eroare (DTC) stocate în memoria calculatoarelor de bord. Dar nu ne oprim aici — tehnicianul nostru interpretează fiecare cod în contextul simptomelor pe care le descrii, realizând teste suplimentare pentru a identifica cauza reală a problemei.",
+      "Folosim echipamente de nivel dealer pentru mărcile cele mai populare: Volkswagen, Audi, BMW, Mercedes-Benz, Opel, Ford, Dacia, Renault, Skoda, Peugeot, Citroen și multe altele. Aceasta ne permite accesul la funcții avansate precum adaptări, codări și programări ale unităților de control.",
+      "Diagnoza computerizată este recomandată nu doar atunci când apare un martor pe bord, ci și preventiv — la achiziția unui vehicul second-hand sau periodic, la revizii. O verificare completă poate dezvălui probleme ascunse care, depistate din timp, economisesc reparații costisitoare.",
     ],
     cazuriTipice: [
       {
         title: "Martor Check Engine aprins",
         description:
-          "Identificarea cauzei exacte a aprinderii martorului de motor: sonda lambda defecta, catalizator, EGR sau probleme de injectie.",
+          "Identificarea cauzei exacte a aprinderii martorului de motor: sondă lambda defectă, catalizator, EGR sau probleme de injecție.",
       },
       {
         title: "Martor ESP/ABS activ",
         description:
-          "Diagnoza sistem de stabilitate si franare: senzori de roata, pompe ABS, unitati hidraulice.",
+          "Diagnoză sistem de stabilitate și frânare: senzori de roată, pompe ABS, unități hidraulice.",
       },
       {
-        title: "Inspectie pre-achizitie",
+        title: "Inspecție pre-achiziție",
         description:
-          "Scanare completa a vehiculului inainte de cumparare pentru a descoperi erori ascunse, kilometraje modificate sau defecte nementionate.",
+          "Scanare completă a vehiculului înainte de cumpărare pentru a descoperi erori ascunse, kilometraje modificate sau defecte nemenționate.",
       },
       {
         title: "Martor airbag aprins",
         description:
-          "Verificarea sistemului de siguranta pasiva: senzori de impact, pretensionere centuri, modul airbag.",
+          "Verificarea sistemului de siguranță pasivă: senzori de impact, pretensionere centuri, modul airbag.",
       },
     ],
     priceFrom: 80,
     duration: "30–60 minute",
     faq: [
       {
-        q: "Cat dureaza o diagnoza auto completa?",
-        a: "O diagnoza standard dureaza intre 30 si 60 de minute. In cazuri complexe, care necesita teste suplimentare pe mai multe sisteme, poate dura pana la 90 de minute.",
+        q: "Cât durează o diagnoză auto completă?",
+        a: "O diagnoză standard durează între 30 și 60 de minute. În cazuri complexe, care necesită teste suplimentare pe mai multe sisteme, poate dura până la 90 de minute.",
       },
       {
-        q: "Ce marci auto puteti diagnostica?",
-        a: "Putem diagnostica toate marcile auto, atat europene cat si asiatice. Avem echipamente dedicate pentru grupul VAG (VW, Audi, Skoda, Seat), BMW, Mercedes, Opel, Ford, Dacia/Renault, Peugeot/Citroen, Toyota, Hyundai/Kia.",
+        q: "Ce mărci auto puteți diagnostica?",
+        a: "Putem diagnostica toate mărcile auto, atât europene cât și asiatice. Avem echipamente dedicate pentru grupul VAG (VW, Audi, Skoda, Seat), BMW, Mercedes, Opel, Ford, Dacia/Renault, Peugeot/Citroen, Toyota, Hyundai/Kia.",
       },
       {
-        q: "Trebuie programare pentru diagnoza?",
-        a: "Recomandam programarea pentru a va asigura disponibilitatea, dar acceptam si clienti fara programare in limita locurilor disponibile.",
+        q: "Trebuie programare pentru diagnoză?",
+        a: "Recomandăm programarea pentru a vă asigura disponibilitatea, dar acceptăm și clienți fără programare în limita locurilor disponibile.",
       },
       {
-        q: "Se sterge eroarea la diagnoza?",
-        a: "Da, dupa identificarea si intelegerea cauzei, putem sterge codurile de eroare. Daca problema persista, eroarea va reaparea, indicand necesitatea unei reparatii.",
+        q: "Se șterge eroarea la diagnoză?",
+        a: "Da, după identificarea și înțelegerea cauzei, putem șterge codurile de eroare. Dacă problema persistă, eroarea va reapărea, indicând necesitatea unei reparații.",
       },
     ],
   },
   "reparatii-motoare-diesel": {
-    name: "Reparatii motoare diesel",
+    name: "Reparații motoare diesel",
     category: "Motor",
     description:
-      "Reparatii complete motoare diesel: turbo, pompe de injectie, distributie, garnituri chiulasa. Specialisti cu peste 20 ani experienta.",
+      "Reparații complete motoare diesel: turbo, pompe de injecție, distribuție, garnituri chiulasă. Specialiști cu peste 20 ani experiență.",
     paragraphs: [
-      "Motoarele diesel moderne sunt sisteme complexe care necesita cunostinte aprofundate si echipamente specializate pentru diagnosticarea si repararea lor. La Albatros A Service, echipa noastra are peste 20 de ani de experienta in repararea motoarelor diesel, de la motoare aspirate clasice pana la cele mai noi unitati cu injectie common-rail si turbosuflanta cu geometrie variabila.",
-      "Intervenim pe toate componentele critice ale motorului diesel: sistemul de alimentare (pompe de inalta presiune, injectoare, rampe comune), sistemul de supraAlimentare (turbine, intercoolere, conducte de aer), sistemul de distributie (lanturi, curele, tensionere), precum si componentele interne ale motorului (pistoane, segmenti, cuzineti, arbore cotit).",
-      "Un capitol important il reprezinta sistemele anti-poluare ale motoarelor diesel moderne: filtrul de particule (DPF/FAP), valva EGR, catalizatorul SCR si sistemul AdBlue. Diagnosticam si rezolvam probleme precum regenerarea esuata a filtrului de particule, EGR blocat sau defectiuni ale sistemului AdBlue.",
-      "Folosim piese de calitate OE sau aftermarket premium (Bosch, Delphi, Denso, Continental) si oferim garantie pentru toate lucrarile efectuate. Fiecare reparatie este urmata de o testare amanuntita pentru a ne asigura ca motorul functioneaza la parametrii optimi.",
+      "Motoarele diesel moderne sunt sisteme complexe care necesită cunoștințe aprofundate și echipamente specializate pentru diagnosticarea și repararea lor. La Albatros A Service, echipa noastră are peste 20 de ani de experiență în repararea motoarelor diesel, de la motoare aspirate clasice până la cele mai noi unități cu injecție common-rail și turbosuflantă cu geometrie variabilă.",
+      "Intervenim pe toate componentele critice ale motorului diesel: sistemul de alimentare (pompe de înaltă presiune, injectoare, rampe comune), sistemul de supraalimentare (turbine, intercoolere, conducte de aer), sistemul de distribuție (lanțuri, curele, tensionere), precum și componentele interne ale motorului (pistoane, segmenți, cuziNeți, arbore cotit).",
+      "Un capitol important îl reprezintă sistemele anti-poluare ale motoarelor diesel moderne: filtrul de particule (DPF/FAP), valva EGR, catalizatorul SCR și sistemul AdBlue. Diagnosticăm și rezolvăm probleme precum regenerarea eșuată a filtrului de particule, EGR blocat sau defecțiuni ale sistemului AdBlue.",
+      "Folosim piese de calitate OE sau aftermarket premium (Bosch, Delphi, Denso, Continental) și oferim garanție pentru toate lucrările efectuate. Fiecare reparație este urmată de o testare amănunțită pentru a ne asigura că motorul funcționează la parametrii optimi.",
     ],
     cazuriTipice: [
       {
-        title: "Pierdere de putere si fum negru",
+        title: "Pierdere de putere și fum negru",
         description:
-          "Cauze frecvente: turbina uzata, injectoare defecte, filtru de aer colmatat sau probleme cu valva EGR.",
+          "Cauze frecvente: turbină uzată, injectoare defecte, filtru de aer colmatat sau probleme cu valva EGR.",
       },
       {
-        title: "Motor porneste greu la rece",
+        title: "Motor pornește greu la rece",
         description:
-          "Verificare bujii incandescente, pompa de alimentare, presiune rampa common-rail si sistem de preincalzire.",
+          "Verificare bujii incandescente, pompă de alimentare, presiune rampă common-rail și sistem de preîncălzire.",
       },
       {
         title: "Filtru de particule blocat (DPF)",
         description:
-          "Diagnoza, regenerare fortata sau curatare profesionala a filtrului de particule fara demontare.",
+          "Diagnoză, regenerare forțată sau curățare profesională a filtrului de particule fără demontare.",
       },
       {
         title: "Zgomot anormal din motor",
         description:
-          "Identificare sursa: turbina, lant/curea distributie, injectoare cu bataie, pompe auxiliare.",
+          "Identificare sursă: turbină, lanț/curea distribuție, injectoare cu bătaie, pompe auxiliare.",
       },
     ],
     priceFrom: 300,
-    duration: "2–8 ore (in functie de complexitate)",
+    duration: "2–8 ore (în funcție de complexitate)",
     faq: [
       {
-        q: "Cat costa o reparatie de motor diesel?",
-        a: "Costul variaza semnificativ in functie de problema identificata. O reparatie simpla (inlocuire bujii incandescente) porneste de la 300 RON, in timp ce o revizie majora de motor poate ajunge la cateva mii de RON. Oferim intotdeauna un deviz detaliat inainte de inceperea lucrarii.",
+        q: "Cât costă o reparație de motor diesel?",
+        a: "Costul variază semnificativ în funcție de problema identificată. O reparație simplă (înlocuire bujii incandescente) pornește de la 300 RON, în timp ce o revizie majoră de motor poate ajunge la câteva mii de RON. Oferim întotdeauna un deviz detaliat înainte de începerea lucrării.",
       },
       {
-        q: "Oferiti garantie pentru reparatii?",
-        a: "Da, oferim garantie intre 6 si 24 de luni pentru lucrarile efectuate, in functie de tipul interventiei si piesele folosite.",
+        q: "Oferiți garanție pentru reparații?",
+        a: "Da, oferim garanție între 6 și 24 de luni pentru lucrările efectuate, în funcție de tipul intervenției și piesele folosite.",
       },
       {
-        q: "Lucrati si pe motoare pe benzina?",
-        a: "Da, desi suntem specializati pe diesel, echipa noastra are experienta si pe motoare pe benzina, inclusiv cele cu injectie directa.",
+        q: "Lucrați și pe motoare pe benzină?",
+        a: "Da, deși suntem specializați pe diesel, echipa noastră are experiență și pe motoare pe benzină, inclusiv cele cu injecție directă.",
       },
       {
-        q: "Cat dureaza o reparatie de motor diesel?",
-        a: "De la cateva ore pentru interventii simple, pana la 3-5 zile lucratoare pentru reparatii majore. Va comunicam durata estimata odata cu devizul.",
+        q: "Cât durează o reparație de motor diesel?",
+        a: "De la câteva ore pentru intervenții simple, până la 3-5 zile lucrătoare pentru reparații majore. Vă comunicăm durata estimată odată cu devizul.",
       },
     ],
   },
   "reparatii-injectoare": {
-    name: "Reparatii injectoare",
+    name: "Reparații injectoare",
     category: "Motor",
     description:
-      "Testare, recalibrare si reparatii injectoare diesel common-rail. Echipamente de testare profesionale Bosch.",
+      "Testare, recalibrare și reparații injectoare diesel common-rail. Echipamente de testare profesionale Bosch.",
     paragraphs: [
-      "Injectoarele diesel common-rail sunt componente de precizie care functioneaza la presiuni extrem de ridicate (pana la 2.000 bar) si trebuie sa dozeze combustibilul cu exactitate microscopica. Cu timpul, acestea se uzeaza, isi pierd calibrarea sau dezvolta defecte care afecteaza performanta motorului, consumul de combustibil si emisiile.",
-      "La Albatros A Service, dispunem de un stand profesional de testare injectoare care ne permite sa evaluam cu precizie starea fiecarui injector: debit, punct de deschidere, etanseitate, calitatea pulverizarii si timp de raspuns. Testarea se face comparativ cu valorile nominale ale producatorului.",
-      "Reparatia injectoarelor presupune demontare, curatare ultrasonica, inlocuirea componentelor uzate (ace, duze, supape), recalibrare pe stand si verificare finala. In multe cazuri, reparatia unui injector costa o fractiune din pretul unuia nou, oferind performante similare.",
-      "Lucram cu injectoare de la toate marcile principale: Bosch, Delphi, Denso si Siemens/Continental. Dupa montare, realizam codarea injectoarelor in calculatorul motorului (procedura obligatorie pentru functionarea corecta) si efectuam o proba de drum pentru confirmare.",
+      "Injectoarele diesel common-rail sunt componente de precizie care funcționează la presiuni extrem de ridicate (până la 2.000 bar) și trebuie să dozeze combustibilul cu exactitate microscopică. Cu timpul, acestea se uzează, își pierd calibrarea sau dezvoltă defecte care afectează performanța motorului, consumul de combustibil și emisiile.",
+      "La Albatros A Service, dispunem de un stand profesional de testare injectoare care ne permite să evaluăm cu precizie starea fiecărui injector: debit, punct de deschidere, etanșeitate, calitatea pulverizării și timp de răspuns. Testarea se face comparativ cu valorile nominale ale producătorului.",
+      "Reparația injectoarelor presupune demontare, curățare ultrasonică, înlocuirea componentelor uzate (ace, duze, supape), recalibrare pe stand și verificare finală. În multe cazuri, reparația unui injector costă o fracțiune din prețul unuia nou, oferind performanțe similare.",
+      "Lucrăm cu injectoare de la toate mărcile principale: Bosch, Delphi, Denso și Siemens/Continental. După montare, realizăm codarea injectoarelor în calculatorul motorului (procedură obligatorie pentru funcționarea corectă) și efectuăm o probă de drum pentru confirmare.",
     ],
     cazuriTipice: [
       {
-        title: "Motor merge in trei cilindri",
+        title: "Motor merge în trei cilindri",
         description:
-          "Injector defect care nu mai pulverizeaza corect, cauzand ratei si vibratii. Testare si inlocuire injector afectat.",
+          "Injector defect care nu mai pulverizează corect, cauzând rateuri și vibrații. Testare și înlocuire injector afectat.",
       },
       {
-        title: "Consum excesiv de motorina",
+        title: "Consum excesiv de motorină",
         description:
-          "Injectoare cu debit crescut care supraAlimenteaza cilindrii. Recalibrare sau inlocuire duze.",
+          "Injectoare cu debit crescut care supraalimentează cilindrii. Recalibrare sau înlocuire duze.",
       },
       {
         title: "Fum alb/albastru la rece",
         description:
-          "Injectoare cu scurgeri interne sau pulverizare defectuoasa la temperaturi scazute.",
+          "Injectoare cu scurgeri interne sau pulverizare defectuoasă la temperaturi scăzute.",
       },
     ],
     priceFrom: 200,
     duration: "3–6 ore",
     faq: [
       {
-        q: "Merita reparat un injector sau e mai bine sa iau unul nou?",
-        a: "In majoritatea cazurilor, reparatia este avantajoasa economic — costa 40-60% din pretul unui injector nou. Un injector reparat profesional ofera performante comparabile cu unul nou. Recomandam inlocuirea doar cand injector corpul este deteriorat fizic.",
+        q: "Merită reparat un injector sau e mai bine să iau unul nou?",
+        a: "În majoritatea cazurilor, reparația este avantajoasă economic — costă 40-60% din prețul unui injector nou. Un injector reparat profesional oferă performanțe comparabile cu unul nou. Recomandăm înlocuirea doar când corpul injectorului este deteriorat fizic.",
       },
       {
-        q: "Trebuie schimbate toate injectoarele odata?",
-        a: "Nu obligatoriu. Testam fiecare injector individual si inlocuim/reparam doar pe cele care nu mai corespund. Totusi, daca mai multe injectoare arata semne de uzura avansata, poate fi economic sa le reparati pe toate simultan.",
+        q: "Trebuie schimbate toate injectoarele odată?",
+        a: "Nu obligatoriu. Testăm fiecare injector individual și înlocuim/reparăm doar pe cele care nu mai corespund. Totuși, dacă mai multe injectoare arată semne de uzură avansată, poate fi economic să le reparați pe toate simultan.",
       },
       {
         q: "Ce este codarea injectoarelor?",
-        a: "Codarea (IMA code) este procedura prin care calculatorul motorului invata parametrii individuali ai fiecarui injector. Este obligatorie dupa orice inlocuire pentru a asigura dozarea corecta a combustibilului.",
+        a: "Codarea (IMA code) este procedura prin care calculatorul motorului învață parametrii individuali ai fiecărui injector. Este obligatorie după orice înlocuire pentru a asigura dozarea corectă a combustibilului.",
       },
     ],
   },
   "rectificari-chiulase": {
-    name: "Rectificari chiulase",
+    name: "Rectificări chiulase",
     category: "Motor",
     description:
-      "Rectificare profesionala chiulase cu echipament specializat. Planare, rodare supape, verificare fisuri.",
+      "Rectificare profesională chiulase cu echipament specializat. Planare, rodare supape, verificare fisuri.",
     paragraphs: [
-      "Chiulasa este una dintre cele mai solicitate piese ale motorului, expusa la temperaturi extreme si presiuni ridicate. Deformarea planului de etansare, fisurile sau uzura scaunelor de supapa sunt probleme frecvente care necesita interventie profesionala de rectificare.",
-      "Procesul de rectificare a chiulasei la Albatros A Service include: demontarea completa, spalarea chimica si curatarea tuturor canalelor, verificarea planitatii cu comparator digital, verificarea existentei fisurilor (prin presare sau penetrare), planarea suprafetei de etansare si reconditionarea scaunelor si ghidajelor de supape.",
-      "Lucram cu echipamente de rectificare de precizie care asigura o planitate sub 0,05 mm, conform specificatiilor producatorilor. Folosim scule de reconditionat scaune de supape cu placute din carbura, pentru un rezultat de calitate superioara si durabilitate maxima.",
-      "Dupa rectificare, chiulasa este asamblata cu supape noi sau reconditonate, arcuri verificate, simerirguri noi si este testata la presiune pentru a confirma etanseitatea. Montajul final pe motor se realizeaza cu garnitura noua si suruburi de chiulasa noi (acolo unde este recomandat de producator).",
+      "Chiulasa este una dintre cele mai solicitate piese ale motorului, expusă la temperaturi extreme și presiuni ridicate. Deformarea planului de etanșare, fisurile sau uzura scaunelor de supapă sunt probleme frecvente care necesită intervenție profesională de rectificare.",
+      "Procesul de rectificare a chiulasei la Albatros A Service include: demontarea completă, spălarea chimică și curățarea tuturor canalelor, verificarea planității cu comparator digital, verificarea existenței fisurilor (prin presare sau penetrare), planarea suprafeței de etanșare și recondiționarea scaunelor și ghidajelor de supape.",
+      "Lucrăm cu echipamente de rectificare de precizie care asigură o planitate sub 0,05 mm, conform specificațiilor producătorilor. Folosim scule de recondiționat scaune de supape cu plăcuțe din carbură, pentru un rezultat de calitate superioară și durabilitate maximă.",
+      "După rectificare, chiulasa este asamblată cu supape noi sau recondiționate, arcuri verificate, simeringuri noi și este testată la presiune pentru a confirma etanșeitatea. Montajul final pe motor se realizează cu garnitură nouă și șuruburi de chiulasă noi (acolo unde este recomandat de producător).",
     ],
     cazuriTipice: [
       {
-        title: "Garnitura de chiulasa arsa",
+        title: "Garnitură de chiulasă arsă",
         description:
-          "Emulsie in ulei, pierdere lichid de racire, fum alb abundent. Demontare chiulasa, planare si montaj garnitura noua.",
+          "Emulsie în ulei, pierdere lichid de răcire, fum alb abundent. Demontare chiulasă, planare și montaj garnitură nouă.",
       },
       {
-        title: "Supape arse sau indoite",
+        title: "Supape arse sau îndoite",
         description:
-          "Pierdere compresie pe unul sau mai multi cilindri. Inlocuire supape, reconditionare scaune, rodare.",
+          "Pierdere compresie pe unul sau mai mulți cilindri. Înlocuire supape, recondiționare scaune, rodare.",
       },
       {
-        title: "Chiulasa fisurata",
+        title: "Chiulasă fisurată",
         description:
-          "Verificare si diagnoza fisuri prin testare la presiune. Sudura TIG profesionala in cazurile in care reparatia este posibila.",
+          "Verificare și diagnoză fisuri prin testare la presiune. Sudură TIG profesională în cazurile în care reparația este posibilă.",
       },
     ],
     priceFrom: 500,
-    duration: "2–5 zile lucratoare",
+    duration: "2–5 zile lucrătoare",
     faq: [
       {
-        q: "Cat dureaza rectificarea unei chiulase?",
-        a: "Procesul complet — de la demontare la montaj — dureaza in medie 3-5 zile lucratoare. Rectificarea propriu-zisa ia 1-2 zile, dar trebuie asteptate piesele de schimb si realizat montajul.",
+        q: "Cât durează rectificarea unei chiulase?",
+        a: "Procesul complet — de la demontare la montaj — durează în medie 3-5 zile lucrătoare. Rectificarea propriu-zisă ia 1-2 zile, dar trebuie așteptate piesele de schimb și realizat montajul.",
       },
       {
-        q: "Se merita rectificarea sau mai bine cumpar chiulasa noua?",
-        a: "In 90% din cazuri, rectificarea este solutia optima economic. O chiulasa noua poate costa de 3-5 ori mai mult. Rectificarea este recomandata atata timp cat nu exista fisuri majore in corpul chiulasei.",
+        q: "Se merită rectificarea sau mai bine cumpăr chiulasă nouă?",
+        a: "În 90% din cazuri, rectificarea este soluția optimă economic. O chiulasă nouă poate costa de 3-5 ori mai mult. Rectificarea este recomandată atâta timp cât nu există fisuri majore în corpul chiulasei.",
       },
       {
-        q: "Ce cauzeaza defectarea garniturii de chiulasa?",
-        a: "Supraincalzirea motorului este cauza principala. Alte cauze: montaj incorect anterior, uzura naturala la kilometraje mari, defecte de fabricatie ale garniturii.",
+        q: "Ce cauzează defectarea garniturii de chiulasă?",
+        a: "Supraîncălzirea motorului este cauza principală. Alte cauze: montaj incorect anterior, uzură naturală la kilometraje mari, defecte de fabricație ale garniturii.",
       },
     ],
   },
@@ -220,49 +220,49 @@ const servicesData: Record<string, ServiceData> = {
     name: "Tinichigerie auto",
     category: "Caroserie",
     description:
-      "Reparatii caroserie, indreptare tabla, sudura, tratamente anticorozive. Lucrari de tinichigerie profesionala.",
+      "Reparații caroserie, îndreptare tablă, sudură, tratamente anticorozive. Lucrări de tinichigerie profesională.",
     paragraphs: [
-      "Serviciul nostru de tinichigerie auto acopera intreaga gama de lucrari de reparatie a caroseriei, de la indreptarea unor lovituri minore (dent repair) pana la reconstructia completa a elementelor de caroserie dupa accidente. Fiecare lucrare este executata cu atentie la detalii, urmarind redarea formei originale a vehiculului.",
-      "Utilizam tehnici moderne de indreptare a tablei: tragere cu dispozitive speciale, indreptare cu ciocan si nicovala, sudura in puncte pentru fixarea elementelor structurale. Pentru loviturile mici, fara afectarea vopselei, oferim si serviciul de PDR (Paintless Dent Repair) — indreptare fara vopsire.",
-      "Un aspect esential al lucrarilor de tinichigerie este tratamentul anticoroziv. Dupa fiecare reparatie, zonele afectate sunt tratate cu grund anticoroziv, izolator si protectie suplimentara pentru a preveni aparitia ruginei. Lonjeroanele si elementele structurale primesc tratament special cu ceara sau antigravitational.",
-      "Lucram pe toate tipurile de caroserie: otel, aluminiu si materiale compozite. Dispunem de banca de trase pentru aducerea structurii la cotele originale dupa accidente grave, precum si de echipamente de masurare pentru verificarea geometriei caroseriei.",
+      "Serviciul nostru de tinichigerie auto acoperă întreaga gamă de lucrări de reparație a caroseriei, de la îndreptarea unor lovituri minore (dent repair) până la reconstrucția completă a elementelor de caroserie după accidente. Fiecare lucrare este executată cu atenție la detalii, urmărind redarea formei originale a vehiculului.",
+      "Utilizăm tehnici moderne de îndreptare a tablei: tragere cu dispozitive speciale, îndreptare cu ciocan și nicovală, sudură în puncte pentru fixarea elementelor structurale. Pentru loviturile mici, fără afectarea vopselei, oferim și serviciul de PDR (Paintless Dent Repair) — îndreptare fără vopsire.",
+      "Un aspect esențial al lucrărilor de tinichigerie este tratamentul anticoroziv. După fiecare reparație, zonele afectate sunt tratate cu grund anticoroziv, izolator și protecție suplimentară pentru a preveni apariția ruginei. Lonjeroanele și elementele structurale primesc tratament special cu ceară sau antigraviTațional.",
+      "Lucrăm pe toate tipurile de caroserie: oțel, aluminiu și materiale compozite. Dispunem de bancă de trase pentru aducerea structurii la cotele originale după accidente grave, precum și de echipamente de măsurare pentru verificarea geometriei caroseriei.",
     ],
     cazuriTipice: [
       {
-        title: "Lovituri usoare in parcari",
+        title: "Lovituri ușoare în parcări",
         description:
-          "Indreptare aripi, portiere sau bare cu minime urme. Posibila reparatie PDR fara revopsire.",
+          "Îndreptare aripi, portiere sau bare cu minime urme. Posibilă reparație PDR fără revopsire.",
       },
       {
-        title: "Accidente cu deformare structurala",
+        title: "Accidente cu deformare structurală",
         description:
-          "Tragere pe banca, inlocuire lonjeroane, reparatii plafon, praguri si stalpi.",
+          "Tragere pe bancă, înlocuire lonjeroane, reparații plafon, praguri și stâlpi.",
       },
       {
-        title: "Rugina si coroziune",
+        title: "Rugină și coroziune",
         description:
           "Decupare zone ruginite, sudare petice noi, tratament anticoroziv complet.",
       },
       {
-        title: "Inlocuire elemente de caroserie",
+        title: "Înlocuire elemente de caroserie",
         description:
-          "Montaj aripi, portiere, capote, hayon-uri noi sau second-hand cu ajustare perfecta.",
+          "Montaj aripi, portiere, capote, hayon-uri noi sau second-hand cu ajustare perfectă.",
       },
     ],
     priceFrom: 200,
-    duration: "1–5 zile (in functie de amploare)",
+    duration: "1–5 zile (în funcție de amploare)",
     faq: [
       {
-        q: "Cat costa reparatia unei lovituri pe portiera?",
-        a: "Pretul depinde de dimensiunea si adancimea loviturii. O lovitura mica (PDR) poate costa de la 200 RON, in timp ce o reparatie cu vopsire poate fi intre 400-800 RON per element.",
+        q: "Cât costă reparația unei lovituri pe portieră?",
+        a: "Prețul depinde de dimensiunea și adâncimea loviturii. O lovitură mică (PDR) poate costa de la 200 RON, în timp ce o reparație cu vopsire poate fi între 400-800 RON per element.",
       },
       {
-        q: "Lucrati cu asigurarile?",
-        a: "Da, colaboram cu toate companiile de asigurari din Romania. Va ajutam cu dosarul de dauna si realizam devizul conform cerintelor asiguratorului.",
+        q: "Lucrați cu asigurările?",
+        a: "Da, colaborăm cu toate companiile de asigurări din România. Vă ajutăm cu dosarul de daună și realizăm devizul conform cerințelor asigurătorului.",
       },
       {
-        q: "Se vede dupa reparatie?",
-        a: "Obiectivul nostru este ca reparatia sa fie invizibila. Cu echipamentul si experienta noastra, rezultatele sunt de calitate profesionala, comparabile cu standardele producatorilor auto.",
+        q: "Se vede după reparație?",
+        a: "Obiectivul nostru este ca reparația să fie invizibilă. Cu echipamentul și experiența noastră, rezultatele sunt de calitate profesională, comparabile cu standardele producătorilor auto.",
       },
     ],
   },
@@ -270,251 +270,251 @@ const servicesData: Record<string, ServiceData> = {
     name: "Vopsitorie auto",
     category: "Caroserie",
     description:
-      "Vopsire profesionala in cabina dedicata. Potrivire computerizata a culorii, vopsire partiala sau integrala.",
+      "Vopsire profesională în cabină dedicată. Potrivire computerizată a culorii, vopsire parțială sau integrală.",
     paragraphs: [
-      "Vopsitoria auto Albatros A Service este dotata cu cabina de vopsire profesionala cu flux de aer controlat, sistem de incalzire pentru uscare accelerata si iluminare speciala pentru evaluarea calitatii vopsirii. Aceste conditii controlate asigura o calitate superioara a finisajului, fara impuritati sau defecte.",
-      "Potrivirea culorii se realizeaza computerizat, folosind spectrofotometru care analizeaza culoarea originala a masinii si genereaza formula exacta de amestecare. Acest lucru este esential mai ales pentru culorile metalice, perlate sau tricoat, unde diferentele subtile de nuanta pot fi vizibile cu ochiul liber.",
-      "Procesul complet de vopsire include: pregatirea suprafetei (slefuire, chituire, grunduire), aplicarea vopselei in mai multe straturi, aplicarea lacului de protectie si, la final, lustruit profesional. Fiecare etapa este controlata pentru a asigura aderenta perfecta si un finisaj impecabil.",
-      "Oferim atat vopsire partiala (un element sau o zona) cat si vopsire integrala a vehiculului. Pentru masinile clasice sau de colectie, realizam restaurari complete ale finisajului, inclusiv in culori speciale sau personalizate.",
+      "Vopsitoria auto Albatros A Service este dotată cu cabină de vopsire profesională cu flux de aer controlat, sistem de încălzire pentru uscare accelerată și iluminare specială pentru evaluarea calității vopsirii. Aceste condiții controlate asigură o calitate superioară a finisajului, fără impurități sau defecte.",
+      "Potrivirea culorii se realizează computerizat, folosind spectrofotometru care analizează culoarea originală a mașinii și generează formula exactă de amestecare. Acest lucru este esențial mai ales pentru culorile metalice, perlate sau tricoat, unde diferențele subtile de nuanță pot fi vizibile cu ochiul liber.",
+      "Procesul complet de vopsire include: pregătirea suprafeței (șlefuire, chituire, grunduire), aplicarea vopselei în mai multe straturi, aplicarea lacului de protecție și, la final, lustruit profesional. Fiecare etapă este controlată pentru a asigura aderența perfectă și un finisaj impecabil.",
+      "Oferim atât vopsire parțială (un element sau o zonă) cât și vopsire integrală a vehiculului. Pentru mașinile clasice sau de colecție, realizăm restaurări complete ale finisajului, inclusiv în culori speciale sau personalizate.",
     ],
     cazuriTipice: [
       {
-        title: "Revopsire element dupa tinichigerie",
+        title: "Revopsire element după tinichigerie",
         description:
-          "Vopsire aripa, portiera sau bara dupa reparatia tablei. Potrivire perfecta cu restul masinii.",
+          "Vopsire aripă, portieră sau bară după reparația tablei. Potrivire perfectă cu restul mașinii.",
       },
       {
-        title: "Zgarieturi adanci",
+        title: "Zgârieturi adânci",
         description:
-          "Reparatie localizata a zgarieturilor care au penetrat lacul si vopseaua, fara revopsirea intregului element.",
+          "Reparație localizată a zgârieturilor care au penetrat lacul și vopseaua, fără revopsirea întregului element.",
       },
       {
-        title: "Vopsire integrala",
+        title: "Vopsire integrală",
         description:
-          "Schimbare completa de culoare sau reimprospatare vopsea degradata de soare/intemperii.",
+          "Schimbare completă de culoare sau reîmprospătare vopsea degradată de soare/intemperii.",
       },
       {
         title: "Vopsire bare plastic",
         description:
-          "Vopsire sau revopsire bare, praguri si elemente din plastic cu aderenta maxima.",
+          "Vopsire sau revopsire bare, praguri și elemente din plastic cu aderență maximă.",
       },
     ],
     priceFrom: 300,
     duration: "2–5 zile",
     faq: [
       {
-        q: "Cat costa vopsirea unei aripi?",
-        a: "Vopsirea unui element standard (aripa, portiera) porneste de la 300-500 RON, incluzand pregatirea suprafetei, vopseaua, lacul si lustruit. Pretul variaza in functie de culoare si starea suprafetei.",
+        q: "Cât costă vopsirea unei aripi?",
+        a: "Vopsirea unui element standard (aripă, portieră) pornește de la 300-500 RON, incluzând pregătirea suprafeței, vopseaua, lacul și lustruit. Prețul variază în funcție de culoare și starea suprafeței.",
       },
       {
-        q: "Cat dureaza uscarea vopselei?",
-        a: "In cabina noastra cu sistem de uscare, lacul se intareste in 2-4 ore. Totusi, recomandam evitarea spalarii masinii timp de 2 saptamani si a aplicarii de ceara timp de o luna.",
+        q: "Cât durează uscarea vopselei?",
+        a: "În cabina noastră cu sistem de uscare, lacul se întărește în 2-4 ore. Totuși, recomandăm evitarea spălării mașinii timp de 2 săptămâni și a aplicării de ceară timp de o lună.",
       },
       {
-        q: "Folositi vopsea pe baza de apa sau solvent?",
-        a: "Folosim vopsele pe baza de apa (waterborne) de la producatori premium. Acestea sunt mai prietenoase cu mediul si ofera o potrivire mai buna a culorilor metalice.",
+        q: "Folosiți vopsea pe bază de apă sau solvent?",
+        a: "Folosim vopsele pe bază de apă (waterborne) de la producători premium. Acestea sunt mai prietenoase cu mediul și oferă o potrivire mai bună a culorilor metalice.",
       },
     ],
   },
   "geometrie-roti": {
-    name: "Geometrie roti",
+    name: "Geometrie roți",
     category: "Suspensie",
     description:
-      "Geometrie 3D computerizata cu echipament profesional. Aliniere precisa pentru siguranta si economie de anvelope.",
+      "Geometrie 3D computerizată cu echipament profesional. Aliniere precisă pentru siguranță și economie de anvelope.",
     paragraphs: [
-      "Geometria rotilor (sau alinierea) este reglajul unghiurilor rotilor conform specificatiilor producatorului auto. O geometrie corecta asigura: directie stabila si previzibila, uzura uniforma a anvelopelor, consum optim de combustibil si siguranta maxima in viraje si la franare.",
-      "La Albatros A Service folosim un sistem de geometrie 3D cu camere de inalta rezolutie care masoara cu precizie toate unghiurile: convergenta (toe), camber-ul, caster-ul si unghiul de tractiune. Softul compara automat valorile masurate cu specificatiile producatorului si indica ajustarile necesare.",
-      "Verificarea geometriei este recomandata: dupa inlocuirea pieselor de suspensie sau directie, dupa lovirea unui bordur sau groapa, cand observi uzura neuniforma a anvelopelor, cand masina trage intr-o parte sau cand volanul nu sta drept pe drum drept. De asemenea, este indicata la fiecare schimb sezonier de anvelope.",
-      "Pe langa reglajul standard, oferim si geometrie pentru masini coborate (tuning), SUV-uri si utilitare. Reglajele sunt efectuate de tehnicieni experimentati care tin cont de stilul de condus si conditiile specifice ale fiecarui client.",
+      "Geometria roților (sau alinierea) este reglajul unghiurilor roților conform specificațiilor producătorului auto. O geometrie corectă asigură: direcție stabilă și previzibilă, uzură uniformă a anvelopelor, consum optim de combustibil și siguranță maximă în viraje și la frânare.",
+      "La Albatros A Service folosim un sistem de geometrie 3D cu camere de înaltă rezoluție care măsoară cu precizie toate unghiurile: convergența (toe), camber-ul, caster-ul și unghiul de tracțiune. Softul compară automat valorile măsurate cu specificațiile producătorului și indică ajustările necesare.",
+      "Verificarea geometriei este recomandată: după înlocuirea pieselor de suspensie sau direcție, după lovirea unui bordur sau groapă, când observi uzura neuniformă a anvelopelor, când mașina trage într-o parte sau când volanul nu stă drept pe drum drept. De asemenea, este indicată la fiecare schimb sezonier de anvelope.",
+      "Pe lângă reglajul standard, oferim și geometrie pentru mașini coborâte (tuning), SUV-uri și utilitare. Reglajele sunt efectuate de tehnicieni experimentați care țin cont de stilul de condus și condițiile specifice ale fiecărui client.",
     ],
     cazuriTipice: [
       {
-        title: "Uzura neuniformă anvelope",
+        title: "Uzură neuniformă anvelope",
         description:
-          "Anvelopele se uzeaza pe interior sau exterior din cauza convergentei sau camber-ului incorect.",
+          "Anvelopele se uzează pe interior sau exterior din cauza convergenței sau camber-ului incorect.",
       },
       {
-        title: "Masina trage intr-o parte",
+        title: "Mașina trage într-o parte",
         description:
-          "Tragerea laterala cauzata de diferente de unghi intre rotile din stanga si dreapta.",
+          "Tragerea laterală cauzată de diferențe de unghi între roțile din stânga și dreapta.",
       },
       {
         title: "Volan decalat",
         description:
-          "Volanul nu sta centrat pe drum drept — reglaj de convergenta si centrare volan.",
+          "Volanul nu stă centrat pe drum drept — reglaj de convergență și centrare volan.",
       },
     ],
     priceFrom: 120,
     duration: "30–60 minute",
     faq: [
       {
-        q: "Cat de des trebuie verificata geometria?",
-        a: "Recomandam verificarea de 2 ori pe an (la schimbul sezonier de anvelope) sau ori de cate ori observi simptome precum uzura neuniforma sau tragere laterala.",
+        q: "Cât de des trebuie verificată geometria?",
+        a: "Recomandăm verificarea de 2 ori pe an (la schimbul sezonier de anvelope) sau ori de câte ori observi simptome precum uzura neuniformă sau tragere laterală.",
       },
       {
-        q: "Se face geometria pe toate marcile?",
-        a: "Da, echipamentul nostru 3D are in baza de date specificatiile pentru toate marcile si modelele auto curente, inclusiv SUV-uri si utilitare.",
+        q: "Se face geometria pe toate mărcile?",
+        a: "Da, echipamentul nostru 3D are în baza de date specificațiile pentru toate mărcile și modelele auto curente, inclusiv SUV-uri și utilitare.",
       },
       {
-        q: "Cat dureaza o geometrie?",
-        a: "Geometria standard dureaza 30-60 de minute. Daca sunt necesare inlocuiri de piese de suspensie, durata creste corespunzator.",
+        q: "Cât durează o geometrie?",
+        a: "Geometria standard durează 30-60 de minute. Dacă sunt necesare înlocuiri de piese de suspensie, durata crește corespunzător.",
       },
       {
-        q: "Geometria rezolva vibratiile la volan?",
-        a: "Vibratiile la volan sunt de obicei cauzate de echilibrarea incorecta a rotilor, nu de geometrie. Totusi, verificam ambele aspecte pentru a identifica cauza reala.",
+        q: "Geometria rezolvă vibrațiile la volan?",
+        a: "Vibrațiile la volan sunt de obicei cauzate de echilibrarea incorectă a roților, nu de geometrie. Totuși, verificăm ambele aspecte pentru a identifica cauza reală.",
       },
     ],
   },
   "electrica-auto": {
-    name: "Electrica auto",
-    category: "Electrica",
+    name: "Electrică auto",
+    category: "Electrică",
     description:
-      "Diagnoza si reparatii instalatie electrica auto. Alternator, electromotor, instalatii de cabluri, sisteme de iluminare.",
+      "Diagnoză și reparații instalație electrică auto. Alternator, electromotor, instalații de cabluri, sisteme de iluminare.",
     paragraphs: [
-      "Sistemul electric al masinii tale este responsabil pentru functionarea a zeci de componente vitale: pornirea motorului, iluminarea, sistemele de siguranta, confortul in habitaclu si multe altele. O defectiune electrica poate fi frustranta si dificil de depistat fara echipamentul potrivit.",
-      "La Albatros A Service, tehnicianul nostru electrician auto are experienta si echipamentele necesare pentru a diagnostica si repara orice problema electrica: de la o simpla siguranta arsa pana la defecte complexe ale instalatiei de cabluri sau ale unitatilor de control electronic.",
-      "Intervenim pe toate componentele electrice: alternator (reparatie sau inlocuire), electromotor, baterie (testare si inlocuire), instalatie de iluminare (faruri, stopuri, becuri, LED-uri), instalatie de cabluri (reparatie scurtcircuite, contacte oxidate), sisteme de confort (geamuri electrice, inchidere centralizata, alarme), sisteme audio si multimedia.",
-      "Oferim si servicii de instalare echipamente suplimentare: senzori de parcare, camera de mers inapoi, alarme auto, inchidere centralizata si alte accesorii electrice. Toate instalatiile respecta standardele de siguranta si nu afecteaza garantia producatorului.",
+      "Sistemul electric al mașinii tale este responsabil pentru funcționarea a zeci de componente vitale: pornirea motorului, iluminarea, sistemele de siguranță, confortul în habitaclu și multe altele. O defecțiune electrică poate fi frustrantă și dificil de depistat fără echipamentul potrivit.",
+      "La Albatros A Service, tehnicianul nostru electrician auto are experiența și echipamentele necesare pentru a diagnostica și repara orice problemă electrică: de la o simplă siguranță arsă până la defecte complexe ale instalației de cabluri sau ale unităților de control electronic.",
+      "Intervenim pe toate componentele electrice: alternator (reparație sau înlocuire), electromotor, baterie (testare și înlocuire), instalație de iluminare (faruri, stopuri, becuri, LED-uri), instalație de cabluri (reparație scurtcircuite, contacte oxidate), sisteme de confort (geamuri electrice, închidere centralizată, alarme), sisteme audio și multimedia.",
+      "Oferim și servicii de instalare echipamente suplimentare: senzori de parcare, cameră de mers înapoi, alarme auto, închidere centralizată și alte accesorii electrice. Toate instalațiile respectă standardele de siguranță și nu afectează garanția producătorului.",
     ],
     cazuriTipice: [
       {
-        title: "Masina nu porneste",
+        title: "Mașina nu pornește",
         description:
-          "Diagnoza sistem de pornire: baterie, electromotor, releu, sigurante, contact cheie/buton start.",
+          "Diagnoză sistem de pornire: baterie, electromotor, releu, siguranțe, contact cheie/buton start.",
       },
       {
         title: "Alternator defect",
         description:
-          "Baterie descarcata repetat, martor baterie aprins. Testare, reparatie sau inlocuire alternator.",
+          "Baterie descărcată repetat, martor baterie aprins. Testare, reparație sau înlocuire alternator.",
       },
       {
         title: "Probleme cu farurile",
         description:
-          "Faruri care nu functioneaza, lumina slaba, erori la xenon sau LED. Diagnoza si reparatie.",
+          "Faruri care nu funcționează, lumină slabă, erori la xenon sau LED. Diagnoză și reparație.",
       },
       {
-        title: "Scurtcircuit sau sigurante arse repetat",
+        title: "Scurtcircuit sau siguranțe arse repetat",
         description:
-          "Identificarea si repararea scurtcircuitelor din instalatia electrica care cauzeaza arderea repetata a sigurantelor.",
+          "Identificarea și repararea scurtcircuitelor din instalația electrică care cauzează arderea repetată a siguranțelor.",
       },
     ],
     priceFrom: 100,
     duration: "1–4 ore",
     faq: [
       {
-        q: "Cum imi dau seama ca alternatorul e defect?",
-        a: "Simptomele principale sunt: martorul de baterie aprins, lumini care palpale, baterie descarcata frecvent, zgomot de rulment de la alternator. Testarea pe masina dureaza doar cateva minute.",
+        q: "Cum îmi dau seama că alternatorul e defect?",
+        a: "Simptomele principale sunt: martorul de baterie aprins, lumini care pâlpâie, baterie descărcată frecvent, zgomot de rulment de la alternator. Testarea pe mașină durează doar câteva minute.",
       },
       {
-        q: "Cat costa un alternator nou?",
-        a: "Pretul variaza intre 500-2000 RON in functie de marca si model. Alternativ, oferim reparatia alternatorului existent (inlocuire diode, rulmenti, perii) la costuri mai reduse.",
+        q: "Cât costă un alternator nou?",
+        a: "Prețul variază între 500-2000 RON în funcție de marcă și model. Alternativ, oferim reparația alternatorului existent (înlocuire diode, rulmenți, perii) la costuri mai reduse.",
       },
       {
-        q: "Puteti instala accesorii electrice aftermarket?",
-        a: "Da, instalam senzori de parcare, camere, alarme, sisteme audio si alte echipamente. Toate instalatiile sunt realizate profesional, cu protectie corespunzatoare a circuitelor.",
+        q: "Puteți instala accesorii electrice aftermarket?",
+        a: "Da, instalăm senzori de parcare, camere, alarme, sisteme audio și alte echipamente. Toate instalațiile sunt realizate profesional, cu protecție corespunzătoare a circuitelor.",
       },
     ],
   },
   "mecanica-auto": {
-    name: "Mecanica auto",
-    category: "Mecanica",
+    name: "Mecanică auto",
+    category: "Mecanică",
     description:
-      "Reparatii mecanice complete: frane, ambreiaj, suspensie, distributie, transmisie. Service multimarca profesional.",
+      "Reparații mecanice complete: frâne, ambreiaj, suspensie, distribuție, transmisie. Service multimarcă profesional.",
     paragraphs: [
-      "Serviciul de mecanica auto Albatros A Service acopera toate lucrarile mecanice de care masina ta poate avea nevoie, de la operatii de intretinere curenta (revizii, schimb ulei, filtre) pana la reparatii complexe ale motorului, transmisiei sau suspensiei.",
-      "Sistemul de franare este una dintre componentele critice de siguranta. Efectuam: inlocuire placute si discuri de frana, reparatii/inlocuire etriere, schimb lichid de frana, reparatii frana de mana, diagnoza ABS. Folosim piese de calitate premium (Brembo, TRW, ATE, Bosch) pentru siguranta maxima.",
-      "Intervenim pe sistemul de suspensie si directie: inlocuire amortizoare, arcuri, bucse, bielete, capete de bara, pivote, rulmenti roata, fuzete. O suspensie in buna stare asigura confort, stabilitate si siguranta pe orice tip de drum.",
-      "Alte lucrari de mecanica frecvente: inlocuire kit de distributie (curea/lant, role, pompa apa), schimb ambreiaj (placa, disc, rulment presiune, volanta), reparatii cutie de viteze, inlocuire transmisie cardanica si planetare, reparatii sistem de racire (pompe, radiatoare, termostete).",
+      "Serviciul de mecanică auto Albatros A Service acoperă toate lucrările mecanice de care mașina ta poate avea nevoie, de la operații de întreținere curentă (revizii, schimb ulei, filtre) până la reparații complexe ale motorului, transmisiei sau suspensiei.",
+      "Sistemul de frânare este una dintre componentele critice de siguranță. Efectuăm: înlocuire plăcuțe și discuri de frână, reparații/înlocuire etriere, schimb lichid de frână, reparații frână de mână, diagnoză ABS. Folosim piese de calitate premium (Brembo, TRW, ATE, Bosch) pentru siguranță maximă.",
+      "Intervenim pe sistemul de suspensie și direcție: înlocuire amortizoare, arcuri, bucșe, bielete, capete de bară, pivoți, rulmenți roată, fuzete. O suspensie în bună stare asigură confort, stabilitate și siguranță pe orice tip de drum.",
+      "Alte lucrări de mecanică frecvente: înlocuire kit de distribuție (curea/lanț, role, pompă apă), schimb ambreiaj (placă, disc, rulment presiune, volantă), reparații cutie de viteze, înlocuire transmisie cardanică și planetare, reparații sistem de răcire (pompe, radiatoare, termostate).",
     ],
     cazuriTipice: [
       {
-        title: "Frane uzate — zgomot la franare",
+        title: "Frâne uzate — zgomot la frânare",
         description:
-          "Inlocuire placute si discuri de frana uzate, verificare completa a sistemului de franare.",
+          "Înlocuire plăcuțe și discuri de frână uzate, verificare completă a sistemului de frânare.",
       },
       {
-        title: "Ambreiaj patineaza",
+        title: "Ambreiaj patinează",
         description:
-          "Inlocuire kit complet ambreiaj: disc, placa de presiune, rulment presiune. La motoarele cu volanta bimasa, verificare si eventual inlocuire.",
+          "Înlocuire kit complet ambreiaj: disc, placă de presiune, rulment presiune. La motoarele cu volantă bimasă, verificare și eventual înlocuire.",
       },
       {
-        title: "Suspensie — batai pe denivelari",
+        title: "Suspensie — bătăi pe denivelări",
         description:
-          "Diagnoza si inlocuire amortizoare, bucse, bielete stabilizatoare sau alte componente uzate.",
+          "Diagnoză și înlocuire amortizoare, bucșe, bielete stabilizatoare sau alte componente uzate.",
       },
       {
-        title: "Kit distributie — intervalul depasit",
+        title: "Kit distribuție — intervalul depășit",
         description:
-          "Inlocuire preventiva sau de urgenta a curelei/lantului de distributie cu toate componentele aferente.",
+          "Înlocuire preventivă sau de urgență a curelei/lanțului de distribuție cu toate componentele aferente.",
       },
     ],
     priceFrom: 150,
     duration: "1–6 ore",
     faq: [
       {
-        q: "Cat costa schimbul de placute de frana?",
-        a: "Inlocuirea placutelor pe o axa (fata sau spate) porneste de la 150-250 RON manopera, plus costul placutelor (100-400 RON in functie de calitate si marca auto).",
+        q: "Cât costă schimbul de plăcuțe de frână?",
+        a: "Înlocuirea plăcuțelor pe o axă (față sau spate) pornește de la 150-250 RON manoperă, plus costul plăcuțelor (100-400 RON în funcție de calitate și marcă auto).",
       },
       {
-        q: "Cand trebuie schimbata cureaua de distributie?",
-        a: "Intervalul recomandat variaza intre 60.000 si 150.000 km sau 5-7 ani, in functie de producator. Consultati cartea de service sau intrebati-ne pentru recomandarea specifica modelului dvs.",
+        q: "Când trebuie schimbată cureaua de distribuție?",
+        a: "Intervalul recomandat variază între 60.000 și 150.000 km sau 5-7 ani, în funcție de producător. Consultați cartea de service sau întrebați-ne pentru recomandarea specifică modelului dvs.",
       },
       {
-        q: "Folositi piese originale sau aftermarket?",
-        a: "Oferim ambele variante. Recomandam piese OE sau aftermarket premium (Sachs, Lemforder, TRW, Brembo) care ofera calitate identica cu originalele la preturi mai accesibile.",
+        q: "Folosiți piese originale sau aftermarket?",
+        a: "Oferim ambele variante. Recomandăm piese OE sau aftermarket premium (Sachs, Lemforder, TRW, Brembo) care oferă calitate identică cu originalele la prețuri mai accesibile.",
       },
       {
-        q: "Faceti si revizii periodice?",
-        a: "Da, efectuam revizii complete conform specificatiilor producatorului: schimb ulei si filtre, verificare completa a tuturor sistemelor, completare lichide.",
+        q: "Faceți și revizii periodice?",
+        a: "Da, efectuăm revizii complete conform specificațiilor producătorului: schimb ulei și filtre, verificare completă a tuturor sistemelor, completare lichide.",
       },
     ],
   },
   "incarcari-aer-conditionat": {
-    name: "Incarcari aer conditionat",
+    name: "Încărcări aer condiționat",
     category: "Confort",
     description:
-      "Verificare, incarcare freon si dezinfectie sistem de aer conditionat auto. Diagnoza pierderi, reparatii compresor.",
+      "Verificare, încărcare freon și dezinfecție sistem de aer condiționat auto. Diagnoză pierderi, reparații compresor.",
     paragraphs: [
-      "Sistemul de aer conditionat al masinii necesita intretinere periodica pentru a functiona eficient si a oferi un aer curat si racit. La Albatros A Service, oferim servicii complete de intretinere si reparare a sistemelor de climatizare auto.",
-      "Incarcarea freonului este procedura cea mai frecventa. Sistemul AC pierde natural o cantitate mica de agent frigorific in fiecare an (5-10%). Cand nivelul scade sub limita minima, compresorul nu mai porneste sau racirea este insuficienta. Procedura noastra include: verificarea presiunilor din sistem, evacuarea completa a freonului vechi, vacuum test pentru detectarea pierderilor, incarcarea cu cantitatea exacta specificata de producator si adaugarea uleiului compresorului.",
-      "Dezinfectia sistemului de ventilatie este la fel de importanta. Evaporatorul AC, fiind permanent umed, poate dezvolta bacterii si mucegaiuri care produc mirosuri neplacute si pot afecta sanatatea ocupantilor. Realizam dezinfectia cu solutii antibacteriene profesionale care elimina 99.9% din germeni.",
-      "Pentru problemele mai complexe ale sistemului AC — compresor defect, condensator spart, evaporator cu scurgeri — oferim diagnoza completa si reparatii. Lucram cu agentul frigorific R134a si R1234yf (pentru masinile mai noi), respectand toate normele de protectie a mediului.",
+      "Sistemul de aer condiționat al mașinii necesită întreținere periodică pentru a funcționa eficient și a oferi un aer curat și răcit. La Albatros A Service, oferim servicii complete de întreținere și reparare a sistemelor de climatizare auto.",
+      "Încărcarea freonului este procedura cea mai frecventă. Sistemul AC pierde natural o cantitate mică de agent frigorific în fiecare an (5-10%). Când nivelul scade sub limita minimă, compresorul nu mai pornește sau răcirea este insuficientă. Procedura noastră include: verificarea presiunilor din sistem, evacuarea completă a freonului vechi, vacuum test pentru detectarea pierderilor, încărcarea cu cantitatea exactă specificată de producător și adăugarea uleiului compresorului.",
+      "Dezinfecția sistemului de ventilație este la fel de importantă. Evaporatorul AC, fiind permanent umed, poate dezvolta bacterii și mucegaiuri care produc mirosuri neplăcute și pot afecta sănătatea ocupanților. Realizăm dezinfecția cu soluții antibacteriene profesionale care elimină 99.9% din germeni.",
+      "Pentru problemele mai complexe ale sistemului AC — compresor defect, condensator spart, evaporator cu scurgeri — oferim diagnoză completă și reparații. Lucrăm cu agentul frigorific R134a și R1234yf (pentru mașinile mai noi), respectând toate normele de protecție a mediului.",
     ],
     cazuriTipice: [
       {
-        title: "AC nu mai raceste suficient",
+        title: "AC nu mai răcește suficient",
         description:
-          "Nivel scazut de freon din cauza pierderilor naturale sau a unei scurgeri. Incarcare si verificare etanseitate.",
+          "Nivel scăzut de freon din cauza pierderilor naturale sau a unei scurgeri. Încărcare și verificare etanșeitate.",
       },
       {
-        title: "Miros neplacut la pornirea AC",
+        title: "Miros neplăcut la pornirea AC",
         description:
-          "Bacterii si mucegai pe evaporator. Dezinfectie profesionala a sistemului de ventilatie.",
+          "Bacterii și mucegai pe evaporator. Dezinfecție profesională a sistemului de ventilație.",
       },
       {
-        title: "Compresor AC nu porneste",
+        title: "Compresor AC nu pornește",
         description:
-          "Diagnoza: nivel freon, presostatul, cuplaj electromagnetic, alimentare electrica. Reparatie sau inlocuire compresor.",
+          "Diagnoză: nivel freon, presostatul, cuplaj electromagnetic, alimentare electrică. Reparație sau înlocuire compresor.",
       },
     ],
     priceFrom: 150,
     duration: "30–90 minute",
     faq: [
       {
-        q: "Cat de des trebuie incarcat aerul conditionat?",
-        a: "Recomandam verificarea si completarea freonului o data pe an, de preferinta primavara, inainte de sezonul cald. Daca sistemul pierde freon rapid, poate exista o scurgere care trebuie reparata.",
+        q: "Cât de des trebuie încărcat aerul condiționat?",
+        a: "Recomandăm verificarea și completarea freonului o dată pe an, de preferință primăvara, înainte de sezonul cald. Dacă sistemul pierde freon rapid, poate exista o scurgere care trebuie reparată.",
       },
       {
-        q: "Ce tip de freon folositi?",
-        a: "Folosim R134a pentru masinile fabricate pana in 2017 si R1234yf pentru modelele mai noi. Tipul corect este specificat pe eticheta de sub capota.",
+        q: "Ce tip de freon folosiți?",
+        a: "Folosim R134a pentru mașinile fabricate până în 2017 și R1234yf pentru modelele mai noi. Tipul corect este specificat pe eticheta de sub capotă.",
       },
       {
-        q: "Cat costa o incarcare de freon?",
-        a: "Incarcarea standard cu R134a porneste de la 150 RON. Pentru R1234yf, pretul este mai mare datorita costului agentului frigorific. Dezinfectia se adauga separat (50-100 RON).",
+        q: "Cât costă o încărcare de freon?",
+        a: "Încărcarea standard cu R134a pornește de la 150 RON. Pentru R1234yf, prețul este mai mare datorită costului agentului frigorific. Dezinfecția se adaugă separat (50-100 RON).",
       },
       {
         q: "Pot folosi AC-ul iarna?",
-        a: "Da, este chiar recomandat! AC-ul dezumidifica aerul, prevenind aburirea geamurilor. De plus, utilizarea periodica mentine componentele lubrifiate si previne deteriorarea garniturilor.",
+        a: "Da, este chiar recomandat! AC-ul dezumidifică aerul, prevenind aburirea geamurilor. În plus, utilizarea periodică menține componentele lubrifiate și previne deteriorarea garniturilor.",
       },
     ],
   },
@@ -553,7 +553,7 @@ function ServiceSchema({ service, slug }: { service: ServiceData; slug: string }
     },
     areaServed: {
       "@type": "City",
-      name: "Ploiesti",
+      name: "Ploiești",
     },
     url: `${siteConfig.url}/servicii/${slug}`,
     offers: {
@@ -622,7 +622,7 @@ export default async function ServiceDetailPage({
           <ol className="flex items-center gap-2 text-sm text-[#8B8D97]">
             <li>
               <Link href="/" className="transition-colors hover:text-white">
-                Acasa
+                Acasă
               </Link>
             </li>
             <li>/</li>
@@ -697,7 +697,7 @@ export default async function ServiceDetailPage({
             Cazuri tipice
           </h2>
           <p className="mt-2 text-[#8B8D97]">
-            Iata cateva dintre cele mai frecvente situatii cu care ne intalnim:
+            Iată câteva dintre cele mai frecvente situații cu care ne întâlnim:
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {service.cazuriTipice.map((caz, i) => (
@@ -718,7 +718,7 @@ export default async function ServiceDetailPage({
       <section className="bg-[#04040A] px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <h2 className="font-[family-name:var(--font-dm-serif)] text-2xl text-white sm:text-3xl">
-            Intrebari frecvente
+            Întrebări frecvente
           </h2>
           <div className="mt-8 space-y-6">
             {service.faq.map((item, i) => (
@@ -742,15 +742,15 @@ export default async function ServiceDetailPage({
             Ai nevoie de {service.name.toLowerCase()}?
           </h2>
           <p className="mt-4 text-[#8B8D97]">
-            Programeaza o vizita si beneficiezi de diagnoza gratuita. Preturi
-            transparente, fara surprize.
+            Programează o vizită și beneficiezi de diagnoză gratuită. Prețuri
+            transparente, fără surprize.
           </p>
           <Link href="/programare">
             <Button
               size="lg"
               className="mt-8 bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)]"
             >
-              Programeaza acum
+              Programează acum
             </Button>
           </Link>
         </div>

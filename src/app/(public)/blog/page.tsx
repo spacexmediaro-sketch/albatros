@@ -6,7 +6,7 @@ import { generatePageMetadata } from "@/lib/seo";
 export const metadata = generatePageMetadata({
   title: "Blog auto",
   description:
-    "Sfaturi intretinere auto, ghiduri reparatii si noutati din lumea auto. Blog Albatros A Service Ploiesti.",
+    "Sfaturi întreținere auto, ghiduri reparații și noutăți din lumea auto. Blog Albatros A Service Ploiești.",
   path: "/blog",
 });
 
@@ -14,10 +14,10 @@ export const metadata = generatePageMetadata({
 const articles = [
   {
     slug: "cand-schimbi-uleiul-motor",
-    title: "Cand trebuie sa schimbi uleiul de motor?",
+    title: "Când trebuie să schimbi uleiul de motor?",
     excerpt:
-      "Ghid complet despre intervalele de schimb ulei in functie de tipul motorului si stilul de condus.",
-    category: "Intretinere",
+      "Ghid complet despre intervalele de schimb ulei în funcție de tipul motorului și stilul de condus.",
+    category: "Întreținere",
     date: "2024-12-15",
     readingTime: 5,
     accent: "from-[#FF2D2D] to-[#FF2D2D]/40",
@@ -25,9 +25,9 @@ const articles = [
   },
   {
     slug: "semne-probleme-turbo",
-    title: "5 semne ca turbina ta are probleme",
+    title: "5 semne că turbina ta are probleme",
     excerpt:
-      "Invata sa recunosti din timp simptomele unei turbine defecte si evita reparatiile costisitoare.",
+      "Învață să recunoști din timp simptomele unei turbine defecte și evită reparațiile costisitoare.",
     category: "Diagnostic",
     date: "2024-11-28",
     readingTime: 4,
@@ -36,9 +36,9 @@ const articles = [
   },
   {
     slug: "pregatire-masina-iarna",
-    title: "Cum sa-ti pregatesti masina pentru iarna",
+    title: "Cum să-ți pregătești mașina pentru iarnă",
     excerpt:
-      "Lista completa de verificari si intretinere pentru sezonul rece: anvelope, baterie, antigel, vizibilitate.",
+      "Lista completă de verificări și întreținere pentru sezonul rece: anvelope, baterie, antigel, vizibilitate.",
     category: "Sezonier",
     date: "2024-10-20",
     readingTime: 6,
@@ -76,7 +76,7 @@ export default function BlogPage() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF2D2D]" />
               </span>
               <span className="text-xs font-medium tracking-wide text-[#8B8D97]">
-                Articole noi in fiecare luna
+                Articole noi în fiecare lună
               </span>
             </div>
 
@@ -88,8 +88,8 @@ export default function BlogPage() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#8B8D97]">
-              Sfaturi, ghiduri si noutati pentru intretinerea optima a masinii
-              tale. Experienta noastra, la dispozitia ta.
+              Sfaturi, ghiduri și noutăți pentru întreținerea optimă a mașinii
+              tale. Experiența noastră, la dispoziția ta.
             </p>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function BlogPage() {
 
                     {/* Read more arrow */}
                     <span className="flex items-center gap-1 text-xs font-medium text-[#8B8D97] transition-colors duration-300 group-hover:text-[#FF2D2D]">
-                      Citeste
+                      Citește
                       <svg
                         className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
                         fill="none"

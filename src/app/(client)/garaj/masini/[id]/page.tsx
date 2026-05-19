@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const metadata = generatePageMetadata({
-  title: "Detalii masina",
-  description: "Vizualizeaza detaliile masinii tale, starea ITP/RCA si istoricul service.",
+  title: "Detalii mașină",
+  description: "Vizualizează detaliile mașinii tale, starea ITP/RCA și istoricul service.",
   path: "/garaj/masini",
   noIndex: true,
 });
@@ -72,8 +72,8 @@ function CountdownBadge({ label, dateStr }: { label: string; dateStr: string }) 
     days < 0
       ? `Expirat de ${Math.abs(days)} zile`
       : days === 0
-        ? "Expira astazi"
-        : `${days} zile ramase`;
+        ? "Expiră astăzi"
+        : `${days} zile rămase`;
 
   return (
     <div className="flex items-center justify-between rounded-lg border border-white/[0.08] bg-[#080808] p-3">
@@ -103,14 +103,14 @@ export default function CarDetailPage() {
           className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
           asChild
         >
-          <Link href="/garaj/programari">Programeaza service</Link>
+          <Link href="/garaj/programari">Programează service</Link>
         </Button>
       </div>
 
       {/* Car details */}
       <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle className="text-white">Informatii vehicul</CardTitle>
+          <CardTitle className="text-white">Informații vehicul</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -131,7 +131,7 @@ export default function CarDetailPage() {
               <p className="font-medium text-[#E2E4E9]">{mockCar.fuel}</p>
             </div>
             <div>
-              <p className="text-xs text-[#4A4B55]">Nr. inmatriculare</p>
+              <p className="text-xs text-[#4A4B55]">Nr. înmatriculare</p>
               <p className="font-medium text-[#E2E4E9]">{mockCar.plate}</p>
             </div>
             <div>

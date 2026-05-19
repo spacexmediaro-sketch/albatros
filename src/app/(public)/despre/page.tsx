@@ -4,32 +4,32 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const milestones = [
-  { year: "2005", text: "Infiintarea Albatros A Service in Blejoi, Prahova" },
-  { year: "2010", text: "Aderarea la reteaua Q-SERVICE Romania" },
-  { year: "2015", text: "Extindere cu sectie de tinichigerie si vopsitorie" },
-  { year: "2020", text: "Modernizare echipamente diagnoza si geometrie 3D" },
-  { year: "2024", text: "Digitalizare completa - programari online si tracking" },
+  { year: "2005", text: "Înființarea Albatros A Service în Blejoi, Prahova" },
+  { year: "2010", text: "Aderarea la rețeaua Q-SERVICE România" },
+  { year: "2015", text: "Extindere cu secție de tinichigerie și vopsitorie" },
+  { year: "2020", text: "Modernizare echipamente diagnoză și geometrie 3D" },
+  { year: "2024", text: "Digitalizare completă - programări online și tracking" },
 ];
 
 const values = [
   {
-    title: "Transparenta",
-    desc: "Fiecare lucrare este documentata cu poze si explicatii. Stii mereu ce se intampla cu masina ta.",
+    title: "Transparență",
+    desc: "Fiecare lucrare este documentată cu poze și explicații. Știi mereu ce se întâmplă cu mașina ta.",
     color: "#FF2D2D",
   },
   {
     title: "Calitate",
-    desc: "Folosim piese originale si aftermarket premium. Garantie la toate lucrarile efectuate.",
+    desc: "Folosim piese originale și aftermarket premium. Garanție la toate lucrările efectuate.",
     color: "#3B82F6",
   },
   {
-    title: "Experienta",
-    desc: "Peste 19 ani de experienta in reparatii auto multimarca, cu specializare pe motoare diesel.",
+    title: "Experiență",
+    desc: "Peste 19 ani de experiență în reparații auto multimarcă, cu specializare pe motoare diesel.",
     color: "#8B5CF6",
   },
   {
     title: "Tehnologie",
-    desc: "Echipamente de ultima generatie pentru diagnoza computerizata, geometrie 3D si vopsitorie.",
+    desc: "Echipamente de ultimă generație pentru diagnoză computerizată, geometrie 3D și vopsitorie.",
     color: "#F59E0B",
   },
 ];
@@ -126,9 +126,9 @@ export default function DesprePage() {
             transition={{ duration: 0.7, delay: 0.35 }}
             className="mx-auto mt-5 max-w-2xl text-lg text-[#8B8D97]"
           >
-            Din 2005, oferim servicii auto complete in Blejoi-Ploiesti. Suntem
-            membrii ai retelei Q-SERVICE Romania si ne mandrim cu o echipa de
-            profesionisti dedicati.
+            Din 2005, oferim servicii auto complete în Blejoi-Ploiești. Suntem
+            membri ai rețelei Q-SERVICE România și ne mândrim cu o echipă de
+            profesioniști dedicați.
           </motion.p>
         </div>
       </section>
@@ -141,7 +141,7 @@ export default function DesprePage() {
               Valorile noastre
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-[#8B8D97]">
-              Principiile care ne ghideaza in fiecare zi
+              Principiile care ne ghidează în fiecare zi
             </p>
           </AnimatedSection>
 
@@ -199,7 +199,7 @@ export default function DesprePage() {
         <div className="mx-auto max-w-2xl">
           <AnimatedSection className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              Istoria noastra
+              Istoria noastră
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-[#8B8D97]">
               Parcursul Albatros A Service de-a lungul anilor

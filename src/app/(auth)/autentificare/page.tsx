@@ -27,7 +27,7 @@ export default function LoginPage() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-white">Bine ai revenit</h1>
           <p className="text-sm text-[#8B8D97] mt-1">
-            Conecteaza-te pentru a vedea statusul masinii tale
+            Conectează-te pentru a vedea statusul mașinii tale
           </p>
         </div>
 
@@ -64,7 +64,7 @@ export default function LoginPage() {
             className="w-full bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
             disabled={pending}
           >
-            {pending ? "Se conecteaza..." : "Conectare"}
+            {pending ? "Se conectează..." : "Conectare"}
           </Button>
         </form>
 
@@ -75,13 +75,13 @@ export default function LoginPage() {
           className="w-full bg-white/5 text-[#E2E4E9] border-white/[0.08] hover:bg-white/10"
           onClick={() => loginWithGoogle()}
         >
-          Continua cu Google
+          Continuă cu Google
         </Button>
 
         <p className="text-center text-sm text-[#8B8D97]">
           Nu ai cont?{" "}
           <Link href="/inregistrare" className="text-[#FF2D2D] hover:text-[#FF5555] underline">
-            Creeaza unul
+            Creează unul
           </Link>
         </p>
       </CardContent>

@@ -47,7 +47,7 @@ export default function AdaugaMasinaPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-white">Adauga masina</h1>
+      <h1 className="text-2xl font-bold text-white">Adaugă mașină</h1>
 
       <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
@@ -64,7 +64,7 @@ export default function AdaugaMasinaPage() {
                 required
                 className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/50"
               >
-                <option value="" className="bg-[#080808]">Selecteaza marca</option>
+                <option value="" className="bg-[#080808]">Selectează marca</option>
                 {brands.map((brand) => (
                   <option key={brand} value={brand} className="bg-[#080808]">
                     {brand}
@@ -88,7 +88,7 @@ export default function AdaugaMasinaPage() {
             {/* An + Combustibil */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="year" className="text-[#E2E4E9]">An fabricatie</Label>
+                <Label htmlFor="year" className="text-[#E2E4E9]">An fabricație</Label>
                 <Input
                   id="year"
                   name="year"
@@ -108,7 +108,7 @@ export default function AdaugaMasinaPage() {
                   required
                   className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/50"
                 >
-                  <option value="" className="bg-[#080808]">Selecteaza</option>
+                  <option value="" className="bg-[#080808]">Selectează</option>
                   {fuelOptions.map((opt) => (
                     <option key={opt.value} value={opt.value} className="bg-[#080808]">
                       {opt.label}
@@ -118,7 +118,7 @@ export default function AdaugaMasinaPage() {
               </div>
             </div>
 
-            {/* Km + Nr. inmatriculare */}
+            {/* Km + Nr. înmatriculare */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="km" className="text-[#E2E4E9]">Kilometraj</Label>
@@ -133,7 +133,7 @@ export default function AdaugaMasinaPage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="plate" className="text-[#E2E4E9]">Nr. inmatriculare</Label>
+                <Label htmlFor="plate" className="text-[#E2E4E9]">Nr. înmatriculare</Label>
                 <Input
                   id="plate"
                   name="plateNumber"
@@ -152,10 +152,10 @@ export default function AdaugaMasinaPage() {
                   type="button"
                   size="sm"
                   disabled
-                  title="Disponibil curand"
+                  title="Disponibil curând"
                   className="bg-white/5 text-[#8B8D97] border border-white/[0.08] text-xs"
                 >
-                  Scaneaza VIN
+                  Scanează VIN
                 </Button>
               </div>
               <Input
@@ -195,7 +195,7 @@ export default function AdaugaMasinaPage() {
               className="w-full bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
               disabled={submitting}
             >
-              {submitting ? "Se adauga..." : "Adauga masina"}
+              {submitting ? "Se adaugă..." : "Adaugă mașină"}
             </Button>
           </form>
         </CardContent>

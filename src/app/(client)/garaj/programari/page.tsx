@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const metadata = generatePageMetadata({
-  title: "Programarile mele",
+  title: "Programările mele",
   description: "Vizualizeaza programarile tale la Albatros A Service - viitoare si trecute.",
   path: "/garaj/programari",
   noIndex: true,
@@ -12,9 +12,9 @@ export const metadata = generatePageMetadata({
 type BookingStatus = "CONFIRMED" | "PENDING" | "COMPLETED";
 
 const statusConfig: Record<BookingStatus, { label: string; className: string }> = {
-  CONFIRMED: { label: "Confirmata", className: "bg-green-500/10 text-green-400 border border-green-500/20" },
-  PENDING: { label: "In asteptare", className: "bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20" },
-  COMPLETED: { label: "Finalizata", className: "bg-white/5 text-[#8B8D97] border border-white/[0.08]" },
+  CONFIRMED: { label: "Confirmată", className: "bg-green-500/10 text-green-400 border border-green-500/20" },
+  PENDING: { label: "În așteptare", className: "bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20" },
+  COMPLETED: { label: "Finalizată", className: "bg-white/5 text-[#8B8D97] border border-white/[0.08]" },
 };
 
 const mockBookings = [
@@ -84,11 +84,11 @@ export default function ProgramariPage() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-2xl font-bold text-white">Programarile mele</h1>
+      <h1 className="text-2xl font-bold text-white">Programările mele</h1>
 
       {/* Upcoming */}
       <section className="space-y-4">
-        <h2 className="text-lg font-semibold text-white">Programari viitoare</h2>
+        <h2 className="text-lg font-semibold text-white">Programări viitoare</h2>
         {upcoming.length > 0 ? (
           <div className="space-y-3">
             {upcoming.map((b) => (
@@ -98,9 +98,9 @@ export default function ProgramariPage() {
         ) : (
           <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
             <CardContent className="p-6 text-center">
-              <p className="text-[#8B8D97]">Nu ai programari viitoare.</p>
+              <p className="text-[#8B8D97]">Nu ai programări viitoare.</p>
               <p className="mt-1 text-sm text-[#4A4B55]">
-                Mergi la Garajul meu pentru a programa o masina la service.
+                Mergi la Garajul meu pentru a programa o mașină la service.
               </p>
             </CardContent>
           </Card>
@@ -109,7 +109,7 @@ export default function ProgramariPage() {
 
       {/* Past */}
       <section className="space-y-4">
-        <h2 className="text-lg font-semibold text-white">Programari trecute</h2>
+        <h2 className="text-lg font-semibold text-white">Programări trecute</h2>
         {past.length > 0 ? (
           <div className="space-y-3">
             {past.map((b) => (
@@ -119,7 +119,7 @@ export default function ProgramariPage() {
         ) : (
           <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
             <CardContent className="p-6 text-center">
-              <p className="text-[#8B8D97]">Nicio programare anterioara.</p>
+              <p className="text-[#8B8D97]">Nicio programare anterioară.</p>
             </CardContent>
           </Card>
         )}
