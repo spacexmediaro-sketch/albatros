@@ -1,10 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { generatePageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/seo";
+import { ContactForm } from "./contact-form";
 
 export const metadata = generatePageMetadata({
   title: "Contact",
@@ -59,41 +56,23 @@ export default function ContactPage() {
             </CardContent>
           </Card>
 
-          {/* Google Maps embed placeholder */}
-          <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-            <p className="text-muted-foreground text-sm">Google Maps - Se va integra</p>
+          {/* Google Maps embed */}
+          <div className="aspect-video rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2805.5!2d26.032!3d44.9886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDU5JzE5LjAiTiAyNsKwMDEnNTUuMiJF!5e0!3m2!1sro!2sro!4v1"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Albatros A Service - Locatie pe harta"
+            />
           </div>
         </div>
 
         {/* Form */}
-        <Card>
-          <CardContent className="p-6">
-            <h2 className="text-xl font-semibold mb-4">Trimite un mesaj</h2>
-            <form className="space-y-4">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Nume</Label>
-                  <Input id="name" placeholder="Numele tau" required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Telefon</Label>
-                  <Input id="phone" type="tel" placeholder="07xx xxx xxx" required />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="email@exemplu.ro" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">Mesaj</Label>
-                <Textarea id="message" placeholder="Descrie problema sau intrebarea ta..." rows={5} required />
-              </div>
-              <Button type="submit" className="w-full">
-                Trimite mesajul
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+        <ContactForm />
       </div>
     </div>
   );
