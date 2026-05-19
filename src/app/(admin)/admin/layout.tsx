@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { logoutAction } from "@/lib/actions/auth";
 
 const adminNav = [
   { href: "/admin", label: "Dashboard", icon: "📊" },
@@ -74,12 +75,15 @@ export default function AdminDashboardLayout({
         </nav>
 
         <div className="p-4 border-t border-white/10">
-          <Button
-            variant="ghost"
-            className="w-full justify-start text-white/70 hover:text-white hover:bg-white/10"
-          >
-            Deconectare
-          </Button>
+          <form action={logoutAction}>
+            <Button
+              type="submit"
+              variant="ghost"
+              className="w-full justify-start text-white/70 hover:text-white hover:bg-white/10"
+            >
+              Deconectare
+            </Button>
+          </form>
         </div>
       </aside>
 
@@ -112,13 +116,16 @@ export default function AdminDashboardLayout({
               Albatros Admin
             </span>
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="hidden md:inline-flex"
-          >
-            Deconectare
-          </Button>
+          <form action={logoutAction}>
+            <Button
+              type="submit"
+              variant="outline"
+              size="sm"
+              className="hidden md:inline-flex"
+            >
+              Deconectare
+            </Button>
+          </form>
         </header>
 
         {/* Content */}

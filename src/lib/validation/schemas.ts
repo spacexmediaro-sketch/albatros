@@ -45,6 +45,18 @@ export const carSchema = z.object({
   rcaExpires: z.string().optional(),
 });
 
+export const registerSchema = z.object({
+  name: z.string().min(2, "Numele trebuie să aibă minim 2 caractere"),
+  email: z.string().email("Email invalid"),
+  phone: z.string().regex(/^(\+40|0)[0-9]{9}$/, "Număr de telefon invalid"),
+  password: z.string().min(6, "Parola trebuie să aibă minim 6 caractere"),
+  confirmPassword: z.string(),
+}).refine(data => data.password === data.confirmPassword, {
+  message: "Parolele nu coincid",
+  path: ["confirmPassword"],
+});
+
+export type RegisterInput = z.infer<typeof registerSchema>;
 export type BookingInput = z.infer<typeof bookingSchema>;
 export type ContactInput = z.infer<typeof contactSchema>;
 export type EstimateInput = z.infer<typeof estimateSchema>;

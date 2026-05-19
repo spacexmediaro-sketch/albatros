@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { logoutAction } from "@/lib/actions/auth";
 
 const clientNav = [
   { href: "/garaj", label: "Garajul meu" },
@@ -55,9 +56,11 @@ export default function ClientLayout({
           {/* User greeting (desktop) */}
           <div className="hidden items-center gap-3 md:flex">
             <span className="text-sm text-[#0A2540]/70">Bună, Andrei</span>
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/autentificare">Deconectare</Link>
-            </Button>
+            <form action={logoutAction}>
+              <Button type="submit" variant="outline" size="sm">
+                Deconectare
+              </Button>
+            </form>
           </div>
 
           {/* Mobile menu toggle */}
@@ -106,9 +109,11 @@ export default function ClientLayout({
             </nav>
             <div className="mt-3 flex items-center justify-between border-t pt-3">
               <span className="text-sm text-[#0A2540]/70">Bună, Andrei</span>
-              <Button variant="outline" size="sm" asChild>
-                <Link href="/autentificare">Deconectare</Link>
-              </Button>
+              <form action={logoutAction}>
+                <Button type="submit" variant="outline" size="sm">
+                  Deconectare
+                </Button>
+              </form>
             </div>
           </div>
         )}

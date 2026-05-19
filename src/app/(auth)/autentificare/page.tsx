@@ -1,18 +1,26 @@
+'use client';
+
 import Link from "next/link";
+import { useActionState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
-import { generatePageMetadata } from "@/lib/seo";
-
-export const metadata = generatePageMetadata({
-  title: "Autentificare",
-  description: "Conecteaza-te la contul tau Albatros A Service pentru a vedea statusul reparatiilor si istoricul masinii.",
-  path: "/autentificare",
-});
+import { loginWithCredentials, loginWithGoogle } from "@/lib/actions/auth";
 
 export default function LoginPage() {
+  const [state, formAction, pending] = useActionState(loginWithCredentials, undefined);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state?.success) {
+      router.push("/garaj");
+    }
+  }, [state?.success, router]);
+
   return (
     <Card>
       <CardContent className="p-6 space-y-6">
@@ -23,23 +31,33 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <form className="space-y-4">
+        {state?.error && (
+          <div className="rounded-md bg-red-50 p-3 text-sm text-red-600">
+            {state.error}
+          </div>
+        )}
+
+        <form action={formAction} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="email@exemplu.ro" required />
+            <Input id="email" name="email" type="email" placeholder="email@exemplu.ro" required />
           </div>
           <div className="space-y-2">
             <Label htmlFor="password">Parola</Label>
-            <Input id="password" type="password" required />
+            <Input id="password" name="password" type="password" required />
           </div>
-          <Button type="submit" className="w-full">
-            Conectare
+          <Button type="submit" className="w-full" disabled={pending}>
+            {pending ? "Se conecteaza..." : "Conectare"}
           </Button>
         </form>
 
         <Separator />
 
-        <Button variant="outline" className="w-full">
+        <Button
+          variant="outline"
+          className="w-full"
+          onClick={() => loginWithGoogle()}
+        >
           Continua cu Google
         </Button>
 
