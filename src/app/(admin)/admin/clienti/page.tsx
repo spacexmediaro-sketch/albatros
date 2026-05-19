@@ -1,9 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 
 interface MockClient {
   id: string;
@@ -71,86 +69,89 @@ export default function ClientiPage() {
     <div className="max-w-6xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Clienți</h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            {mockClients.length} clienți înregistrați
+          <h1 className="text-2xl font-bold text-white">Clien\u021Bi</h1>
+          <p className="text-sm text-[#8B8D97] mt-1">
+            {mockClients.length} clien\u021Bi \u00eenregistra\u021Bi
           </p>
         </div>
-        <Button>+ Client nou</Button>
+        <Button className="bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90">
+          + Client nou
+        </Button>
       </div>
 
       {/* Search */}
       <div className="max-w-sm">
-        <Input
-          placeholder="Caută după nume, email sau telefon..."
+        <input
+          type="text"
+          placeholder="Caut\u0103 dup\u0103 nume, email sau telefon..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          className="w-full px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#FF2D2D]/50 focus:border-[#FF2D2D]/50"
         />
       </div>
 
-      <Card>
-        <CardContent className="p-0">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b bg-muted/50">
-                  <th className="text-left p-3 font-medium">Nume</th>
-                  <th className="text-left p-3 font-medium">Email</th>
-                  <th className="text-left p-3 font-medium">Telefon</th>
-                  <th className="text-left p-3 font-medium">Mașini</th>
-                  <th className="text-left p-3 font-medium">
-                    Data înregistrare
-                  </th>
-                  <th className="text-left p-3 font-medium">Acțiuni</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map((client) => (
-                  <tr key={client.id} className="border-b last:border-0">
-                    <td className="p-3 font-medium">{client.name}</td>
-                    <td className="p-3 text-muted-foreground">
-                      {client.email}
-                    </td>
-                    <td className="p-3 text-muted-foreground">
-                      {client.phone}
-                    </td>
-                    <td className="p-3">
-                      <div className="flex flex-wrap gap-1">
-                        {client.cars.map((car) => (
-                          <span
-                            key={car}
-                            className="inline-block bg-muted px-2 py-0.5 rounded text-xs"
-                          >
-                            {car}
-                          </span>
-                        ))}
-                      </div>
-                    </td>
-                    <td className="p-3 text-muted-foreground">
-                      {client.createdAt}
-                    </td>
-                    <td className="p-3">
-                      <Button variant="ghost" size="sm">
-                        Detalii
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-                {filtered.length === 0 && (
-                  <tr>
-                    <td
-                      colSpan={6}
-                      className="p-8 text-center text-muted-foreground"
+      <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-white/[0.08] bg-[#1A1B25]">
+                <th className="text-left p-3 font-medium text-[#8B8D97]">Nume</th>
+                <th className="text-left p-3 font-medium text-[#8B8D97]">Email</th>
+                <th className="text-left p-3 font-medium text-[#8B8D97]">Telefon</th>
+                <th className="text-left p-3 font-medium text-[#8B8D97]">Ma\u0219ini</th>
+                <th className="text-left p-3 font-medium text-[#8B8D97]">
+                  Data \u00eenregistrare
+                </th>
+                <th className="text-left p-3 font-medium text-[#8B8D97]">Ac\u021Biuni</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((client) => (
+                <tr
+                  key={client.id}
+                  className="border-b border-white/[0.08] last:border-0 hover:bg-[#1A1B25] transition-colors"
+                >
+                  <td className="p-3 font-medium text-white">{client.name}</td>
+                  <td className="p-3 text-[#8B8D97]">{client.email}</td>
+                  <td className="p-3 text-[#8B8D97]">{client.phone}</td>
+                  <td className="p-3">
+                    <div className="flex flex-wrap gap-1">
+                      {client.cars.map((car) => (
+                        <span
+                          key={car}
+                          className="inline-block bg-white/5 border border-white/[0.08] px-2 py-0.5 rounded text-xs text-[#E2E4E9]"
+                        >
+                          {car}
+                        </span>
+                      ))}
+                    </div>
+                  </td>
+                  <td className="p-3 text-[#8B8D97]">{client.createdAt}</td>
+                  <td className="p-3">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-[#E2E4E9] hover:bg-white/10"
                     >
-                      Niciun client găsit pentru &quot;{search}&quot;
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </CardContent>
-      </Card>
+                      Detalii
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+              {filtered.length === 0 && (
+                <tr>
+                  <td
+                    colSpan={6}
+                    className="p-8 text-center text-[#4A4B55]"
+                  >
+                    Niciun client g\u0103sit pentru &quot;{search}&quot;
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

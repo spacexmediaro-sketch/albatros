@@ -22,48 +22,65 @@ export default function LoginPage() {
   }, [state?.success, router]);
 
   return (
-    <Card>
+    <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
       <CardContent className="p-6 space-y-6">
         <div className="text-center">
-          <h1 className="text-2xl font-bold">Bine ai revenit</h1>
-          <p className="text-sm text-muted-foreground mt-1">
+          <h1 className="text-2xl font-bold text-white">Bine ai revenit</h1>
+          <p className="text-sm text-[#8B8D97] mt-1">
             Conecteaza-te pentru a vedea statusul masinii tale
           </p>
         </div>
 
         {state?.error && (
-          <div className="rounded-md bg-red-50 p-3 text-sm text-red-600">
+          <div className="rounded-md bg-red-500/10 border border-red-500/20 p-3 text-sm text-red-400">
             {state.error}
           </div>
         )}
 
         <form action={formAction} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" name="email" type="email" placeholder="email@exemplu.ro" required />
+            <Label htmlFor="email" className="text-[#E2E4E9]">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="email@exemplu.ro"
+              required
+              className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+            />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Parola</Label>
-            <Input id="password" name="password" type="password" required />
+            <Label htmlFor="password" className="text-[#E2E4E9]">Parola</Label>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              required
+              className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+            />
           </div>
-          <Button type="submit" className="w-full" disabled={pending}>
+          <Button
+            type="submit"
+            className="w-full bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
+            disabled={pending}
+          >
             {pending ? "Se conecteaza..." : "Conectare"}
           </Button>
         </form>
 
-        <Separator />
+        <Separator className="bg-white/[0.08]" />
 
         <Button
           variant="outline"
-          className="w-full"
+          className="w-full bg-white/5 text-[#E2E4E9] border-white/[0.08] hover:bg-white/10"
           onClick={() => loginWithGoogle()}
         >
           Continua cu Google
         </Button>
 
-        <p className="text-center text-sm text-muted-foreground">
+        <p className="text-center text-sm text-[#8B8D97]">
           Nu ai cont?{" "}
-          <Link href="/inregistrare" className="text-primary underline">
+          <Link href="/inregistrare" className="text-[#FF2D2D] hover:text-[#FF5555] underline">
             Creeaza unul
           </Link>
         </p>

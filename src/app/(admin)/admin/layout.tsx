@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 import { logoutAction } from "@/lib/actions/auth";
 
 const adminNav = [
-  { href: "/admin", label: "Dashboard", icon: "📊" },
-  { href: "/admin/programari", label: "Programări", icon: "📅" },
-  { href: "/admin/servicii", label: "Servicii", icon: "🔧" },
-  { href: "/admin/blog", label: "Blog", icon: "📝" },
-  { href: "/admin/masini-service", label: "Mașini Service", icon: "🚗" },
-  { href: "/admin/clienti", label: "Clienți", icon: "👥" },
-  { href: "/admin/estimari", label: "Estimări", icon: "💰" },
-  { href: "/admin/setari", label: "Setări", icon: "⚙️" },
+  { href: "/admin", label: "Dashboard", icon: "\u{1F4CA}" },
+  { href: "/admin/programari", label: "Program\u0103ri", icon: "\u{1F4C5}" },
+  { href: "/admin/servicii", label: "Servicii", icon: "\u{1F527}" },
+  { href: "/admin/blog", label: "Blog", icon: "\u{1F4DD}" },
+  { href: "/admin/masini-service", label: "Ma\u0219ini Service", icon: "\u{1F697}" },
+  { href: "/admin/clienti", label: "Clien\u021Bi", icon: "\u{1F465}" },
+  { href: "/admin/estimari", label: "Estim\u0103ri", icon: "\u{1F4B0}" },
+  { href: "/admin/setari", label: "Set\u0103ri", icon: "\u2699\uFE0F" },
 ];
 
 export default function AdminDashboardLayout({
@@ -42,14 +42,14 @@ export default function AdminDashboardLayout({
 
       {/* Sidebar */}
       <aside
-        className={`fixed md:static inset-y-0 left-0 z-50 w-64 bg-[#0A2540] text-white flex flex-col transform transition-transform duration-200 ease-in-out ${
+        className={`fixed md:static inset-y-0 left-0 z-50 w-64 bg-[#080808] text-white flex flex-col transform transition-transform duration-200 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
       >
-        <div className="p-6 border-b border-white/10">
+        <div className="p-6 border-b border-white/[0.08]">
           <Link
             href="/admin"
-            className="font-bold text-lg tracking-tight"
+            className="font-bold text-lg tracking-tight text-white"
             onClick={() => setSidebarOpen(false)}
           >
             Albatros Admin
@@ -64,8 +64,8 @@ export default function AdminDashboardLayout({
               onClick={() => setSidebarOpen(false)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
                 isActive(item.href)
-                  ? "bg-white/15 text-white font-medium"
-                  : "text-white/70 hover:bg-white/10 hover:text-white"
+                  ? "bg-[#FF2D2D]/15 text-[#FF2D2D] font-medium"
+                  : "text-[#8B8D97] hover:bg-white/10 hover:text-[#E2E4E9]"
               }`}
             >
               <span className="text-base">{item.icon}</span>
@@ -74,12 +74,12 @@ export default function AdminDashboardLayout({
           ))}
         </nav>
 
-        <div className="p-4 border-t border-white/10">
+        <div className="p-4 border-t border-white/[0.08]">
           <form action={logoutAction}>
             <Button
               type="submit"
               variant="ghost"
-              className="w-full justify-start text-white/70 hover:text-white hover:bg-white/10"
+              className="w-full justify-start text-[#8B8D97] hover:text-white hover:bg-white/10"
             >
               Deconectare
             </Button>
@@ -90,11 +90,11 @@ export default function AdminDashboardLayout({
       {/* Main content area */}
       <div className="flex-1 flex flex-col min-h-screen">
         {/* Top bar */}
-        <header className="h-14 border-b bg-white flex items-center justify-between px-4 md:px-6 shrink-0">
+        <header className="h-14 border-b border-white/[0.08] bg-[#0F1017] flex items-center justify-between px-4 md:px-6 shrink-0">
           <div className="flex items-center gap-3">
             <button
               type="button"
-              className="md:hidden p-2 rounded-md hover:bg-gray-100"
+              className="md:hidden p-2 rounded-md hover:bg-white/10 text-[#E2E4E9]"
               onClick={() => setSidebarOpen(true)}
               aria-label="Deschide meniul"
             >
@@ -112,7 +112,7 @@ export default function AdminDashboardLayout({
                 />
               </svg>
             </button>
-            <span className="font-semibold text-sm text-gray-700 md:hidden">
+            <span className="font-semibold text-sm text-[#E2E4E9] md:hidden">
               Albatros Admin
             </span>
           </div>
@@ -121,7 +121,7 @@ export default function AdminDashboardLayout({
               type="submit"
               variant="outline"
               size="sm"
-              className="hidden md:inline-flex"
+              className="hidden md:inline-flex bg-white/5 text-[#E2E4E9] border-white/[0.08] hover:bg-white/10"
             >
               Deconectare
             </Button>
@@ -129,7 +129,7 @@ export default function AdminDashboardLayout({
         </header>
 
         {/* Content */}
-        <main className="flex-1 p-4 md:p-6 bg-gray-50 overflow-y-auto">
+        <main className="flex-1 p-4 md:p-6 bg-[#04040A] overflow-y-auto">
           {children}
         </main>
       </div>

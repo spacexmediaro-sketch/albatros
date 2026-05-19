@@ -8,9 +8,9 @@ import { logoutAction } from "@/lib/actions/auth";
 
 const clientNav = [
   { href: "/garaj", label: "Garajul meu" },
-  { href: "/garaj/programari", label: "Programări" },
+  { href: "/garaj/programari", label: "Programari" },
   { href: "/garaj/istoric", label: "Istoric" },
-  { href: "/garaj/setari", label: "Setări" },
+  { href: "/garaj/setari", label: "Setari" },
 ];
 
 export default function ClientLayout({
@@ -22,11 +22,11 @@ export default function ClientLayout({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white text-[#0A2540]">
+    <div className="min-h-screen bg-[#04040A] text-[#E2E4E9]">
       {/* Top nav bar */}
-      <header className="sticky top-0 z-40 border-b bg-white">
+      <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#080808]">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-          <Link href="/" className="text-lg font-bold text-[#0A2540]">
+          <Link href="/" className="text-lg font-bold text-white">
             Albatros A Service
           </Link>
 
@@ -43,8 +43,8 @@ export default function ClientLayout({
                   href={item.href}
                   className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-[#E63946]/10 text-[#E63946]"
-                      : "text-[#0A2540] hover:bg-gray-100"
+                      ? "bg-[#FF2D2D]/10 text-[#FF2D2D]"
+                      : "text-[#E2E4E9] hover:bg-white/5"
                   }`}
                 >
                   {item.label}
@@ -55,9 +55,14 @@ export default function ClientLayout({
 
           {/* User greeting (desktop) */}
           <div className="hidden items-center gap-3 md:flex">
-            <span className="text-sm text-[#0A2540]/70">Bună, Andrei</span>
+            <span className="text-sm text-[#8B8D97]">Buna, Andrei</span>
             <form action={logoutAction}>
-              <Button type="submit" variant="outline" size="sm">
+              <Button
+                type="submit"
+                variant="outline"
+                size="sm"
+                className="border-white/[0.08] bg-white/5 text-[#E2E4E9] hover:bg-white/10"
+              >
                 Deconectare
               </Button>
             </form>
@@ -66,7 +71,7 @@ export default function ClientLayout({
           {/* Mobile menu toggle */}
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-md p-2 text-[#0A2540] hover:bg-gray-100 md:hidden"
+            className="inline-flex items-center justify-center rounded-md p-2 text-[#E2E4E9] hover:bg-white/5 md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Meniu navigare"
           >
@@ -84,7 +89,7 @@ export default function ClientLayout({
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="border-t bg-white px-4 pb-4 md:hidden">
+          <div className="border-t border-white/[0.08] bg-[#080808] px-4 pb-4 md:hidden">
             <nav className="flex flex-col gap-1 pt-2">
               {clientNav.map((item) => {
                 const isActive =
@@ -98,8 +103,8 @@ export default function ClientLayout({
                     onClick={() => setMobileMenuOpen(false)}
                     className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                       isActive
-                        ? "bg-[#E63946]/10 text-[#E63946]"
-                        : "text-[#0A2540] hover:bg-gray-100"
+                        ? "bg-[#FF2D2D]/10 text-[#FF2D2D]"
+                        : "text-[#E2E4E9] hover:bg-white/5"
                     }`}
                   >
                     {item.label}
@@ -107,10 +112,15 @@ export default function ClientLayout({
                 );
               })}
             </nav>
-            <div className="mt-3 flex items-center justify-between border-t pt-3">
-              <span className="text-sm text-[#0A2540]/70">Bună, Andrei</span>
+            <div className="mt-3 flex items-center justify-between border-t border-white/[0.08] pt-3">
+              <span className="text-sm text-[#8B8D97]">Buna, Andrei</span>
               <form action={logoutAction}>
-                <Button type="submit" variant="outline" size="sm">
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="sm"
+                  className="border-white/[0.08] bg-white/5 text-[#E2E4E9] hover:bg-white/10"
+                >
                   Deconectare
                 </Button>
               </form>

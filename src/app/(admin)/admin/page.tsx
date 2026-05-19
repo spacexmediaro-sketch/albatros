@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { generatePageMetadata } from "@/lib/seo";
 import Link from "next/link";
@@ -12,51 +11,55 @@ export const metadata = generatePageMetadata({
 
 const stats = [
   {
-    label: "Programări azi",
+    label: "Program\u0103ri azi",
     value: "5",
-    description: "2 confirmate, 3 în așteptare",
-    color: "text-blue-600",
+    description: "2 confirmate, 3 \u00een a\u0219teptare",
+    color: "text-blue-400",
+    accent: "border-blue-500/30 bg-blue-500/10",
   },
   {
-    label: "Lucrări active",
+    label: "Lucr\u0103ri active",
     value: "3",
-    description: "1 în diagnoză, 2 în reparație",
-    color: "text-orange-600",
+    description: "1 \u00een diagnoz\u0103, 2 \u00een repara\u021Bie",
+    color: "text-orange-400",
+    accent: "border-orange-500/30 bg-orange-500/10",
   },
   {
-    label: "Clienți total",
+    label: "Clien\u021Bi total",
     value: "127",
     description: "+4 luna aceasta",
-    color: "text-green-600",
+    color: "text-green-400",
+    accent: "border-green-500/30 bg-green-500/10",
   },
   {
-    label: "Venituri lună",
+    label: "Venituri lun\u0103",
     value: "45.200 RON",
-    description: "+12% față de luna trecută",
-    color: "text-emerald-600",
+    description: "+12% fa\u021B\u0103 de luna trecut\u0103",
+    color: "text-emerald-400",
+    accent: "border-emerald-500/30 bg-emerald-500/10",
   },
 ];
 
 const recentActivity = [
   {
     time: "10:32",
-    text: "Programare nouă: Andrei Popescu - Schimb ulei și filtre (BMW X3)",
+    text: "Programare nou\u0103: Andrei Popescu - Schimb ulei \u0219i filtre (BMW X3)",
   },
   {
     time: "09:45",
-    text: "Job ALB-0412 actualizat: IN_REPARATIE → IN_PROBA",
+    text: "Job ALB-0412 actualizat: IN_REPARATIE \u2192 IN_PROBA",
   },
   {
     time: "09:15",
-    text: "Estimare AI trimisă: Dacia Duster 2019 - Bară față lovită",
+    text: "Estimare AI trimis\u0103: Dacia Duster 2019 - Bar\u0103 fa\u021B\u0103 lovit\u0103",
   },
   {
     time: "08:50",
-    text: "Client nou înregistrat: Maria Ionescu (0745 123 456)",
+    text: "Client nou \u00eenregistrat: Maria Ionescu (0745 123 456)",
   },
   {
     time: "Ieri",
-    text: "Job ALB-0410 finalizat și predat: VW Golf 7 - Revizie completă",
+    text: "Job ALB-0410 finalizat \u0219i predat: VW Golf 7 - Revizie complet\u0103",
   },
 ];
 
@@ -64,68 +67,80 @@ export default function AdminDashboard() {
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p className="text-sm text-muted-foreground mt-1">
-          Bine ai venit în panoul de administrare Albatros A Service
+        <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+        <p className="text-sm text-[#8B8D97] mt-1">
+          Bine ai venit \u00een panoul de administrare Albatros A Service
         </p>
       </div>
 
       {/* KPI Cards */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
-          <Card key={stat.label}>
-            <CardContent className="p-6">
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
-              <p className={`text-2xl font-bold mt-1 ${stat.color}`}>
-                {stat.value}
-              </p>
-              <p className="text-xs text-muted-foreground mt-1">
-                {stat.description}
-              </p>
-            </CardContent>
-          </Card>
+          <div
+            key={stat.label}
+            className={`bg-[#0F1017] border border-white/[0.08] rounded-2xl p-6 ${stat.accent}`}
+          >
+            <p className="text-sm text-[#8B8D97]">{stat.label}</p>
+            <p className={`text-2xl font-bold mt-1 ${stat.color}`}>
+              {stat.value}
+            </p>
+            <p className="text-xs text-[#4A4B55] mt-1">{stat.description}</p>
+          </div>
         ))}
       </div>
 
-      {/* Acțiuni rapide */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Acțiuni rapide</CardTitle>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-3">
-          <Button asChild>
-            <Link href="/admin/programari">+ Programare nouă</Link>
+      {/* Ac\u021Biuni rapide */}
+      <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
+        <div className="p-6 border-b border-white/[0.08]">
+          <h2 className="text-base font-semibold text-white">
+            Ac\u021Biuni rapide
+          </h2>
+        </div>
+        <div className="p-6 flex flex-wrap gap-3">
+          <Button
+            asChild
+            className="bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90"
+          >
+            <Link href="/admin/programari">+ Programare nou\u0103</Link>
           </Button>
-          <Button variant="outline" asChild>
+          <Button
+            asChild
+            className="bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
+          >
             <Link href="/admin/masini-service">+ Job service nou</Link>
           </Button>
-          <Button variant="outline" asChild>
+          <Button
+            asChild
+            className="bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
+          >
             <Link href="/admin/blog">+ Articol nou</Link>
           </Button>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      {/* Activitate recentă */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Activitate recentă</CardTitle>
-        </CardHeader>
-        <CardContent>
+      {/* Activitate recent\u0103 */}
+      <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
+        <div className="p-6 border-b border-white/[0.08]">
+          <h2 className="text-base font-semibold text-white">
+            Activitate recent\u0103
+          </h2>
+        </div>
+        <div className="p-6">
           <div className="space-y-4">
             {recentActivity.map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 text-sm border-b last:border-0 pb-3 last:pb-0"
+                className="flex items-start gap-3 text-sm border-b border-white/[0.08] last:border-0 pb-3 last:pb-0"
               >
-                <span className="text-xs font-mono text-muted-foreground w-12 shrink-0 pt-0.5">
+                <span className="text-xs font-mono text-[#4A4B55] w-12 shrink-0 pt-0.5">
                   {item.time}
                 </span>
-                <span>{item.text}</span>
+                <span className="text-[#E2E4E9]">{item.text}</span>
               </div>
             ))}
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }

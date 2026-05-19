@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const metadata = generatePageMetadata({
-  title: "Detalii mașină",
-  description: "Vizualizează detaliile mașinii tale, starea ITP/RCA și istoricul service.",
+  title: "Detalii masina",
+  description: "Vizualizeaza detaliile masinii tale, starea ITP/RCA si istoricul service.",
   path: "/garaj/masini",
   noIndex: true,
 });
@@ -36,16 +36,16 @@ const mockServiceHistory = [
   {
     id: "sj-2",
     date: "2025-11-05",
-    title: "Geometrie roți 3D",
-    description: "Aliniere geometrie pe ambele punți, reglaj convergență",
+    title: "Geometrie roti 3D",
+    description: "Aliniere geometrie pe ambele punti, reglaj convergenta",
     km: 112000,
     cost: 250,
   },
   {
     id: "sj-3",
     date: "2025-06-20",
-    title: "Înlocuire plăcuțe frână",
-    description: "Plăcuțe frână față și spate, verificare discuri",
+    title: "Inlocuire placute frana",
+    description: "Placute frana fata si spate, verificare discuri",
     km: 105000,
     cost: 620,
   },
@@ -59,28 +59,28 @@ function daysUntil(dateStr: string): number {
 
 function CountdownBadge({ label, dateStr }: { label: string; dateStr: string }) {
   const days = daysUntil(dateStr);
-  const color =
+  const config =
     days < 0
-      ? "bg-red-500"
+      ? { dot: "bg-red-500", badge: "bg-red-500/10 text-red-400 border border-red-500/20" }
       : days < 30
-        ? "bg-red-500"
+        ? { dot: "bg-red-500", badge: "bg-red-500/10 text-red-400 border border-red-500/20" }
         : days < 90
-          ? "bg-yellow-500"
-          : "bg-green-500";
+          ? { dot: "bg-yellow-500", badge: "bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20" }
+          : { dot: "bg-green-500", badge: "bg-green-500/10 text-green-400 border border-green-500/20" };
 
   const text =
     days < 0
       ? `Expirat de ${Math.abs(days)} zile`
       : days === 0
-        ? "Expiră astăzi"
-        : `${days} zile rămase`;
+        ? "Expira astazi"
+        : `${days} zile ramase`;
 
   return (
-    <div className="flex items-center justify-between rounded-lg border p-3">
-      <span className="text-sm font-medium text-[#0A2540]">{label}</span>
+    <div className="flex items-center justify-between rounded-lg border border-white/[0.08] bg-[#080808] p-3">
+      <span className="text-sm font-medium text-white">{label}</span>
       <div className="flex items-center gap-2">
-        <span className={`inline-block h-2.5 w-2.5 rounded-full ${color}`} />
-        <span className="text-sm text-[#0A2540]/70">{text}</span>
+        <span className={`inline-block h-2.5 w-2.5 rounded-full ${config.dot}`} />
+        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${config.badge}`}>{text}</span>
       </div>
     </div>
   );
@@ -92,64 +92,64 @@ export default function CarDetailPage() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0A2540]">
+          <h1 className="text-2xl font-bold text-white">
             {mockCar.make} {mockCar.model} {mockCar.year}
           </h1>
-          <p className="mt-1 text-sm text-[#0A2540]/60">
+          <p className="mt-1 text-sm text-[#8B8D97]">
             {mockCar.plate} &middot; {mockCar.km.toLocaleString("ro-RO")} km
           </p>
         </div>
         <Button
-          className="bg-[#E63946] text-white hover:bg-[#E63946]/90"
+          className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
           asChild
         >
-          <Link href="/garaj/programari">Programează service</Link>
+          <Link href="/garaj/programari">Programeaza service</Link>
         </Button>
       </div>
 
       {/* Car details */}
-      <Card>
+      <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle>Informații vehicul</CardTitle>
+          <CardTitle className="text-white">Informatii vehicul</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div>
-              <p className="text-xs text-[#0A2540]/50">Marcă</p>
-              <p className="font-medium">{mockCar.make}</p>
+              <p className="text-xs text-[#4A4B55]">Marca</p>
+              <p className="font-medium text-[#E2E4E9]">{mockCar.make}</p>
             </div>
             <div>
-              <p className="text-xs text-[#0A2540]/50">Model</p>
-              <p className="font-medium">{mockCar.model}</p>
+              <p className="text-xs text-[#4A4B55]">Model</p>
+              <p className="font-medium text-[#E2E4E9]">{mockCar.model}</p>
             </div>
             <div>
-              <p className="text-xs text-[#0A2540]/50">An</p>
-              <p className="font-medium">{mockCar.year}</p>
+              <p className="text-xs text-[#4A4B55]">An</p>
+              <p className="font-medium text-[#E2E4E9]">{mockCar.year}</p>
             </div>
             <div>
-              <p className="text-xs text-[#0A2540]/50">Combustibil</p>
-              <p className="font-medium">{mockCar.fuel}</p>
+              <p className="text-xs text-[#4A4B55]">Combustibil</p>
+              <p className="font-medium text-[#E2E4E9]">{mockCar.fuel}</p>
             </div>
             <div>
-              <p className="text-xs text-[#0A2540]/50">Nr. înmatriculare</p>
-              <p className="font-medium">{mockCar.plate}</p>
+              <p className="text-xs text-[#4A4B55]">Nr. inmatriculare</p>
+              <p className="font-medium text-[#E2E4E9]">{mockCar.plate}</p>
             </div>
             <div>
-              <p className="text-xs text-[#0A2540]/50">Kilometraj</p>
-              <p className="font-medium">{mockCar.km.toLocaleString("ro-RO")} km</p>
+              <p className="text-xs text-[#4A4B55]">Kilometraj</p>
+              <p className="font-medium text-[#E2E4E9]">{mockCar.km.toLocaleString("ro-RO")} km</p>
             </div>
             <div className="col-span-2">
-              <p className="text-xs text-[#0A2540]/50">VIN</p>
-              <p className="font-mono font-medium">{mockCar.vin}</p>
+              <p className="text-xs text-[#4A4B55]">VIN</p>
+              <p className="font-mono font-medium text-[#E2E4E9]">{mockCar.vin}</p>
             </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Health dashboard */}
-      <Card>
+      <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle>Stare vehicul</CardTitle>
+          <CardTitle className="text-white">Stare vehicul</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           <CountdownBadge label="ITP" dateStr={mockCar.itpExpires} />
@@ -158,27 +158,27 @@ export default function CarDetailPage() {
       </Card>
 
       {/* Service history timeline */}
-      <Card>
+      <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle>Istoric service</CardTitle>
+          <CardTitle className="text-white">Istoric service</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="relative space-y-6 pl-6 before:absolute before:left-2 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-gray-200">
+          <div className="relative space-y-6 pl-6 before:absolute before:left-2 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-white/[0.08]">
             {mockServiceHistory.map((entry) => (
               <div key={entry.id} className="relative">
-                <span className="absolute -left-6 top-1.5 h-3 w-3 rounded-full border-2 border-[#E63946] bg-white" />
+                <span className="absolute -left-6 top-1.5 h-3 w-3 rounded-full border-2 border-[#FF2D2D] bg-[#0F1017]" />
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="font-medium text-[#0A2540]">{entry.title}</p>
-                    <p className="mt-0.5 text-sm text-[#0A2540]/60">
+                    <p className="font-medium text-white">{entry.title}</p>
+                    <p className="mt-0.5 text-sm text-[#8B8D97]">
                       {entry.description}
                     </p>
-                    <div className="mt-1 flex items-center gap-3 text-xs text-[#0A2540]/50">
+                    <div className="mt-1 flex items-center gap-3 text-xs text-[#4A4B55]">
                       <span>{new Date(entry.date).toLocaleDateString("ro-RO")}</span>
                       <span>{entry.km.toLocaleString("ro-RO")} km</span>
                     </div>
                   </div>
-                  <Badge variant="outline">{entry.cost} lei</Badge>
+                  <Badge className="bg-white/5 text-[#E2E4E9] border border-white/[0.08]">{entry.cost} lei</Badge>
                 </div>
               </div>
             ))}

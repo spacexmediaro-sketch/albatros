@@ -16,18 +16,18 @@ const brands = [
   "Opel",
   "Ford",
   "Renault",
-  "Škoda",
+  "Skoda",
   "Toyota",
   "Hyundai",
   "Kia",
   "Peugeot",
-  "Citroën",
+  "Citroen",
   "Volvo",
 ];
 
 const fuelOptions = [
   { value: "DIESEL", label: "Diesel" },
-  { value: "BENZINA", label: "Benzină" },
+  { value: "BENZINA", label: "Benzina" },
   { value: "HIBRID", label: "Hibrid" },
   { value: "ELECTRIC", label: "Electric" },
 ];
@@ -47,26 +47,26 @@ export default function AdaugaMasinaPage() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-[#0A2540]">Adaugă mașină</h1>
+      <h1 className="text-2xl font-bold text-white">Adauga masina</h1>
 
-      <Card>
+      <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
         <CardHeader>
-          <CardTitle>Detalii vehicul</CardTitle>
+          <CardTitle className="text-white">Detalii vehicul</CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Marca */}
             <div className="space-y-2">
-              <Label htmlFor="make">Marca</Label>
+              <Label htmlFor="make" className="text-[#E2E4E9]">Marca</Label>
               <select
                 id="make"
                 name="make"
                 required
-                className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/50"
               >
-                <option value="">Selectează marca</option>
+                <option value="" className="bg-[#080808]">Selecteaza marca</option>
                 {brands.map((brand) => (
-                  <option key={brand} value={brand}>
+                  <option key={brand} value={brand} className="bg-[#080808]">
                     {brand}
                   </option>
                 ))}
@@ -75,14 +75,20 @@ export default function AdaugaMasinaPage() {
 
             {/* Model */}
             <div className="space-y-2">
-              <Label htmlFor="model">Model</Label>
-              <Input id="model" name="model" placeholder="ex: Seria 3, Duster" required />
+              <Label htmlFor="model" className="text-[#E2E4E9]">Model</Label>
+              <Input
+                id="model"
+                name="model"
+                placeholder="ex: Seria 3, Duster"
+                required
+                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+              />
             </div>
 
             {/* An + Combustibil */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="year">An fabricație</Label>
+                <Label htmlFor="year" className="text-[#E2E4E9]">An fabricatie</Label>
                 <Input
                   id="year"
                   name="year"
@@ -91,19 +97,20 @@ export default function AdaugaMasinaPage() {
                   max={2026}
                   placeholder="2022"
                   required
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="fuel">Combustibil</Label>
+                <Label htmlFor="fuel" className="text-[#E2E4E9]">Combustibil</Label>
                 <select
                   id="fuel"
                   name="fuel"
                   required
-                  className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                  className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/50"
                 >
-                  <option value="">Selectează</option>
+                  <option value="" className="bg-[#080808]">Selecteaza</option>
                   {fuelOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
+                    <option key={opt.value} value={opt.value} className="bg-[#080808]">
                       {opt.label}
                     </option>
                   ))}
@@ -111,10 +118,10 @@ export default function AdaugaMasinaPage() {
               </div>
             </div>
 
-            {/* Km + Nr. înmatriculare */}
+            {/* Km + Nr. inmatriculare */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="km">Kilometraj</Label>
+                <Label htmlFor="km" className="text-[#E2E4E9]">Kilometraj</Label>
                 <Input
                   id="km"
                   name="km"
@@ -122,15 +129,17 @@ export default function AdaugaMasinaPage() {
                   min={0}
                   placeholder="125000"
                   required
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="plate">Nr. înmatriculare</Label>
+                <Label htmlFor="plate" className="text-[#E2E4E9]">Nr. inmatriculare</Label>
                 <Input
                   id="plate"
                   name="plateNumber"
                   placeholder="PH-01-ABC"
                   required
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
                 />
               </div>
             </div>
@@ -138,16 +147,15 @@ export default function AdaugaMasinaPage() {
             {/* VIN */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <Label htmlFor="vin">VIN (opțional)</Label>
+                <Label htmlFor="vin" className="text-[#E2E4E9]">VIN (optional)</Label>
                 <Button
                   type="button"
-                  variant="outline"
                   size="sm"
                   disabled
-                  title="Disponibil curând"
-                  className="text-xs"
+                  title="Disponibil curand"
+                  className="bg-white/5 text-[#8B8D97] border border-white/[0.08] text-xs"
                 >
-                  Scanează VIN
+                  Scaneaza VIN
                 </Button>
               </div>
               <Input
@@ -155,28 +163,39 @@ export default function AdaugaMasinaPage() {
                 name="vin"
                 placeholder="WBAPH5C55BA123456"
                 maxLength={17}
+                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
               />
             </div>
 
             {/* ITP + RCA expiry */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="itpExpires">Data expirare ITP</Label>
-                <Input id="itpExpires" name="itpExpires" type="date" />
+                <Label htmlFor="itpExpires" className="text-[#E2E4E9]">Data expirare ITP</Label>
+                <Input
+                  id="itpExpires"
+                  name="itpExpires"
+                  type="date"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="rcaExpires">Data expirare RCA</Label>
-                <Input id="rcaExpires" name="rcaExpires" type="date" />
+                <Label htmlFor="rcaExpires" className="text-[#E2E4E9]">Data expirare RCA</Label>
+                <Input
+                  id="rcaExpires"
+                  name="rcaExpires"
+                  type="date"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                />
               </div>
             </div>
 
             {/* Submit */}
             <Button
               type="submit"
-              className="w-full bg-[#E63946] text-white hover:bg-[#E63946]/90"
+              className="w-full bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
               disabled={submitting}
             >
-              {submitting ? "Se adaugă..." : "Adaugă mașina"}
+              {submitting ? "Se adauga..." : "Adauga masina"}
             </Button>
           </form>
         </CardContent>

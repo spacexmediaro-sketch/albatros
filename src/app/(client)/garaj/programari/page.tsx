@@ -3,8 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const metadata = generatePageMetadata({
-  title: "Programările mele",
-  description: "Vizualizează programările tale la Albatros A Service - viitoare și trecute.",
+  title: "Programarile mele",
+  description: "Vizualizeaza programarile tale la Albatros A Service - viitoare si trecute.",
   path: "/garaj/programari",
   noIndex: true,
 });
@@ -12,16 +12,16 @@ export const metadata = generatePageMetadata({
 type BookingStatus = "CONFIRMED" | "PENDING" | "COMPLETED";
 
 const statusConfig: Record<BookingStatus, { label: string; className: string }> = {
-  CONFIRMED: { label: "Confirmată", className: "bg-green-100 text-green-800" },
-  PENDING: { label: "În așteptare", className: "bg-yellow-100 text-yellow-800" },
-  COMPLETED: { label: "Finalizată", className: "bg-gray-100 text-gray-700" },
+  CONFIRMED: { label: "Confirmata", className: "bg-green-500/10 text-green-400 border border-green-500/20" },
+  PENDING: { label: "In asteptare", className: "bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20" },
+  COMPLETED: { label: "Finalizata", className: "bg-white/5 text-[#8B8D97] border border-white/[0.08]" },
 };
 
 const mockBookings = [
   {
     id: "b-1",
     car: "BMW Seria 3 2019",
-    service: "Revizie completă 120.000 km",
+    service: "Revizie completa 120.000 km",
     date: "2026-05-28",
     time: "09:00",
     status: "CONFIRMED" as BookingStatus,
@@ -29,7 +29,7 @@ const mockBookings = [
   {
     id: "b-2",
     car: "Dacia Duster 2022",
-    service: "Schimb anvelope vară",
+    service: "Schimb anvelope vara",
     date: "2026-06-02",
     time: "10:30",
     status: "PENDING" as BookingStatus,
@@ -37,7 +37,7 @@ const mockBookings = [
   {
     id: "b-3",
     car: "BMW Seria 3 2019",
-    service: "Geometrie roți 3D",
+    service: "Geometrie roti 3D",
     date: "2026-03-15",
     time: "14:00",
     status: "COMPLETED" as BookingStatus,
@@ -53,12 +53,12 @@ function BookingCard({
   const isPast = new Date(booking.date) < new Date();
 
   return (
-    <Card>
+    <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
       <CardContent className="flex items-center justify-between p-4">
         <div className="space-y-1">
-          <p className="font-medium text-[#0A2540]">{booking.service}</p>
-          <p className="text-sm text-[#0A2540]/60">{booking.car}</p>
-          <p className="text-xs text-[#0A2540]/50">
+          <p className="font-medium text-white">{booking.service}</p>
+          <p className="text-sm text-[#8B8D97]">{booking.car}</p>
+          <p className="text-xs text-[#4A4B55]">
             {new Date(booking.date).toLocaleDateString("ro-RO", {
               weekday: "long",
               day: "numeric",
@@ -84,11 +84,11 @@ export default function ProgramariPage() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-2xl font-bold text-[#0A2540]">Programările mele</h1>
+      <h1 className="text-2xl font-bold text-white">Programarile mele</h1>
 
       {/* Upcoming */}
       <section className="space-y-4">
-        <h2 className="text-lg font-semibold text-[#0A2540]">Programări viitoare</h2>
+        <h2 className="text-lg font-semibold text-white">Programari viitoare</h2>
         {upcoming.length > 0 ? (
           <div className="space-y-3">
             {upcoming.map((b) => (
@@ -96,11 +96,11 @@ export default function ProgramariPage() {
             ))}
           </div>
         ) : (
-          <Card>
+          <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
             <CardContent className="p-6 text-center">
-              <p className="text-[#0A2540]/60">Nu ai programări viitoare.</p>
-              <p className="mt-1 text-sm text-[#0A2540]/40">
-                Mergi la Garajul meu pentru a programa o mașină la service.
+              <p className="text-[#8B8D97]">Nu ai programari viitoare.</p>
+              <p className="mt-1 text-sm text-[#4A4B55]">
+                Mergi la Garajul meu pentru a programa o masina la service.
               </p>
             </CardContent>
           </Card>
@@ -109,7 +109,7 @@ export default function ProgramariPage() {
 
       {/* Past */}
       <section className="space-y-4">
-        <h2 className="text-lg font-semibold text-[#0A2540]">Programări trecute</h2>
+        <h2 className="text-lg font-semibold text-white">Programari trecute</h2>
         {past.length > 0 ? (
           <div className="space-y-3">
             {past.map((b) => (
@@ -117,9 +117,9 @@ export default function ProgramariPage() {
             ))}
           </div>
         ) : (
-          <Card>
+          <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
             <CardContent className="p-6 text-center">
-              <p className="text-[#0A2540]/60">Nicio programare anterioară.</p>
+              <p className="text-[#8B8D97]">Nicio programare anterioara.</p>
             </CardContent>
           </Card>
         )}

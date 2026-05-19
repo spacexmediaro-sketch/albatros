@@ -7,7 +7,7 @@ import { generatePageMetadata } from "@/lib/seo";
 export const metadata = generatePageMetadata({
   title: "Garajul meu",
   description:
-    "Gestionează mașinile tale, vezi istoricul reparațiilor și programează-te online la Albatros A Service.",
+    "Gestioneaza masinile tale, vezi istoricul reparatiilor si programeaza-te online la Albatros A Service.",
   path: "/garaj",
 });
 
@@ -20,7 +20,7 @@ const mockCars = [
     fuel: "Diesel",
     plate: "PH-01-ABC",
     km: 125000,
-    itp: { label: "ITP", status: "Expiră în 45 zile", color: "warning" as const },
+    itp: { label: "ITP", status: "Expira in 45 zile", color: "warning" as const },
     rca: { label: "RCA", status: "Valid", color: "success" as const },
     lastService: { label: "Ultima revizie", status: "Acum 3 luni", color: "success" as const },
   },
@@ -56,8 +56,8 @@ function HealthIndicator({
   return (
     <div className="flex items-center gap-2">
       <span className={`inline-block h-2.5 w-2.5 rounded-full ${dotColor}`} />
-      <span className="text-xs text-[#0A2540]/60">{label}:</span>
-      <span className="text-xs font-medium text-[#0A2540]">{status}</span>
+      <span className="text-xs text-[#8B8D97]">{label}:</span>
+      <span className="text-xs font-medium text-[#E2E4E9]">{status}</span>
     </div>
   );
 }
@@ -66,29 +66,29 @@ export default function GarajPage() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-[#0A2540]">Garajul meu</h1>
+        <h1 className="text-2xl font-bold text-white">Garajul meu</h1>
         <Button
-          className="bg-[#E63946] text-white hover:bg-[#E63946]/90"
+          className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
           asChild
         >
-          <Link href="/garaj/adauga-masina">Adaugă mașină</Link>
+          <Link href="/garaj/adauga-masina">Adauga masina</Link>
         </Button>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {mockCars.map((car) => (
-          <Card key={car.id}>
+          <Card key={car.id} className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div>
-                  <CardTitle className="text-lg">
+                  <CardTitle className="text-lg text-white">
                     {car.make} {car.model} {car.year}
                   </CardTitle>
-                  <p className="mt-1 text-sm text-[#0A2540]/60">{car.plate}</p>
+                  <p className="mt-1 text-sm text-[#8B8D97]">{car.plate}</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Badge variant="secondary">{car.fuel}</Badge>
-                  <Badge variant="outline">
+                  <Badge className="bg-white/5 text-[#E2E4E9] border border-white/[0.08]">{car.fuel}</Badge>
+                  <Badge className="bg-white/5 text-[#E2E4E9] border border-white/[0.08]">
                     {car.km.toLocaleString("ro-RO")} km
                   </Badge>
                 </div>
@@ -116,12 +116,16 @@ export default function GarajPage() {
             <CardFooter className="gap-2">
               <Button
                 size="sm"
-                className="bg-[#E63946] text-white hover:bg-[#E63946]/90"
+                className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
                 asChild
               >
-                <Link href={`/garaj/programari`}>Programează</Link>
+                <Link href={`/garaj/programari`}>Programeaza</Link>
               </Button>
-              <Button size="sm" variant="outline" asChild>
+              <Button
+                size="sm"
+                className="bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
+                asChild
+              >
                 <Link href={`/garaj/masini/${car.id}`}>Vezi istoric</Link>
               </Button>
             </CardFooter>
