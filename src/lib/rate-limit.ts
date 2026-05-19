@@ -1,26 +1,16 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { redis } from "./redis";
 
-export const bookingLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(10, "1 h"),
-  prefix: "ratelimit:booking",
-});
+function createLimiter(prefix: string, requests: number, window: string) {
+  if (!redis) return null;
+  return new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(requests, window as Parameters<typeof Ratelimit.slidingWindow>[1]),
+    prefix,
+  });
+}
 
-export const estimatorLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(5, "1 h"),
-  prefix: "ratelimit:estimator",
-});
-
-export const contactLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(5, "1 h"),
-  prefix: "ratelimit:contact",
-});
-
-export const loginLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(5, "15 m"),
-  prefix: "ratelimit:login",
-});
+export const bookingLimiter = createLimiter("ratelimit:booking", 10, "1 h");
+export const estimatorLimiter = createLimiter("ratelimit:estimator", 5, "1 h");
+export const contactLimiter = createLimiter("ratelimit:contact", 5, "1 h");
+export const loginLimiter = createLimiter("ratelimit:login", 5, "15 m");
