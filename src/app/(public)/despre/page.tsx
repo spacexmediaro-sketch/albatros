@@ -1,12 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { generatePageMetadata } from "@/lib/seo";
+"use client";
 
-export const metadata = generatePageMetadata({
-  title: "Despre noi",
-  description:
-    "Albatros A Service - service auto multimarca in Blejoi-Ploiesti din 2005. Membru Q-SERVICE Romania. Echipa de mecanici experimentati, echipamente moderne.",
-  path: "/despre",
-});
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollReveal } from "@/components/public/scroll-reveal";
 
 const milestones = [
   { year: "2005", text: "Infiintarea Albatros A Service in Blejoi, Prahova" },
@@ -37,40 +32,70 @@ const values = [
 
 export default function DesprePage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold sm:text-4xl">Despre Albatros A Service</h1>
-        <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-          Din 2005, oferim servicii auto complete in Blejoi-Ploiesti. Suntem
-          membrii ai retelei Q-SERVICE Romania si ne mandrim cu o echipa de
-          profesionisti dedicati.
-        </p>
-      </div>
-
-      {/* Values */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-16">
-        {values.map((v) => (
-          <Card key={v.title}>
-            <CardContent className="p-6">
-              <h3 className="font-semibold text-lg">{v.title}</h3>
-              <p className="text-sm text-muted-foreground mt-2">{v.desc}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      {/* Timeline */}
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-center mb-8">Istoria noastra</h2>
-        <div className="space-y-6">
-          {milestones.map((m) => (
-            <div key={m.year} className="flex gap-4">
-              <span className="font-bold text-primary min-w-[4rem]">{m.year}</span>
-              <p className="text-muted-foreground">{m.text}</p>
-            </div>
-          ))}
+    <>
+      {/* Dark Hero Banner */}
+      <section className="relative overflow-hidden bg-[#0A2540] bg-grid-pattern px-4 py-20 sm:px-6 lg:px-8">
+        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#E63946]/10 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#3B82F6]/10 blur-3xl" />
+        <div className="relative mx-auto max-w-7xl text-center">
+          <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl leading-tight text-white sm:text-5xl lg:text-6xl">
+            Despre{" "}
+            <span className="gradient-text">Albatros A Service</span>
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
+            Din 2005, oferim servicii auto complete in Blejoi-Ploiesti. Suntem
+            membrii ai retelei Q-SERVICE Romania si ne mandrim cu o echipa de
+            profesionisti dedicati.
+          </p>
         </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        {/* Values */}
+        <ScrollReveal>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-16">
+            {values.map((v) => (
+              <Card key={v.title} className="card-hover relative overflow-hidden transition-all">
+                {/* Gradient accent bar */}
+                <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#E63946] to-[#3B82F6]" />
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg text-[#0A2540]">{v.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-2">{v.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        {/* Timeline */}
+        <ScrollReveal delay={0.2}>
+          <div className="max-w-2xl mx-auto">
+            <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl text-[#0A2540] text-center mb-10">
+              Istoria noastra
+            </h2>
+            <div className="relative">
+              {/* Gradient connecting line */}
+              <div className="absolute left-[1.9rem] top-2 bottom-2 w-[2px] bg-gradient-to-b from-[#E63946] to-[#3B82F6]" />
+
+              <div className="space-y-8">
+                {milestones.map((m, i) => (
+                  <div key={m.year} className="relative flex items-start gap-6 pl-2">
+                    {/* Timeline dot */}
+                    <div className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#E63946] to-[#3B82F6] shadow-lg shadow-[#E63946]/20">
+                      <div className="h-2 w-2 rounded-full bg-white" />
+                    </div>
+                    {/* Content */}
+                    <div className="rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-shadow hover:shadow-md flex-1">
+                      <span className="text-sm font-bold text-[#E63946]">{m.year}</span>
+                      <p className="mt-1 text-gray-600">{m.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
-    </div>
+    </>
   );
 }

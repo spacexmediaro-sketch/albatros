@@ -128,3 +128,129 @@
     @apply font-sans;
   }
 }
+
+/* ═══ PREMIUM EFFECTS ═══ */
+
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #E63946, #3B82F6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Premium card hover effect */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px -12px rgba(230, 57, 70, 0.15),
+              0 12px 28px -8px rgba(10, 37, 64, 0.1);
+}
+
+/* Button shine effect on hover */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+}
+.btn-shine:hover::after {
+  left: 120%;
+}
+
+/* Glow pulse for CTA */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(230, 57, 70, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(230, 57, 70, 0.6), 0 0 60px rgba(230, 57, 70, 0.2); }
+}
+.glow-pulse {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+/* Animated gradient border */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #E63946, #3B82F6, #E63946, #3B82F6);
+  background-size: 300% 300%;
+  animation: gradient-shift 4s ease infinite;
+  z-index: -1;
+}
+
+/* Section wave divider */
+.wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  overflow: hidden;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Counter/number animation helper */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dot pulse indicator */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+.dot-pulse {
+  animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+/* Subtle background pattern */
+.bg-grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
@@ -17,9 +17,17 @@ const navLinks = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
+    <header className={`sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-xl shadow-sm transition-shadow duration-300 ${scrolled ? "shadow-lg shadow-black/5" : ""}`}>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <span className="text-xl font-bold text-[#0A2540]">
@@ -33,14 +41,14 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-[#0A2540]"
+              className="text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-[#E63946]"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/garaj"
-            className="flex items-center gap-1 text-sm font-medium text-gray-700 transition-colors hover:text-[#0A2540]"
+            className="flex items-center gap-1 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-[#E63946]"
             title="Garajul meu"
           >
             <svg
@@ -59,7 +67,7 @@ export function Navbar() {
             Garajul meu
           </Link>
           <Link href="/programare">
-            <Button className="bg-[#E63946] hover:bg-[#d32f3c]">
+            <Button className="btn-shine glow-pulse bg-[#E63946] hover:bg-[#d32f3c]">
               Programeaza
             </Button>
           </Link>
