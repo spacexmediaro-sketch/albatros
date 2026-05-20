@@ -83,21 +83,21 @@ export function CookieBanner() {
         {!detailed && (
           <div className="space-y-4">
             <p className="text-sm leading-relaxed text-[#E2E4E9]">
-              Folosim cookie-uri pentru a asigura functionarea corecta a site-ului
-              si pentru a analiza traficul. Poti alege ce cookie-uri accepti.
+              Folosim cookie-uri pentru a asigura funcționarea corectă a site-ului
+              și pentru a analiza traficul. Poți alege ce cookie-uri accepți.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={acceptAll}
                 className="rounded-lg bg-[#FF2D2D] px-5 py-2.5 text-sm font-semibold text-[#050505] transition-opacity hover:opacity-90"
               >
-                Accepta toate
+                Acceptă toate
               </button>
               <button
                 onClick={() => setDetailed(true)}
                 className="rounded-lg border border-white/[0.08] bg-white/5 px-5 py-2.5 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/10"
               >
-                Personalizeaza
+                Personalizează
               </button>
               <button
                 onClick={acceptNecessaryOnly}
@@ -113,7 +113,7 @@ export function CookieBanner() {
         {detailed && (
           <div className="space-y-5">
             <h3 className="text-base font-semibold text-white">
-              Setari cookie-uri
+              Setări cookie-uri
             </h3>
 
             {/* Necesare */}
@@ -121,7 +121,7 @@ export function CookieBanner() {
               <div>
                 <p className="text-sm font-medium text-[#E2E4E9]">Necesare</p>
                 <p className="mt-0.5 text-xs text-[#8B8D97]">
-                  Esentiale pentru functionarea site-ului (sesiune, CSRF). Nu pot
+                  Esențiale pentru funcționarea site-ului (sesiune, CSRF). Nu pot
                   fi dezactivate.
                 </p>
               </div>
@@ -133,7 +133,7 @@ export function CookieBanner() {
               <div>
                 <p className="text-sm font-medium text-[#E2E4E9]">Analitice</p>
                 <p className="mt-0.5 text-xs text-[#8B8D97]">
-                  Google Analytics — ne ajuta sa intelegem cum este folosit
+                  Google Analytics — ne ajută să înțelegem cum este folosit
                   site-ul.
                 </p>
               </div>
@@ -144,10 +144,10 @@ export function CookieBanner() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-sm font-medium text-[#E2E4E9]">
-                  Functionale
+                  Funcționale
                 </p>
                 <p className="mt-0.5 text-xs text-[#8B8D97]">
-                  Salveaza preferintele tale (limba, tema) pentru vizite
+                  Salvează preferințele tale (limbă, temă) pentru vizite
                   ulterioare.
                 </p>
               </div>
@@ -159,13 +159,13 @@ export function CookieBanner() {
                 onClick={acceptAll}
                 className="rounded-lg bg-[#FF2D2D] px-5 py-2.5 text-sm font-semibold text-[#050505] transition-opacity hover:opacity-90"
               >
-                Accepta toate
+                Acceptă toate
               </button>
               <button
                 onClick={acceptSelected}
                 className="rounded-lg border border-white/[0.08] bg-white/5 px-5 py-2.5 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/10"
               >
-                Salveaza selectia
+                Salvează selecția
               </button>
               <button
                 onClick={acceptNecessaryOnly}

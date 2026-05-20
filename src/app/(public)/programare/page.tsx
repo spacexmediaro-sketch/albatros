@@ -4,7 +4,7 @@ import { ProgramareForm } from "./programare-form";
 export const metadata = generatePageMetadata({
   title: "Programare online",
   description:
-    "Programeaza-te online la Albatros A Service Ploiesti. Alege serviciul, data si ora potrivita. Confirmare rapida.",
+    "Programează-te online la Albatros A Service Ploiești. Alege serviciul, data și ora potrivită. Confirmare rapidă.",
   path: "/programare",
 });
 

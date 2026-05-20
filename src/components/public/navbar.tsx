@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navLinks = [
-  { href: "/", label: "Acasa" },
+  { href: "/", label: "Acasă" },
   { href: "/servicii", label: "Servicii" },
   { href: "/programare", label: "Programare" },
   { href: "/estimator", label: "Estimator AI" },
@@ -83,7 +83,7 @@ export function Navbar() {
             <Button
               className="bg-[#FF2D2D] text-[#050505] font-semibold shadow-lg shadow-[#FF2D2D]/20 hover:bg-[#FF2D2D]/90 transition-all duration-300"
             >
-              Programeaza
+              Programează
             </Button>
           </Link>
         </nav>
@@ -181,7 +181,7 @@ export function Navbar() {
               </Link>
               <Link href="/programare" onClick={() => setOpen(false)} className="mt-4">
                 <Button className="w-full bg-[#FF2D2D] text-[#050505] font-semibold shadow-lg shadow-[#FF2D2D]/20 hover:bg-[#FF2D2D]/90 transition-all duration-300">
-                  Programeaza
+                  Programează
                 </Button>
               </Link>
             </nav>

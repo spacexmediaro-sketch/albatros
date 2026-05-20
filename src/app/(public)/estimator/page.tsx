@@ -39,27 +39,27 @@ interface DamageResult {
 const MOCK_RESULT: DamageResult = {
   damages: [
     {
-      zone: "Bara fata",
+      zone: "Bară față",
       severity: "Medie",
-      description: "Fisura si deformare bara fata, necesita inlocuire.",
+      description: "Fisură și deformare bară față, necesită înlocuire.",
     },
     {
-      zone: "Aripa stanga fata",
-      severity: "Usoara",
-      description: "Zgarieturi superficiale si lovituri minore pe aripa.",
+      zone: "Aripă stângă față",
+      severity: "Ușoară",
+      description: "Zgârieturi superficiale și lovituri minore pe aripă.",
     },
     {
-      zone: "Far stanga",
-      severity: "Severa",
-      description: "Far spart, necesita inlocuire completa.",
+      zone: "Far stânga",
+      severity: "Severă",
+      description: "Far spart, necesită înlocuire completă.",
     },
   ],
   operations: [
-    "Demontare / montare bara fata",
-    "Inlocuire bara fata (piesa noua)",
-    "Tinichigerie aripa stanga fata — indreptare si pregatire",
-    "Vopsire aripa stanga fata",
-    "Inlocuire far stanga",
+    "Demontare / montare bară față",
+    "Înlocuire bară față (piesă nouă)",
+    "Tinichigerie aripă stângă față — îndreptare și pregătire",
+    "Vopsire aripă stângă față",
+    "Înlocuire far stânga",
     "Reglaj faruri",
     "Verificare senzori parcare",
   ],
@@ -67,19 +67,19 @@ const MOCK_RESULT: DamageResult = {
   costMax: 4200,
   confidence: 82,
   warnings: [
-    "Estimarea nu include eventuale avarii ascunse la structura interioara.",
-    "Pretul pieselor poate varia in functie de disponibilitate si producator.",
-    "Culoarea poate necesita bitonare pentru potrivire perfecta.",
+    "Estimarea nu include eventuale avarii ascunse la structura interioară.",
+    "Prețul pieselor poate varia în funcție de disponibilitate și producător.",
+    "Culoarea poate necesita bitonare pentru potrivire perfectă.",
   ],
 };
 
 function severityColor(severity: string) {
   switch (severity) {
-    case "Usoara":
+    case "Ușoară":
       return "bg-[#F59E0B]/10 text-[#F59E0B] border-[#F59E0B]/20";
     case "Medie":
       return "bg-[#F97316]/10 text-[#F97316] border-[#F97316]/20";
-    case "Severa":
+    case "Severă":
       return "bg-[#EF4444]/10 text-[#EF4444] border-[#EF4444]/20";
     default:
       return "bg-white/5 text-[#8B8D97] border-white/10";
@@ -173,10 +173,10 @@ export default function EstimatorPage() {
             </span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-[#8B8D97]">
-            Incarca fotografii cu avariile masinii tale si primesti o estimare
-            instantanee a costurilor de reparatie. Tehnologia noastra AI
-            analizeaza imaginile si identifica daunele, operatiile necesare si un
-            interval de pret orientativ.
+            Încarcă fotografii cu avariile mașinii tale și primești o estimare
+            instantanee a costurilor de reparație. Tehnologia noastră AI
+            analizează imaginile și identifică daunele, operațiile necesare și un
+            interval de preț orientativ.
           </p>
         </div>
       </section>
@@ -282,7 +282,7 @@ export default function EstimatorPage() {
                   onChange={(e) => setMarca(e.target.value)}
                   className="flex h-9 w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-xs transition-colors placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/30 focus-visible:outline-none"
                 >
-                  <option value="" className="bg-[#080808] text-[#4A4B55]">Selecteaza marca</option>
+                  <option value="" className="bg-[#080808] text-[#4A4B55]">Selectează marca</option>
                   {MARCI.map((m) => (
                     <option key={m} value={m} className="bg-[#080808] text-white">
                       {m}
@@ -306,7 +306,7 @@ export default function EstimatorPage() {
 
               <div>
                 <Label htmlFor="an" className="mb-1.5 block text-sm font-medium text-[#E2E4E9]">
-                  An fabricatie *
+                  An fabricație *
                 </Label>
                 <Input
                   id="an"
@@ -340,7 +340,7 @@ export default function EstimatorPage() {
                 <Textarea
                   id="descriere"
                   rows={3}
-                  placeholder="Descrieti pe scurt ce s-a intamplat — coliziune, zgarieturi, grindina etc."
+                  placeholder="Descrieți pe scurt ce s-a întâmplat — coliziune, zgârieturi, grindină etc."
                   value={descriere}
                   onChange={(e) => setDescriere(e.target.value)}
                   className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
@@ -378,10 +378,10 @@ export default function EstimatorPage() {
                       d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                     />
                   </svg>
-                  Se analizeaza...
+                  Se analizează...
                 </span>
               ) : (
-                "Analizeaza avariile"
+                "Analizează avariile"
               )}
             </Button>
           </div>
@@ -392,7 +392,7 @@ export default function EstimatorPage() {
               {/* Confidence Badge */}
               <div className="flex justify-center">
                 <Badge className="bg-[#FF2D2D] px-6 py-2 text-base font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)]">
-                  Incredere analiza: {result.confidence}%
+                  Încredere analiză: {result.confidence}%
                 </Badge>
               </div>
 
@@ -428,7 +428,7 @@ export default function EstimatorPage() {
               {/* Repair Operations */}
               <div>
                 <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
-                  Operatii de reparatie
+                  Operații de reparație
                 </h2>
                 <div className="rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6">
                   <ul className="space-y-2">
@@ -462,7 +462,7 @@ export default function EstimatorPage() {
                         {result.costMax.toLocaleString("ro-RO")} LEI
                       </p>
                       <p className="mt-1 text-sm text-[#4A4B55]">
-                        inclusiv manopera si piese
+                        inclusiv manoperă și piese
                       </p>
                     </div>
                   </div>
@@ -473,7 +473,7 @@ export default function EstimatorPage() {
               {result.warnings.length > 0 && (
                 <div>
                   <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
-                    Atentionari
+                    Avertizări
                   </h2>
                   <div className="rounded-xl border border-[#F59E0B]/20 bg-[#F59E0B]/5 p-5">
                     <ul className="space-y-2">
@@ -491,8 +491,8 @@ export default function EstimatorPage() {
               {/* Disclaimer */}
               <div className="rounded-2xl border border-white/[0.08] bg-[#0F1017] p-5 text-center">
                 <p className="text-sm text-[#8B8D97]">
-                  Estimarea este orientativa, pretul final se stabileste la
-                  inspectia fizica. Nu reprezinta oferta ferma.
+                  Estimarea este orientativă, prețul final se stabilește la
+                  inspecția fizică. Nu reprezintă ofertă fermă.
                 </p>
               </div>
 
@@ -503,7 +503,7 @@ export default function EstimatorPage() {
                     size="lg"
                     className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)]"
                   >
-                    Programeaza inspectie gratuita
+                    Programează inspecție gratuită
                   </Button>
                 </Link>
               </div>

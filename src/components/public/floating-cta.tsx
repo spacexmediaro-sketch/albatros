@@ -57,7 +57,7 @@ export function FloatingCTA() {
                 Centru Daune
               </span>
               <span className="mt-1.5 text-white/70 text-xs">
-                Estimare Gratuita
+                Estimare Gratuită
               </span>
             </Link>
           </motion.div>
@@ -93,7 +93,7 @@ export function FloatingCTA() {
                 Centru de Daune
               </span>
               <span className="text-white/70">&mdash;</span>
-              <span className="ml-2 text-white/70">Estimare Gratuita</span>
+              <span className="ml-2 text-white/70">Estimare Gratuită</span>
             </Link>
           </motion.div>
         </>

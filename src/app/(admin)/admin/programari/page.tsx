@@ -1,146 +1,139 @@
-"use client";
+"use server";
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { revalidatePath } from "next/cache";
+import { db } from "@/lib/db";
 import { Badge } from "@/components/ui/badge";
+import { generatePageMetadata } from "@/lib/seo";
+import Link from "next/link";
 
-type BookingStatus = "PENDING" | "CONFIRMED" | "COMPLETED" | "CANCELLED";
+export const metadata = generatePageMetadata({
+  title: "Programări - Admin",
+  description: "Gestionare programări Albatros A Service",
+  path: "/admin/programari",
+  noIndex: true,
+});
 
-interface MockBooking {
-  id: string;
-  client: string;
-  phone: string;
-  service: string;
-  date: string;
-  hour: string;
-  status: BookingStatus;
-}
+type BookingStatus = "PENDING" | "CONFIRMED" | "COMPLETED" | "CANCELLED" | "NO_SHOW";
 
-const statusConfig: Record<
-  BookingStatus,
-  { label: string; className: string }
-> = {
+const statusConfig: Record<BookingStatus, { label: string; className: string }> = {
   PENDING: {
-    label: "\u00cen a\u0219teptare",
+    label: "În așteptare",
     className: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30",
   },
   CONFIRMED: {
-    label: "Confirmat\u0103",
+    label: "Confirmată",
     className: "bg-blue-500/10 text-blue-400 border-blue-500/30",
   },
   COMPLETED: {
-    label: "Finalizat\u0103",
+    label: "Finalizată",
     className: "bg-green-500/10 text-green-400 border-green-500/30",
   },
   CANCELLED: {
-    label: "Anulat\u0103",
+    label: "Anulată",
     className: "bg-red-500/10 text-red-400 border-red-500/30",
+  },
+  NO_SHOW: {
+    label: "Neprezentare",
+    className: "bg-white/5 text-[#4A4B55] border-white/[0.08]",
   },
 };
 
-const mockBookings: MockBooking[] = [
-  {
-    id: "1",
-    client: "Andrei Popescu",
-    phone: "0745 123 456",
-    service: "Schimb ulei \u0219i filtre",
-    date: "2026-05-19",
-    hour: "09:00",
-    status: "CONFIRMED",
-  },
-  {
-    id: "2",
-    client: "Maria Ionescu",
-    phone: "0722 987 654",
-    service: "Diagnoz\u0103 computerizat\u0103",
-    date: "2026-05-19",
-    hour: "10:30",
-    status: "PENDING",
-  },
-  {
-    id: "3",
-    client: "Gheorghe Dumitrescu",
-    phone: "0733 456 789",
-    service: "Geometrie ro\u021Bi",
-    date: "2026-05-19",
-    hour: "13:00",
-    status: "PENDING",
-  },
-  {
-    id: "4",
-    client: "Elena Stanciu",
-    phone: "0761 234 567",
-    service: "Revizie complet\u0103",
-    date: "2026-05-20",
-    hour: "08:30",
-    status: "CONFIRMED",
-  },
-  {
-    id: "5",
-    client: "Mihai Radu",
-    phone: "0754 678 901",
-    service: "Vopsitorie par\u021Bial\u0103",
-    date: "2026-05-18",
-    hour: "11:00",
-    status: "COMPLETED",
-  },
-];
+async function updateBookingStatusAction(formData: FormData) {
+  "use server";
+  const id = formData.get("id") as string;
+  const status = formData.get("status") as BookingStatus;
+  try {
+    await db.booking.update({ where: { id }, data: { status } });
+  } catch (e) {
+    console.error("[programari] updateBookingStatus error:", e);
+  }
+  revalidatePath("/admin/programari");
+}
 
-export default function ProgramariPage() {
-  const [filter, setFilter] = useState<BookingStatus | "ALL">("ALL");
+async function cancelBookingAction(formData: FormData) {
+  "use server";
+  const id = formData.get("id") as string;
+  try {
+    await db.booking.update({ where: { id }, data: { status: "CANCELLED" } });
+  } catch (e) {
+    console.error("[programari] cancelBooking error:", e);
+  }
+  revalidatePath("/admin/programari");
+}
 
-  const filtered =
+export default async function ProgramariPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ status?: string }>;
+}) {
+  const params = await searchParams;
+  const filter = (params.status as BookingStatus | "ALL") || "ALL";
+
+  const where =
     filter === "ALL"
-      ? mockBookings
-      : mockBookings.filter((b) => b.status === filter);
+      ? {}
+      : { status: filter as BookingStatus };
+
+  const [bookings, counts] = await Promise.all([
+    db.booking.findMany({
+      where,
+      orderBy: { scheduledAt: "asc" },
+      include: {
+        service: { select: { name: true } },
+        user: { select: { name: true, phone: true } },
+        car: { select: { make: true, model: true, year: true } },
+      },
+    }),
+    db.booking.groupBy({
+      by: ["status"],
+      _count: { id: true },
+    }),
+  ]);
+
+  const total = counts.reduce((sum, c) => sum + c._count.id, 0);
+  const countByStatus = Object.fromEntries(
+    counts.map((c) => [c.status, c._count.id])
+  ) as Record<string, number>;
 
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Program\u0103ri</h1>
+          <h1 className="text-2xl font-bold text-white">Programări</h1>
           <p className="text-sm text-[#8B8D97] mt-1">
-            Gestioneaz\u0103 program\u0103rile clien\u021Bilor
+            Gestionează programările clienților
           </p>
         </div>
-        <Button className="bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90">
-          + Programare nou\u0103
-        </Button>
       </div>
 
-      {/* Filter */}
+      {/* Filtre */}
       <div className="flex flex-wrap gap-2">
-        <Button
-          variant={filter === "ALL" ? "default" : "outline"}
-          size="sm"
-          onClick={() => setFilter("ALL")}
-          className={
+        <Link
+          href="/admin/programari"
+          className={`inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
             filter === "ALL"
-              ? "bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90"
-              : "bg-white/5 text-[#E2E4E9] border-white/[0.08] hover:bg-white/10"
-          }
+              ? "bg-[#FF2D2D] text-[#050505]"
+              : "bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
+          }`}
         >
-          Toate ({mockBookings.length})
-        </Button>
+          Toate ({total})
+        </Link>
         {(Object.keys(statusConfig) as BookingStatus[]).map((status) => (
-          <Button
+          <Link
             key={status}
-            variant={filter === status ? "default" : "outline"}
-            size="sm"
-            onClick={() => setFilter(status)}
-            className={
+            href={`/admin/programari?status=${status}`}
+            className={`inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
               filter === status
-                ? "bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90"
-                : "bg-white/5 text-[#E2E4E9] border-white/[0.08] hover:bg-white/10"
-            }
+                ? "bg-[#FF2D2D] text-[#050505]"
+                : "bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
+            }`}
           >
-            {statusConfig[status].label} (
-            {mockBookings.filter((b) => b.status === status).length})
-          </Button>
+            {statusConfig[status].label} ({countByStatus[status] ?? 0})
+          </Link>
         ))}
       </div>
 
-      {/* Table */}
+      {/* Tabel */}
       <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
@@ -151,49 +144,91 @@ export default function ProgramariPage() {
                 <th className="text-left p-3 font-medium text-[#8B8D97]">Serviciu</th>
                 <th className="text-left p-3 font-medium text-[#8B8D97]">Data</th>
                 <th className="text-left p-3 font-medium text-[#8B8D97]">Status</th>
-                <th className="text-left p-3 font-medium text-[#8B8D97]">Ac\u021Biuni</th>
+                <th className="text-left p-3 font-medium text-[#8B8D97]">Acțiuni</th>
               </tr>
             </thead>
             <tbody>
-              {filtered.map((booking) => (
-                <tr
-                  key={booking.id}
-                  className="border-b border-white/[0.08] last:border-0 hover:bg-[#1A1B25] transition-colors"
-                >
-                  <td className="p-3 font-medium text-white">{booking.client}</td>
-                  <td className="p-3 text-[#8B8D97]">{booking.phone}</td>
-                  <td className="p-3 text-[#E2E4E9]">{booking.service}</td>
-                  <td className="p-3 text-[#8B8D97]">
-                    {booking.date} {booking.hour}
-                  </td>
-                  <td className="p-3">
-                    <Badge
-                      variant="outline"
-                      className={statusConfig[booking.status].className}
-                    >
-                      {statusConfig[booking.status].label}
-                    </Badge>
-                  </td>
-                  <td className="p-3">
-                    <div className="flex gap-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-[#E2E4E9] hover:bg-white/10"
+              {bookings.map((booking) => {
+                const clientName =
+                  booking.user?.name ?? booking.guestName ?? "—";
+                const phone =
+                  booking.user?.phone ?? booking.guestPhone ?? "—";
+                const scheduledAt = new Date(booking.scheduledAt);
+                const dateStr = scheduledAt.toLocaleDateString("ro-RO");
+                const timeStr = scheduledAt.toLocaleTimeString("ro-RO", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                });
+                const status = booking.status as BookingStatus;
+
+                return (
+                  <tr
+                    key={booking.id}
+                    className="border-b border-white/[0.08] last:border-0 hover:bg-[#1A1B25] transition-colors"
+                  >
+                    <td className="p-3 font-medium text-white">{clientName}</td>
+                    <td className="p-3 text-[#8B8D97]">{phone}</td>
+                    <td className="p-3 text-[#E2E4E9]">{booking.service.name}</td>
+                    <td className="p-3 text-[#8B8D97]">
+                      {dateStr} {timeStr}
+                    </td>
+                    <td className="p-3">
+                      <Badge
+                        variant="outline"
+                        className={statusConfig[status]?.className}
                       >
-                        Editeaz\u0103
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-[#8B8D97] hover:bg-white/10"
-                      >
-                        Anuleaz\u0103
-                      </Button>
-                    </div>
+                        {statusConfig[status]?.label ?? status}
+                      </Badge>
+                    </td>
+                    <td className="p-3">
+                      <div className="flex gap-2 flex-wrap">
+                        {status === "PENDING" && (
+                          <form action={updateBookingStatusAction}>
+                            <input type="hidden" name="id" value={booking.id} />
+                            <input type="hidden" name="status" value="CONFIRMED" />
+                            <button
+                              type="submit"
+                              className="text-xs px-2 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 hover:bg-blue-500/20 transition-colors"
+                            >
+                              Confirmă
+                            </button>
+                          </form>
+                        )}
+                        {(status === "PENDING" || status === "CONFIRMED") && (
+                          <form action={updateBookingStatusAction}>
+                            <input type="hidden" name="id" value={booking.id} />
+                            <input type="hidden" name="status" value="COMPLETED" />
+                            <button
+                              type="submit"
+                              className="text-xs px-2 py-1 rounded bg-green-500/10 text-green-400 border border-green-500/30 hover:bg-green-500/20 transition-colors"
+                            >
+                              Finalizează
+                            </button>
+                          </form>
+                        )}
+                        {status !== "CANCELLED" && status !== "COMPLETED" && (
+                          <form action={cancelBookingAction}>
+                            <input type="hidden" name="id" value={booking.id} />
+                            <button
+                              type="submit"
+                              className="text-xs px-2 py-1 rounded bg-white/5 text-[#8B8D97] border border-white/[0.08] hover:bg-white/10 transition-colors"
+                            >
+                              Anulează
+                            </button>
+                          </form>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+              {bookings.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="p-8 text-center text-[#4A4B55]">
+                    Nicio programare găsită.
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>

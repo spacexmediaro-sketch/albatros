@@ -179,8 +179,8 @@ const blogArticles = [
   },
   {
     slug: "pregatire-masina-iarna",
-    title: "Cum sa-ti pregatesti masina pentru iarna",
-    excerpt: "Lista completa de verificari si intretinere pentru sezonul rece: anvelope, baterie, antigel, vizibilitate.",
+    title: "Cum să-ți pregătești mașina pentru iarnă",
+    excerpt: "Lista completă de verificări și întreținere pentru sezonul rece: anvelope, baterie, antigel, vizibilitate.",
     category: "Sezonier",
     color: "#8B5CF6",
   },

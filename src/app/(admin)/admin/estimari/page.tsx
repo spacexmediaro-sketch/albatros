@@ -1,138 +1,122 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { generatePageMetadata } from "@/lib/seo";
+import { db } from "@/lib/db";
 
 export const metadata = generatePageMetadata({
-  title: "Estim\u0103ri AI - Admin",
-  description: "Coad\u0103 estim\u0103ri AI Albatros A Service",
+  title: "Estimări AI - Admin",
+  description: "Coadă estimări AI Albatros A Service",
   path: "/admin/estimari",
   noIndex: true,
 });
 
-const mockEstimates = [
-  {
-    id: "1",
-    carInfo: "Dacia Duster 2019 Diesel, 85.000 km",
-    description: "Bar\u0103 fa\u021B\u0103 lovit\u0103 + far st\u00e2ng spart",
-    estimatedMin: 1200,
-    estimatedMax: 1800,
-    status: "PENDING_REVIEW",
-    statusLabel: "A\u0219teapt\u0103 revizuire",
-    statusColor: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30",
-    createdAt: "2026-05-19 09:15",
-    images: 3,
+const statusConfig: Record<string, { label: string; color: string }> = {
+  PENDING_REVIEW: {
+    label: "Așteaptă revizuire",
+    color: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30",
   },
-  {
-    id: "2",
-    carInfo: "VW Passat B8 2020 Diesel, 62.000 km",
-    description: "Zgomot suspensie fa\u021B\u0103 dreapta la denivel\u0103ri",
-    estimatedMin: 400,
-    estimatedMax: 900,
-    status: "REVIEWED",
-    statusLabel: "Revizuit",
-    statusColor: "bg-blue-500/10 text-blue-400 border-blue-500/30",
-    createdAt: "2026-05-18 14:30",
-    images: 1,
+  REVIEWED: {
+    label: "Revizuit",
+    color: "bg-blue-500/10 text-blue-400 border-blue-500/30",
   },
-  {
-    id: "3",
-    carInfo: "Renault Clio 4 2017 Benzin\u0103, 120.000 km",
-    description: "Motor porne\u0219te greu diminea\u021Ba, fum alb la evacuare",
-    estimatedMin: 600,
-    estimatedMax: 2500,
-    status: "OFFER_SENT",
-    statusLabel: "Ofert\u0103 trimis\u0103",
-    statusColor: "bg-green-500/10 text-green-400 border-green-500/30",
-    createdAt: "2026-05-17 11:00",
-    images: 2,
+  OFFER_SENT: {
+    label: "Ofertă trimisă",
+    color: "bg-green-500/10 text-green-400 border-green-500/30",
   },
-];
+  BOOKED: {
+    label: "Programat",
+    color: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+  },
+};
 
-export default function EstimariPage() {
+export default async function EstimariPage() {
+  const estimates = await db.estimate.findMany({
+    orderBy: { createdAt: "desc" },
+    take: 50,
+  });
+
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-white">Estim\u0103ri AI</h1>
+          <h1 className="text-2xl font-bold text-white">Estimări AI</h1>
           <p className="text-sm text-[#8B8D97] mt-1">
-            {mockEstimates.length} estim\u0103ri \u00een coad\u0103
+            {estimates.length} estimări
           </p>
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {mockEstimates.map((estimate) => (
-          <div
-            key={estimate.id}
-            className="bg-[#0F1017] border border-white/[0.08] rounded-2xl"
-          >
-            <div className="p-6 border-b border-white/[0.08]">
-              <div className="flex items-start justify-between gap-2">
-                <h3 className="text-sm font-semibold text-white">
-                  {estimate.carInfo}
-                </h3>
-                <Badge
-                  variant="outline"
-                  className={`shrink-0 text-[10px] ${estimate.statusColor}`}
-                >
-                  {estimate.statusLabel}
-                </Badge>
-              </div>
-            </div>
-            <div className="p-6 space-y-3">
-              <p className="text-sm text-[#8B8D97]">{estimate.description}</p>
+      {estimates.length === 0 ? (
+        <div className="bg-[#0F1017] border border-white/[0.08] rounded-2xl p-8 text-center">
+          <p className="text-[#8B8D97]">Nicio estimare AI încă.</p>
+          <p className="text-sm text-[#4A4B55] mt-1">
+            Estimările vor apărea aici când clienții folosesc estimatorul de pe site.
+          </p>
+        </div>
+      ) : (
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {estimates.map((estimate) => {
+            const config = statusConfig[estimate.status] ?? {
+              label: estimate.status,
+              color: "bg-white/10 text-[#8B8D97] border-white/[0.08]",
+            };
+            const carInfo =
+              typeof estimate.carInfo === "object" && estimate.carInfo !== null
+                ? JSON.stringify(estimate.carInfo)
+                : String(estimate.carInfo);
 
-              <div className="bg-white/5 border border-white/[0.08] rounded-lg p-3">
-                <p className="text-xs text-[#4A4B55] mb-1">Estimare cost AI</p>
-                <p className="text-lg font-bold text-white">
-                  {estimate.estimatedMin.toLocaleString("ro-RO")} -{" "}
-                  {estimate.estimatedMax.toLocaleString("ro-RO")} RON
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between text-xs text-[#4A4B55]">
-                <span>{estimate.images} imagini ata\u0219ate</span>
-                <span>{estimate.createdAt}</span>
-              </div>
-
-              <div className="flex gap-2 pt-2">
-                {estimate.status === "PENDING_REVIEW" && (
-                  <>
-                    <Button
-                      size="sm"
-                      className="flex-1 bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90"
+            return (
+              <div
+                key={estimate.id}
+                className="bg-[#0F1017] border border-white/[0.08] rounded-2xl"
+              >
+                <div className="p-6 border-b border-white/[0.08]">
+                  <div className="flex items-start justify-between gap-2">
+                    <h3 className="text-sm font-semibold text-white truncate">
+                      {carInfo}
+                    </h3>
+                    <Badge
+                      variant="outline"
+                      className={`shrink-0 text-[10px] ${config.color}`}
                     >
-                      Revizuie\u0219te
-                    </Button>
-                    <Button
-                      size="sm"
-                      className="flex-1 bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
-                    >
-                      Trimite ofert\u0103
-                    </Button>
-                  </>
-                )}
-                {estimate.status === "REVIEWED" && (
-                  <Button
-                    size="sm"
-                    className="w-full bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90"
-                  >
-                    Trimite ofert\u0103
-                  </Button>
-                )}
-                {estimate.status === "OFFER_SENT" && (
-                  <Button
-                    size="sm"
-                    className="w-full bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
-                  >
-                    Vezi oferta
-                  </Button>
-                )}
+                      {config.label}
+                    </Badge>
+                  </div>
+                </div>
+                <div className="p-6 space-y-3">
+                  <div className="bg-white/5 border border-white/[0.08] rounded-lg p-3">
+                    <p className="text-xs text-[#4A4B55] mb-1">Estimare cost AI</p>
+                    <p className="text-lg font-bold text-white">
+                      {estimate.estimatedMin.toLocaleString("ro-RO")} -{" "}
+                      {estimate.estimatedMax.toLocaleString("ro-RO")} RON
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs text-[#4A4B55]">
+                    <span>{estimate.imageUrls.length} imagini atașate</span>
+                    <span>
+                      {estimate.createdAt.toLocaleDateString("ro-RO")}{" "}
+                      {estimate.createdAt.toLocaleTimeString("ro-RO", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </span>
+                  </div>
+
+                  {estimate.finalQuote && (
+                    <div className="bg-green-500/5 border border-green-500/20 rounded-lg p-3">
+                      <p className="text-xs text-green-400/70 mb-1">Ofertă finală</p>
+                      <p className="text-lg font-bold text-green-400">
+                        {estimate.finalQuote.toLocaleString("ro-RO")} RON
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

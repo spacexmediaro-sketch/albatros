@@ -1,6 +1,8 @@
+import { revalidatePath } from "next/cache";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { generatePageMetadata } from "@/lib/seo";
+import { db } from "@/lib/db";
 
 export const metadata = generatePageMetadata({
   title: "Blog - Admin",
@@ -9,41 +11,41 @@ export const metadata = generatePageMetadata({
   noIndex: true,
 });
 
-const mockPosts = [
-  {
-    id: "1",
-    title: "Cum s\u0103-\u021Bi preg\u0103te\u0219ti ma\u0219ina pentru var\u0103: ghid complet",
-    category: "Sfaturi",
-    published: true,
-    date: "2026-05-10",
-    views: 342,
-  },
-  {
-    id: "2",
-    title: "De ce este important\u0103 revizia la timp? Consecin\u021Be \u0219i costuri",
-    category: "Educa\u021Bie",
-    published: true,
-    date: "2026-04-28",
-    views: 218,
-  },
-  {
-    id: "3",
-    title: "Diesel vs. Benzin\u0103 \u00een 2026: ce motor alegi pentru ma\u0219ina nou\u0103?",
-    category: "Analiz\u0103",
-    published: false,
-    date: "2026-05-15",
-    views: 0,
-  },
-];
+async function togglePublished(formData: FormData) {
+  "use server";
+  const id = formData.get("id") as string;
+  const post = await db.blogPost.findUnique({ where: { id } });
+  if (!post) return;
+  await db.blogPost.update({
+    where: { id },
+    data: {
+      published: !post.published,
+      publishedAt: !post.published ? new Date() : null,
+    },
+  });
+  revalidatePath("/admin/blog");
+}
 
-export default function BlogAdminPage() {
+async function deletePost(formData: FormData) {
+  "use server";
+  const id = formData.get("id") as string;
+  await db.blogPost.delete({ where: { id } });
+  revalidatePath("/admin/blog");
+}
+
+export default async function BlogAdminPage() {
+  const posts = await db.blogPost.findMany({
+    orderBy: { createdAt: "desc" },
+    include: { author: { select: { name: true } } },
+  });
+
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-white">Blog</h1>
           <p className="text-sm text-[#8B8D97] mt-1">
-            {mockPosts.length} articole
+            {posts.length} articole
           </p>
         </div>
         <Button className="bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90">
@@ -61,11 +63,11 @@ export default function BlogAdminPage() {
                 <th className="text-left p-3 font-medium text-[#8B8D97]">Status</th>
                 <th className="text-left p-3 font-medium text-[#8B8D97]">Data</th>
                 <th className="text-left p-3 font-medium text-[#8B8D97]">Views</th>
-                <th className="text-left p-3 font-medium text-[#8B8D97]">Ac\u021Biuni</th>
+                <th className="text-left p-3 font-medium text-[#8B8D97]">Acțiuni</th>
               </tr>
             </thead>
             <tbody>
-              {mockPosts.map((post) => (
+              {posts.map((post) => (
                 <tr
                   key={post.id}
                   className="border-b border-white/[0.08] last:border-0 hover:bg-[#1A1B25] transition-colors"
@@ -83,31 +85,48 @@ export default function BlogAdminPage() {
                           : "bg-yellow-500/10 text-yellow-400 border-yellow-500/30"
                       }
                     >
-                      {post.published ? "Publicat" : "Ciorn\u0103"}
+                      {post.published ? "Publicat" : "Ciornă"}
                     </Badge>
                   </td>
-                  <td className="p-3 text-[#8B8D97]">{post.date}</td>
+                  <td className="p-3 text-[#8B8D97]">
+                    {(post.publishedAt ?? post.createdAt).toLocaleDateString("ro-RO")}
+                  </td>
                   <td className="p-3 text-[#8B8D97]">{post.views}</td>
                   <td className="p-3">
                     <div className="flex gap-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-[#E2E4E9] hover:bg-white/10"
-                      >
-                        Editeaz\u0103
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-[#FF2D2D] hover:bg-[#FF2D2D]/10"
-                      >
-                        \u0218terge
-                      </Button>
+                      <form action={togglePublished}>
+                        <input type="hidden" name="id" value={post.id} />
+                        <Button
+                          type="submit"
+                          variant="ghost"
+                          size="sm"
+                          className="text-[#E2E4E9] hover:bg-white/10"
+                        >
+                          {post.published ? "Ascunde" : "Publică"}
+                        </Button>
+                      </form>
+                      <form action={deletePost}>
+                        <input type="hidden" name="id" value={post.id} />
+                        <Button
+                          type="submit"
+                          variant="ghost"
+                          size="sm"
+                          className="text-[#FF2D2D] hover:bg-[#FF2D2D]/10"
+                        >
+                          Șterge
+                        </Button>
+                      </form>
                     </div>
                   </td>
                 </tr>
               ))}
+              {posts.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="p-8 text-center text-[#4A4B55]">
+                    Niciun articol. Adaugă primul articol de blog.
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

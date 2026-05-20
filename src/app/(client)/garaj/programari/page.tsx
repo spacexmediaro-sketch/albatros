@@ -1,71 +1,61 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { redirect } from "next/navigation";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { generatePageMetadata } from "@/lib/seo";
+import { auth } from "@/lib/auth";
+import { db } from "@/lib/db";
+import type { BookingStatus } from "@prisma/client";
 
 export const metadata = generatePageMetadata({
   title: "Programările mele",
-  description: "Vizualizeaza programarile tale la Albatros A Service - viitoare si trecute.",
+  description: "Vizualizează programările tale la Albatros A Service - viitoare și trecute.",
   path: "/garaj/programari",
   noIndex: true,
 });
-
-type BookingStatus = "CONFIRMED" | "PENDING" | "COMPLETED";
 
 const statusConfig: Record<BookingStatus, { label: string; className: string }> = {
   CONFIRMED: { label: "Confirmată", className: "bg-green-500/10 text-green-400 border border-green-500/20" },
   PENDING: { label: "În așteptare", className: "bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20" },
   COMPLETED: { label: "Finalizată", className: "bg-white/5 text-[#8B8D97] border border-white/[0.08]" },
+  CANCELLED: { label: "Anulată", className: "bg-red-500/10 text-red-400 border border-red-500/20" },
+  NO_SHOW: { label: "Neprezentare", className: "bg-red-500/10 text-red-400 border border-red-500/20" },
 };
 
-const mockBookings = [
-  {
-    id: "b-1",
-    car: "BMW Seria 3 2019",
-    service: "Revizie completa 120.000 km",
-    date: "2026-05-28",
-    time: "09:00",
-    status: "CONFIRMED" as BookingStatus,
-  },
-  {
-    id: "b-2",
-    car: "Dacia Duster 2022",
-    service: "Schimb anvelope vara",
-    date: "2026-06-02",
-    time: "10:30",
-    status: "PENDING" as BookingStatus,
-  },
-  {
-    id: "b-3",
-    car: "BMW Seria 3 2019",
-    service: "Geometrie roti 3D",
-    date: "2026-03-15",
-    time: "14:00",
-    status: "COMPLETED" as BookingStatus,
-  },
-];
+type BookingWithRelations = {
+  id: string;
+  scheduledAt: Date;
+  status: BookingStatus;
+  service: { name: string };
+  car: { make: string; model: string; year: number } | null;
+  guestName: string | null;
+};
 
-function BookingCard({
-  booking,
-}: {
-  booking: (typeof mockBookings)[number];
-}) {
+function BookingCard({ booking }: { booking: BookingWithRelations }) {
   const config = statusConfig[booking.status];
-  const isPast = new Date(booking.date) < new Date();
+  const carLabel = booking.car
+    ? `${booking.car.make} ${booking.car.model} ${booking.car.year}`
+    : booking.guestName ?? "—";
+
+  const scheduledDate = booking.scheduledAt;
 
   return (
     <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
       <CardContent className="flex items-center justify-between p-4">
         <div className="space-y-1">
-          <p className="font-medium text-white">{booking.service}</p>
-          <p className="text-sm text-[#8B8D97]">{booking.car}</p>
+          <p className="font-medium text-white">{booking.service.name}</p>
+          <p className="text-sm text-[#8B8D97]">{carLabel}</p>
           <p className="text-xs text-[#4A4B55]">
-            {new Date(booking.date).toLocaleDateString("ro-RO", {
+            {scheduledDate.toLocaleDateString("ro-RO", {
               weekday: "long",
               day: "numeric",
               month: "long",
               year: "numeric",
             })}{" "}
-            la {booking.time}
+            la{" "}
+            {scheduledDate.toLocaleTimeString("ro-RO", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
           </p>
         </div>
         <span
@@ -78,9 +68,27 @@ function BookingCard({
   );
 }
 
-export default function ProgramariPage() {
-  const upcoming = mockBookings.filter((b) => new Date(b.date) >= new Date());
-  const past = mockBookings.filter((b) => new Date(b.date) < new Date());
+export default async function ProgramariPage() {
+  const session = await auth();
+  if (!session?.user?.id) redirect("/autentificare");
+
+  const now = new Date();
+
+  const bookings = await db.booking.findMany({
+    where: { userId: session.user.id },
+    include: {
+      service: { select: { name: true } },
+      car: { select: { make: true, model: true, year: true } },
+    },
+    orderBy: { scheduledAt: "asc" },
+  });
+
+  const upcoming = bookings.filter(
+    (b) => b.scheduledAt >= now && b.status !== "CANCELLED" && b.status !== "COMPLETED" && b.status !== "NO_SHOW"
+  );
+  const past = bookings.filter(
+    (b) => b.scheduledAt < now || b.status === "CANCELLED" || b.status === "COMPLETED" || b.status === "NO_SHOW"
+  );
 
   return (
     <div className="space-y-8">

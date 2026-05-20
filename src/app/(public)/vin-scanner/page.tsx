@@ -67,9 +67,16 @@ interface DecodedVin {
   an: string;
   tara: string;
   motor: string;
+  combustibil: string;
+  caroserie: string;
+  transmisie: string;
+  cilindree: string;
+  tractiune: string;
+  checksumValid: boolean;
 }
 
-function decodeVin(vin: string): DecodedVin {
+// Fallback local decode used only when the API call fails (offline, timeout, etc.)
+function localFallbackDecode(vin: string): Omit<DecodedVin, "checksumValid"> {
   const v = vin.toUpperCase();
   const wmi = v.substring(0, 3);
   const marca = WMI_BRANDS[wmi] || "Marca necunoscuta — verificare manuala necesara";
@@ -80,10 +87,15 @@ function decodeVin(vin: string): DecodedVin {
 
   return {
     marca,
-    model: "Detectat din baza de date",
+    model: "—",
     an,
     tara,
-    motor: "Disponibil dupa verificare completa",
+    motor: "—",
+    combustibil: "—",
+    caroserie: "—",
+    transmisie: "—",
+    cilindree: "—",
+    tractiune: "—",
   };
 }
 
@@ -95,6 +107,7 @@ export default function VinScannerPage() {
   const [vin, setVin] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<DecodedVin | null>(null);
+  const [apiError, setApiError] = useState<string | null>(null);
   const [showCamera, setShowCamera] = useState(false);
 
   const cleaned = vin.replace(/\s/g, "").toUpperCase();
@@ -103,14 +116,78 @@ export default function VinScannerPage() {
   const hasValidChecksum = hasCorrectLength && hasValidChars && validateVinChecksum(cleaned);
   const isValid = hasCorrectLength && hasValidChars && hasValidChecksum;
 
-  const handleDecode = () => {
+  const handleDecode = async () => {
     if (!isValid) return;
     setLoading(true);
     setResult(null);
-    setTimeout(() => {
-      setResult(decodeVin(cleaned));
+    setApiError(null);
+
+    try {
+      const res = await fetch(`/api/vin/decode?vin=${encodeURIComponent(cleaned)}`);
+      const json = await res.json() as {
+        success: boolean;
+        error?: string;
+        checksumValid?: boolean;
+        data?: {
+          make: string | null;
+          model: string | null;
+          year: string | null;
+          fuelType: string | null;
+          bodyClass: string | null;
+          engineCylinders: string | null;
+          displacementL: string | null;
+          driveType: string | null;
+          transmission: string | null;
+          engineConfiguration: string | null;
+          country: string | null;
+        };
+      };
+
+      if (!json.success || !json.data) {
+        // API returned an error — fall back to local decode for basic info
+        const fallback = localFallbackDecode(cleaned);
+        setResult({ ...fallback, checksumValid: hasValidChecksum });
+        setApiError(json.error ?? "Eroare la decodarea VIN. Date parțiale afișate.");
+        return;
+      }
+
+      const d = json.data;
+
+      // Build a human-readable engine string from available fields
+      const engineParts = [
+        d.displacementL ? `${Number(d.displacementL).toFixed(1)} L` : null,
+        d.engineCylinders ? `${d.engineCylinders} cil.` : null,
+        d.engineConfiguration,
+      ].filter(Boolean);
+
+      // Country fallback: NHTSA PlantCountry may be empty for some VINs
+      const tara =
+        (d.country && d.country !== "—") ? d.country
+        : (COUNTRY_MAP[cleaned[0]] ?? "Țară necunoscută");
+
+      setResult({
+        marca: d.make ?? localFallbackDecode(cleaned).marca,
+        model: d.model ?? "—",
+        an: d.year ?? localFallbackDecode(cleaned).an,
+        tara,
+        motor: engineParts.length > 0 ? engineParts.join(", ") : "—",
+        combustibil: d.fuelType ?? "—",
+        caroserie: d.bodyClass ?? "—",
+        transmisie: d.transmission ?? "—",
+        cilindree: d.displacementL
+          ? `${Number(d.displacementL).toFixed(1)} L`
+          : (d.engineCylinders ? `${d.engineCylinders} cilindri` : "—"),
+        tractiune: d.driveType ?? "—",
+        checksumValid: json.checksumValid ?? hasValidChecksum,
+      });
+    } catch {
+      // Network failure — use full local fallback
+      const fallback = localFallbackDecode(cleaned);
+      setResult({ ...fallback, checksumValid: hasValidChecksum });
+      setApiError("Nu s-a putut contacta serverul. Date parțiale afișate.");
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -240,12 +317,40 @@ export default function VinScannerPage() {
               <h2 className="font-[family-name:var(--font-dm-serif)] text-2xl text-white">
                 Rezultat decodare
               </h2>
+
+              {/* API error / partial-data warning */}
+              {apiError && (
+                <div className="flex items-start gap-3 rounded-xl border border-yellow-500/30 bg-yellow-500/10 px-4 py-3 text-sm text-yellow-300">
+                  <svg className="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                  </svg>
+                  <span>{apiError}</span>
+                </div>
+              )}
+
+              {/* Checksum notice for European / non-NA VINs */}
+              {!result.checksumValid && (
+                <div className="flex items-start gap-3 rounded-xl border border-blue-500/30 bg-blue-500/10 px-4 py-3 text-sm text-blue-300">
+                  <svg className="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                  </svg>
+                  <span>
+                    Cifra de control nu corespunde standardului nord-american — normal pentru vehicule europene fabricate înainte de 1981 sau importate.
+                  </span>
+                </div>
+              )}
+
               <div className="grid gap-4 sm:grid-cols-2">
-                <ResultCard label="Marca" value={result.marca} />
+                <ResultCard label="Marcă" value={result.marca} />
                 <ResultCard label="Model" value={result.model} />
-                <ResultCard label="An fabricatie" value={result.an} />
-                <ResultCard label="Tara de origine" value={result.tara} />
-                <ResultCard label="Tip motor" value={result.motor} className="sm:col-span-2" />
+                <ResultCard label="An fabricație" value={result.an} />
+                <ResultCard label="Țară origine / fabricație" value={result.tara} />
+                <ResultCard label="Combustibil" value={result.combustibil} />
+                <ResultCard label="Tip caroserie" value={result.caroserie} />
+                <ResultCard label="Motor" value={result.motor} />
+                <ResultCard label="Transmisie" value={result.transmisie} />
+                <ResultCard label="Cilindree" value={result.cilindree} />
+                <ResultCard label="Tracțiune" value={result.tractiune} />
               </div>
             </div>
           )}
@@ -285,7 +390,7 @@ export default function VinScannerPage() {
                 size="lg"
                 className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)]"
               >
-                Adauga masina in garajul virtual
+                Adaugă mașină în garajul virtual
               </Button>
             </Link>
           </div>

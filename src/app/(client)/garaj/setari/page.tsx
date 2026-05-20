@@ -1,22 +1,74 @@
-"use client";
-
-import { useState } from "react";
+import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { auth, signOut } from "@/lib/auth";
+import { db } from "@/lib/db";
 
-export default function SetariPage() {
-  const [saving, setSaving] = useState(false);
-  const [emailNotif, setEmailNotif] = useState(true);
-  const [whatsappNotif, setWhatsappNotif] = useState(false);
+async function updateProfile(formData: FormData) {
+  "use server";
+  const session = await auth();
+  if (!session?.user?.id) return;
 
-  function handleSave(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSaving(true);
-    setTimeout(() => setSaving(false), 1000);
-  }
+  const name = formData.get("name") as string;
+  const phone = formData.get("phone") as string;
+
+  await db.user.update({
+    where: { id: session.user.id },
+    data: { name: name || undefined, phone: phone || undefined },
+  });
+  revalidatePath("/garaj/setari");
+}
+
+async function exportData() {
+  "use server";
+  const session = await auth();
+  if (!session?.user?.id) return;
+
+  const user = await db.user.findUnique({
+    where: { id: session.user.id },
+    include: {
+      cars: true,
+      bookings: { include: { service: { select: { name: true } } } },
+    },
+  });
+
+  // Return as downloadable JSON - in real implementation this would create a file
+  // For now, it just revalidates. Full implementation needs a Route Handler for download.
+  revalidatePath("/garaj/setari");
+}
+
+async function deleteAccount() {
+  "use server";
+  const session = await auth();
+  if (!session?.user?.id) return;
+
+  // Soft delete: remove personal data but keep anonymized records
+  await db.user.update({
+    where: { id: session.user.id },
+    data: {
+      name: "Utilizator șters",
+      email: `deleted-${session.user.id}@deleted.local`,
+      phone: null,
+      password: null,
+    },
+  });
+
+  await signOut({ redirectTo: "/" });
+}
+
+export default async function SetariPage() {
+  const session = await auth();
+  if (!session?.user?.id) redirect("/autentificare");
+
+  const user = await db.user.findUnique({
+    where: { id: session.user.id },
+  });
+
+  if (!user) redirect("/autentificare");
 
   return (
     <div className="space-y-6">
@@ -28,12 +80,13 @@ export default function SetariPage() {
           <CardTitle className="text-white">Informații profil</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSave} className="space-y-4">
+          <form action={updateProfile} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-[#E2E4E9]">Nume complet</Label>
               <Input
                 id="name"
-                defaultValue="Andrei Popescu"
+                name="name"
+                defaultValue={user.name || ""}
                 required
                 className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
               />
@@ -43,27 +96,27 @@ export default function SetariPage() {
               <Input
                 id="email"
                 type="email"
-                defaultValue="andrei@exemplu.ro"
-                required
-                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                defaultValue={user.email}
+                disabled
+                className="border-white/10 bg-[#080808] text-white/50 placeholder:text-[#4A4B55]"
               />
+              <p className="text-xs text-[#4A4B55]">Email-ul nu poate fi modificat.</p>
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-[#E2E4E9]">Telefon</Label>
               <Input
                 id="phone"
+                name="phone"
                 type="tel"
-                defaultValue="0723 456 789"
-                required
+                defaultValue={user.phone || ""}
                 className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
               />
             </div>
             <Button
               type="submit"
               className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
-              disabled={saving}
             >
-              {saving ? "Se salvează..." : "Salvează modificările"}
+              Salvează modificările
             </Button>
           </form>
         </CardContent>
@@ -82,8 +135,7 @@ export default function SetariPage() {
             <label className="flex items-center gap-3 cursor-pointer">
               <input
                 type="checkbox"
-                checked={emailNotif}
-                onChange={(e) => setEmailNotif(e.target.checked)}
+                defaultChecked
                 className="h-4 w-4 rounded border-white/10 bg-[#080808] text-[#FF2D2D] focus:ring-[#FF2D2D]/50"
               />
               <div>
@@ -96,8 +148,6 @@ export default function SetariPage() {
             <label className="flex items-center gap-3 cursor-pointer">
               <input
                 type="checkbox"
-                checked={whatsappNotif}
-                onChange={(e) => setWhatsappNotif(e.target.checked)}
                 className="h-4 w-4 rounded border-white/10 bg-[#080808] text-[#FF2D2D] focus:ring-[#FF2D2D]/50"
               />
               <div>
@@ -121,11 +171,14 @@ export default function SetariPage() {
             <p className="text-sm text-[#8B8D97]">
               Descarcă toate datele asociate contului tău (mașini, programări, istoric).
             </p>
-            <Button
-              className="mt-2 bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
-            >
-              Descarcă datele mele
-            </Button>
+            <form action={exportData}>
+              <Button
+                type="submit"
+                className="mt-2 bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
+              >
+                Descarcă datele mele
+              </Button>
+            </form>
           </div>
 
           <Separator className="bg-white/[0.08]" />
@@ -134,20 +187,14 @@ export default function SetariPage() {
             <p className="text-sm text-red-400">
               Ștergerea contului este permanentă. Toate datele tale vor fi eliminate.
             </p>
-            <Button
-              className="mt-2 bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20"
-              onClick={() => {
-                if (
-                  window.confirm(
-                    "Ești sigur că dorești să ștergi contul? Această acțiune este ireversibilă."
-                  )
-                ) {
-                  // Mock delete - will connect to API
-                }
-              }}
-            >
-              Șterge contul
-            </Button>
+            <form action={deleteAccount}>
+              <Button
+                type="submit"
+                className="mt-2 bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20"
+              >
+                Șterge contul
+              </Button>
+            </form>
           </div>
         </CardContent>
       </Card>
