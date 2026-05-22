@@ -39,15 +39,15 @@ export function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-28 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-32 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center" aria-label="Albatros A Auto Service - Pagina principală">
           <Image
             src="/logo-albatros.png"
             alt="Albatros'A Auto Service"
-            width={360}
-            height={108}
-            className="h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(201,168,76,0.3)]"
+            width={440}
+            height={132}
+            className="h-28 w-auto object-contain drop-shadow-[0_0_15px_rgba(201,168,76,0.3)]"
             priority
           />
         </Link>
@@ -155,9 +155,9 @@ export function Navbar() {
               <Image
                 src="/logo-albatros.png"
                 alt="Albatros'A Auto Service"
-                width={260}
-                height={78}
-                className="h-20 w-auto object-contain drop-shadow-[0_0_15px_rgba(201,168,76,0.3)]"
+                width={300}
+                height={90}
+                className="h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(201,168,76,0.3)]"
               />
             </div>
             <nav className="mt-4 flex flex-col gap-1" aria-label="Meniu mobil">
