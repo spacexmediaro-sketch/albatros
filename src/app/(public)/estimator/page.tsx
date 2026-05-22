@@ -166,7 +166,7 @@ export default function EstimatorPage() {
             </span>
             Tehnologie AI
           </span>
-          <h1 className="mt-4 font-[family-name:var(--font-dm-serif)] text-4xl text-white sm:text-5xl">
+          <h1 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-4xl text-white sm:text-5xl">
             Estimator avarii auto cu{" "}
             <span className="bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] bg-clip-text text-transparent">
               AI
@@ -398,7 +398,7 @@ export default function EstimatorPage() {
 
               {/* Damages Detected */}
               <div>
-                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
+                <h2 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-2xl text-white">
                   Avarii detectate
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-3">
@@ -427,7 +427,7 @@ export default function EstimatorPage() {
 
               {/* Repair Operations */}
               <div>
-                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
+                <h2 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-2xl text-white">
                   Operații de reparație
                 </h2>
                 <div className="rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6">
@@ -444,7 +444,7 @@ export default function EstimatorPage() {
 
               {/* Cost Estimate */}
               <div>
-                <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
+                <h2 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-2xl text-white">
                   Estimare cost
                 </h2>
                 <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080808] p-1 animate-pulse-glow">
@@ -472,7 +472,7 @@ export default function EstimatorPage() {
               {/* Warnings */}
               {result.warnings.length > 0 && (
                 <div>
-                  <h2 className="mb-4 font-[family-name:var(--font-dm-serif)] text-2xl text-white">
+                  <h2 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-2xl text-white">
                     Avertizări
                   </h2>
                   <div className="rounded-xl border border-[#F59E0B]/20 bg-[#F59E0B]/5 p-5">

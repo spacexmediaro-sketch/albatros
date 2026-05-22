@@ -656,7 +656,7 @@ export default async function ServiceDetailPage({
           <Badge className="mb-4 border-[#C9A84C]/20 bg-[#C9A84C]/10 text-[#C9A84C] hover:bg-[#C9A84C]/20">
             {service.category}
           </Badge>
-          <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
+          <h1 className="font-[family-name:var(--font-space-grotesk)] text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
             {service.name}
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-[#E2E4E9]">
@@ -693,7 +693,7 @@ export default async function ServiceDetailPage({
       {/* Cazuri tipice */}
       <section className="bg-[#080808] px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-2xl text-white sm:text-3xl">
+          <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl text-white sm:text-3xl">
             Cazuri tipice
           </h2>
           <p className="mt-2 text-[#8B8D97]">
@@ -717,7 +717,7 @@ export default async function ServiceDetailPage({
       {/* FAQ */}
       <section className="bg-[#04040A] px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-2xl text-white sm:text-3xl">
+          <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl text-white sm:text-3xl">
             Întrebări frecvente
           </h2>
           <div className="mt-8 space-y-6">
@@ -738,7 +738,7 @@ export default async function ServiceDetailPage({
         {/* Gradient accent line at top */}
         <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/40 to-transparent" />
         <div className="mx-auto max-w-2xl">
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-2xl text-white sm:text-3xl">
+          <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl text-white sm:text-3xl">
             Ai nevoie de {service.name.toLowerCase()}?
           </h2>
           <p className="mt-4 text-[#8B8D97]">

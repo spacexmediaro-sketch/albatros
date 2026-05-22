@@ -259,7 +259,7 @@ export default function TrackerPage() {
       <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl text-white sm:text-4xl">
+          <h1 className="font-[family-name:var(--font-space-grotesk)] text-3xl text-white sm:text-4xl">
             Urmărire comandă service
           </h1>
           <p className="mt-3 text-[#8B8D97]">

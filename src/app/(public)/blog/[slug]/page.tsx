@@ -334,7 +334,7 @@ export default async function BlogArticlePage({
                 {article.readingTime} min citire
               </span>
             </div>
-            <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl leading-tight sm:text-4xl text-white">
+            <h1 className="font-[family-name:var(--font-space-grotesk)] text-3xl leading-tight sm:text-4xl text-white">
               {article.title}
             </h1>
             <p className="text-[#8B8D97]">

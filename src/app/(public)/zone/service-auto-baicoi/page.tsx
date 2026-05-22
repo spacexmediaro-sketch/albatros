@@ -82,7 +82,7 @@ export default function ServiceAutoBaicoiPage() {
           <span className="mb-6 inline-block rounded-full border border-[#22C55E]/20 bg-[#22C55E]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#22C55E]">
             La 15 minute de Băicoi
           </span>
-          <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-[family-name:var(--font-space-grotesk)] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             Service Auto{" "}
             <span className="bg-gradient-to-r from-[#22C55E] to-[#C9A84C] bg-clip-text text-transparent">Băicoi</span>
           </h1>
@@ -106,7 +106,7 @@ export default function ServiceAutoBaicoiPage() {
       <section className="bg-[#050505] px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
-            <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">Service-ul de lângă Băicoi</h2>
+            <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white sm:text-4xl">Service-ul de lângă Băicoi</h2>
             <p className="mx-auto mt-3 max-w-xl text-[#8B8D97]">
               Nu mai pierde timp ducând mașina la Ploiești sau București. Ai totul la 15 minute de casă.
             </p>
@@ -130,7 +130,7 @@ export default function ServiceAutoBaicoiPage() {
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
-            <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">Ce putem face pentru mașina ta</h2>
+            <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white sm:text-4xl">Ce putem face pentru mașina ta</h2>
             <p className="mx-auto mt-3 max-w-xl text-[#8B8D97]">Toate serviciile auto, într-un singur loc — fără drumuri suplimentare.</p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -150,7 +150,7 @@ export default function ServiceAutoBaicoiPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">Cum ajungi de la Băicoi</h2>
+              <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white sm:text-4xl">Cum ajungi de la Băicoi</h2>
               <div className="mt-6 space-y-4 text-[#E2E4E9]">
                 <div className="flex items-start gap-3">
                   <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
@@ -180,7 +180,7 @@ export default function ServiceAutoBaicoiPage() {
       <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#22C55E]/[0.03] to-transparent" />
         <div className="relative mx-auto max-w-3xl text-center">
-          <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">
+          <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white sm:text-4xl">
             Băicoianule, te așteptăm!
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[#8B8D97]">

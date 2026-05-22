@@ -17,7 +17,7 @@ export default function PoliticaCookiesPage() {
         {/* Gradient orbs */}
         <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#C9A84C]/[0.04] blur-[100px]" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl text-white">
+          <h1 className="font-[family-name:var(--font-space-grotesk)] text-4xl text-white">
             Politica de cookie-uri
           </h1>
           <p className="mt-2 text-sm text-[#4A4B55]">

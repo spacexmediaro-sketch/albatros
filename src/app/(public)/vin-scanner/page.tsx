@@ -213,7 +213,7 @@ export default function VinScannerPage() {
             </span>
             Scanare instantanee
           </span>
-          <h1 className="mt-4 font-[family-name:var(--font-dm-serif)] text-4xl text-white sm:text-5xl">
+          <h1 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-4xl text-white sm:text-5xl">
             Scanner{" "}
             <span className="bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] bg-clip-text text-transparent">
               VIN
@@ -314,7 +314,7 @@ export default function VinScannerPage() {
           {/* ── Decoded Result ── */}
           {result && (
             <div className="space-y-4">
-              <h2 className="font-[family-name:var(--font-dm-serif)] text-2xl text-white">
+              <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl text-white">
                 Rezultat decodare
               </h2>
 
@@ -357,7 +357,7 @@ export default function VinScannerPage() {
 
           {/* ── Ce este VIN-ul? ── */}
           <div className="rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 sm:p-8">
-            <h3 className="mb-4 font-[family-name:var(--font-dm-serif)] text-xl text-white">
+            <h3 className="mb-4 font-[family-name:var(--font-space-grotesk)] text-xl text-white">
               Ce este VIN-ul?
             </h3>
             <p className="text-sm leading-relaxed text-[#8B8D97]">
