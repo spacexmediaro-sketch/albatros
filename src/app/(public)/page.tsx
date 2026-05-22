@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { TextRotator } from "@/components/public/text-rotator";
+import { ScrollVideo } from "@/components/public/scroll-video";
 
 /* ------------------------------------------------------------------ */
 /*  DATA                                                               */
@@ -118,6 +119,11 @@ export default function HomePage() {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* SCROLL VIDEO                                              */}
+      {/* ────────────────────────────────────────────────────────── */}
+      <ScrollVideo />
 
       {/* ────────────────────────────────────────────────────────── */}
       {/* CENTRU DAUNE — Gold card, sales-focused                   */}
