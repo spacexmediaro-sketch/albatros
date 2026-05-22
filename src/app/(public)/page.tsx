@@ -20,9 +20,9 @@ const services = [
 ];
 
 const reviews = [
-  { name: "Andrei M.", text: "Au rezolvat problema la injectoare diesel în aceeași zi. Prețuri corecte.", car: "VW Passat B8" },
-  { name: "Maria P.", text: "Geometria 3D a fost impecabilă. Mașina merge drept ca pe șine.", car: "BMW Seria 3" },
-  { name: "Elena S.", text: "Tracker-ul live e genial, am urmărit tot procesul de pe telefon.", car: "Ford Focus MK4" },
+  { name: "Gabi Stan", text: "Foarte mulțumit." },
+  { name: "Razvan", text: "Un service foarte bun, cu eficiență și calitate ridicate." },
+  { name: "Eugen", text: "Un service unde profesionalismul și reparațiile sunt de nota 10.. recomand cu încredere." },
 ];
 
 const blogArticles = [
