@@ -38,42 +38,69 @@ const blogArticles = [
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const heroInView = useInView(heroRef, { once: true });
-  const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  /* mutable state kept in refs — no re-render cost per scroll event */
+  const progressRef = useRef(0);
+  const releasedRef = useRef(false);
 
-  /* RAF scroll-scrubbing — triggers only on scroll, not in a tight loop */
   useEffect(() => {
-    let rafId: number;
-    let ticking = false;
+    const video = videoRef.current;
+    if (!video) return;
 
-    const update = () => {
-      const el = containerRef.current;
-      const video = videoRef.current;
-      if (el && video && video.duration) {
-        const scrollable = el.offsetHeight - window.innerHeight;
-        const progress = Math.max(0, Math.min(1, -el.getBoundingClientRect().top / scrollable));
-        video.currentTime = progress * video.duration;
+    /* Lock scroll while video plays */
+    document.body.style.overflow = "hidden";
+
+    /* ~2200px of wheel delta = full video */
+    const SENSITIVITY = 0.00045;
+    let lastTouchY = 0;
+
+    const applyDelta = (pixels: number) => {
+      const next = Math.max(0, Math.min(1, progressRef.current + pixels * SENSITIVITY));
+      progressRef.current = next;
+      if (video.duration) video.currentTime = next * video.duration;
+      if (progressBarRef.current) progressBarRef.current.style.width = `${next * 100}%`;
+      if (next >= 0.999) {
+        releasedRef.current = true;
+        cleanup();
       }
-      ticking = false;
     };
 
-    const onScroll = () => {
-      if (!ticking) {
-        rafId = requestAnimationFrame(update);
-        ticking = true;
-      }
+    const onWheel = (e: WheelEvent) => {
+      if (releasedRef.current) return;
+      e.preventDefault();
+      const px =
+        e.deltaMode === 1 ? e.deltaY * 16 :
+        e.deltaMode === 2 ? e.deltaY * window.innerHeight :
+        e.deltaY;
+      applyDelta(px);
     };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafId);
+    const onTouchStart = (e: TouchEvent) => { lastTouchY = e.touches[0].clientY; };
+    const onTouchMove = (e: TouchEvent) => {
+      if (releasedRef.current) return;
+      e.preventDefault();
+      const delta = lastTouchY - e.touches[0].clientY;
+      lastTouchY = e.touches[0].clientY;
+      applyDelta(delta);
     };
+
+    const cleanup = () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+    };
+
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    return cleanup;
   }, []);
 
   const [showPill, setShowPill] = useState(false);
   useEffect(() => {
-    const onScroll = () => setShowPill(window.scrollY > window.innerHeight * 2);
+    const onScroll = () => setShowPill(window.scrollY > window.innerHeight * 0.5);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -84,9 +111,7 @@ export default function HomePage() {
       {/* HERO — scroll-driven video background                    */}
       {/* ────────────────────────────────────────────────────────── */}
 
-      {/* Tall container gives scroll distance for video scrubbing */}
-      <div ref={containerRef} className="relative h-[400vh]">
-        <section className="sticky top-0 h-screen flex flex-col justify-end overflow-hidden bg-[#09090b]">
+      <section className="relative h-screen flex flex-col justify-end overflow-hidden bg-[#09090b]">
 
           {/* Video — full bleed background, scrubbed by scroll */}
           <video
@@ -180,8 +205,12 @@ export default function HomePage() {
             />
           </motion.div>
 
+          {/* Progress bar — bottom of hero, driven by wheel scroll */}
+          <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/[0.04] z-20 pointer-events-none">
+            <div ref={progressBarRef} className="h-full bg-[#C9A84C]/60 transition-none" style={{ width: "0%" }} />
+          </div>
+
         </section>
-      </div>
 
       {/* ────────────────────────────────────────────────────────── */}
       {/* CENTRU DAUNE — Gold card, sales-focused                   */}
@@ -360,7 +389,7 @@ export default function HomePage() {
                     <div>
                       <p className="text-sm text-white/40 leading-relaxed">&ldquo;{r.text}&rdquo;</p>
                       <p className="mt-1.5 text-xs text-white/15">
-                        {r.name} &middot; {r.car}
+                        {r.name}
                       </p>
                     </div>
                   </div>
