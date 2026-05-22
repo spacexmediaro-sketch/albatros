@@ -69,28 +69,30 @@ export default function HomePage() {
         progressBarRef.current.style.width = `${next * 100}%`;
       }
 
-      if (next >= 0.999 && !releasedRef.current) {
-        releasedRef.current = true;
-        cleanup();
-        return;
-      }
-
       rafId = requestAnimationFrame(tick);
     };
 
     rafId = requestAnimationFrame(tick);
 
     const applyDelta = (pixels: number) => {
-      targetProgressRef.current = Math.max(0, Math.min(1, targetProgressRef.current + pixels * SENSITIVITY));
+      const next = Math.max(0, Math.min(1, targetProgressRef.current + pixels * SENSITIVITY));
+      targetProgressRef.current = next;
+      return next;
     };
 
     const onWheel = (e: WheelEvent) => {
       if (releasedRef.current) return;
-      e.preventDefault();
       const px =
         e.deltaMode === 1 ? e.deltaY * 16 :
         e.deltaMode === 2 ? e.deltaY * window.innerHeight :
         e.deltaY;
+      /* Release scroll lock only when video is at end AND user keeps scrolling down */
+      if (targetProgressRef.current >= 1 && px > 0) {
+        releasedRef.current = true;
+        cleanup();
+        return;
+      }
+      e.preventDefault();
       applyDelta(px);
     };
 
