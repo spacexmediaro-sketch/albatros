@@ -58,14 +58,14 @@ export function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-[#8B8D97] transition-colors duration-300 hover:text-white"
+              className="rounded-lg px-3 py-2 text-sm font-medium text-white transition-colors duration-300 hover:text-white"
             >
               {link.label}
             </Link>
           ))}
           <Link
             href="/garaj"
-            className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-[#8B8D97] transition-colors duration-300 hover:text-white"
+            className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-white transition-colors duration-300 hover:text-white"
             aria-label="Garajul meu"
           >
             <svg
@@ -166,7 +166,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-2.5 text-base font-medium text-[#8B8D97] transition-colors duration-200 hover:bg-white/[0.05] hover:text-white"
+                  className="rounded-xl px-3 py-2.5 text-base font-medium text-white transition-colors duration-200 hover:bg-white/[0.05] hover:text-white"
                 >
                   {link.label}
                 </Link>
@@ -174,7 +174,7 @@ export function Navbar() {
               <Link
                 href="/garaj"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-base font-medium text-[#8B8D97] transition-colors duration-200 hover:bg-white/[0.05] hover:text-white"
+                className="flex items-center gap-2 rounded-xl px-3 py-2.5 text-base font-medium text-white transition-colors duration-200 hover:bg-white/[0.05] hover:text-white"
                 aria-label="Garajul meu"
               >
                 <svg
