@@ -46,11 +46,11 @@ export function Footer() {
           <div className="space-y-6">
             <div>
               <Image
-                src="/logo-albatros.jpg"
+                src="/logo-albatros.png"
                 alt="Albatros'A Auto Service"
-                width={240}
-                height={72}
-                className="h-20 w-auto object-contain drop-shadow-[0_0_12px_rgba(201,168,76,0.3)]"
+                width={300}
+                height={90}
+                className="h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(201,168,76,0.3)]"
               />
             </div>
 
