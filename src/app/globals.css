@@ -442,6 +442,17 @@ section {
   background-clip: text;
 }
 
+/* ═══ TYPEWRITER CURSOR BLINK ═══ */
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
 /* ═══ PREFERS-REDUCED-MOTION ═══ */
 
 @media (prefers-reduced-motion: reduce) {
@@ -456,7 +467,8 @@ section {
   .dot-pulse,
   .glow-pulse,
   .animate-marquee,
-  .animate-shimmer {
+  .animate-shimmer,
+  .animate-cursor-blink {
     animation: none;
   }
 

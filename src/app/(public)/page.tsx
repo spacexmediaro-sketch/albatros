@@ -105,7 +105,8 @@ const trustItems = [
   "Piese originale",
   "Diagnoză gratuită",
   "Tracking live",
-  "Estimator AI",
+  "Centru Daune RCA",
+  "Mașină la schimb GRATUIT",
 ];
 
 /* ------------------------------------------------------------------ */
@@ -181,13 +182,13 @@ export default function HomePage() {
                 Programează acum
               </Button>
             </Link>
-            <Link href="/estimator">
+            <Link href="#centru-daune">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white/15 px-8 py-6 text-base text-white hover:bg-white/5 hover:border-white/25 transition-colors"
               >
-                Estimare daune AI
+                Centru de Daune
               </Button>
             </Link>
           </motion.div>
@@ -336,110 +337,139 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════ */}
-      {/* CENTRU DE DAUNE AI — Clean split layout                       */}
+      {/* CENTRU DAUNE & REPARAȚII AUTO                                  */}
       {/* ═══════════════════════════════════════════════════════════════ */}
-      <section className="bg-[#0a0a0a] px-6 py-24 lg:px-8">
-        <div className="mx-auto max-w-7xl">
+      <section id="centru-daune" className="relative bg-[#0a0a0a] px-6 py-28 lg:px-8 overflow-hidden scroll-mt-24">
+        {/* Subtle accent */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgba(201,168,76,0.06),transparent)]" />
+
+        <div className="relative mx-auto max-w-7xl">
           <div className="grid items-center gap-16 lg:grid-cols-2">
-            {/* Left */}
+            {/* Left — Main message */}
             <FadeIn>
               <div>
                 <p className="font-[family-name:var(--font-space-grotesk)] text-xs font-medium uppercase tracking-[0.3em] text-[#C9A84C]">
-                  Nou &mdash; Tehnologie AI
+                  Centru Daune &amp; Reparații Auto
                 </p>
-                <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                  Centru de Daune
+
+                <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  Ai avut un
                   <br />
-                  Inteligent
+                  <span className="text-[#C9A84C]">accident?</span>
                 </h2>
 
-                <p className="mt-6 text-lg leading-relaxed text-white/50">
-                  Încarcă fotografii cu avariile mașinii tale și primești o
-                  estimare instantanee a costurilor. Inteligența artificială
-                  identifică daunele și intervalul de preț — totul în mai puțin
-                  de 60 de secunde.
+                <p className="mt-6 text-xl font-medium text-white/70">
+                  Noi ne ocupăm de tot.
                 </p>
 
-                <ul className="mt-8 space-y-3">
+                <ul className="mt-8 space-y-4">
                   {[
-                    "Analiză AI din fotografii în sub 60 secunde",
-                    "Identificare automată zone avariate",
-                    "Estimare cost manoperă + piese",
-                    "Programare inspecție gratuită din rezultat",
+                    "Deschidere și administrare completă dosar RCA",
+                    "Constatare și reparație la standard corect",
+                    "Comunicare transparentă pe toată durata lucrării",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-white/50">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A84C]" />
-                      <span className="text-sm">{item}</span>
+                    <li key={i} className="flex items-start gap-3">
+                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#C9A84C]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-white/60">{item}</span>
                     </li>
                   ))}
+                  <li className="flex items-start gap-3">
+                    <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#C9A84C]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-white/60">
+                      Mașină la schimb{" "}
+                      <span className="font-semibold text-[#C9A84C]">GRATUIT</span>{" "}
+                      pe perioada reparației
+                    </span>
+                  </li>
                 </ul>
 
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <Link href="/estimator">
+                <div className="mt-10 rounded-xl border border-white/[0.08] bg-white/[0.03] p-6">
+                  <p className="text-lg font-medium text-white">
+                    Tu aduci mașina.
+                  </p>
+                  <p className="text-lg text-white/50">
+                    Noi rezolvăm restul.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link href="/programare">
                     <Button
                       size="lg"
-                      className="bg-[#C9A84C] px-8 text-black font-semibold hover:bg-[#d4b155] transition-colors"
+                      className="bg-[#C9A84C] px-8 py-6 text-base font-semibold text-black hover:bg-[#d4b155] transition-colors"
                     >
-                      Estimează Gratuit
+                      Programează constatare
                     </Button>
                   </Link>
+                  <a href="tel:+40723177032">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-white/15 px-8 py-6 text-base text-white hover:bg-white/5 hover:border-white/25 transition-colors"
+                    >
+                      Sună acum — 0723 177 032
+                    </Button>
+                  </a>
                 </div>
               </div>
             </FadeIn>
 
-            {/* Right — Clean mockup */}
+            {/* Right — AI Estimator + mockup */}
             <FadeIn delay={0.2}>
-              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-                {/* Browser chrome */}
-                <div className="mb-5 flex items-center gap-2">
-                  <div className="h-2.5 w-2.5 rounded-full bg-white/10" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-white/10" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-white/10" />
-                  <div className="ml-3 h-6 flex-1 rounded-md bg-white/[0.04] px-3 flex items-center">
-                    <span className="text-xs text-white/20">albatrosa.ro/estimator</span>
-                  </div>
+              <div className="space-y-6">
+                {/* AI Estimator card */}
+                <div className="rounded-xl border border-[#C9A84C]/20 bg-[#C9A84C]/[0.04] p-6">
+                  <p className="font-[family-name:var(--font-space-grotesk)] text-xs font-medium uppercase tracking-[0.2em] text-[#C9A84C]">
+                    Estimator AI Daune
+                  </p>
+                  <p className="mt-2 text-sm text-white/50">
+                    Încarcă fotografii cu avariile și primești estimare de cost
+                    instant — gratuit, fără obligații.
+                  </p>
+                  <Link href="/estimator" className="mt-4 inline-block">
+                    <Button className="bg-[#C9A84C] text-black font-semibold hover:bg-[#d4b155] transition-colors">
+                      Estimează gratuit online
+                    </Button>
+                  </Link>
                 </div>
 
-                <div className="space-y-4">
-                  {/* Image upload area */}
-                  <div className="flex gap-3">
-                    <div className="h-16 w-16 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
-                      <svg className="h-6 w-6 text-white/15" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91M18 8.25h.008v.008H18V8.25z" />
-                      </svg>
-                    </div>
-                    <div className="h-16 w-16 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center">
-                      <svg className="h-6 w-6 text-white/15" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.41a2.25 2.25 0 013.182 0l2.909 2.91M18 8.25h.008v.008H18V8.25z" />
-                      </svg>
-                    </div>
-                    <div className="h-16 w-16 rounded-lg border border-dashed border-white/10 flex items-center justify-center text-white/15">
-                      +
+                {/* Mockup — damage assessment */}
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+                  <div className="mb-4 flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-white/10" />
+                    <div className="h-2 w-2 rounded-full bg-white/10" />
+                    <div className="h-2 w-2 rounded-full bg-white/10" />
+                    <div className="ml-2 h-5 flex-1 rounded bg-white/[0.04] px-2 flex items-center">
+                      <span className="text-[10px] text-white/15">albatrosa.ro/estimator</span>
                     </div>
                   </div>
 
-                  {/* Damage list */}
-                  <div className="rounded-lg bg-white/[0.02] border border-white/[0.06] p-4 space-y-3">
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-white/40">Bară față</span>
-                      <span className="rounded-md bg-[#F59E0B]/10 px-2 py-0.5 text-xs text-[#F59E0B]">Medie</span>
+                  <div className="space-y-3">
+                    <div className="rounded-lg bg-white/[0.02] border border-white/[0.06] p-3 space-y-2.5">
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-white/40">Bară față</span>
+                        <span className="rounded bg-[#F59E0B]/10 px-2 py-0.5 text-[11px] text-[#F59E0B]">Medie</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-white/40">Aripă stânga</span>
+                        <span className="rounded bg-[#F59E0B]/10 px-2 py-0.5 text-[11px] text-[#F59E0B]">Ușoară</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-white/40">Far stânga</span>
+                        <span className="rounded bg-[#C9A84C]/10 px-2 py-0.5 text-[11px] text-[#C9A84C]">Severă</span>
+                      </div>
                     </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-white/40">Aripă stânga</span>
-                      <span className="rounded-md bg-[#F59E0B]/10 px-2 py-0.5 text-xs text-[#F59E0B]">Ușoară</span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-white/40">Far stânga</span>
-                      <span className="rounded-md bg-[#C9A84C]/10 px-2 py-0.5 text-xs text-[#C9A84C]">Severă</span>
-                    </div>
-                  </div>
 
-                  {/* Cost estimate */}
-                  <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-4 text-center">
-                    <p className="text-[10px] uppercase tracking-widest text-white/25">Estimare cost</p>
-                    <p className="mt-1 font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-white">
-                      2.800 — 4.200 LEI
-                    </p>
+                    <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-3 text-center">
+                      <p className="text-[10px] uppercase tracking-widest text-white/20">Estimare cost</p>
+                      <p className="mt-0.5 font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-white">
+                        2.800 — 4.200 LEI
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

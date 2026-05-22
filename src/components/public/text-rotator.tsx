@@ -1,34 +1,70 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useCallback } from "react";
 
-const words = ["profesionist", "de încredere", "multimarcă", "complet"];
+const phrases = [
+  "profesionist",
+  "de încredere",
+  "multimarcă",
+  "centru de daune",
+  "complet",
+];
+
+const TYPING_SPEED = 70;
+const ERASING_SPEED = 40;
+const PAUSE_AFTER_TYPING = 2200;
+const PAUSE_AFTER_ERASING = 400;
 
 export function TextRotator() {
-  const [index, setIndex] = useState(0);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isErasing, setIsErasing] = useState(false);
+
+  const currentPhrase = phrases[phraseIndex];
+
+  const tick = useCallback(() => {
+    if (!isErasing) {
+      // Typing
+      if (charIndex < currentPhrase.length) {
+        setCharIndex((prev) => prev + 1);
+        return TYPING_SPEED;
+      }
+      // Done typing — pause then start erasing
+      setIsErasing(true);
+      return PAUSE_AFTER_TYPING;
+    }
+    // Erasing
+    if (charIndex > 0) {
+      setCharIndex((prev) => prev - 1);
+      return ERASING_SPEED;
+    }
+    // Done erasing — move to next phrase
+    setIsErasing(false);
+    setPhraseIndex((prev) => (prev + 1) % phrases.length);
+    return PAUSE_AFTER_ERASING;
+  }, [charIndex, isErasing, currentPhrase]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    const timeout = setTimeout(() => {
+      const nextDelay = tick();
+      // delay is handled by the next setTimeout
+      void nextDelay;
+    }, isErasing
+      ? (charIndex > 0 ? ERASING_SPEED : PAUSE_AFTER_ERASING)
+      : (charIndex < currentPhrase.length ? TYPING_SPEED : PAUSE_AFTER_TYPING)
+    );
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isErasing, tick, currentPhrase]);
+
+  const displayText = currentPhrase.slice(0, charIndex);
 
   return (
-    <span className="inline-flex h-[1.2em] items-center overflow-hidden align-bottom">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={words[index]}
-          initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="inline-block text-[#C9A84C]"
-        >
-          {words[index]}
-        </motion.span>
-      </AnimatePresence>
+    <span className="inline-flex items-baseline">
+      <span className="text-[#C9A84C]">
+        {displayText}
+      </span>
+      <span className="ml-[2px] inline-block h-[0.85em] w-[3px] bg-[#C9A84C] animate-cursor-blink align-baseline" />
     </span>
   );
 }
