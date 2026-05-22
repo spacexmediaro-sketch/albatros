@@ -11,7 +11,7 @@ const navLinks = [
   { href: "/", label: "Acasă" },
   { href: "/servicii", label: "Servicii" },
   { href: "/programare", label: "Programare" },
-  { href: "/estimator", label: "Estimator AI" },
+
   { href: "/blog", label: "Blog" },
   { href: "/despre", label: "Despre" },
   { href: "/contact", label: "Contact" },

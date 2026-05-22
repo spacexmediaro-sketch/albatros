@@ -16,7 +16,7 @@ const servicii = [
 const navigatie = [
   { name: "Acasă", href: "/" },
   { name: "Programare", href: "/programare" },
-  { name: "Estimator AI", href: "/estimator" },
+
   { name: "Blog", href: "/blog" },
   { name: "Despre", href: "/despre" },
   { name: "Contact", href: "/contact" },
