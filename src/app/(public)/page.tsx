@@ -93,20 +93,22 @@ export default function HomePage() {
   /* Step 2 — wire up RAF scrubbing after blob is ready */
   function startScrubbing(video: HTMLVideoElement) {
     const SENSITIVITY = 0.00045;
-    const LERP = 0.15;
     let lastTouchY = 0;
     let rafId: number;
 
     const tick = () => {
-      const next = currentProgressRef.current + (targetProgressRef.current - currentProgressRef.current) * LERP;
+      const cur = currentProgressRef.current;
+      const tgt = targetProgressRef.current;
+      const diff = tgt - cur;
+      /* Adaptive lerp: snappier when far away, silkier when close */
+      const lerp = Math.min(0.28, 0.1 + Math.abs(diff) * 2.5);
+      const next = cur + diff * lerp;
       currentProgressRef.current = next;
 
       if (video.duration) {
-        const targetTime = next * video.duration;
-        // Skip redundant seeks: only update if diff > 1 frame (1/60 s) to avoid
-        // flooding the decoder queue when the user isn't scrolling
-        if (Math.abs(targetTime - video.currentTime) > 1 / 60) {
-          video.currentTime = targetTime;
+        const t = next * video.duration;
+        if (Math.abs(t - video.currentTime) > 1 / 60) {
+          video.currentTime = t;
         }
       }
       if (progressBarRef.current) progressBarRef.current.style.width = `${next * 100}%`;
