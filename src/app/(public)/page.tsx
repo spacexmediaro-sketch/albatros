@@ -67,8 +67,17 @@ export default function HomePage() {
       blobUrl = URL.createObjectURL(xhr.response as Blob);
       video.src = blobUrl;
       video.load();
+      video.pause();
       if (loadBarRef.current) loadBarRef.current.style.display = "none";
-      startScrubbing(video);
+
+      const onReady = () => {
+        video.removeEventListener("canplaythrough", onReady);
+        video.removeEventListener("loadeddata", onReady);
+        startScrubbing(video);
+      };
+      video.addEventListener("canplaythrough", onReady);
+      // fallback: loadeddata fires earlier and is enough for precise seeks on a blob
+      video.addEventListener("loadeddata", onReady);
     };
 
     xhr.send();
@@ -92,7 +101,14 @@ export default function HomePage() {
       const next = currentProgressRef.current + (targetProgressRef.current - currentProgressRef.current) * LERP;
       currentProgressRef.current = next;
 
-      if (video.duration) video.currentTime = next * video.duration;
+      if (video.duration) {
+        const targetTime = next * video.duration;
+        // Skip redundant seeks: only update if diff > 1 frame (1/60 s) to avoid
+        // flooding the decoder queue when the user isn't scrolling
+        if (Math.abs(targetTime - video.currentTime) > 1 / 60) {
+          video.currentTime = targetTime;
+        }
+      }
       if (progressBarRef.current) progressBarRef.current.style.width = `${next * 100}%`;
 
       rafId = requestAnimationFrame(tick);
