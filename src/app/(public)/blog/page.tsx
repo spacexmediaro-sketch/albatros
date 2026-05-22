@@ -31,8 +31,8 @@ const articles = [
     category: "Diagnostic",
     date: "2024-11-28",
     readingTime: 4,
-    accent: "from-[#3B82F6] to-[#3B82F6]/40",
-    badgeColor: "bg-[#3B82F6]/10 text-[#3B82F6] border-[#3B82F6]/20",
+    accent: "from-[#C9A84C] to-[#C9A84C]/40",
+    badgeColor: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/20",
   },
   {
     slug: "pregatire-masina-iarna",
@@ -42,7 +42,7 @@ const articles = [
     category: "Sezonier",
     date: "2024-10-20",
     readingTime: 6,
-    accent: "from-[#C9A84C] to-[#3B82F6]",
+    accent: "from-[#C9A84C] to-[#C9A84C]",
     badgeColor: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/20",
   },
 ];
@@ -64,7 +64,7 @@ export default function BlogPage() {
 
         {/* Gradient orbs */}
         <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.07] blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#3B82F6]/[0.07] blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.07] blur-[120px]" />
         <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#C9A84C]/[0.04] blur-[100px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -82,7 +82,7 @@ export default function BlogPage() {
 
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Blog{" "}
-              <span className="bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] bg-clip-text text-transparent">
                 Auto
               </span>
             </h1>
@@ -98,7 +98,7 @@ export default function BlogPage() {
       {/* ── Articles Grid ── */}
       <section className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         {/* Subtle background orb behind cards */}
-        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-[#3B82F6]/[0.03] blur-[100px]" />
+        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-[#C9A84C]/[0.03] blur-[100px]" />
 
         <div className="relative grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, index) => (

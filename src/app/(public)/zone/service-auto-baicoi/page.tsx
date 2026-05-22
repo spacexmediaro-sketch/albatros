@@ -10,23 +10,23 @@ export const metadata = generatePageMetadata({
 });
 
 const services = [
-  { name: "Diagnoză computerizată", desc: "Detectare rapidă a defecțiunilor cu scanner profesional multimarcă.", icon: Gauge, color: "#3B82F6" },
+  { name: "Diagnoză computerizată", desc: "Detectare rapidă a defecțiunilor cu scanner profesional multimarcă.", icon: Gauge, color: "#C9A84C" },
   { name: "Reparații motoare diesel", desc: "Expertiză pe motoare diesel — de la revizie la reparații capitale.", icon: Cog, color: "#C9A84C" },
   { name: "Reparații injectoare", desc: "Testare pe bancă dedicată și recalibrare la parametri de fabrică.", icon: Zap, color: "#C9A84C" },
   { name: "Rectificări chiulase", desc: "Planare și recondiționare chiulase cu toleranțe stricte.", icon: Wrench, color: "#C9A84C" },
   { name: "Tinichigerie auto", desc: "Reparații tablă, suduri, redresări structurale profesionale.", icon: Shield, color: "#F59E0B" },
   { name: "Vopsitorie auto", desc: "Vopsire în cabină controlată — finisaj de showroom.", icon: Paintbrush, color: "#F59E0B" },
   { name: "Geometrie roți 3D", desc: "Reglaj precis pe stand 3D — protejezi anvelopele și siguranța.", icon: CircuitBoard, color: "#22C55E" },
-  { name: "Electrică auto", desc: "Diagnoză electrică, reparații alternator și electromotor.", icon: CircuitBoard, color: "#8B5CF6" },
+  { name: "Electrică auto", desc: "Diagnoză electrică, reparații alternator și electromotor.", icon: CircuitBoard, color: "#A8A9AD" },
   { name: "Mecanică generală", desc: "Schimb distribuție, plăcuțe frână, amortizoare, suspensie.", icon: Wrench, color: "#6B7280" },
   { name: "Aer condiționat auto", desc: "Reîncărcare freon R134a/R1234yf, test etanșeitate.", icon: Droplets, color: "#06B6D4" },
 ];
 
 const advantages = [
   { title: "Vecini de încredere", desc: "Blejoi și Băicoi sunt la doar 10 km distanță. Suntem service-ul de cartier pentru comunitatea ta.", color: "#C9A84C", icon: Users },
-  { title: "Diagnostic rapid", desc: "Vii dimineața, primești diagnosticul în aceeași zi. Fără așteptări de zile sau săptămâni.", color: "#3B82F6", icon: Gauge },
+  { title: "Diagnostic rapid", desc: "Vii dimineața, primești diagnosticul în aceeași zi. Fără așteptări de zile sau săptămâni.", color: "#C9A84C", icon: Gauge },
   { title: "Calitate dovedită", desc: "Peste 19 ani de activitate și sute de clienți fideli din zona Băicoi-Blejoi-Ploiești.", color: "#22C55E", icon: Star },
-  { title: "Servicii complete", desc: "Nu trebuie să mergi la Ploiești pentru caroserie sau la București pentru injectoare. Le avem pe toate.", color: "#8B5CF6", icon: Wrench },
+  { title: "Servicii complete", desc: "Nu trebuie să mergi la Ploiești pentru caroserie sau la București pentru injectoare. Le avem pe toate.", color: "#A8A9AD", icon: Wrench },
 ];
 
 export default function ServiceAutoBaicoiPage() {
@@ -84,7 +84,7 @@ export default function ServiceAutoBaicoiPage() {
           </span>
           <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             Service Auto{" "}
-            <span className="bg-gradient-to-r from-[#22C55E] to-[#3B82F6] bg-clip-text text-transparent">Băicoi</span>
+            <span className="bg-gradient-to-r from-[#22C55E] to-[#C9A84C] bg-clip-text text-transparent">Băicoi</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[#8B8D97]">
             Băicoi și Blejoi sunt localități vecine, separate de doar 10 km de drum național.
@@ -157,7 +157,7 @@ export default function ServiceAutoBaicoiPage() {
                   <p>Din centrul Băicoiului, ieși pe DJ101F spre Blejoi. La intersecția cu DN1B (Șoseaua Ploiești-Văleni), faci dreapta. Service-ul Albatros este la 1 km, pe partea stângă.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#3B82F6]" />
+                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
                   <p>Distanță: doar ~10 km. Timp estimat: 12-15 minute. Drum ușor, fără trafic intens.</p>
                 </div>
                 <div className="flex items-start gap-3">

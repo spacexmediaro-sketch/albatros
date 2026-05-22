@@ -10,23 +10,23 @@ export const metadata = generatePageMetadata({
 });
 
 const services = [
-  { name: "Diagnoză computerizată", desc: "Citire erori, resetare martori — toate mărcile auto.", icon: Gauge, color: "#3B82F6" },
+  { name: "Diagnoză computerizată", desc: "Citire erori, resetare martori — toate mărcile auto.", icon: Gauge, color: "#C9A84C" },
   { name: "Reparații motoare diesel", desc: "Specialiști în motoare diesel cu peste 19 ani experiență.", icon: Cog, color: "#C9A84C" },
   { name: "Reparații injectoare", desc: "Testare și recalibrare injectoare common-rail.", icon: Zap, color: "#C9A84C" },
   { name: "Rectificări chiulase", desc: "Rectificare profesională cu echipament specializat.", icon: Wrench, color: "#C9A84C" },
   { name: "Tinichigerie auto", desc: "Îndreptare tablă, sudură, reparații structurale.", icon: Shield, color: "#F59E0B" },
   { name: "Vopsitorie auto", desc: "Vopsire profesională în cabină dedicată.", icon: Paintbrush, color: "#F59E0B" },
   { name: "Geometrie roți 3D", desc: "Aliniere precisă pentru uzură uniformă anvelope.", icon: CircuitBoard, color: "#22C55E" },
-  { name: "Electrică auto", desc: "Diagnoză și reparații instalație electrică completă.", icon: CircuitBoard, color: "#8B5CF6" },
+  { name: "Electrică auto", desc: "Diagnoză și reparații instalație electrică completă.", icon: CircuitBoard, color: "#A8A9AD" },
   { name: "Mecanică generală", desc: "Frâne, ambreiaj, distribuție, suspensie.", icon: Wrench, color: "#6B7280" },
   { name: "Aer condiționat auto", desc: "Verificare, încărcare freon, dezinfecție AC.", icon: Droplets, color: "#06B6D4" },
 ];
 
 const advantages = [
   { title: "5 minute de Ploiești", desc: "Cel mai apropiat service profesional de centrul orașului. Fără aglomerație, fără căutare de parcare.", color: "#C9A84C" },
-  { title: "Membru Q-SERVICE", desc: "Parte din rețeaua Q-SERVICE Romania — standarde europene de calitate și echipamente certificate.", color: "#3B82F6" },
+  { title: "Membru Q-SERVICE", desc: "Parte din rețeaua Q-SERVICE Romania — standarde europene de calitate și echipamente certificate.", color: "#C9A84C" },
   { title: "Garanție la lucrări", desc: "Toate lucrările vin cu garanție scrisă. Folosim piese originale și aftermarket premium.", color: "#22C55E" },
-  { title: "Programare rapidă", desc: "Programare telefonică sau online. Fără cozi — te așteptăm la ora stabilită.", color: "#8B5CF6" },
+  { title: "Programare rapidă", desc: "Programare telefonică sau online. Fără cozi — te așteptăm la ora stabilită.", color: "#A8A9AD" },
 ];
 
 export default function ServiceAutoPloiestiPage() {
@@ -76,7 +76,7 @@ export default function ServiceAutoPloiestiPage() {
       <section className="relative overflow-hidden px-4 pt-16 pb-24 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.06] blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.05] blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#C9A84C]/[0.05] blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
           <span className="mb-6 inline-block rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#C9A84C]">
@@ -156,7 +156,7 @@ export default function ServiceAutoPloiestiPage() {
                   <p>La doar 5 minute de centrul Ploieștiului, pe DN1B (Centura de Nord). Din Piața Victoriei, mergi pe Șoseaua Nordului spre Văleni — ne găsești pe partea dreaptă, în Blejoi.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#3B82F6]" />
+                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
                   <p>Distanță: ~4 km de la centrul Ploieștiului. Acces facil din orice cartier — Vest, Nord, Sud sau Malu Roșu.</p>
                 </div>
                 <div className="flex items-start gap-3">

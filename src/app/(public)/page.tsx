@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollReveal } from "@/components/public/scroll-reveal";
 import { HeroParticles } from "@/components/public/hero-particles";
+import { TextRotator } from "@/components/public/text-rotator";
 
 /* ------------------------------------------------------------------ */
 /*  DATA                                                               */
@@ -35,7 +36,7 @@ const services = [
     name: "Reparații diesel",
     slug: "reparatii-motoare-diesel",
     desc: "Specialiști motoare diesel și injectoare. Diagnoză și reparații la standarde Q-SERVICE.",
-    color: "#3B82F6",
+    color: "#C9A84C",
     label: "SPECIALITATE",
   },
   {
@@ -47,7 +48,7 @@ const services = [
     name: "Tinichigerie",
     slug: "tinichigerie-auto",
     desc: "Reparații caroserie și îndreptare tablă. Rezultate impecabile cu tehnologie modernă.",
-    color: "#8B5CF6",
+    color: "#A8A9AD",
     label: "PREMIUM",
   },
   {
@@ -71,7 +72,7 @@ const services = [
     name: "Geometrie roți",
     slug: "geometrie-roti",
     desc: "Aliniere precisă cu echipament 3D. Siguranță și uzură uniformă a anvelopelor.",
-    color: "#3B82F6",
+    color: "#C9A84C",
     label: "3D LASER",
   },
   {
@@ -83,7 +84,7 @@ const services = [
     name: "Aer condiționat",
     slug: "incarcari-aer-conditionat",
     desc: "Încărcare și verificare sistem AC. Freon R134a și R1234yf disponibil.",
-    color: "#8B5CF6",
+    color: "#A8A9AD",
     label: "AC AUTO",
   },
 ];
@@ -104,7 +105,7 @@ const steps = [
     step: "02",
     title: "Diagnoză gratuită",
     desc: "Evaluăm mașina și stabilim problema exactă cu echipament profesional.",
-    color: "#3B82F6",
+    color: "#C9A84C",
     icon: (
       <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
@@ -115,7 +116,7 @@ const steps = [
     step: "03",
     title: "Aprobi devizul",
     desc: "Primești estimarea înainte de orice reparație. Fără surprize.",
-    color: "#8B5CF6",
+    color: "#A8A9AD",
     icon: (
       <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -175,14 +176,14 @@ const blogArticles = [
     title: "5 semne ca turbina ta are probleme",
     excerpt: "Invata sa recunosti din timp simptomele unei turbine defecte si evita reparatiile costisitoare.",
     category: "Diagnostic",
-    color: "#3B82F6",
+    color: "#C9A84C",
   },
   {
     slug: "pregatire-masina-iarna",
     title: "Cum să-ți pregătești mașina pentru iarnă",
     excerpt: "Lista completă de verificări și întreținere pentru sezonul rece: anvelope, baterie, antigel, vizibilitate.",
     category: "Sezonier",
-    color: "#8B5CF6",
+    color: "#A8A9AD",
   },
 ];
 
@@ -258,8 +259,8 @@ export default function HomePage() {
 
         {/* Radial gradient orbs */}
         <div className="absolute top-20 right-10 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.06] blur-[150px]" />
-        <div className="absolute bottom-20 left-10 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.06] blur-[120px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[#8B5CF6]/[0.03] blur-[180px]" />
+        <div className="absolute bottom-20 left-10 h-[400px] w-[400px] rounded-full bg-[#C9A84C]/[0.06] blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[#A8A9AD]/[0.03] blur-[180px]" />
 
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#111111] to-transparent" />
@@ -292,13 +293,13 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-6 font-[family-name:var(--font-dm-serif)] text-5xl leading-[1.1] text-white sm:text-6xl lg:text-7xl text-gold-gradient"
+                className="mt-6 font-[family-name:var(--font-dm-serif)] text-5xl leading-[1.15] text-white sm:text-6xl lg:text-7xl"
               >
                 Service auto
                 <br />
-                <span className="text-gradient-brand">de elită</span>
+                <TextRotator />
                 <br />
-                <span className="text-[#4A4B55]">în Ploiești</span>
+                <span className="text-[#A8A9AD]">în Ploiești</span>
               </motion.h1>
 
               {/* Subheading */}
@@ -391,9 +392,9 @@ export default function HomePage() {
                 </div>
 
                 {/* Card 2: AI Estimator */}
-                <div className="group rounded-2xl border border-white/[0.08] bg-white/5 p-5 backdrop-blur-sm transition-all duration-500 hover:border-[#3B82F6]/30 hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]">
+                <div className="group rounded-2xl border border-white/[0.08] bg-white/5 p-5 backdrop-blur-sm transition-all duration-500 hover:border-[#C9A84C]/30 hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#3B82F6]/10 text-[#3B82F6]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#C9A84C]/10 text-[#C9A84C]">
                       <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
                       </svg>
@@ -402,16 +403,16 @@ export default function HomePage() {
                       <h3 className="font-semibold text-white">Estimator AI Daune</h3>
                       <p className="text-sm text-[#8B8D97]">Estimare cost din fotografii</p>
                     </div>
-                    <div className="ml-auto rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 px-3 py-1 text-xs font-medium text-[#3B82F6]">
+                    <div className="ml-auto rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/20 px-3 py-1 text-xs font-medium text-[#C9A84C]">
                       AI
                     </div>
                   </div>
                 </div>
 
                 {/* Card 3: Virtual Garage */}
-                <div className="group rounded-2xl border border-white/[0.08] bg-white/5 p-5 backdrop-blur-sm transition-all duration-500 hover:border-[#8B5CF6]/30 hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(139,92,246,0.1)]">
+                <div className="group rounded-2xl border border-white/[0.08] bg-white/5 p-5 backdrop-blur-sm transition-all duration-500 hover:border-[#A8A9AD]/30 hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(139,92,246,0.1)]">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#8B5CF6]/10 text-[#8B5CF6]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#A8A9AD]/10 text-[#A8A9AD]">
                       <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
                       </svg>
@@ -604,7 +605,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* SECTION DIVIDER                                               */}
       {/* ============================================================ */}
-      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#3B82F6]/30 to-transparent" />
+      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent" />
 
       {/* ============================================================ */}
       {/* CENTRU DE DAUNE AI                                            */}
@@ -621,7 +622,7 @@ export default function HomePage() {
         />
         {/* Gradient accent blobs */}
         <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.05] blur-[180px]" />
-        <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#3B82F6]/[0.05] blur-[180px]" />
+        <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.05] blur-[180px]" />
 
         <div className="relative mx-auto max-w-7xl">
           <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -703,13 +704,13 @@ export default function HomePage() {
                   {/* Content mockup */}
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#C9A84C]/20 to-[#3B82F6]/20 border border-white/[0.06] flex items-center justify-center">
+                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#C9A84C]/20 to-[#C9A84C]/20 border border-white/[0.06] flex items-center justify-center">
                         <svg className="h-8 w-8 text-[#8B8D97]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                           <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
                         </svg>
                       </div>
-                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#C9A84C]/10 to-[#3B82F6]/10 border border-white/[0.06] flex items-center justify-center">
+                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#C9A84C]/10 to-[#C9A84C]/10 border border-white/[0.06] flex items-center justify-center">
                         <svg className="h-8 w-8 text-[#4A4B55]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                           <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
@@ -741,7 +742,7 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div className="rounded-xl bg-gradient-to-r from-[#C9A84C]/[0.08] to-[#3B82F6]/[0.08] border border-white/[0.06] p-4 text-center">
+                    <div className="rounded-xl bg-gradient-to-r from-[#C9A84C]/[0.08] to-[#C9A84C]/[0.08] border border-white/[0.06] p-4 text-center">
                       <p className="text-xs text-[#4A4B55] uppercase tracking-wider font-medium">
                         Estimare cost
                       </p>
@@ -753,7 +754,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Floating AI Powered badge */}
-                <div className="absolute -top-3 -right-3 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] px-4 py-1.5 text-xs font-bold text-white shadow-[0_4px_20px_rgba(201,168,76,0.4)] animate-float">
+                <div className="absolute -top-3 -right-3 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] px-4 py-1.5 text-xs font-bold text-white shadow-[0_4px_20px_rgba(201,168,76,0.4)] animate-float">
                   AI Powered
                 </div>
               </div>
@@ -789,7 +790,7 @@ export default function HomePage() {
               <motion.div key={review.name} variants={itemVariants}>
                 <div className="group relative h-full rounded-2xl border border-white/[0.08] bg-[#0F1017] overflow-hidden transition-all duration-500 hover:border-white/[0.15] hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]">
                   {/* Top gradient accent */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]" />
 
                   <div className="relative p-6 pt-7">
                     {/* Quote decoration */}
@@ -832,7 +833,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* SECTION DIVIDER                                               */}
       {/* ============================================================ */}
-      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#8B5CF6]/30 to-transparent" />
+      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#A8A9AD]/30 to-transparent" />
 
       {/* ============================================================ */}
       {/* BLOG PREVIEW                                                  */}
@@ -957,14 +958,14 @@ export default function HomePage() {
               {/* Phone 2 */}
               <a
                 href="tel:+40244410650"
-                className="group flex flex-col items-center rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 transition-all duration-500 hover:border-[#3B82F6]/30 hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]"
+                className="group flex flex-col items-center rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 transition-all duration-500 hover:border-[#C9A84C]/30 hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#3B82F6]/10 text-[#3B82F6]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#C9A84C]/10 text-[#C9A84C]">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 </div>
-                <span className="mt-3 text-lg font-semibold text-white group-hover:text-[#3B82F6] transition-colors">
+                <span className="mt-3 text-lg font-semibold text-white group-hover:text-[#C9A84C] transition-colors">
                   0244 410 650
                 </span>
                 <span className="text-xs text-[#4A4B55]">Fix</span>
@@ -972,7 +973,7 @@ export default function HomePage() {
 
               {/* Schedule */}
               <div className="flex flex-col items-center rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#8B5CF6]/10 text-[#8B5CF6]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#A8A9AD]/10 text-[#A8A9AD]">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>

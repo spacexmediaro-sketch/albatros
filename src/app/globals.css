@@ -69,7 +69,7 @@
   --popover-foreground: #E2E4E9;
   --primary: #C9A84C;
   --primary-foreground: #FFFFFF;
-  --secondary: #3B82F6;
+  --secondary: #C9A84C;
   --secondary-foreground: #FFFFFF;
   --muted: #1A1B25;
   --muted-foreground: #8B8D97;
@@ -80,7 +80,7 @@
   --input: rgba(255, 255, 255, 0.1);
   --ring: #C9A84C;
   --chart-1: #C9A84C;
-  --chart-2: #3B82F6;
+  --chart-2: #C9A84C;
   --chart-3: #D4AF37;
   --chart-4: #8B8D97;
   --chart-5: #4A4B55;
@@ -130,14 +130,14 @@
 /* ═══ GRADIENT TEXT ═══ */
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, #C9A84C, #3B82F6);
+  background: linear-gradient(135deg, #C9A84C, #C9A84C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #C9A84C, #3B82F6);
+  background: linear-gradient(135deg, #C9A84C, #C9A84C);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -370,7 +370,7 @@
   position: absolute;
   inset: -2px;
   border-radius: inherit;
-  background: linear-gradient(45deg, #C9A84C, #3B82F6, #C9A84C, #3B82F6);
+  background: linear-gradient(45deg, #C9A84C, #C9A84C, #C9A84C, #C9A84C);
   background-size: 300% 300%;
   animation: gradient-shift 4s ease infinite;
   z-index: -1;

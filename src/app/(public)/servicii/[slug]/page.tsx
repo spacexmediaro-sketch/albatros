@@ -650,7 +650,7 @@ export default async function ServiceDetailPage({
         />
         {/* Gradient orbs */}
         <div className="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.06] blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-40 -right-40 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.04] blur-[120px]" />
+        <div className="pointer-events-none absolute -bottom-40 -right-40 h-[400px] w-[400px] rounded-full bg-[#C9A84C]/[0.04] blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl">
           <Badge className="mb-4 border-[#C9A84C]/20 bg-[#C9A84C]/10 text-[#C9A84C] hover:bg-[#C9A84C]/20">

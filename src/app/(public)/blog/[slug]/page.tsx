@@ -399,7 +399,7 @@ export default async function BlogArticlePage({
                 <Link key={related.slug} href={`/blog/${related.slug}`}>
                   <div className="group relative h-full rounded-2xl bg-[#0F1017] border border-white/[0.08] overflow-hidden transition-all hover:border-white/[0.15] hover:shadow-lg hover:shadow-black/20">
                     {/* Gradient accent line */}
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] opacity-60 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] opacity-60 group-hover:opacity-100 transition-opacity" />
                     <div className="p-6 space-y-3">
                       <div className="flex items-center gap-2">
                         <Badge className="bg-[#C9A84C]/10 text-[#C9A84C] border border-[#C9A84C]/20 hover:bg-[#C9A84C]/20 text-xs">

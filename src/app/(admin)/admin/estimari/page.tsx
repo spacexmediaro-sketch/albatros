@@ -17,7 +17,7 @@ const statusConfig: Record<string, { label: string; color: string }> = {
   },
   REVIEWED: {
     label: "Revizuit",
-    color: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+    color: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/30",
   },
   OFFER_SENT: {
     label: "Ofertă trimisă",
@@ -25,7 +25,7 @@ const statusConfig: Record<string, { label: string; color: string }> = {
   },
   BOOKED: {
     label: "Programat",
-    color: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+    color: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/30",
   },
 };
 

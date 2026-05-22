@@ -203,7 +203,7 @@ export default function VinScannerPage() {
           }}
         />
         <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#C9A84C]/10 blur-[120px]" />
-        <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#C9A84C]/10 blur-[120px]" />
 
         <div className="relative mx-auto max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-sm font-semibold text-[#C9A84C]">
@@ -215,7 +215,7 @@ export default function VinScannerPage() {
           </span>
           <h1 className="mt-4 font-[family-name:var(--font-dm-serif)] text-4xl text-white sm:text-5xl">
             Scanner{" "}
-            <span className="bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] bg-clip-text text-transparent">
               VIN
             </span>
           </h1>
@@ -330,7 +330,7 @@ export default function VinScannerPage() {
 
               {/* Checksum notice for European / non-NA VINs */}
               {!result.checksumValid && (
-                <div className="flex items-start gap-3 rounded-xl border border-blue-500/30 bg-blue-500/10 px-4 py-3 text-sm text-blue-300">
+                <div className="flex items-start gap-3 rounded-xl border border-[#C9A84C]/30 bg-[#C9A84C]/10 px-4 py-3 text-sm text-[#C9A84C]">
                   <svg className="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
                   </svg>
@@ -424,7 +424,7 @@ function ValidationRow({ ok, label }: { ok: boolean; label: string }) {
 function ResultCard({ label, value, className = "" }: { label: string; value: string; className?: string }) {
   return (
     <div className={`relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0F1017] p-5 ${className}`}>
-      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
+      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]" />
       <p className="text-xs font-medium uppercase tracking-wider text-[#4A4B55]">{label}</p>
       <p className="mt-1 text-lg font-semibold text-white">{value}</p>
     </div>

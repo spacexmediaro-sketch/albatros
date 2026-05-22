@@ -10,21 +10,21 @@ export const metadata = generatePageMetadata({
 });
 
 const services = [
-  { name: "Diagnoză computerizată", desc: "Scanner profesional pentru toate mărcile — rezultate în 30 de minute.", icon: Gauge, color: "#3B82F6" },
+  { name: "Diagnoză computerizată", desc: "Scanner profesional pentru toate mărcile — rezultate în 30 de minute.", icon: Gauge, color: "#C9A84C" },
   { name: "Reparații motoare diesel", desc: "Service complet motoare diesel — de la diagnoza defectului până la proba finală.", icon: Cog, color: "#C9A84C" },
   { name: "Reparații injectoare", desc: "Singura bancă de testare injectoare common-rail din zona Prahova.", icon: Zap, color: "#C9A84C" },
   { name: "Rectificări chiulase", desc: "Rectificare cu precizie micrometrică pe mașini specializate.", icon: Wrench, color: "#C9A84C" },
   { name: "Tinichigerie auto", desc: "Reparații caroserie complete — de la o ușă lovită la refaceri structurale.", icon: Shield, color: "#F59E0B" },
   { name: "Vopsitorie auto", desc: "Cabină de vopsire profesională cu spectrofotometru pentru potrivire culoare.", icon: Paintbrush, color: "#F59E0B" },
   { name: "Geometrie roți 3D", desc: "Stand 3D de ultimă generație — precizie maximă la aliniere.", icon: CircuitBoard, color: "#22C55E" },
-  { name: "Electrică auto", desc: "Depanare completă instalație electrică, diagnoză CAN-bus.", icon: CircuitBoard, color: "#8B5CF6" },
+  { name: "Electrică auto", desc: "Depanare completă instalație electrică, diagnoză CAN-bus.", icon: CircuitBoard, color: "#A8A9AD" },
   { name: "Mecanică generală", desc: "Toate lucrările mecanice: distribuție, ambreiaj, turbo, suspensie.", icon: Wrench, color: "#6B7280" },
   { name: "Aer condiționat auto", desc: "Încărcare și service complet AC — ideal înainte de sezonul cald.", icon: Droplets, color: "#06B6D4" },
 ];
 
 const advantages = [
   { title: "Acoperim tot județul", desc: "De la Vălenii de Munte la Sinaia, de la Urlați la Mizil — deservim întreaga Prahovă cu servicii profesionale.", color: "#C9A84C", icon: Globe },
-  { title: "19+ ani de experiență", desc: "Din 2005, am reparat mii de mașini. Experiența contează când ai o problemă complexă.", color: "#3B82F6", icon: Award },
+  { title: "19+ ani de experiență", desc: "Din 2005, am reparat mii de mașini. Experiența contează când ai o problemă complexă.", color: "#C9A84C", icon: Award },
   { title: "Piese pe stoc", desc: "Colaborăm cu furnizori premium și avem piese uzuale pe stoc. Reducem timpul de așteptare.", color: "#22C55E", icon: Wrench },
   { title: "Lasă mașina, ridic-o gata", desc: "Adu mașina dimineața, noi o reparăm. O ridici seara sau a doua zi — fără stres.", color: "#F59E0B", icon: Car },
 ];
@@ -75,16 +75,16 @@ export default function ServiceAutoValeniiDeMuntePage() {
       {/* HERO */}
       <section className="relative overflow-hidden px-4 pt-16 pb-24 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="pointer-events-none absolute -top-40 left-0 h-[500px] w-[500px] rounded-full bg-[#8B5CF6]/[0.04] blur-[130px]" />
+        <div className="pointer-events-none absolute -top-40 left-0 h-[500px] w-[500px] rounded-full bg-[#A8A9AD]/[0.04] blur-[130px]" />
         <div className="pointer-events-none absolute -bottom-20 right-1/4 h-[400px] w-[400px] rounded-full bg-[#C9A84C]/[0.04] blur-[100px]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
-          <span className="mb-6 inline-block rounded-full border border-[#8B5CF6]/20 bg-[#8B5CF6]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#8B5CF6]">
+          <span className="mb-6 inline-block rounded-full border border-[#A8A9AD]/20 bg-[#A8A9AD]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#A8A9AD]">
             Deservim întreaga Prahovă
           </span>
           <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             Service Auto{" "}
-            <span className="bg-gradient-to-r from-[#8B5CF6] to-[#C9A84C] bg-clip-text text-transparent">Vălenii de Munte</span>
+            <span className="bg-gradient-to-r from-[#A8A9AD] to-[#C9A84C] bg-clip-text text-transparent">Vălenii de Munte</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[#8B8D97]">
             Locuiești în Vălenii de Munte sau împrejurimi și cauți un service auto serios? Albatros A Service
@@ -157,7 +157,7 @@ export default function ServiceAutoValeniiDeMuntePage() {
                   <p>Din Vălenii de Munte, ieși pe DN1A spre sud, direcția Ploiești. Treci prin Bălțești și Albești-Paleologu. La Blejoi, faci stânga pe DN1B (Șoseaua Ploiești-Văleni). Ne găsești pe partea dreaptă, după 500 m.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#3B82F6]" />
+                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
                   <p>Distanță: ~30 km. Timp estimat: 30 de minute. Traseu simplu pe drum național, fără zone aglomerate.</p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -178,7 +178,7 @@ export default function ServiceAutoValeniiDeMuntePage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#8B5CF6]/[0.03] to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#A8A9AD]/[0.03] to-transparent" />
         <div className="relative mx-auto max-w-3xl text-center">
           <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">
             Service-ul de referință din Prahova

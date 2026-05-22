@@ -5,24 +5,24 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 
 const services = [
-  { slug: "diagnoza-auto", name: "Diagnoză auto computerizată", category: "Diagnoză", desc: "Citire erori, resetare martori, diagnoză completă pentru toate mărcile auto.", color: "#3B82F6", icon: "search" },
+  { slug: "diagnoza-auto", name: "Diagnoză auto computerizată", category: "Diagnoză", desc: "Citire erori, resetare martori, diagnoză completă pentru toate mărcile auto.", color: "#C9A84C", icon: "search" },
   { slug: "reparatii-motoare-diesel", name: "Reparații motoare diesel", category: "Motor", desc: "Specialiști în motoare diesel — reparații complete, regenerări turbine, pompe de injecție.", color: "#C9A84C", icon: "engine" },
   { slug: "reparatii-injectoare", name: "Reparații injectoare", category: "Motor", desc: "Testare, recalibrare și reparații injectoare diesel common-rail.", color: "#C9A84C", icon: "injector" },
   { slug: "rectificari-chiulase", name: "Rectificări chiulase", category: "Motor", desc: "Rectificare profesională chiulase cu echipament specializat.", color: "#C9A84C", icon: "cylinder" },
   { slug: "tinichigerie-auto", name: "Tinichigerie auto", category: "Caroserie", desc: "Îndreptare tablă, sudură, reparații structurale caroserie.", color: "#F59E0B", icon: "hammer" },
   { slug: "vopsitorie-auto", name: "Vopsitorie auto", category: "Caroserie", desc: "Vopsire integrală sau parțială în cabină profesională.", color: "#F59E0B", icon: "paint" },
   { slug: "geometrie-roti", name: "Geometrie roți", category: "Suspensie", desc: "Geometrie 3D pentru aliniere perfectă și uzură uniformă anvelope.", color: "#22C55E", icon: "wheel" },
-  { slug: "electrica-auto", name: "Electrică auto", category: "Electrică", desc: "Diagnoză și reparații instalație electrică, alternator, electromotor.", color: "#8B5CF6", icon: "bolt" },
+  { slug: "electrica-auto", name: "Electrică auto", category: "Electrică", desc: "Diagnoză și reparații instalație electrică, alternator, electromotor.", color: "#A8A9AD", icon: "bolt" },
   { slug: "mecanica-auto", name: "Mecanică auto", category: "Mecanică", desc: "Reparații mecanice generale — frâne, ambreiaj, suspensie, distribuție.", color: "#6B7280", icon: "wrench" },
   { slug: "incarcari-aer-conditionat", name: "Încărcări aer condiționat", category: "Confort", desc: "Verificare etanșeitate, încărcare freon, dezinfecție sistem AC.", color: "#06B6D4", icon: "snowflake" },
 ];
 
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
-  "Diagnoză": { bg: "rgba(59,130,246,0.1)", text: "#3B82F6", border: "rgba(59,130,246,0.2)" },
+  "Diagnoză": { bg: "rgba(59,130,246,0.1)", text: "#C9A84C", border: "rgba(59,130,246,0.2)" },
   "Motor": { bg: "rgba(201,168,76,0.1)", text: "#C9A84C", border: "rgba(201,168,76,0.2)" },
   "Caroserie": { bg: "rgba(245,158,11,0.1)", text: "#F59E0B", border: "rgba(245,158,11,0.2)" },
   "Suspensie": { bg: "rgba(34,197,94,0.1)", text: "#22C55E", border: "rgba(34,197,94,0.2)" },
-  "Electrică": { bg: "rgba(139,92,246,0.1)", text: "#8B5CF6", border: "rgba(139,92,246,0.2)" },
+  "Electrică": { bg: "rgba(139,92,246,0.1)", text: "#A8A9AD", border: "rgba(139,92,246,0.2)" },
   "Mecanică": { bg: "rgba(107,114,128,0.1)", text: "#9CA3AF", border: "rgba(107,114,128,0.2)" },
   "Confort": { bg: "rgba(6,182,212,0.1)", text: "#06B6D4", border: "rgba(6,182,212,0.2)" },
 };

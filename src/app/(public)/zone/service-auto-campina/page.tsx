@@ -10,21 +10,21 @@ export const metadata = generatePageMetadata({
 });
 
 const services = [
-  { name: "Diagnoză computerizată", desc: "Echipament profesional multimarcă — identificare rapidă a problemelor.", icon: Gauge, color: "#3B82F6" },
+  { name: "Diagnoză computerizată", desc: "Echipament profesional multimarcă — identificare rapidă a problemelor.", icon: Gauge, color: "#C9A84C" },
   { name: "Reparații motoare diesel", desc: "Expertiză recunoscută în motoare diesel — de la turisme la utilitare.", icon: Cog, color: "#C9A84C" },
   { name: "Reparații injectoare", desc: "Bancă de testare și recalibrare injectoare common-rail de ultimă generație.", icon: Zap, color: "#C9A84C" },
   { name: "Rectificări chiulase", desc: "Rectificare de precizie pentru toate tipurile de chiulase.", icon: Wrench, color: "#C9A84C" },
   { name: "Tinichigerie auto", desc: "Reparații caroserie, îndreptare tablă, sudură profesională.", icon: Shield, color: "#F59E0B" },
   { name: "Vopsitorie auto", desc: "Cabină de vopsire profesională cu potrivire exactă a culorii.", icon: Paintbrush, color: "#F59E0B" },
   { name: "Geometrie roți 3D", desc: "Corectare geometrie pentru siguranță și economie de anvelope.", icon: CircuitBoard, color: "#22C55E" },
-  { name: "Electrică auto", desc: "Reparații alternator, electromotor, instalație electrică.", icon: CircuitBoard, color: "#8B5CF6" },
+  { name: "Electrică auto", desc: "Reparații alternator, electromotor, instalație electrică.", icon: CircuitBoard, color: "#A8A9AD" },
   { name: "Mecanică generală", desc: "Distribuție, frâne, ambreiaj, suspensie — orice reparație mecanică.", icon: Wrench, color: "#6B7280" },
   { name: "Aer condiționat auto", desc: "Încărcare freon, verificare sistem, dezinfecție.", icon: Droplets, color: "#06B6D4" },
 ];
 
 const reasons = [
   { title: "Specialiști diesel de top", desc: "Câmpinenii ne caută pentru expertiza în motoare diesel și injectoare common-rail. Reparăm ce alții refuză.", color: "#C9A84C" },
-  { title: "Echipament de referință", desc: "Bancă de testare injectoare, diagnoză multimarcă, geometrie 3D — investiții constante în tehnologie.", color: "#3B82F6" },
+  { title: "Echipament de referință", desc: "Bancă de testare injectoare, diagnoză multimarcă, geometrie 3D — investiții constante în tehnologie.", color: "#C9A84C" },
   { title: "Prețuri corecte", desc: "Estimare detaliată înainte de orice lucrare. Fără surprize, fără costuri ascunse.", color: "#22C55E" },
   { title: "Drum simplu pe DN1", desc: "25 km pe traseu drept, fără complicații. Merită drumul pentru calitatea lucrărilor.", color: "#F59E0B" },
 ];
@@ -76,15 +76,15 @@ export default function ServiceAutoCampinaPage() {
       <section className="relative overflow-hidden px-4 pt-16 pb-24 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="pointer-events-none absolute -top-32 right-0 h-[450px] w-[450px] rounded-full bg-[#C9A84C]/[0.05] blur-[100px]" />
-        <div className="pointer-events-none absolute bottom-0 -left-32 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.04] blur-[110px]" />
+        <div className="pointer-events-none absolute bottom-0 -left-32 h-[400px] w-[400px] rounded-full bg-[#C9A84C]/[0.04] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
-          <span className="mb-6 inline-block rounded-full border border-[#3B82F6]/20 bg-[#3B82F6]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#3B82F6]">
+          <span className="mb-6 inline-block rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#C9A84C]">
             Specialiști diesel pentru Câmpina
           </span>
           <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             Service Auto{" "}
-            <span className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text text-transparent">Câmpina</span>
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#A8A9AD] bg-clip-text text-transparent">Câmpina</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[#8B8D97]">
             Mulți câmpineni fac drumul până la noi special pentru lucrări diesel complexe: injectoare common-rail,
@@ -157,7 +157,7 @@ export default function ServiceAutoCampinaPage() {
                   <p>Ieși din Câmpina spre sud pe DN1 (E60) direcția Ploiești. După ~20 km, la sensul giratoriu de la Blejoi, faci dreapta pe DN1B (Șoseaua Ploiești-Văleni). Service-ul este la 2 km, pe partea stângă.</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#3B82F6]" />
+                  <Car className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
                   <p>Distanță totală: ~25 km. Timp estimat: 25 minute. Drum național fără taxe sau restricții.</p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -178,7 +178,7 @@ export default function ServiceAutoCampinaPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#3B82F6]/[0.03] to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#C9A84C]/[0.03] to-transparent" />
         <div className="relative mx-auto max-w-3xl text-center">
           <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">
             Vii din Câmpina? Te așteptăm!

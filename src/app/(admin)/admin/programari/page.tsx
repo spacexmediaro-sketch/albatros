@@ -20,7 +20,7 @@ const statusConfig: Record<BookingStatus, { label: string; className: string }> 
   },
   CONFIRMED: {
     label: "Confirmată",
-    className: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+    className: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/30",
   },
   COMPLETED: {
     label: "Finalizată",
@@ -186,7 +186,7 @@ export default async function ProgramariPage({
                             <input type="hidden" name="status" value="CONFIRMED" />
                             <button
                               type="submit"
-                              className="text-xs px-2 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30 hover:bg-blue-500/20 transition-colors"
+                              className="text-xs px-2 py-1 rounded bg-[#C9A84C]/10 text-[#C9A84C] border border-[#C9A84C]/30 hover:bg-[#C9A84C]/20 transition-colors"
                             >
                               Confirmă
                             </button>

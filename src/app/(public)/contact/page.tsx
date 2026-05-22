@@ -27,7 +27,7 @@ export default function ContactPage() {
         />
         {/* Gradient orbs */}
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#C9A84C]/[0.04] rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#3B82F6]/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#C9A84C]/[0.04] rounded-full blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">

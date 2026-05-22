@@ -20,12 +20,12 @@ const values = [
   {
     title: "Calitate",
     desc: "Folosim piese originale și aftermarket premium. Garanție la toate lucrările efectuate.",
-    color: "#3B82F6",
+    color: "#C9A84C",
   },
   {
     title: "Experiență",
     desc: "Peste 19 ani de experiență în reparații auto multimarcă, cu specializare pe motoare diesel.",
-    color: "#8B5CF6",
+    color: "#A8A9AD",
   },
   {
     title: "Tehnologie",
@@ -85,8 +85,8 @@ export default function DesprePage() {
 
         {/* Gradient orbs */}
         <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/8 blur-[120px]" />
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/8 blur-[120px]" />
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#8B5CF6]/5 blur-[100px]" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#C9A84C]/8 blur-[120px]" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#A8A9AD]/5 blur-[100px]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
           {/* Badge */}
@@ -112,7 +112,7 @@ export default function DesprePage() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: "linear-gradient(135deg, #C9A84C, #3B82F6)",
+                backgroundImage: "linear-gradient(135deg, #C9A84C, #C9A84C)",
               }}
             >
               Albatros A Service
@@ -211,7 +211,7 @@ export default function DesprePage() {
             <div
               className="absolute left-[1.4rem] top-3 bottom-3 w-[2px]"
               style={{
-                backgroundImage: "linear-gradient(to bottom, #C9A84C, #3B82F6)",
+                backgroundImage: "linear-gradient(to bottom, #C9A84C, #C9A84C)",
               }}
             />
 
@@ -236,7 +236,7 @@ export default function DesprePage() {
                   <div
                     className="relative z-10 flex h-[2.8rem] w-[2.8rem] shrink-0 items-center justify-center rounded-full shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg, #C9A84C, #3B82F6)",
+                      background: "linear-gradient(135deg, #C9A84C, #C9A84C)",
                       boxShadow: "0 0 20px rgba(201, 168, 76, 0.2)",
                     }}
                   >

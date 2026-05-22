@@ -6,23 +6,23 @@ import type { JobStatus } from "@prisma/client";
 
 const statusColumns: { status: JobStatus; label: string; color: string }[] = [
   { status: "RECEPTIONAT", label: "Recepționat", color: "bg-white/5 border border-white/[0.08]" },
-  { status: "IN_DIAGNOZA", label: "În diagnoză", color: "bg-blue-500/5 border border-blue-500/20" },
+  { status: "IN_DIAGNOZA", label: "În diagnoză", color: "bg-[#C9A84C]/5 border border-[#C9A84C]/20" },
   {
     status: "ASTEAPTA_PIESE",
     label: "Așteaptă piese",
     color: "bg-yellow-500/5 border border-yellow-500/20",
   },
   { status: "IN_REPARATIE", label: "În reparație", color: "bg-orange-500/5 border border-orange-500/20" },
-  { status: "IN_PROBA", label: "În probă", color: "bg-purple-500/5 border border-purple-500/20" },
+  { status: "IN_PROBA", label: "În probă", color: "bg-[#C9A84C]/5 border border-[#C9A84C]/20" },
   { status: "FINALIZAT", label: "Finalizat", color: "bg-green-500/5 border border-green-500/20" },
 ];
 
 const statusBadgeColor: Record<JobStatus, string> = {
   RECEPTIONAT: "bg-white/10 text-[#8B8D97] border-white/[0.08]",
-  IN_DIAGNOZA: "bg-blue-500/10 text-blue-400 border-blue-500/30",
+  IN_DIAGNOZA: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/30",
   ASTEAPTA_PIESE: "bg-yellow-500/10 text-yellow-400 border-yellow-500/30",
   IN_REPARATIE: "bg-orange-500/10 text-orange-400 border-orange-500/30",
-  IN_PROBA: "bg-purple-500/10 text-purple-400 border-purple-500/30",
+  IN_PROBA: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/30",
   FINALIZAT: "bg-green-500/10 text-green-400 border-green-500/30",
   PREDAT: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
 };
@@ -111,7 +111,7 @@ export default async function MasiniServicePage() {
                     >
                       <div className="p-4 space-y-2">
                         <div className="flex items-center justify-between">
-                          <span className="font-mono text-xs font-bold text-blue-400">
+                          <span className="font-mono text-xs font-bold text-[#C9A84C]">
                             {job.trackingCode}
                           </span>
                           <Badge

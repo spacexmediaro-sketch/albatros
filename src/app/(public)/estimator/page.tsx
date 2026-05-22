@@ -155,7 +155,7 @@ export default function EstimatorPage() {
         />
         {/* Gradient orbs */}
         <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#C9A84C]/10 blur-[120px]" />
-        <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
+        <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#C9A84C]/10 blur-[120px]" />
 
         <div className="relative mx-auto max-w-4xl text-center">
           {/* Badge with pulsing dot */}
@@ -168,7 +168,7 @@ export default function EstimatorPage() {
           </span>
           <h1 className="mt-4 font-[family-name:var(--font-dm-serif)] text-4xl text-white sm:text-5xl">
             Estimator avarii auto cu{" "}
-            <span className="bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] bg-clip-text text-transparent">
               AI
             </span>
           </h1>
@@ -408,7 +408,7 @@ export default function EstimatorPage() {
                       className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0F1017] p-5"
                     >
                       {/* Gradient accent at top */}
-                      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
+                      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]" />
                       <div className="flex items-center justify-between">
                         <h3 className="font-semibold text-white">
                           {d.zone}
@@ -449,15 +449,15 @@ export default function EstimatorPage() {
                 </h2>
                 <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080808] p-1 animate-pulse-glow">
                   {/* Gradient top line */}
-                  <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
+                  <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#C9A84C]" />
                   {/* Gradient border glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#C9A84C]/20 via-transparent to-[#3B82F6]/20 opacity-50" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#C9A84C]/20 via-transparent to-[#C9A84C]/20 opacity-50" />
                   <div className="relative rounded-xl bg-[#080808] px-6 py-8">
                     <div className="flex flex-col items-center">
                       <p className="text-sm font-medium uppercase tracking-wider text-[#8B8D97]">
                         Interval estimat
                       </p>
-                      <p className="mt-2 bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-5xl font-bold text-transparent">
+                      <p className="mt-2 bg-gradient-to-r from-[#C9A84C] to-[#C9A84C] bg-clip-text text-5xl font-bold text-transparent">
                         {result.costMin.toLocaleString("ro-RO")} -{" "}
                         {result.costMax.toLocaleString("ro-RO")} LEI
                       </p>

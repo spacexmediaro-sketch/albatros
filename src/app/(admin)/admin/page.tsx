@@ -109,8 +109,8 @@ export default async function AdminDashboard() {
       label: "Programări azi",
       value: String(bookingsToday),
       description: `${bookingsTodayConfirmed} confirmate, ${bookingsTodayPending} în așteptare`,
-      color: "text-blue-400",
-      accent: "border-blue-500/30 bg-blue-500/10",
+      color: "text-[#C9A84C]",
+      accent: "border-[#C9A84C]/30 bg-[#C9A84C]/10",
     },
     {
       label: "Lucrări active",
