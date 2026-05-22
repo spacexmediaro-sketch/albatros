@@ -149,26 +149,26 @@ export default function EstimatorPage() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,45,45,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,45,45,0.03) 1px, transparent 1px)",
+              "linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
         {/* Gradient orbs */}
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#FF2D2D]/10 blur-[120px]" />
+        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#C9A84C]/10 blur-[120px]" />
         <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
 
         <div className="relative mx-auto max-w-4xl text-center">
           {/* Badge with pulsing dot */}
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#FF2D2D]/20 bg-[#FF2D2D]/10 px-4 py-1.5 text-sm font-semibold text-[#FF2D2D]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-sm font-semibold text-[#C9A84C]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF2D2D] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF2D2D]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C9A84C] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C9A84C]" />
             </span>
             Tehnologie AI
           </span>
           <h1 className="mt-4 font-[family-name:var(--font-dm-serif)] text-4xl text-white sm:text-5xl">
             Estimator avarii auto cu{" "}
-            <span className="bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-transparent">
               AI
             </span>
           </h1>
@@ -198,15 +198,15 @@ export default function EstimatorPage() {
               onDrop={handleDrop}
               className={`group relative flex min-h-[180px] cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed transition-all duration-300 ${
                 dragOver
-                  ? "border-[#FF2D2D] bg-[#FF2D2D]/10"
-                  : "border-white/10 bg-[#080808] hover:border-[#FF2D2D]/40 hover:bg-[#FF2D2D]/5"
+                  ? "border-[#C9A84C] bg-[#C9A84C]/10"
+                  : "border-white/10 bg-[#080808] hover:border-[#C9A84C]/40 hover:bg-[#C9A84C]/5"
               }`}
               onClick={() =>
                 document.getElementById("file-upload")?.click()
               }
             >
               <svg
-                className="mb-3 h-10 w-10 text-[#8B8D97] transition-colors group-hover:text-[#FF2D2D]"
+                className="mb-3 h-10 w-10 text-[#8B8D97] transition-colors group-hover:text-[#C9A84C]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -219,7 +219,7 @@ export default function EstimatorPage() {
                 />
               </svg>
               <p className="text-sm text-[#8B8D97]">
-                <span className="font-semibold text-[#FF2D2D]">
+                <span className="font-semibold text-[#C9A84C]">
                   Click pentru upload
                 </span>{" "}
                 sau trage imaginile aici
@@ -256,7 +256,7 @@ export default function EstimatorPage() {
                         e.stopPropagation();
                         removeFile(i);
                       }}
-                      className="absolute top-1 right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#0F1017]/80 text-xs text-white opacity-0 transition-opacity hover:bg-[#FF2D2D] group-hover:opacity-100"
+                      className="absolute top-1 right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#0F1017]/80 text-xs text-white opacity-0 transition-opacity hover:bg-[#C9A84C] group-hover:opacity-100"
                     >
                       x
                     </button>
@@ -280,7 +280,7 @@ export default function EstimatorPage() {
                   id="marca"
                   value={marca}
                   onChange={(e) => setMarca(e.target.value)}
-                  className="flex h-9 w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-xs transition-colors placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/30 focus-visible:outline-none"
+                  className="flex h-9 w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-xs transition-colors placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-1 focus-visible:ring-[#C9A84C]/30 focus-visible:outline-none"
                 >
                   <option value="" className="bg-[#080808] text-[#4A4B55]">Selectează marca</option>
                   {MARCI.map((m) => (
@@ -300,7 +300,7 @@ export default function EstimatorPage() {
                   placeholder="ex: Serie 3, Golf, Logan"
                   value={model}
                   onChange={(e) => setModel(e.target.value)}
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30"
                 />
               </div>
 
@@ -316,7 +316,7 @@ export default function EstimatorPage() {
                   placeholder="ex: 2019"
                   value={an}
                   onChange={(e) => setAn(e.target.value)}
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30"
                 />
               </div>
 
@@ -329,7 +329,7 @@ export default function EstimatorPage() {
                   placeholder="ex: Negru metalic"
                   value={culoare}
                   onChange={(e) => setCuloare(e.target.value)}
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30"
                 />
               </div>
 
@@ -343,7 +343,7 @@ export default function EstimatorPage() {
                   placeholder="Descrieți pe scurt ce s-a întâmplat — coliziune, zgârieturi, grindină etc."
                   value={descriere}
                   onChange={(e) => setDescriere(e.target.value)}
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30"
                 />
               </div>
             </div>
@@ -355,7 +355,7 @@ export default function EstimatorPage() {
               size="lg"
               disabled={!isValid || loading}
               onClick={handleSubmit}
-              className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)] disabled:opacity-50 disabled:shadow-none"
+              className="bg-[#C9A84C] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all hover:bg-[#D4AF37] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)] disabled:opacity-50 disabled:shadow-none"
             >
               {loading ? (
                 <span className="flex items-center gap-2">
@@ -391,7 +391,7 @@ export default function EstimatorPage() {
             <div className="mt-12 space-y-8">
               {/* Confidence Badge */}
               <div className="flex justify-center">
-                <Badge className="bg-[#FF2D2D] px-6 py-2 text-base font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)]">
+                <Badge className="bg-[#C9A84C] px-6 py-2 text-base font-bold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)]">
                   Încredere analiză: {result.confidence}%
                 </Badge>
               </div>
@@ -408,7 +408,7 @@ export default function EstimatorPage() {
                       className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0F1017] p-5"
                     >
                       {/* Gradient accent at top */}
-                      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6]" />
+                      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
                       <div className="flex items-center justify-between">
                         <h3 className="font-semibold text-white">
                           {d.zone}
@@ -434,7 +434,7 @@ export default function EstimatorPage() {
                   <ul className="space-y-2">
                     {result.operations.map((op, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-[#8B8D97]">
-                        <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF2D2D]" />
+                        <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A84C]" />
                         {op}
                       </li>
                     ))}
@@ -449,15 +449,15 @@ export default function EstimatorPage() {
                 </h2>
                 <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080808] p-1 animate-pulse-glow">
                   {/* Gradient top line */}
-                  <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6]" />
+                  <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
                   {/* Gradient border glow */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#FF2D2D]/20 via-transparent to-[#3B82F6]/20 opacity-50" />
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#C9A84C]/20 via-transparent to-[#3B82F6]/20 opacity-50" />
                   <div className="relative rounded-xl bg-[#080808] px-6 py-8">
                     <div className="flex flex-col items-center">
                       <p className="text-sm font-medium uppercase tracking-wider text-[#8B8D97]">
                         Interval estimat
                       </p>
-                      <p className="mt-2 bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] bg-clip-text text-5xl font-bold text-transparent">
+                      <p className="mt-2 bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-5xl font-bold text-transparent">
                         {result.costMin.toLocaleString("ro-RO")} -{" "}
                         {result.costMax.toLocaleString("ro-RO")} LEI
                       </p>
@@ -501,7 +501,7 @@ export default function EstimatorPage() {
                 <Link href="/programare">
                   <Button
                     size="lg"
-                    className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)]"
+                    className="bg-[#C9A84C] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all hover:bg-[#D4AF37] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)]"
                   >
                     Programează inspecție gratuită
                   </Button>
@@ -515,8 +515,8 @@ export default function EstimatorPage() {
       {/* Inline style for glow-pulse animation */}
       <style jsx global>{`
         @keyframes pulse-glow {
-          0%, 100% { box-shadow: 0 0 15px rgba(255, 45, 45, 0.15), 0 0 30px rgba(59, 130, 246, 0.1); }
-          50% { box-shadow: 0 0 25px rgba(255, 45, 45, 0.3), 0 0 50px rgba(59, 130, 246, 0.2); }
+          0%, 100% { box-shadow: 0 0 15px rgba(201, 168, 76, 0.15), 0 0 30px rgba(59, 130, 246, 0.1); }
+          50% { box-shadow: 0 0 25px rgba(201, 168, 76, 0.3), 0 0 50px rgba(59, 130, 246, 0.2); }
         }
         .animate-pulse-glow {
           animation: pulse-glow 3s ease-in-out infinite;

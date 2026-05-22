@@ -34,22 +34,22 @@ export function ContactForm() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-[#E2E4E9]">Nume</Label>
-              <Input id="name" name="name" placeholder="Numele tău" required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
+              <Input id="name" name="name" placeholder="Numele tău" required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30" />
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-[#E2E4E9]">Telefon</Label>
-              <Input id="phone" name="phone" type="tel" placeholder="07xx xxx xxx" required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
+              <Input id="phone" name="phone" type="tel" placeholder="07xx xxx xxx" required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30" />
             </div>
           </div>
           <div className="space-y-2">
             <Label htmlFor="email" className="text-[#E2E4E9]">Email</Label>
-            <Input id="email" name="email" type="email" placeholder="email@exemplu.ro" className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
+            <Input id="email" name="email" type="email" placeholder="email@exemplu.ro" className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30" />
           </div>
           <div className="space-y-2">
             <Label htmlFor="message" className="text-[#E2E4E9]">Mesaj</Label>
-            <Textarea id="message" name="message" placeholder="Descrie problema sau întrebarea ta..." rows={5} required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30" />
+            <Textarea id="message" name="message" placeholder="Descrie problema sau întrebarea ta..." rows={5} required className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30" />
           </div>
-          <Button type="submit" className="w-full bg-[#FF2D2D] text-[#050505] font-semibold shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF5555]" disabled={pending}>
+          <Button type="submit" className="w-full bg-[#C9A84C] text-[#050505] font-semibold shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#D4AF37]" disabled={pending}>
             {pending ? 'Se trimite...' : 'Trimite mesajul'}
           </Button>
         </form>

@@ -649,11 +649,11 @@ export default async function ServiceDetailPage({
           }}
         />
         {/* Gradient orbs */}
-        <div className="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#FF2D2D]/[0.06] blur-[120px]" />
+        <div className="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.06] blur-[120px]" />
         <div className="pointer-events-none absolute -bottom-40 -right-40 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.04] blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl">
-          <Badge className="mb-4 border-[#FF2D2D]/20 bg-[#FF2D2D]/10 text-[#FF2D2D] hover:bg-[#FF2D2D]/20">
+          <Badge className="mb-4 border-[#C9A84C]/20 bg-[#C9A84C]/10 text-[#C9A84C] hover:bg-[#C9A84C]/20">
             {service.category}
           </Badge>
           <h1 className="font-[family-name:var(--font-dm-serif)] text-3xl leading-tight text-white sm:text-4xl lg:text-5xl">
@@ -664,13 +664,13 @@ export default async function ServiceDetailPage({
           </p>
           <div className="mt-6 flex flex-wrap gap-6 text-sm text-[#E2E4E9]">
             <span className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-[#FF2D2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               De la {service.priceFrom} RON
             </span>
             <span className="flex items-center gap-2">
-              <svg className="h-5 w-5 text-[#FF2D2D]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               {service.duration}
@@ -736,7 +736,7 @@ export default async function ServiceDetailPage({
       {/* CTA */}
       <section className="relative bg-[#080808] px-4 py-16 text-center text-white sm:px-6 lg:px-8">
         {/* Gradient accent line at top */}
-        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF2D2D]/40 to-transparent" />
+        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/40 to-transparent" />
         <div className="mx-auto max-w-2xl">
           <h2 className="font-[family-name:var(--font-dm-serif)] text-2xl text-white sm:text-3xl">
             Ai nevoie de {service.name.toLowerCase()}?
@@ -748,7 +748,7 @@ export default async function ServiceDetailPage({
           <Link href="/programare">
             <Button
               size="lg"
-              className="mt-8 bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)]"
+              className="mt-8 bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all hover:bg-[#D4AF37] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)]"
             >
               Programează acum
             </Button>

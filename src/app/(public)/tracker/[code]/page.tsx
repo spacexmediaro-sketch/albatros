@@ -105,11 +105,11 @@ function SearchForm({
             onSearch(value.trim());
           }
         }}
-        className="h-10 text-base border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/20"
+        className="h-10 text-base border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/20"
       />
       <Button
         size="lg"
-        className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF5555] shrink-0"
+        className="bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#D4AF37] shrink-0"
         onClick={() => {
           if (value.trim()) onSearch(value.trim());
         }}
@@ -149,7 +149,7 @@ function StatusStepper({ currentStatus }: { currentStatus: StatusKey }) {
                   isCompleted
                     ? "bg-white text-[#04040A]"
                     : isCurrent
-                      ? "bg-[#FF2D2D] text-white ring-4 ring-[#FF2D2D]/20"
+                      ? "bg-[#C9A84C] text-white ring-4 ring-[#C9A84C]/20"
                       : "bg-[#1A1B25] text-[#4A4B55]"
                 }`}
               >
@@ -176,7 +176,7 @@ function StatusStepper({ currentStatus }: { currentStatus: StatusKey }) {
               <span
                 className={`mt-2 text-center text-xs font-medium leading-tight ${
                   isCurrent
-                    ? "text-[#FF2D2D] font-semibold"
+                    ? "text-[#C9A84C] font-semibold"
                     : isCompleted
                       ? "text-white"
                       : "text-[#4A4B55]"
@@ -206,7 +206,7 @@ function Timeline({ events }: { events: TimelineEvent[] }) {
           <div
             className={`relative z-10 mt-1 h-6 w-6 shrink-0 rounded-full border-2 ${
               index === events.length - 1
-                ? "border-[#FF2D2D] bg-[#FF2D2D]"
+                ? "border-[#C9A84C] bg-[#C9A84C]"
                 : "border-white bg-white"
             }`}
           />
@@ -218,7 +218,7 @@ function Timeline({ events }: { events: TimelineEvent[] }) {
                 variant={index === events.length - 1 ? "default" : "secondary"}
                 className={
                   index === events.length - 1
-                    ? "bg-[#FF2D2D] text-white border-transparent"
+                    ? "bg-[#C9A84C] text-white border-transparent"
                     : "bg-[#1A1B25] text-[#E2E4E9] border-white/[0.08]"
                 }
               >
@@ -309,11 +309,11 @@ export default function TrackerPage() {
 
         {/* Not found */}
         {notFound && (
-          <div className="bg-[#0F1017] border border-[#FF2D2D]/20 rounded-2xl text-center">
+          <div className="bg-[#0F1017] border border-[#C9A84C]/20 rounded-2xl text-center">
             <div className="py-12 px-6">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#FF2D2D]/10">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#C9A84C]/10">
                 <svg
-                  className="h-8 w-8 text-[#FF2D2D]"
+                  className="h-8 w-8 text-[#C9A84C]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -334,7 +334,7 @@ export default function TrackerPage() {
                 Verifică dacă l-ai introdus corect sau contactează-ne la{" "}
                 <a
                   href="tel:+40723177032"
-                  className="text-[#FF2D2D] font-medium hover:underline"
+                  className="text-[#C9A84C] font-medium hover:underline"
                 >
                   0723 177 032
                 </a>
@@ -381,11 +381,11 @@ export default function TrackerPage() {
             </div>
 
             {/* ETA */}
-            <div className="bg-[#FF2D2D]/5 border border-[#FF2D2D]/20 rounded-2xl">
+            <div className="bg-[#C9A84C]/5 border border-[#C9A84C]/20 rounded-2xl">
               <div className="flex items-center gap-4 py-5 px-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#FF2D2D]/10">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#C9A84C]/10">
                   <svg
-                    className="h-6 w-6 text-[#FF2D2D]"
+                    className="h-6 w-6 text-[#C9A84C]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -402,7 +402,7 @@ export default function TrackerPage() {
                   <p className="text-sm font-medium text-[#E2E4E9]">
                     Dată estimată de finalizare
                   </p>
-                  <p className="text-lg font-semibold text-[#FF2D2D]">
+                  <p className="text-lg font-semibold text-[#C9A84C]">
                     {new Date(job.eta).toLocaleDateString("ro-RO", {
                       weekday: "long",
                       day: "numeric",

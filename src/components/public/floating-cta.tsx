@@ -42,8 +42,8 @@ export function FloatingCTA() {
                 text-white font-semibold text-sm
                 shadow-lg
                 transition-all duration-300
-                hover:shadow-[0_0_30px_rgba(255,45,45,0.3)]
-                hover:border-[#FF2D2D]/30
+                hover:shadow-[0_0_30px_rgba(201,168,76,0.3)]
+                hover:border-[#C9A84C]/30
               "
               style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
             >
@@ -53,7 +53,7 @@ export function FloatingCTA() {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500" />
               </span>
 
-              <span className="text-[#FF2D2D] font-bold tracking-wide">
+              <span className="text-[#C9A84C] font-bold tracking-wide">
                 Centru Daune
               </span>
               <span className="mt-1.5 text-white/70 text-xs">
@@ -89,7 +89,7 @@ export function FloatingCTA() {
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
               </span>
 
-              <span className="text-[#FF2D2D] font-bold mr-2">
+              <span className="text-[#C9A84C] font-bold mr-2">
                 Centru de Daune
               </span>
               <span className="text-white/70">&mdash;</span>

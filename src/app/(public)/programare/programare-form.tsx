@@ -21,10 +21,10 @@ const services = [
 const initialState = { success: false, message: '', error: '' };
 
 const inputClasses =
-  "w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-2.5 text-sm text-white placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-2 focus-visible:ring-[#FF2D2D]/30 transition-colors";
+  "w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-2.5 text-sm text-white placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#C9A84C]/50 focus-visible:ring-2 focus-visible:ring-[#C9A84C]/30 transition-colors";
 
 const selectClasses =
-  "w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-2.5 text-sm text-white focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-2 focus-visible:ring-[#FF2D2D]/30 transition-colors appearance-none";
+  "w-full rounded-lg border border-white/10 bg-[#080808] px-3 py-2.5 text-sm text-white focus-visible:outline-none focus-visible:border-[#C9A84C]/50 focus-visible:ring-2 focus-visible:ring-[#C9A84C]/30 transition-colors appearance-none";
 
 const labelClasses = "text-sm font-medium text-[#E2E4E9]";
 
@@ -107,13 +107,13 @@ export function ProgramareForm() {
             name="notes"
             placeholder="Descrie problema sau ce dorești..."
             rows={4}
-            className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+            className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30"
           />
         </div>
 
         <Button
           type="submit"
-          className="w-full bg-[#FF2D2D] text-[#050505] font-semibold shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF5555] transition-all duration-200"
+          className="w-full bg-[#C9A84C] text-[#050505] font-semibold shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#D4AF37] transition-all duration-200"
           size="lg"
           disabled={pending}
         >

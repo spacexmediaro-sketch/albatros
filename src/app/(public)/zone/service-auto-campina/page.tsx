@@ -11,9 +11,9 @@ export const metadata = generatePageMetadata({
 
 const services = [
   { name: "Diagnoză computerizată", desc: "Echipament profesional multimarcă — identificare rapidă a problemelor.", icon: Gauge, color: "#3B82F6" },
-  { name: "Reparații motoare diesel", desc: "Expertiză recunoscută în motoare diesel — de la turisme la utilitare.", icon: Cog, color: "#FF2D2D" },
-  { name: "Reparații injectoare", desc: "Bancă de testare și recalibrare injectoare common-rail de ultimă generație.", icon: Zap, color: "#FF2D2D" },
-  { name: "Rectificări chiulase", desc: "Rectificare de precizie pentru toate tipurile de chiulase.", icon: Wrench, color: "#FF2D2D" },
+  { name: "Reparații motoare diesel", desc: "Expertiză recunoscută în motoare diesel — de la turisme la utilitare.", icon: Cog, color: "#C9A84C" },
+  { name: "Reparații injectoare", desc: "Bancă de testare și recalibrare injectoare common-rail de ultimă generație.", icon: Zap, color: "#C9A84C" },
+  { name: "Rectificări chiulase", desc: "Rectificare de precizie pentru toate tipurile de chiulase.", icon: Wrench, color: "#C9A84C" },
   { name: "Tinichigerie auto", desc: "Reparații caroserie, îndreptare tablă, sudură profesională.", icon: Shield, color: "#F59E0B" },
   { name: "Vopsitorie auto", desc: "Cabină de vopsire profesională cu potrivire exactă a culorii.", icon: Paintbrush, color: "#F59E0B" },
   { name: "Geometrie roți 3D", desc: "Corectare geometrie pentru siguranță și economie de anvelope.", icon: CircuitBoard, color: "#22C55E" },
@@ -23,7 +23,7 @@ const services = [
 ];
 
 const reasons = [
-  { title: "Specialiști diesel de top", desc: "Câmpinenii ne caută pentru expertiza în motoare diesel și injectoare common-rail. Reparăm ce alții refuză.", color: "#FF2D2D" },
+  { title: "Specialiști diesel de top", desc: "Câmpinenii ne caută pentru expertiza în motoare diesel și injectoare common-rail. Reparăm ce alții refuză.", color: "#C9A84C" },
   { title: "Echipament de referință", desc: "Bancă de testare injectoare, diagnoză multimarcă, geometrie 3D — investiții constante în tehnologie.", color: "#3B82F6" },
   { title: "Prețuri corecte", desc: "Estimare detaliată înainte de orice lucrare. Fără surprize, fără costuri ascunse.", color: "#22C55E" },
   { title: "Drum simplu pe DN1", desc: "25 km pe traseu drept, fără complicații. Merită drumul pentru calitatea lucrărilor.", color: "#F59E0B" },
@@ -75,7 +75,7 @@ export default function ServiceAutoCampinaPage() {
       {/* HERO */}
       <section className="relative overflow-hidden px-4 pt-16 pb-24 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="pointer-events-none absolute -top-32 right-0 h-[450px] w-[450px] rounded-full bg-[#FF2D2D]/[0.05] blur-[100px]" />
+        <div className="pointer-events-none absolute -top-32 right-0 h-[450px] w-[450px] rounded-full bg-[#C9A84C]/[0.05] blur-[100px]" />
         <div className="pointer-events-none absolute bottom-0 -left-32 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.04] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
@@ -92,7 +92,7 @@ export default function ServiceAutoCampinaPage() {
             în reparații făcute corect din prima.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#FF2D2D] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-colors hover:bg-[#FF5555]">
+            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#C9A84C] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-colors hover:bg-[#D4AF37]">
               Programează-te acum
             </Link>
             <a href={`tel:${siteConfig.phone}`} className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.04] px-7 py-3.5 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/[0.08]">
@@ -153,7 +153,7 @@ export default function ServiceAutoCampinaPage() {
               <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">Cum ajungi de la Câmpina</h2>
               <div className="mt-6 space-y-4 text-[#E2E4E9]">
                 <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#FF2D2D]" />
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
                   <p>Ieși din Câmpina spre sud pe DN1 (E60) direcția Ploiești. După ~20 km, la sensul giratoriu de la Blejoi, faci dreapta pe DN1B (Șoseaua Ploiești-Văleni). Service-ul este la 2 km, pe partea stângă.</p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -187,7 +187,7 @@ export default function ServiceAutoCampinaPage() {
             Programează-te telefonic sau online și beneficiezi de diagnoză gratuită la prima vizită.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#FF2D2D] px-8 py-4 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-colors hover:bg-[#FF5555]">
+            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#C9A84C] px-8 py-4 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-colors hover:bg-[#D4AF37]">
               Programare online
             </Link>
             <a href={`tel:${siteConfig.phone}`} className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.04] px-8 py-4 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/[0.08]">

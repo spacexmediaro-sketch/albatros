@@ -6,9 +6,9 @@ import { motion, useInView } from "framer-motion";
 
 const services = [
   { slug: "diagnoza-auto", name: "Diagnoză auto computerizată", category: "Diagnoză", desc: "Citire erori, resetare martori, diagnoză completă pentru toate mărcile auto.", color: "#3B82F6", icon: "search" },
-  { slug: "reparatii-motoare-diesel", name: "Reparații motoare diesel", category: "Motor", desc: "Specialiști în motoare diesel — reparații complete, regenerări turbine, pompe de injecție.", color: "#FF2D2D", icon: "engine" },
-  { slug: "reparatii-injectoare", name: "Reparații injectoare", category: "Motor", desc: "Testare, recalibrare și reparații injectoare diesel common-rail.", color: "#FF2D2D", icon: "injector" },
-  { slug: "rectificari-chiulase", name: "Rectificări chiulase", category: "Motor", desc: "Rectificare profesională chiulase cu echipament specializat.", color: "#FF2D2D", icon: "cylinder" },
+  { slug: "reparatii-motoare-diesel", name: "Reparații motoare diesel", category: "Motor", desc: "Specialiști în motoare diesel — reparații complete, regenerări turbine, pompe de injecție.", color: "#C9A84C", icon: "engine" },
+  { slug: "reparatii-injectoare", name: "Reparații injectoare", category: "Motor", desc: "Testare, recalibrare și reparații injectoare diesel common-rail.", color: "#C9A84C", icon: "injector" },
+  { slug: "rectificari-chiulase", name: "Rectificări chiulase", category: "Motor", desc: "Rectificare profesională chiulase cu echipament specializat.", color: "#C9A84C", icon: "cylinder" },
   { slug: "tinichigerie-auto", name: "Tinichigerie auto", category: "Caroserie", desc: "Îndreptare tablă, sudură, reparații structurale caroserie.", color: "#F59E0B", icon: "hammer" },
   { slug: "vopsitorie-auto", name: "Vopsitorie auto", category: "Caroserie", desc: "Vopsire integrală sau parțială în cabină profesională.", color: "#F59E0B", icon: "paint" },
   { slug: "geometrie-roti", name: "Geometrie roți", category: "Suspensie", desc: "Geometrie 3D pentru aliniere perfectă și uzură uniformă anvelope.", color: "#22C55E", icon: "wheel" },
@@ -19,7 +19,7 @@ const services = [
 
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
   "Diagnoză": { bg: "rgba(59,130,246,0.1)", text: "#3B82F6", border: "rgba(59,130,246,0.2)" },
-  "Motor": { bg: "rgba(255,45,45,0.1)", text: "#FF2D2D", border: "rgba(255,45,45,0.2)" },
+  "Motor": { bg: "rgba(201,168,76,0.1)", text: "#C9A84C", border: "rgba(201,168,76,0.2)" },
   "Caroserie": { bg: "rgba(245,158,11,0.1)", text: "#F59E0B", border: "rgba(245,158,11,0.2)" },
   "Suspensie": { bg: "rgba(34,197,94,0.1)", text: "#22C55E", border: "rgba(34,197,94,0.2)" },
   "Electrică": { bg: "rgba(139,92,246,0.1)", text: "#8B5CF6", border: "rgba(139,92,246,0.2)" },
@@ -83,7 +83,7 @@ function ServiceCard({ service, index }: { service: typeof services[number]; ind
           </p>
 
           {/* Arrow link */}
-          <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[#FF2D2D] transition-colors duration-200 group-hover:text-[#ff5252]">
+          <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[#C9A84C] transition-colors duration-200 group-hover:text-[#D4AF37]">
             Detalii
             <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
               {"\u2192"}
@@ -116,7 +116,7 @@ export default function ServiciiPage() {
         {/* Radial gradient orbs */}
         <motion.div
           className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full blur-[120px]"
-          style={{ background: "radial-gradient(circle, rgba(255,45,45,0.08) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)" }}
           animate={{ scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -141,7 +141,7 @@ export default function ServiciiPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-6 inline-block"
           >
-            <span className="inline-block rounded-full border border-[#FF2D2D]/20 bg-[#FF2D2D]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#FF2D2D]">
+            <span className="inline-block rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#C9A84C]">
               Servicii complete
             </span>
           </motion.div>
@@ -154,7 +154,7 @@ export default function ServiciiPage() {
             className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
           >
             Serviciile{" "}
-            <span className="bg-gradient-to-r from-[#FF2D2D] to-[#FF6B35] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#FF6B35] bg-clip-text text-transparent">
               noastre
             </span>
           </motion.h1>

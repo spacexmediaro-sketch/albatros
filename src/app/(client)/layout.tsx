@@ -43,7 +43,7 @@ export default function ClientLayout({
                   href={item.href}
                   className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-[#FF2D2D]/10 text-[#FF2D2D]"
+                      ? "bg-[#C9A84C]/10 text-[#C9A84C]"
                       : "text-[#E2E4E9] hover:bg-white/5"
                   }`}
                 >
@@ -103,7 +103,7 @@ export default function ClientLayout({
                     onClick={() => setMobileMenuOpen(false)}
                     className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                       isActive
-                        ? "bg-[#FF2D2D]/10 text-[#FF2D2D]"
+                        ? "bg-[#C9A84C]/10 text-[#C9A84C]"
                         : "text-[#E2E4E9] hover:bg-white/5"
                     }`}
                   >

@@ -101,25 +101,25 @@ export default async function ServiciiPage() {
             name="name"
             required
             placeholder="Denumire serviciu *"
-            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#FF2D2D]/50"
+            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/50"
           />
           <input
             name="category"
             required
             placeholder="Categorie *"
-            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#FF2D2D]/50"
+            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/50"
           />
           <input
             name="shortDesc"
             placeholder="Descriere scurtă"
-            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#FF2D2D]/50"
+            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/50"
           />
           <input
             name="priceFrom"
             type="number"
             min={0}
             placeholder="Preț de la (RON)"
-            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#FF2D2D]/50"
+            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/50"
           />
           <input
             name="durationMin"
@@ -127,11 +127,11 @@ export default async function ServiciiPage() {
             min={1}
             defaultValue={60}
             placeholder="Durată (minute)"
-            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#FF2D2D]/50"
+            className="px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/50"
           />
           <Button
             type="submit"
-            className="bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90"
+            className="bg-[#C9A84C] text-[#050505] hover:bg-[#C9A84C]/90"
           >
             Adaugă serviciu
           </Button>
@@ -202,7 +202,7 @@ export default async function ServiciiPage() {
                           type="submit"
                           variant="ghost"
                           size="sm"
-                          className="text-[#FF2D2D] hover:bg-[#FF2D2D]/10"
+                          className="text-[#C9A84C] hover:bg-[#C9A84C]/10"
                         >
                           Șterge
                         </Button>

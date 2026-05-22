@@ -172,7 +172,7 @@ export default async function AdminDashboard() {
         <div className="p-6 flex flex-wrap gap-3">
           <Button
             asChild
-            className="bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90"
+            className="bg-[#C9A84C] text-[#050505] hover:bg-[#C9A84C]/90"
           >
             <Link href="/admin/programari">+ Programare nouă</Link>
           </Button>

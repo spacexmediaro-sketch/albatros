@@ -64,7 +64,7 @@ export default function AdminDashboardLayout({
               onClick={() => setSidebarOpen(false)}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors ${
                 isActive(item.href)
-                  ? "bg-[#FF2D2D]/15 text-[#FF2D2D] font-medium"
+                  ? "bg-[#C9A84C]/15 text-[#C9A84C] font-medium"
                   : "text-[#8B8D97] hover:bg-white/10 hover:text-[#E2E4E9]"
               }`}
             >

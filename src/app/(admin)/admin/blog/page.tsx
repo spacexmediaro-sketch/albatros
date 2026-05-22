@@ -48,7 +48,7 @@ export default async function BlogAdminPage() {
             {posts.length} articole
           </p>
         </div>
-        <Button className="bg-[#FF2D2D] text-[#050505] hover:bg-[#FF2D2D]/90">
+        <Button className="bg-[#C9A84C] text-[#050505] hover:bg-[#C9A84C]/90">
           + Articol nou
         </Button>
       </div>
@@ -111,7 +111,7 @@ export default async function BlogAdminPage() {
                           type="submit"
                           variant="ghost"
                           size="sm"
-                          className="text-[#FF2D2D] hover:bg-[#FF2D2D]/10"
+                          className="text-[#C9A84C] hover:bg-[#C9A84C]/10"
                         >
                           Șterge
                         </Button>

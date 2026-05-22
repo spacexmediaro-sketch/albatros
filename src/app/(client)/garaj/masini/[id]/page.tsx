@@ -128,7 +128,7 @@ export default async function CarDetailPage({
           </p>
         </div>
         <Button
-          className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
+          className="bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#C9A84C]/90"
           asChild
         >
           <Link href="/garaj/programari">Programează service</Link>
@@ -207,7 +207,7 @@ export default async function CarDetailPage({
 
                 return (
                   <div key={job.id} className="relative">
-                    <span className="absolute -left-6 top-1.5 h-3 w-3 rounded-full border-2 border-[#FF2D2D] bg-[#0F1017]" />
+                    <span className="absolute -left-6 top-1.5 h-3 w-3 rounded-full border-2 border-[#C9A84C] bg-[#0F1017]" />
                     <div className="flex items-start justify-between">
                       <div>
                         <p className="font-medium text-white">

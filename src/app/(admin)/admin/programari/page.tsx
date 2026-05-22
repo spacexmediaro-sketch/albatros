@@ -110,7 +110,7 @@ export default async function ProgramariPage({
           href="/admin/programari"
           className={`inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
             filter === "ALL"
-              ? "bg-[#FF2D2D] text-[#050505]"
+              ? "bg-[#C9A84C] text-[#050505]"
               : "bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
           }`}
         >
@@ -122,7 +122,7 @@ export default async function ProgramariPage({
             href={`/admin/programari?status=${status}`}
             className={`inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
               filter === status
-                ? "bg-[#FF2D2D] text-[#050505]"
+                ? "bg-[#C9A84C] text-[#050505]"
                 : "bg-white/5 text-[#E2E4E9] border border-white/[0.08] hover:bg-white/10"
             }`}
           >

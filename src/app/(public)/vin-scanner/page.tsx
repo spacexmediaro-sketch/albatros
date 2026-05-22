@@ -198,24 +198,24 @@ export default function VinScannerPage() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,45,45,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,45,45,0.03) 1px, transparent 1px)",
+              "linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#FF2D2D]/10 blur-[120px]" />
+        <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-[#C9A84C]/10 blur-[120px]" />
         <div className="absolute -bottom-40 -left-40 h-60 w-60 rounded-full bg-[#3B82F6]/10 blur-[120px]" />
 
         <div className="relative mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#FF2D2D]/20 bg-[#FF2D2D]/10 px-4 py-1.5 text-sm font-semibold text-[#FF2D2D]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-sm font-semibold text-[#C9A84C]">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF2D2D] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF2D2D]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C9A84C] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C9A84C]" />
             </span>
             Scanare instantanee
           </span>
           <h1 className="mt-4 font-[family-name:var(--font-dm-serif)] text-4xl text-white sm:text-5xl">
             Scanner{" "}
-            <span className="bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-transparent">
               VIN
             </span>
           </h1>
@@ -247,7 +247,7 @@ export default function VinScannerPage() {
                   setVin(e.target.value.toUpperCase());
                   setResult(null);
                 }}
-                className="border-white/10 bg-[#080808] font-mono text-lg tracking-widest text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/30"
+                className="border-white/10 bg-[#080808] font-mono text-lg tracking-widest text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/30"
               />
             </div>
 
@@ -267,7 +267,7 @@ export default function VinScannerPage() {
                 size="lg"
                 disabled={!isValid || loading}
                 onClick={handleDecode}
-                className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)] disabled:opacity-50 disabled:shadow-none"
+                className="bg-[#C9A84C] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all hover:bg-[#D4AF37] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)] disabled:opacity-50 disabled:shadow-none"
               >
                 {loading ? (
                   <span className="flex items-center gap-2">
@@ -291,7 +291,7 @@ export default function VinScannerPage() {
               <Button
                 variant="outline"
                 onClick={() => setShowCamera(true)}
-                className="border-white/10 bg-[#080808] text-[#E2E4E9] hover:border-[#FF2D2D]/40 hover:bg-[#FF2D2D]/5 hover:text-white"
+                className="border-white/10 bg-[#080808] text-[#E2E4E9] hover:border-[#C9A84C]/40 hover:bg-[#C9A84C]/5 hover:text-white"
               >
                 <svg className="mr-2 h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
@@ -376,7 +376,7 @@ export default function VinScannerPage() {
                 "In certificatul de inmatriculare (talonul masinii), rubrica E",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm text-[#8B8D97]">
-                  <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF2D2D]" />
+                  <span className="mt-1.5 block h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A84C]" />
                   {item}
                 </li>
               ))}
@@ -388,7 +388,7 @@ export default function VinScannerPage() {
             <Link href="/garaj">
               <Button
                 size="lg"
-                className="bg-[#FF2D2D] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-all hover:bg-[#FF5555] hover:shadow-[0_0_30px_rgba(255,45,45,0.5)]"
+                className="bg-[#C9A84C] px-8 py-3 text-base font-semibold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-all hover:bg-[#D4AF37] hover:shadow-[0_0_30px_rgba(201,168,76,0.5)]"
               >
                 Adaugă mașină în garajul virtual
               </Button>
@@ -424,7 +424,7 @@ function ValidationRow({ ok, label }: { ok: boolean; label: string }) {
 function ResultCard({ label, value, className = "" }: { label: string; value: string; className?: string }) {
   return (
     <div className={`relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0F1017] p-5 ${className}`}>
-      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6]" />
+      <div className="absolute top-0 left-0 h-[2px] w-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
       <p className="text-xs font-medium uppercase tracking-wider text-[#4A4B55]">{label}</p>
       <p className="mt-1 text-lg font-semibold text-white">{value}</p>
     </div>

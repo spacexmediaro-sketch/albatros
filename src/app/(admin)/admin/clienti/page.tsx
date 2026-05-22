@@ -44,7 +44,7 @@ export default async function ClientiPage({
           name="q"
           defaultValue={search}
           placeholder="Caută după nume, email sau telefon..."
-          className="w-full px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#FF2D2D]/50 focus:border-[#FF2D2D]/50"
+          className="w-full px-3 py-2 rounded-lg text-sm border border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus:outline-none focus:ring-2 focus:ring-[#C9A84C]/50 focus:border-[#C9A84C]/50"
         />
       </form>
 

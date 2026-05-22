@@ -90,7 +90,7 @@ export default async function SetariPage() {
                 name="name"
                 defaultValue={user.name || ""}
                 required
-                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
               />
             </div>
             <div className="space-y-2">
@@ -111,12 +111,12 @@ export default async function SetariPage() {
                 name="phone"
                 type="tel"
                 defaultValue={user.phone || ""}
-                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
               />
             </div>
             <Button
               type="submit"
-              className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
+              className="bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#C9A84C]/90"
             >
               Salvează modificările
             </Button>
@@ -138,7 +138,7 @@ export default async function SetariPage() {
               <input
                 type="checkbox"
                 defaultChecked
-                className="h-4 w-4 rounded border-white/10 bg-[#080808] text-[#FF2D2D] focus:ring-[#FF2D2D]/50"
+                className="h-4 w-4 rounded border-white/10 bg-[#080808] text-[#C9A84C] focus:ring-[#C9A84C]/50"
               />
               <div>
                 <p className="text-sm font-medium text-[#E2E4E9]">Email</p>
@@ -150,7 +150,7 @@ export default async function SetariPage() {
             <label className="flex items-center gap-3 cursor-pointer">
               <input
                 type="checkbox"
-                className="h-4 w-4 rounded border-white/10 bg-[#080808] text-[#FF2D2D] focus:ring-[#FF2D2D]/50"
+                className="h-4 w-4 rounded border-white/10 bg-[#080808] text-[#C9A84C] focus:ring-[#C9A84C]/50"
               />
               <div>
                 <p className="text-sm font-medium text-[#E2E4E9]">WhatsApp</p>

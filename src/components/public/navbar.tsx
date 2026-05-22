@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -34,17 +35,21 @@ export function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
         scrolled
-          ? "bg-[#080808]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/30"
+          ? "bg-[#111111]/80 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/30"
           : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1" aria-label="Albatros A Service - Pagina principala">
-          <span className="text-xl font-bold tracking-tight">
-            <span className="text-white">Albatros</span>
-            <span className="text-[#FF2D2D]"> A Service</span>
-          </span>
+        <Link href="/" className="flex items-center" aria-label="Albatros A Auto Service - Pagina principală">
+          <Image
+            src="/logo-albatros.jpg"
+            alt="Albatros'A Auto Service"
+            width={160}
+            height={48}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -81,7 +86,7 @@ export function Navbar() {
           </Link>
           <Link href="/programare" className="ml-2">
             <Button
-              className="bg-[#FF2D2D] text-[#050505] font-semibold shadow-lg shadow-[#FF2D2D]/20 hover:bg-[#FF2D2D]/90 transition-all duration-300"
+              className="bg-[#C9A84C] text-[#111111] font-semibold shadow-lg shadow-[#C9A84C]/20 hover:bg-[#C9A84C]/90 transition-all duration-300"
             >
               Programează
             </Button>
@@ -180,7 +185,7 @@ export function Navbar() {
                 Garajul meu
               </Link>
               <Link href="/programare" onClick={() => setOpen(false)} className="mt-4">
-                <Button className="w-full bg-[#FF2D2D] text-[#050505] font-semibold shadow-lg shadow-[#FF2D2D]/20 hover:bg-[#FF2D2D]/90 transition-all duration-300">
+                <Button className="w-full bg-[#C9A84C] text-[#111111] font-semibold shadow-lg shadow-[#C9A84C]/20 hover:bg-[#C9A84C]/90 transition-all duration-300">
                   Programează
                 </Button>
               </Link>

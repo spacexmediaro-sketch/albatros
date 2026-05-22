@@ -22,8 +22,8 @@ export default function ProgramarePage() {
       />
 
       {/* Gradient orbs */}
-      <div className="pointer-events-none absolute -top-40 -left-40 z-0 h-[500px] w-[500px] rounded-full bg-[#FF2D2D]/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-40 -right-40 z-0 h-[400px] w-[400px] rounded-full bg-[#FF2D2D]/5 blur-[100px]" />
+      <div className="pointer-events-none absolute -top-40 -left-40 z-0 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-40 -right-40 z-0 h-[400px] w-[400px] rounded-full bg-[#C9A84C]/5 blur-[100px]" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-2xl px-4 py-20 sm:px-6 lg:px-8">
@@ -31,8 +31,8 @@ export default function ProgramarePage() {
           {/* Badge with pulsing dot */}
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/5 px-4 py-1.5 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF2D2D] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF2D2D]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C9A84C] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C9A84C]" />
             </span>
             <span className="text-xs font-medium text-[#8B8D97]">
               Programari disponibile

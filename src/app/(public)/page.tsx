@@ -22,7 +22,7 @@ const services = [
     name: "Diagnoză auto",
     slug: "diagnoza-auto",
     desc: "Diagnoză computerizată pentru toate mărcile cu echipament profesional de ultimă generație.",
-    color: "#FF2D2D",
+    color: "#C9A84C",
     label: "POPULAR",
   },
   {
@@ -93,7 +93,7 @@ const steps = [
     step: "01",
     title: "Programezi online",
     desc: "Alege serviciul și o dată convenabilă din calendarul nostru.",
-    color: "#FF2D2D",
+    color: "#C9A84C",
     icon: (
       <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
@@ -168,7 +168,7 @@ const blogArticles = [
     title: "Cand trebuie sa schimbi uleiul de motor?",
     excerpt: "Ghid complet despre intervalele de schimb ulei in functie de tipul motorului si stilul de condus.",
     category: "Intretinere",
-    color: "#FF2D2D",
+    color: "#C9A84C",
   },
   {
     slug: "semne-probleme-turbo",
@@ -242,7 +242,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* HERO                                                         */}
       {/* ============================================================ */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#04040A]">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#111111]">
         {/* Animated particles */}
         <HeroParticles />
 
@@ -251,18 +251,18 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,45,45,0.03) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, rgba(201,168,76,0.03) 1px, transparent 0)",
             backgroundSize: "40px 40px",
           }}
         />
 
         {/* Radial gradient orbs */}
-        <div className="absolute top-20 right-10 h-[500px] w-[500px] rounded-full bg-[#FF2D2D]/[0.06] blur-[150px]" />
+        <div className="absolute top-20 right-10 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.06] blur-[150px]" />
         <div className="absolute bottom-20 left-10 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.06] blur-[120px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[#8B5CF6]/[0.03] blur-[180px]" />
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#04040A] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#111111] to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8 w-full">
           <motion.div
@@ -281,8 +281,8 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm"
               >
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF2D2D] opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF2D2D]" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C9A84C] opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C9A84C]" />
                 </span>
                 <span className="text-sm text-[#8B8D97]">Membru rețea Q-SERVICE Romania</span>
               </motion.div>
@@ -292,7 +292,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-6 font-[family-name:var(--font-dm-serif)] text-5xl leading-[1.1] text-white sm:text-6xl lg:text-7xl"
+                className="mt-6 font-[family-name:var(--font-dm-serif)] text-5xl leading-[1.1] text-white sm:text-6xl lg:text-7xl text-gold-gradient"
               >
                 Service auto
                 <br />
@@ -321,7 +321,7 @@ export default function HomePage() {
                 <Link href="/programare">
                   <Button
                     size="lg"
-                    className="btn-shine glow-pulse bg-[#FF2D2D] px-8 py-6 text-base font-semibold text-white hover:bg-[#E62626] shadow-[0_0_30px_rgba(255,45,45,0.3)]"
+                    className="btn-shine glow-pulse bg-[#C9A84C] px-8 py-6 text-base font-semibold text-white hover:bg-[#D4AF37] shadow-[0_0_30px_rgba(201,168,76,0.3)] relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/25 before:to-transparent before:-translate-x-full before:animate-shimmer"
                   >
                     Programează acum
                     <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -333,7 +333,7 @@ export default function HomePage() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-white/10 bg-white/5 px-8 py-6 text-base text-white backdrop-blur-sm hover:bg-white/10 hover:border-[#FF2D2D]/50"
+                    className="border-white/10 bg-white/5 px-8 py-6 text-base text-white backdrop-blur-sm hover:bg-white/10 hover:border-[#C9A84C]/50 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent before:-translate-x-full before:animate-shimmer"
                   >
                     Centru de Daune AI
                   </Button>
@@ -373,9 +373,9 @@ export default function HomePage() {
             >
               <div className="relative space-y-4">
                 {/* Card 1: Service Tracker */}
-                <div className="group rounded-2xl border border-white/[0.08] bg-white/5 p-5 backdrop-blur-sm transition-all duration-500 hover:border-[#FF2D2D]/30 hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(255,45,45,0.1)]">
+                <div className="group rounded-2xl border border-white/[0.08] bg-white/5 p-5 backdrop-blur-sm transition-all duration-500 hover:border-[#C9A84C]/30 hover:bg-white/[0.08] hover:shadow-[0_8px_40px_rgba(201,168,76,0.1)]">
                   <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF2D2D]/10 text-[#FF2D2D]">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#C9A84C]/10 text-[#C9A84C]">
                       <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                       </svg>
@@ -442,18 +442,18 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* SECTION DIVIDER                                               */}
       {/* ============================================================ */}
-      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#FF2D2D]/40 to-transparent" />
+      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#C9A84C]/40 to-transparent" />
 
       {/* ============================================================ */}
       {/* SERVICII                                                      */}
       {/* ============================================================ */}
-      <section className="relative bg-[#04040A] px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-[#111111] px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
         {/* Grid pattern */}
         <div
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,45,45,0.03) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, rgba(201,168,76,0.03) 1px, transparent 0)",
             backgroundSize: "40px 40px",
           }}
         />
@@ -479,7 +479,7 @@ export default function HomePage() {
               <motion.div key={service.slug} variants={itemVariants}>
                 <Link href={`/servicii/${service.slug}`} className="block h-full">
                   <div
-                    className="group relative h-full rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.15] hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
+                    className="group relative h-full rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 transition-all duration-300 hover:-translate-y-2 hover:border-[#C9A84C]/30 hover:shadow-[0_8px_30px_rgba(201,168,76,0.15)]"
                   >
                     {/* Hover radial glow */}
                     <div
@@ -538,7 +538,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* SECTION DIVIDER                                               */}
       {/* ============================================================ */}
-      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#FF2D2D]/30 to-transparent" />
+      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent" />
 
       {/* ============================================================ */}
       {/* CUM FUNCTIONEAZA                                              */}
@@ -562,12 +562,12 @@ export default function HomePage() {
 
           <StaggerSection className="relative mt-16">
             {/* Connector line (desktop) */}
-            <div className="absolute top-[4.5rem] left-[calc(12.5%+3rem)] right-[calc(12.5%+3rem)] hidden h-px border-t-2 border-dashed border-[#FF2D2D]/20 lg:block" />
+            <div className="absolute top-[4.5rem] left-[calc(12.5%+3rem)] right-[calc(12.5%+3rem)] hidden h-px border-t-2 border-dashed border-[#C9A84C]/20 lg:block" />
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((item) => (
                 <motion.div key={item.step} variants={itemVariants} className="relative">
-                  <div className="group rounded-2xl border border-white/[0.08] bg-[#080808] p-6 text-center transition-all duration-500 hover:border-white/[0.15] hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]">
+                  <div className="group rounded-2xl border border-white/[0.08] bg-[#1a1a1a] p-6 text-center transition-all duration-500 hover:border-white/[0.15] hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]">
                     {/* Large step number (faded) */}
                     <div
                       className="absolute top-4 right-4 text-5xl font-black leading-none select-none"
@@ -609,18 +609,18 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* CENTRU DE DAUNE AI                                            */}
       {/* ============================================================ */}
-      <section className="relative overflow-hidden bg-[#04040A] px-4 py-24 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-[#111111] px-4 py-24 sm:px-6 lg:px-8">
         {/* Grid pattern */}
         <div
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,45,45,0.03) 1px, transparent 0)",
+              "radial-gradient(circle at 1px 1px, rgba(201,168,76,0.03) 1px, transparent 0)",
             backgroundSize: "40px 40px",
           }}
         />
         {/* Gradient accent blobs */}
-        <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#FF2D2D]/[0.05] blur-[180px]" />
+        <div className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.05] blur-[180px]" />
         <div className="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#3B82F6]/[0.05] blur-[180px]" />
 
         <div className="relative mx-auto max-w-7xl">
@@ -628,7 +628,7 @@ export default function HomePage() {
             {/* Left */}
             <ScrollReveal>
               <div>
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#FF2D2D]/20 bg-[#FF2D2D]/10 px-4 py-1.5 text-sm font-semibold text-[#FF2D2D]">
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-sm font-semibold text-[#C9A84C]">
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                   </svg>
@@ -653,7 +653,7 @@ export default function HomePage() {
                     "Programare inspecție gratuită direct din rezultat",
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-[#8B8D97]">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FF2D2D]/10 text-xs text-[#FF2D2D]">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#C9A84C]/10 text-xs text-[#C9A84C]">
                         &#10003;
                       </span>
                       {item}
@@ -665,7 +665,7 @@ export default function HomePage() {
                   <Link href="/estimator">
                     <Button
                       size="lg"
-                      className="btn-shine glow-pulse bg-[#FF2D2D] px-8 text-white hover:bg-[#E62626] shadow-[0_0_30px_rgba(255,45,45,0.3)]"
+                      className="btn-shine glow-pulse bg-[#C9A84C] px-8 text-white hover:bg-[#D4AF37] shadow-[0_0_30px_rgba(201,168,76,0.3)]"
                     >
                       Estimează Gratuit
                       <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -692,7 +692,7 @@ export default function HomePage() {
                 <div className="rounded-2xl border border-white/[0.08] bg-[#050505] p-6 backdrop-blur-sm">
                   {/* Browser bar */}
                   <div className="mb-4 flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-[#FF2D2D]/40" />
+                    <div className="h-3 w-3 rounded-full bg-[#C9A84C]/40" />
                     <div className="h-3 w-3 rounded-full bg-[#F59E0B]/40" />
                     <div className="h-3 w-3 rounded-full bg-green-500/40" />
                     <div className="ml-3 h-7 flex-1 rounded-lg bg-white/5 border border-white/[0.06] px-3 flex items-center">
@@ -703,13 +703,13 @@ export default function HomePage() {
                   {/* Content mockup */}
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#FF2D2D]/20 to-[#3B82F6]/20 border border-white/[0.06] flex items-center justify-center">
+                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#C9A84C]/20 to-[#3B82F6]/20 border border-white/[0.06] flex items-center justify-center">
                         <svg className="h-8 w-8 text-[#8B8D97]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                           <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
                         </svg>
                       </div>
-                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#FF2D2D]/10 to-[#3B82F6]/10 border border-white/[0.06] flex items-center justify-center">
+                      <div className="h-20 w-20 rounded-lg bg-gradient-to-br from-[#C9A84C]/10 to-[#3B82F6]/10 border border-white/[0.06] flex items-center justify-center">
                         <svg className="h-8 w-8 text-[#4A4B55]" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                           <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
@@ -735,13 +735,13 @@ export default function HomePage() {
                       </div>
                       <div className="flex justify-between items-center text-sm">
                         <span className="text-[#8B8D97]">Far stânga</span>
-                        <span className="rounded-full bg-[#FF2D2D]/10 border border-[#FF2D2D]/20 px-2.5 py-0.5 text-xs font-medium text-[#FF2D2D]">
+                        <span className="rounded-full bg-[#C9A84C]/10 border border-[#C9A84C]/20 px-2.5 py-0.5 text-xs font-medium text-[#C9A84C]">
                           Severă
                         </span>
                       </div>
                     </div>
 
-                    <div className="rounded-xl bg-gradient-to-r from-[#FF2D2D]/[0.08] to-[#3B82F6]/[0.08] border border-white/[0.06] p-4 text-center">
+                    <div className="rounded-xl bg-gradient-to-r from-[#C9A84C]/[0.08] to-[#3B82F6]/[0.08] border border-white/[0.06] p-4 text-center">
                       <p className="text-xs text-[#4A4B55] uppercase tracking-wider font-medium">
                         Estimare cost
                       </p>
@@ -753,7 +753,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Floating AI Powered badge */}
-                <div className="absolute -top-3 -right-3 rounded-full bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] px-4 py-1.5 text-xs font-bold text-white shadow-[0_4px_20px_rgba(255,45,45,0.4)] animate-float">
+                <div className="absolute -top-3 -right-3 rounded-full bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] px-4 py-1.5 text-xs font-bold text-white shadow-[0_4px_20px_rgba(201,168,76,0.4)] animate-float">
                   AI Powered
                 </div>
               </div>
@@ -765,7 +765,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* SECTION DIVIDER                                               */}
       {/* ============================================================ */}
-      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#FF2D2D]/30 to-transparent" />
+      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent" />
 
       {/* ============================================================ */}
       {/* REVIEWS                                                       */}
@@ -789,11 +789,11 @@ export default function HomePage() {
               <motion.div key={review.name} variants={itemVariants}>
                 <div className="group relative h-full rounded-2xl border border-white/[0.08] bg-[#0F1017] overflow-hidden transition-all duration-500 hover:border-white/[0.15] hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]">
                   {/* Top gradient accent */}
-                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6]" />
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#C9A84C] to-[#3B82F6]" />
 
                   <div className="relative p-6 pt-7">
                     {/* Quote decoration */}
-                    <span className="absolute top-3 right-4 font-[family-name:var(--font-dm-serif)] text-6xl leading-none text-[#FF2D2D]/[0.06] select-none">
+                    <span className="absolute top-3 right-4 font-[family-name:var(--font-dm-serif)] text-6xl leading-none text-[#C9A84C]/[0.06] select-none">
                       &ldquo;
                     </span>
 
@@ -837,7 +837,7 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* BLOG PREVIEW                                                  */}
       {/* ============================================================ */}
-      <section className="relative bg-[#04040A] px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative bg-[#111111] px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
         <div className="relative mx-auto max-w-7xl">
           <ScrollReveal>
             <div className="text-center">
@@ -882,7 +882,7 @@ export default function HomePage() {
                         {article.excerpt}
                       </p>
 
-                      <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[#4A4B55] transition-colors group-hover:text-[#FF2D2D]">
+                      <div className="mt-4 flex items-center gap-1 text-sm font-medium text-[#4A4B55] transition-colors group-hover:text-[#C9A84C]">
                         Citește
                         <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -911,14 +911,14 @@ export default function HomePage() {
       {/* ============================================================ */}
       {/* SECTION DIVIDER                                               */}
       {/* ============================================================ */}
-      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#FF2D2D]/30 to-transparent" />
+      <div className="section-divider h-px bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent" />
 
       {/* ============================================================ */}
       {/* CONTACT / LOCATION                                            */}
       {/* ============================================================ */}
       <section className="relative bg-[#050505] px-4 py-24 sm:px-6 lg:px-8 overflow-hidden">
         {/* Ambient glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-[#FF2D2D]/[0.03] blur-[150px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-[#C9A84C]/[0.03] blur-[150px]" />
 
         <div className="relative mx-auto max-w-4xl">
           <ScrollReveal>
@@ -941,14 +941,14 @@ export default function HomePage() {
               {/* Phone 1 */}
               <a
                 href="tel:+40723177032"
-                className="group flex flex-col items-center rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 transition-all duration-500 hover:border-[#FF2D2D]/30 hover:shadow-[0_8px_40px_rgba(255,45,45,0.1)]"
+                className="group flex flex-col items-center rounded-2xl border border-white/[0.08] bg-[#0F1017] p-6 transition-all duration-500 hover:border-[#C9A84C]/30 hover:shadow-[0_8px_40px_rgba(201,168,76,0.1)]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF2D2D]/10 text-[#FF2D2D]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#C9A84C]/10 text-[#C9A84C]">
                   <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                   </svg>
                 </div>
-                <span className="mt-3 text-lg font-semibold text-white group-hover:text-[#FF2D2D] transition-colors">
+                <span className="mt-3 text-lg font-semibold text-white group-hover:text-[#C9A84C] transition-colors">
                   0723 177 032
                 </span>
                 <span className="text-xs text-[#4A4B55]">Mobil</span>
@@ -990,7 +990,7 @@ export default function HomePage() {
               <Link href="/programare">
                 <Button
                   size="lg"
-                  className="btn-shine glow-pulse bg-[#FF2D2D] px-10 py-6 text-base font-semibold text-white hover:bg-[#E62626] shadow-[0_0_30px_rgba(255,45,45,0.3)]"
+                  className="btn-shine glow-pulse bg-[#C9A84C] px-10 py-6 text-base font-semibold text-white hover:bg-[#D4AF37] shadow-[0_0_30px_rgba(201,168,76,0.3)]"
                 >
                   Programează o vizită
                   <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

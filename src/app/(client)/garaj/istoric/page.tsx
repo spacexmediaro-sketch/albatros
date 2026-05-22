@@ -50,7 +50,7 @@ export default async function IstoricPage({
               name="car"
               defaultValue={selectedCar || "all"}
               onChange="this.form.submit()"
-              className="flex h-9 rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/50"
+              className="flex h-9 rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors focus-visible:outline-none focus-visible:border-[#C9A84C]/50 focus-visible:ring-1 focus-visible:ring-[#C9A84C]/50"
             >
               <option value="all" className="bg-[#080808]">Toate mașinile</option>
               {cars.map((c) => (
@@ -76,7 +76,7 @@ export default async function IstoricPage({
         <div className="relative space-y-6 pl-6 before:absolute before:left-2 before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-white/[0.08]">
           {history.map((job) => (
             <div key={job.id} className="relative">
-              <span className="absolute -left-6 top-1.5 h-3 w-3 rounded-full border-2 border-[#FF2D2D] bg-[#0F1017]" />
+              <span className="absolute -left-6 top-1.5 h-3 w-3 rounded-full border-2 border-[#C9A84C] bg-[#0F1017]" />
               <Card className="bg-[#0F1017] border border-white/[0.08] rounded-2xl">
                 <CardContent className="p-4">
                   <div className="flex items-start justify-between">

@@ -54,7 +54,7 @@ export default function AdaugaMasinaPage() {
                 id="make"
                 name="make"
                 required
-                className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/50"
+                className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#C9A84C]/50 focus-visible:ring-1 focus-visible:ring-[#C9A84C]/50"
               >
                 <option value="" className="bg-[#080808]">Selectează marca</option>
                 {brands.map((brand) => (
@@ -72,7 +72,7 @@ export default function AdaugaMasinaPage() {
                 name="model"
                 placeholder="ex: Seria 3, Duster"
                 required
-                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
               />
             </div>
 
@@ -87,7 +87,7 @@ export default function AdaugaMasinaPage() {
                   max={2026}
                   placeholder="2022"
                   required
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
                 />
               </div>
               <div className="space-y-2">
@@ -96,7 +96,7 @@ export default function AdaugaMasinaPage() {
                   id="fuel"
                   name="fuel"
                   required
-                  className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#FF2D2D]/50 focus-visible:ring-1 focus-visible:ring-[#FF2D2D]/50"
+                  className="flex h-9 w-full rounded-md border border-white/10 bg-[#080808] px-3 py-1 text-sm text-white shadow-sm transition-colors placeholder:text-[#4A4B55] focus-visible:outline-none focus-visible:border-[#C9A84C]/50 focus-visible:ring-1 focus-visible:ring-[#C9A84C]/50"
                 >
                   <option value="" className="bg-[#080808]">Selectează</option>
                   {fuelOptions.map((opt) => (
@@ -117,7 +117,7 @@ export default function AdaugaMasinaPage() {
                   type="number"
                   min={0}
                   placeholder="125000"
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
                 />
               </div>
               <div className="space-y-2">
@@ -126,7 +126,7 @@ export default function AdaugaMasinaPage() {
                   id="plate"
                   name="plateNumber"
                   placeholder="PH-01-ABC"
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
                 />
               </div>
             </div>
@@ -138,7 +138,7 @@ export default function AdaugaMasinaPage() {
                 name="vin"
                 placeholder="WBAPH5C55BA123456"
                 maxLength={17}
-                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
               />
             </div>
 
@@ -149,7 +149,7 @@ export default function AdaugaMasinaPage() {
                   id="itpExpires"
                   name="itpExpires"
                   type="date"
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
                 />
               </div>
               <div className="space-y-2">
@@ -158,14 +158,14 @@ export default function AdaugaMasinaPage() {
                   id="rcaExpires"
                   name="rcaExpires"
                   type="date"
-                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#FF2D2D]/50 focus-visible:ring-[#FF2D2D]/50"
+                  className="border-white/10 bg-[#080808] text-white placeholder:text-[#4A4B55] focus-visible:border-[#C9A84C]/50 focus-visible:ring-[#C9A84C]/50"
                 />
               </div>
             </div>
 
             <Button
               type="submit"
-              className="w-full bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
+              className="w-full bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#C9A84C]/90"
               disabled={pending}
             >
               {pending ? "Se adaugă..." : "Adaugă mașină"}

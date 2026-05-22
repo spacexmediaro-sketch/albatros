@@ -20,8 +20,8 @@ const articles = [
     category: "Întreținere",
     date: "2024-12-15",
     readingTime: 5,
-    accent: "from-[#FF2D2D] to-[#FF2D2D]/40",
-    badgeColor: "bg-[#FF2D2D]/10 text-[#FF2D2D] border-[#FF2D2D]/20",
+    accent: "from-[#C9A84C] to-[#C9A84C]/40",
+    badgeColor: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/20",
   },
   {
     slug: "semne-probleme-turbo",
@@ -42,8 +42,8 @@ const articles = [
     category: "Sezonier",
     date: "2024-10-20",
     readingTime: 6,
-    accent: "from-[#FF2D2D] to-[#3B82F6]",
-    badgeColor: "bg-[#FF2D2D]/10 text-[#FF2D2D] border-[#FF2D2D]/20",
+    accent: "from-[#C9A84C] to-[#3B82F6]",
+    badgeColor: "bg-[#C9A84C]/10 text-[#C9A84C] border-[#C9A84C]/20",
   },
 ];
 
@@ -63,17 +63,17 @@ export default function BlogPage() {
         />
 
         {/* Gradient orbs */}
-        <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#FF2D2D]/[0.07] blur-[120px]" />
+        <div className="pointer-events-none absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.07] blur-[120px]" />
         <div className="pointer-events-none absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#3B82F6]/[0.07] blur-[120px]" />
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#FF2D2D]/[0.04] blur-[100px]" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#C9A84C]/[0.04] blur-[100px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="flex flex-col items-center text-center">
             {/* Badge with pulsing dot */}
             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#0F1017] px-4 py-1.5">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF2D2D] opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FF2D2D]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#C9A84C] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#C9A84C]" />
               </span>
               <span className="text-xs font-medium tracking-wide text-[#8B8D97]">
                 Articole noi în fiecare lună
@@ -82,7 +82,7 @@ export default function BlogPage() {
 
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Blog{" "}
-              <span className="bg-gradient-to-r from-[#FF2D2D] to-[#3B82F6] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#C9A84C] to-[#3B82F6] bg-clip-text text-transparent">
                 Auto
               </span>
             </h1>
@@ -107,7 +107,7 @@ export default function BlogPage() {
               href={`/blog/${article.slug}`}
               className={`group block ${index === 1 ? "sm:translate-y-6" : ""}`}
             >
-              <Card className="relative h-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0F1017] shadow-none transition-all duration-500 hover:border-white/[0.15] hover:shadow-[0_0_40px_-12px_rgba(255,45,45,0.15)]">
+              <Card className="relative h-full overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0F1017] shadow-none transition-all duration-500 hover:border-white/[0.15] hover:shadow-[0_0_40px_-12px_rgba(201,168,76,0.15)]">
                 {/* Gradient accent line at top */}
                 <div
                   className={`h-[2px] w-full bg-gradient-to-r ${article.accent} opacity-60 transition-opacity duration-500 group-hover:opacity-100`}
@@ -146,7 +146,7 @@ export default function BlogPage() {
                     </time>
 
                     {/* Read more arrow */}
-                    <span className="flex items-center gap-1 text-xs font-medium text-[#8B8D97] transition-colors duration-300 group-hover:text-[#FF2D2D]">
+                    <span className="flex items-center gap-1 text-xs font-medium text-[#8B8D97] transition-colors duration-300 group-hover:text-[#C9A84C]">
                       Citește
                       <svg
                         className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5"

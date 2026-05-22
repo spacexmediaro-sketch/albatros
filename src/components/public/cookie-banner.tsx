@@ -89,7 +89,7 @@ export function CookieBanner() {
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={acceptAll}
-                className="rounded-lg bg-[#FF2D2D] px-5 py-2.5 text-sm font-semibold text-[#050505] transition-opacity hover:opacity-90"
+                className="rounded-lg bg-[#C9A84C] px-5 py-2.5 text-sm font-semibold text-[#111111] transition-opacity hover:opacity-90"
               >
                 Acceptă toate
               </button>
@@ -157,7 +157,7 @@ export function CookieBanner() {
             <div className="flex flex-wrap items-center gap-3 border-t border-white/[0.08] pt-4">
               <button
                 onClick={acceptAll}
-                className="rounded-lg bg-[#FF2D2D] px-5 py-2.5 text-sm font-semibold text-[#050505] transition-opacity hover:opacity-90"
+                className="rounded-lg bg-[#C9A84C] px-5 py-2.5 text-sm font-semibold text-[#111111] transition-opacity hover:opacity-90"
               >
                 Acceptă toate
               </button>
@@ -200,7 +200,7 @@ function Toggle({
       disabled={disabled}
       onClick={() => onChange?.(!checked)}
       className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border border-white/[0.08] transition-colors ${
-        checked ? "bg-[#FF2D2D]" : "bg-white/10"
+        checked ? "bg-[#C9A84C]" : "bg-white/10"
       } ${disabled ? "cursor-not-allowed opacity-70" : ""}`}
     >
       <span

@@ -94,7 +94,7 @@ export default async function GarajPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-white">Garajul meu</h1>
         <Button
-          className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
+          className="bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#C9A84C]/90"
           asChild
         >
           <Link href="/garaj/adauga-masina">Adaugă mașină</Link>
@@ -109,7 +109,7 @@ export default async function GarajPage() {
               Adaugă prima ta mașină pentru a urmări starea ITP, RCA și istoricul service.
             </p>
             <Button
-              className="mt-4 bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
+              className="mt-4 bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#C9A84C]/90"
               asChild
             >
               <Link href="/garaj/adauga-masina">Adaugă mașină</Link>
@@ -189,7 +189,7 @@ export default async function GarajPage() {
                 <CardFooter className="gap-2">
                   <Button
                     size="sm"
-                    className="bg-[#FF2D2D] text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] hover:bg-[#FF2D2D]/90"
+                    className="bg-[#C9A84C] text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] hover:bg-[#C9A84C]/90"
                     asChild
                   >
                     <Link href="/garaj/programari">Programează</Link>

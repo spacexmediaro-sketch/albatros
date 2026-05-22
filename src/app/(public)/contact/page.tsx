@@ -26,7 +26,7 @@ export default function ContactPage() {
           }}
         />
         {/* Gradient orbs */}
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#FF2D2D]/[0.04] rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#C9A84C]/[0.04] rounded-full blur-[120px]" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#3B82F6]/[0.04] rounded-full blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
@@ -49,8 +49,8 @@ export default function ContactPage() {
               <CardContent className="p-8 space-y-0">
                 {/* Adresa */}
                 <div className="flex items-start gap-4 py-6 first:pt-0">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
-                    <MapPin className="h-5 w-5 text-[#FF2D2D]" />
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#C9A84C]/10">
+                    <MapPin className="h-5 w-5 text-[#C9A84C]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-[#E2E4E9]">
@@ -67,8 +67,8 @@ export default function ContactPage() {
 
                 {/* Telefon */}
                 <div className="flex items-start gap-4 py-6">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
-                    <Phone className="h-5 w-5 text-[#FF2D2D]" />
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#C9A84C]/10">
+                    <Phone className="h-5 w-5 text-[#C9A84C]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-[#E2E4E9]">
@@ -78,7 +78,7 @@ export default function ContactPage() {
                       Mobil:{" "}
                       <a
                         href={`tel:${siteConfig.phone}`}
-                        className="hover:text-[#FF2D2D] transition-colors"
+                        className="hover:text-[#C9A84C] transition-colors"
                       >
                         {siteConfig.phone}
                       </a>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                       Fix:{" "}
                       <a
                         href={`tel:${siteConfig.phoneLandline}`}
-                        className="hover:text-[#FF2D2D] transition-colors"
+                        className="hover:text-[#C9A84C] transition-colors"
                       >
                         {siteConfig.phoneLandline}
                       </a>
@@ -98,8 +98,8 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <div className="flex items-start gap-4 py-6">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
-                    <Mail className="h-5 w-5 text-[#FF2D2D]" />
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#C9A84C]/10">
+                    <Mail className="h-5 w-5 text-[#C9A84C]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-[#E2E4E9]">
@@ -108,7 +108,7 @@ export default function ContactPage() {
                     <p className="mt-1 text-sm text-[#8B8D97]">
                       <a
                         href={`mailto:${siteConfig.email}`}
-                        className="hover:text-[#FF2D2D] transition-colors"
+                        className="hover:text-[#C9A84C] transition-colors"
                       >
                         {siteConfig.email}
                       </a>
@@ -120,8 +120,8 @@ export default function ContactPage() {
 
                 {/* Program */}
                 <div className="flex items-start gap-4 py-6 last:pb-0">
-                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FF2D2D]/10">
-                    <Clock className="h-5 w-5 text-[#FF2D2D]" />
+                  <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#C9A84C]/10">
+                    <Clock className="h-5 w-5 text-[#C9A84C]" />
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-[#E2E4E9]">

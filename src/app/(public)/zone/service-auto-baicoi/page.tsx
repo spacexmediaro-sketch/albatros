@@ -11,9 +11,9 @@ export const metadata = generatePageMetadata({
 
 const services = [
   { name: "Diagnoză computerizată", desc: "Detectare rapidă a defecțiunilor cu scanner profesional multimarcă.", icon: Gauge, color: "#3B82F6" },
-  { name: "Reparații motoare diesel", desc: "Expertiză pe motoare diesel — de la revizie la reparații capitale.", icon: Cog, color: "#FF2D2D" },
-  { name: "Reparații injectoare", desc: "Testare pe bancă dedicată și recalibrare la parametri de fabrică.", icon: Zap, color: "#FF2D2D" },
-  { name: "Rectificări chiulase", desc: "Planare și recondiționare chiulase cu toleranțe stricte.", icon: Wrench, color: "#FF2D2D" },
+  { name: "Reparații motoare diesel", desc: "Expertiză pe motoare diesel — de la revizie la reparații capitale.", icon: Cog, color: "#C9A84C" },
+  { name: "Reparații injectoare", desc: "Testare pe bancă dedicată și recalibrare la parametri de fabrică.", icon: Zap, color: "#C9A84C" },
+  { name: "Rectificări chiulase", desc: "Planare și recondiționare chiulase cu toleranțe stricte.", icon: Wrench, color: "#C9A84C" },
   { name: "Tinichigerie auto", desc: "Reparații tablă, suduri, redresări structurale profesionale.", icon: Shield, color: "#F59E0B" },
   { name: "Vopsitorie auto", desc: "Vopsire în cabină controlată — finisaj de showroom.", icon: Paintbrush, color: "#F59E0B" },
   { name: "Geometrie roți 3D", desc: "Reglaj precis pe stand 3D — protejezi anvelopele și siguranța.", icon: CircuitBoard, color: "#22C55E" },
@@ -23,7 +23,7 @@ const services = [
 ];
 
 const advantages = [
-  { title: "Vecini de încredere", desc: "Blejoi și Băicoi sunt la doar 10 km distanță. Suntem service-ul de cartier pentru comunitatea ta.", color: "#FF2D2D", icon: Users },
+  { title: "Vecini de încredere", desc: "Blejoi și Băicoi sunt la doar 10 km distanță. Suntem service-ul de cartier pentru comunitatea ta.", color: "#C9A84C", icon: Users },
   { title: "Diagnostic rapid", desc: "Vii dimineața, primești diagnosticul în aceeași zi. Fără așteptări de zile sau săptămâni.", color: "#3B82F6", icon: Gauge },
   { title: "Calitate dovedită", desc: "Peste 19 ani de activitate și sute de clienți fideli din zona Băicoi-Blejoi-Ploiești.", color: "#22C55E", icon: Star },
   { title: "Servicii complete", desc: "Nu trebuie să mergi la Ploiești pentru caroserie sau la București pentru injectoare. Le avem pe toate.", color: "#8B5CF6", icon: Wrench },
@@ -76,7 +76,7 @@ export default function ServiceAutoBaicoiPage() {
       <section className="relative overflow-hidden px-4 pt-16 pb-24 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="pointer-events-none absolute -top-36 left-1/3 h-[480px] w-[480px] rounded-full bg-[#22C55E]/[0.04] blur-[120px]" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-[380px] w-[380px] rounded-full bg-[#FF2D2D]/[0.05] blur-[110px]" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-[380px] w-[380px] rounded-full bg-[#C9A84C]/[0.05] blur-[110px]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
           <span className="mb-6 inline-block rounded-full border border-[#22C55E]/20 bg-[#22C55E]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#22C55E]">
@@ -92,7 +92,7 @@ export default function ServiceAutoBaicoiPage() {
             de la o simplă revizie până la reparații complexe de motor sau caroserie.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#FF2D2D] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-colors hover:bg-[#FF5555]">
+            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#C9A84C] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-colors hover:bg-[#D4AF37]">
               Programează-te acum
             </Link>
             <a href={`tel:${siteConfig.phone}`} className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.04] px-7 py-3.5 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/[0.08]">
@@ -153,7 +153,7 @@ export default function ServiceAutoBaicoiPage() {
               <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">Cum ajungi de la Băicoi</h2>
               <div className="mt-6 space-y-4 text-[#E2E4E9]">
                 <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#FF2D2D]" />
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
                   <p>Din centrul Băicoiului, ieși pe DJ101F spre Blejoi. La intersecția cu DN1B (Șoseaua Ploiești-Văleni), faci dreapta. Service-ul Albatros este la 1 km, pe partea stângă.</p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -187,7 +187,7 @@ export default function ServiceAutoBaicoiPage() {
             Sună acum sau programează-te online. La noi, vecinii au prioritate.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#FF2D2D] px-8 py-4 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-colors hover:bg-[#FF5555]">
+            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#C9A84C] px-8 py-4 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-colors hover:bg-[#D4AF37]">
               Programare online
             </Link>
             <a href={`tel:${siteConfig.phone}`} className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.04] px-8 py-4 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/[0.08]">

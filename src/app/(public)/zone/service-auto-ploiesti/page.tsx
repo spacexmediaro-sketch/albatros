@@ -11,9 +11,9 @@ export const metadata = generatePageMetadata({
 
 const services = [
   { name: "Diagnoză computerizată", desc: "Citire erori, resetare martori — toate mărcile auto.", icon: Gauge, color: "#3B82F6" },
-  { name: "Reparații motoare diesel", desc: "Specialiști în motoare diesel cu peste 19 ani experiență.", icon: Cog, color: "#FF2D2D" },
-  { name: "Reparații injectoare", desc: "Testare și recalibrare injectoare common-rail.", icon: Zap, color: "#FF2D2D" },
-  { name: "Rectificări chiulase", desc: "Rectificare profesională cu echipament specializat.", icon: Wrench, color: "#FF2D2D" },
+  { name: "Reparații motoare diesel", desc: "Specialiști în motoare diesel cu peste 19 ani experiență.", icon: Cog, color: "#C9A84C" },
+  { name: "Reparații injectoare", desc: "Testare și recalibrare injectoare common-rail.", icon: Zap, color: "#C9A84C" },
+  { name: "Rectificări chiulase", desc: "Rectificare profesională cu echipament specializat.", icon: Wrench, color: "#C9A84C" },
   { name: "Tinichigerie auto", desc: "Îndreptare tablă, sudură, reparații structurale.", icon: Shield, color: "#F59E0B" },
   { name: "Vopsitorie auto", desc: "Vopsire profesională în cabină dedicată.", icon: Paintbrush, color: "#F59E0B" },
   { name: "Geometrie roți 3D", desc: "Aliniere precisă pentru uzură uniformă anvelope.", icon: CircuitBoard, color: "#22C55E" },
@@ -23,7 +23,7 @@ const services = [
 ];
 
 const advantages = [
-  { title: "5 minute de Ploiești", desc: "Cel mai apropiat service profesional de centrul orașului. Fără aglomerație, fără căutare de parcare.", color: "#FF2D2D" },
+  { title: "5 minute de Ploiești", desc: "Cel mai apropiat service profesional de centrul orașului. Fără aglomerație, fără căutare de parcare.", color: "#C9A84C" },
   { title: "Membru Q-SERVICE", desc: "Parte din rețeaua Q-SERVICE Romania — standarde europene de calitate și echipamente certificate.", color: "#3B82F6" },
   { title: "Garanție la lucrări", desc: "Toate lucrările vin cu garanție scrisă. Folosim piese originale și aftermarket premium.", color: "#22C55E" },
   { title: "Programare rapidă", desc: "Programare telefonică sau online. Fără cozi — te așteptăm la ora stabilită.", color: "#8B5CF6" },
@@ -75,23 +75,23 @@ export default function ServiceAutoPloiestiPage() {
       {/* HERO */}
       <section className="relative overflow-hidden px-4 pt-16 pb-24 sm:px-6 lg:px-8">
         <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#FF2D2D]/[0.06] blur-[120px]" />
+        <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/[0.06] blur-[120px]" />
         <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/[0.05] blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl text-center">
-          <span className="mb-6 inline-block rounded-full border border-[#FF2D2D]/20 bg-[#FF2D2D]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#FF2D2D]">
+          <span className="mb-6 inline-block rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#C9A84C]">
             La 5 minute de centrul Ploieștiului
           </span>
           <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
             Service Auto{" "}
-            <span className="bg-gradient-to-r from-[#FF2D2D] to-[#FF6B35] bg-clip-text text-transparent">Ploiești</span>
+            <span className="bg-gradient-to-r from-[#C9A84C] to-[#FF6B35] bg-clip-text text-transparent">Ploiești</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[#8B8D97]">
             Albatros A Service se află în Blejoi, pe Șoseaua Ploiești-Văleni, la doar 5 minute de centrul Ploieștiului.
             Oferim servicii complete de reparații auto multimarcă, cu echipamente profesionale și garanție la fiecare lucrare.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#FF2D2D] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-colors hover:bg-[#FF5555]">
+            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#C9A84C] px-7 py-3.5 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-colors hover:bg-[#D4AF37]">
               Programează-te acum
             </Link>
             <a href={`tel:${siteConfig.phone}`} className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.04] px-7 py-3.5 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/[0.08]">
@@ -152,7 +152,7 @@ export default function ServiceAutoPloiestiPage() {
               <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">Cum ajungi de la Ploiești</h2>
               <div className="mt-6 space-y-4 text-[#E2E4E9]">
                 <div className="flex items-start gap-3">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#FF2D2D]" />
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" />
                   <p>La doar 5 minute de centrul Ploieștiului, pe DN1B (Centura de Nord). Din Piața Victoriei, mergi pe Șoseaua Nordului spre Văleni — ne găsești pe partea dreaptă, în Blejoi.</p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -177,7 +177,7 @@ export default function ServiceAutoPloiestiPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#FF2D2D]/[0.04] to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#C9A84C]/[0.04] to-transparent" />
         <div className="relative mx-auto max-w-3xl text-center">
           <h2 className="font-[family-name:var(--font-dm-serif)] text-3xl font-bold text-white sm:text-4xl">
             Programează-te de la Ploiești
@@ -186,7 +186,7 @@ export default function ServiceAutoPloiestiPage() {
             Sună-ne sau completează formularul online. Îți confirmăm programarea în cel mai scurt timp.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#FF2D2D] px-8 py-4 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(255,45,45,0.3)] transition-colors hover:bg-[#FF5555]">
+            <Link href="/programare" className="inline-flex items-center rounded-xl bg-[#C9A84C] px-8 py-4 text-sm font-bold text-[#050505] shadow-[0_0_20px_rgba(201,168,76,0.3)] transition-colors hover:bg-[#D4AF37]">
               Programare online
             </Link>
             <a href={`tel:${siteConfig.phone}`} className="inline-flex items-center gap-2 rounded-xl border border-white/[0.12] bg-white/[0.04] px-8 py-4 text-sm font-medium text-[#E2E4E9] transition-colors hover:bg-white/[0.08]">

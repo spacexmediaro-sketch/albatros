@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/seo";
 import { Phone, Mail, MapPin, Shield, Star, Wrench } from "lucide-react";
 
@@ -29,13 +30,13 @@ const legal = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#080808] border-t border-white/[0.06]">
+    <footer className="bg-[#111111] border-t border-white/[0.06]">
       {/* Top accent line */}
       <div
         className="h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, #FF2D2D30 30%, #FF2D2D50 50%, #FF2D2D30 70%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, #C9A84C30 30%, #C9A84C50 50%, #C9A84C30 70%, transparent 100%)",
         }}
       />
 
@@ -44,8 +45,13 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <div>
-              <span className="text-xl font-bold text-white">Albatros</span>{" "}
-              <span className="text-xl font-bold text-[#FF2D2D]">A Service.</span>
+              <Image
+                src="/logo-albatros.jpg"
+                alt="Albatros'A Auto Service"
+                width={180}
+                height={54}
+                className="h-12 w-auto object-contain"
+              />
             </div>
 
             <p className="text-sm leading-relaxed text-[#8B8D97]">
@@ -57,15 +63,15 @@ export function Footer() {
             {/* Trust badges */}
             <div className="flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-[#8B8D97]">
-                <Shield className="h-3.5 w-3.5 text-[#FF2D2D]" />
+                <Shield className="h-3.5 w-3.5 text-[#C9A84C]" />
                 Q-SERVICE
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-[#8B8D97]">
-                <Star className="h-3.5 w-3.5 text-[#FF2D2D]" />
+                <Star className="h-3.5 w-3.5 text-[#C9A84C]" />
                 20+ ani
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-[#8B8D97]">
-                <Wrench className="h-3.5 w-3.5 text-[#FF2D2D]" />
+                <Wrench className="h-3.5 w-3.5 text-[#C9A84C]" />
                 Multimarca
               </span>
             </div>
@@ -76,25 +82,25 @@ export function Footer() {
                 href="tel:+40244410650"
                 className="flex items-center gap-2 text-sm text-[#8B8D97] transition-colors hover:text-white"
               >
-                <Phone className="h-4 w-4 text-[#FF2D2D]" />
+                <Phone className="h-4 w-4 text-[#C9A84C]" />
                 0244 410 650
               </a>
               <a
                 href="tel:+40723177032"
                 className="flex items-center gap-2 text-sm text-[#8B8D97] transition-colors hover:text-white"
               >
-                <Phone className="h-4 w-4 text-[#FF2D2D]" />
+                <Phone className="h-4 w-4 text-[#C9A84C]" />
                 0723 177 032
               </a>
               <a
                 href={`mailto:${siteConfig.email}`}
                 className="flex items-center gap-2 text-sm text-[#8B8D97] transition-colors hover:text-white"
               >
-                <Mail className="h-4 w-4 text-[#FF2D2D]" />
+                <Mail className="h-4 w-4 text-[#C9A84C]" />
                 {siteConfig.email}
               </a>
               <div className="flex items-start gap-2 text-sm text-[#8B8D97]">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#FF2D2D]" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#C9A84C]" />
                 {siteConfig.address.street}, {siteConfig.address.city},{" "}
                 {siteConfig.address.county}
               </div>
@@ -185,7 +191,7 @@ export function Footer() {
             ))}
 
             <span className="flex items-center gap-1.5 text-xs text-[#8B8D97]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#FF2D2D] shadow-[0_0_6px_#FF2D2D]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#C9A84C] shadow-[0_0_6px_#C9A84C]" />
               Operațional
             </span>
           </div>

@@ -15,7 +15,7 @@ const values = [
   {
     title: "Transparență",
     desc: "Fiecare lucrare este documentată cu poze și explicații. Știi mereu ce se întâmplă cu mașina ta.",
-    color: "#FF2D2D",
+    color: "#C9A84C",
   },
   {
     title: "Calitate",
@@ -84,7 +84,7 @@ export default function DesprePage() {
         />
 
         {/* Gradient orbs */}
-        <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#FF2D2D]/8 blur-[120px]" />
+        <div className="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#C9A84C]/8 blur-[120px]" />
         <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#3B82F6]/8 blur-[120px]" />
         <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[300px] w-[300px] rounded-full bg-[#8B5CF6]/5 blur-[100px]" />
 
@@ -94,9 +94,9 @@ export default function DesprePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-6 inline-flex items-center rounded-full border border-[#FF2D2D]/20 bg-[#FF2D2D]/10 px-4 py-1.5"
+            className="mb-6 inline-flex items-center rounded-full border border-[#C9A84C]/20 bg-[#C9A84C]/10 px-4 py-1.5"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#FF2D2D]">
+            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#C9A84C]">
               DESPRE NOI
             </span>
           </motion.div>
@@ -112,7 +112,7 @@ export default function DesprePage() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: "linear-gradient(135deg, #FF2D2D, #3B82F6)",
+                backgroundImage: "linear-gradient(135deg, #C9A84C, #3B82F6)",
               }}
             >
               Albatros A Service
@@ -211,7 +211,7 @@ export default function DesprePage() {
             <div
               className="absolute left-[1.4rem] top-3 bottom-3 w-[2px]"
               style={{
-                backgroundImage: "linear-gradient(to bottom, #FF2D2D, #3B82F6)",
+                backgroundImage: "linear-gradient(to bottom, #C9A84C, #3B82F6)",
               }}
             />
 
@@ -236,16 +236,16 @@ export default function DesprePage() {
                   <div
                     className="relative z-10 flex h-[2.8rem] w-[2.8rem] shrink-0 items-center justify-center rounded-full shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg, #FF2D2D, #3B82F6)",
-                      boxShadow: "0 0 20px rgba(255, 45, 45, 0.2)",
+                      background: "linear-gradient(135deg, #C9A84C, #3B82F6)",
+                      boxShadow: "0 0 20px rgba(201, 168, 76, 0.2)",
                     }}
                   >
                     <div className="h-2.5 w-2.5 rounded-full bg-white" />
                   </div>
 
                   {/* Content card */}
-                  <div className="group flex-1 rounded-2xl border border-white/[0.08] bg-[#080808] p-5 transition-all duration-300 hover:border-white/[0.16] hover:shadow-[0_4px_30px_-8px_rgba(255,45,45,0.08)]">
-                    <span className="text-sm font-bold text-[#FF2D2D]">
+                  <div className="group flex-1 rounded-2xl border border-white/[0.08] bg-[#080808] p-5 transition-all duration-300 hover:border-white/[0.16] hover:shadow-[0_4px_30px_-8px_rgba(201,168,76,0.08)]">
+                    <span className="text-sm font-bold text-[#C9A84C]">
                       {m.year}
                     </span>
                     <p className="mt-1.5 leading-relaxed text-[#8B8D97]">

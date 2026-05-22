@@ -15,7 +15,7 @@ export default function PoliticaConfidentialitatePage() {
         {/* Grid pattern */}
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
         {/* Gradient orbs */}
-        <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#FF2D2D]/[0.04] blur-[100px]" />
+        <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[#C9A84C]/[0.04] blur-[100px]" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-[family-name:var(--font-dm-serif)] text-4xl text-white">
             Politica de confidențialitate
@@ -173,7 +173,7 @@ export default function PoliticaConfidentialitatePage() {
                 utilizate, scopul acestora și modalitățile de gestionare sunt disponibile în{" "}
                 <a
                   href="/politica-cookies"
-                  className="font-medium text-[#FF2D2D] underline underline-offset-2 hover:text-[#FF5555]"
+                  className="font-medium text-[#C9A84C] underline underline-offset-2 hover:text-[#D4AF37]"
                 >
                   Politica de cookie-uri
                 </a>
@@ -233,7 +233,7 @@ export default function PoliticaConfidentialitatePage() {
                   <strong className="text-white">E-mail:</strong>{" "}
                   <a
                     href="mailto:albatros_service@q-service.ro"
-                    className="font-medium text-[#FF2D2D] underline underline-offset-2 hover:text-[#FF5555]"
+                    className="font-medium text-[#C9A84C] underline underline-offset-2 hover:text-[#D4AF37]"
                   >
                     albatros_service@q-service.ro
                   </a>
