@@ -120,88 +120,83 @@ export default function HomePage() {
       </section>
 
       {/* ────────────────────────────────────────────────────────── */}
-      {/* CENTRU DAUNE — Premium feature card with glow border      */}
+      {/* CENTRU DAUNE — Gold card, sales-focused                   */}
       {/* ────────────────────────────────────────────────────────── */}
       <section id="centru-daune" className="relative bg-[#09090b] px-6 lg:px-12 scroll-mt-32">
         <div className="mx-auto max-w-[88rem] py-24 lg:py-32">
-          {/* The card — gradient border glow */}
           <FadeIn>
-            <div className="relative rounded-[2rem] p-px overflow-hidden">
-              {/* Gradient border glow */}
-              <div className="absolute inset-0 rounded-[2rem] bg-[conic-gradient(from_0deg,transparent_30%,#C9A84C_50%,transparent_70%)] opacity-40 animate-spin [animation-duration:12s]" />
-              <div className="absolute inset-px rounded-[calc(2rem-1px)] bg-[#09090b]" />
+            <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#C9A84C] via-[#b8973f] to-[#9a7e30]">
+              {/* Subtle grain */}
+              <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iMSIvPjwvc3ZnPg==')]" />
 
-              {/* Card content */}
-              <div className="relative rounded-[calc(2rem-1px)] bg-gradient-to-b from-white/[0.03] to-transparent p-8 lg:p-14">
-                <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-                  {/* Left */}
-                  <div>
-                    <span className="inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.15em] text-[#C9A84C]/60">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#C9A84C]" />
-                      Centru Daune
-                    </span>
+              <div className="relative grid gap-10 p-8 lg:grid-cols-5 lg:items-center lg:gap-12 lg:p-14">
+                {/* Left — 3 cols */}
+                <div className="lg:col-span-3">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-black/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-black/50">
+                    <span className="h-1.5 w-1.5 rounded-full bg-black/30 animate-pulse" />
+                    Centru Daune Autorizat
+                  </span>
 
-                    <h2 className="mt-6 font-[family-name:var(--font-space-grotesk)] text-[clamp(2rem,4.5vw,3.2rem)] font-bold leading-[1.05] tracking-tight text-white">
-                      Ai avut un accident?
-                    </h2>
-                    <p className="mt-3 text-lg text-white/35">
-                      Tu aduci mașina. Noi ne ocupăm de absolut tot.
-                    </p>
+                  <h2 className="mt-6 font-[family-name:var(--font-space-grotesk)] text-[clamp(2.2rem,5vw,3.8rem)] font-bold leading-[1] tracking-tight text-black/90">
+                    Ai avut un accident?
+                  </h2>
+                  <p className="mt-4 text-lg text-black/50 max-w-md">
+                    Tu aduci mașina. Noi ne ocupăm de dosar, constatare, reparație și comunicarea cu asiguratorul.
+                  </p>
 
-                    <div className="mt-10 space-y-0">
-                      {[
-                        "Deschidere și administrare completă dosar RCA",
-                        "Constatare și reparație la standard de fabrică",
-                        "Comunicare transparentă pe toată durata lucrării",
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-3 border-b border-white/[0.04] py-4 last:border-0">
-                          <span className="h-1 w-1 rounded-full bg-white/20" />
-                          <span className="text-sm text-white/40">{item}</span>
-                        </div>
-                      ))}
+                  <div className="mt-8 space-y-0">
+                    {[
+                      "Deschidere și administrare completă dosar RCA",
+                      "Constatare și reparație la standard de fabrică",
+                      "Comunicare transparentă pe toată durata lucrării",
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 border-b border-black/[0.08] py-3.5 last:border-0">
+                        <svg className="h-4 w-4 shrink-0 text-black/30" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="text-sm text-black/60">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap items-center gap-4">
+                    <Link href="/programare">
+                      <Button className="rounded-full bg-black px-7 py-5 text-sm font-semibold text-[#C9A84C] hover:bg-black/90 transition-colors">
+                        Programează constatare
+                      </Button>
+                    </Link>
+                    <a href="tel:+40723177032" className="text-sm font-medium text-black/40 hover:text-black/70 transition-colors">
+                      Sună acum &rarr;
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right — 2 cols: the big promise */}
+                <div className="lg:col-span-2 space-y-3">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-2xl bg-black/10 p-5">
+                      <p className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-black/80">2.000+</p>
+                      <p className="mt-1 text-xs text-black/35">dosare RCA</p>
                     </div>
-
-                    <div className="mt-8 flex flex-wrap items-center gap-4">
-                      <Link href="/programare">
-                        <Button className="rounded-full bg-white px-7 py-5 text-sm font-semibold text-black hover:bg-white/90 transition-colors">
-                          Programează constatare
-                        </Button>
-                      </Link>
-                      <a href="tel:+40723177032" className="text-sm text-white/30 hover:text-white transition-colors">
-                        Sună acum &rarr;
-                      </a>
+                    <div className="rounded-2xl bg-black/10 p-5">
+                      <p className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-black/80">24h</p>
+                      <p className="mt-1 text-xs text-black/35">timp constatare</p>
                     </div>
                   </div>
 
-                  {/* Right — Mașină la schimb highlight */}
-                  <div className="space-y-4">
-                    {/* Stats */}
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="rounded-2xl bg-white/[0.03] p-5">
-                        <p className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white">2.000+</p>
-                        <p className="mt-1 text-xs text-white/25">dosare RCA</p>
-                      </div>
-                      <div className="rounded-2xl bg-white/[0.03] p-5">
-                        <p className="font-[family-name:var(--font-space-grotesk)] text-3xl font-bold text-white">24h</p>
-                        <p className="mt-1 text-xs text-white/25">timp constatare</p>
-                      </div>
-                    </div>
-
-                    {/* The big promise — dark card with gold */}
-                    <div className="rounded-2xl border border-[#C9A84C]/15 bg-[#C9A84C]/[0.04] p-6 lg:p-8">
-                      <p className="text-xs font-medium uppercase tracking-[0.15em] text-[#C9A84C]/50">
-                        Inclus în fiecare dosar
-                      </p>
-                      <p className="mt-4 font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-white lg:text-3xl">
-                        Mașină la schimb
-                      </p>
-                      <p className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-[#C9A84C] lg:text-3xl">
-                        GRATUIT
-                      </p>
-                      <p className="mt-3 text-sm text-white/25">
-                        Pe toată perioada reparației. Zero costuri.
-                      </p>
-                    </div>
+                  <div className="rounded-2xl bg-black p-7 lg:p-8">
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-white/30">
+                      Inclus în fiecare dosar
+                    </p>
+                    <p className="mt-4 font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-white lg:text-3xl">
+                      Mașină la schimb
+                    </p>
+                    <p className="font-[family-name:var(--font-space-grotesk)] text-2xl font-bold text-[#C9A84C] lg:text-3xl">
+                      GRATUIT
+                    </p>
+                    <p className="mt-3 text-sm text-white/25">
+                      Pe toată perioada reparației. Zero costuri.
+                    </p>
                   </div>
                 </div>
               </div>
