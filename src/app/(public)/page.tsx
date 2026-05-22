@@ -40,44 +40,67 @@ export default function HomePage() {
   const heroInView = useInView(heroRef, { once: true });
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const loadBarRef = useRef<HTMLDivElement>(null);
   const targetProgressRef = useRef(0);
   const currentProgressRef = useRef(0);
   const releasedRef = useRef(false);
 
+  /* Step 1 — fetch full video as blob so all seeking is from memory, zero stalls */
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    let blobUrl = "";
 
     document.body.style.overflow = "hidden";
 
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "/hero-video.mp4", true);
+    xhr.responseType = "blob";
+
+    xhr.onprogress = (e) => {
+      if (e.lengthComputable && loadBarRef.current) {
+        loadBarRef.current.style.width = `${(e.loaded / e.total) * 100}%`;
+      }
+    };
+
+    xhr.onload = () => {
+      blobUrl = URL.createObjectURL(xhr.response as Blob);
+      video.src = blobUrl;
+      video.load();
+      if (loadBarRef.current) loadBarRef.current.style.display = "none";
+      startScrubbing(video);
+    };
+
+    xhr.send();
+
+    return () => {
+      xhr.abort();
+      if (blobUrl) URL.revokeObjectURL(blobUrl);
+      document.body.style.overflow = "";
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  /* Step 2 — wire up RAF scrubbing after blob is ready */
+  function startScrubbing(video: HTMLVideoElement) {
     const SENSITIVITY = 0.00045;
     const LERP = 0.15;
     let lastTouchY = 0;
     let rafId: number;
 
     const tick = () => {
-      const cur = currentProgressRef.current;
-      const tgt = targetProgressRef.current;
-      const next = cur + (tgt - cur) * LERP;
+      const next = currentProgressRef.current + (targetProgressRef.current - currentProgressRef.current) * LERP;
       currentProgressRef.current = next;
 
-      if (video.duration) {
-        video.currentTime = next * video.duration;
-      }
-
-      if (progressBarRef.current) {
-        progressBarRef.current.style.width = `${next * 100}%`;
-      }
+      if (video.duration) video.currentTime = next * video.duration;
+      if (progressBarRef.current) progressBarRef.current.style.width = `${next * 100}%`;
 
       rafId = requestAnimationFrame(tick);
     };
-
     rafId = requestAnimationFrame(tick);
 
     const applyDelta = (pixels: number) => {
-      const next = Math.max(0, Math.min(1, targetProgressRef.current + pixels * SENSITIVITY));
-      targetProgressRef.current = next;
-      return next;
+      targetProgressRef.current = Math.max(0, Math.min(1, targetProgressRef.current + pixels * SENSITIVITY));
     };
 
     const onWheel = (e: WheelEvent) => {
@@ -86,7 +109,6 @@ export default function HomePage() {
         e.deltaMode === 1 ? e.deltaY * 16 :
         e.deltaMode === 2 ? e.deltaY * window.innerHeight :
         e.deltaY;
-      /* Release scroll lock only when video is at end AND user keeps scrolling down */
       if (targetProgressRef.current >= 1 && px > 0) {
         releasedRef.current = true;
         cleanup();
@@ -116,8 +138,7 @@ export default function HomePage() {
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: false });
-    return cleanup;
-  }, []);
+  }
 
   const [showPill, setShowPill] = useState(false);
   useEffect(() => {
@@ -226,8 +247,11 @@ export default function HomePage() {
             />
           </motion.div>
 
-          {/* Progress bar — bottom of hero, driven by wheel scroll */}
+          {/* Bottom bar — loading phase then scrub progress */}
           <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/[0.04] z-20 pointer-events-none">
+            {/* Loading bar — white, visible while video downloads */}
+            <div ref={loadBarRef} className="absolute inset-0 h-full bg-white/30 transition-none" style={{ width: "0%" }} />
+            {/* Scrub progress bar — gold */}
             <div ref={progressBarRef} className="h-full bg-[#C9A84C]/60 transition-none" style={{ width: "0%" }} />
           </div>
 
