@@ -239,6 +239,79 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════ */}
+      {/* CENTRU DAUNE                                                   */}
+      {/* ═══════════════════════════════════════════════════════════════ */}
+      <section id="centru-daune" className="bg-[#0a0a0a] px-6 py-24 lg:px-8 scroll-mt-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Left — Content */}
+            <FadeIn>
+              <p className="font-[family-name:var(--font-space-grotesk)] text-xs font-medium uppercase tracking-[0.3em] text-[#C9A84C]">
+                Centru Daune
+              </p>
+              <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                Ai avut un accident?
+              </h2>
+              <p className="mt-4 text-xl text-white/60 font-medium">
+                Noi ne ocupăm de tot.
+              </p>
+
+              <ul className="mt-8 space-y-4">
+                {[
+                  "Deschidere și administrare completă dosar RCA",
+                  "Constatare și reparație la standard corect",
+                  "Comunicare transparentă pe toată durata lucrării",
+                  "Mașină la schimb GRATUIT pe perioada reparației",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <svg className="mt-1 h-5 w-5 shrink-0 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-white/70 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <Link href="/programare">
+                  <Button
+                    size="lg"
+                    className="bg-[#C9A84C] px-8 py-6 text-base font-semibold text-black hover:bg-[#d4b155] transition-colors"
+                  >
+                    Programează constatare
+                  </Button>
+                </Link>
+                <a href="tel:+40723177032">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/15 px-8 py-6 text-base text-white hover:bg-white/5 hover:border-white/25 transition-colors"
+                  >
+                    Sună acum
+                  </Button>
+                </a>
+              </div>
+            </FadeIn>
+
+            {/* Right — Statement card */}
+            <FadeIn delay={0.15}>
+              <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-10 text-center">
+                <p className="font-[family-name:var(--font-space-grotesk)] text-2xl font-semibold leading-relaxed text-white/80">
+                  Tu aduci mașina.
+                  <br />
+                  <span className="text-[#C9A84C]">Noi rezolvăm restul.</span>
+                </p>
+                <div className="mt-6 h-px w-16 mx-auto bg-[#C9A84C]/30" />
+                <p className="mt-6 font-[family-name:var(--font-space-grotesk)] text-sm font-medium uppercase tracking-[0.2em] text-white/30">
+                  Albatros&rsquo;A &mdash; Centru Daune &amp; Reparații Auto
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════ */}
       {/* SERVICII — Bento grid                                         */}
       {/* ═══════════════════════════════════════════════════════════════ */}
       <section className="bg-[#0a0a0a] px-6 py-24 lg:px-8">
@@ -332,148 +405,6 @@ export default function HomePage() {
                 </div>
               </FadeIn>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════ */}
-      {/* CENTRU DAUNE & REPARAȚII AUTO                                  */}
-      {/* ═══════════════════════════════════════════════════════════════ */}
-      <section id="centru-daune" className="relative bg-[#0a0a0a] px-6 py-28 lg:px-8 overflow-hidden scroll-mt-24">
-        {/* Subtle accent */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgba(201,168,76,0.06),transparent)]" />
-
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid items-center gap-16 lg:grid-cols-2">
-            {/* Left — Main message */}
-            <FadeIn>
-              <div>
-                <p className="font-[family-name:var(--font-space-grotesk)] text-xs font-medium uppercase tracking-[0.3em] text-[#C9A84C]">
-                  Centru Daune &amp; Reparații Auto
-                </p>
-
-                <h2 className="mt-4 font-[family-name:var(--font-space-grotesk)] text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                  Ai avut un
-                  <br />
-                  <span className="text-[#C9A84C]">accident?</span>
-                </h2>
-
-                <p className="mt-6 text-xl font-medium text-white/70">
-                  Noi ne ocupăm de tot.
-                </p>
-
-                <ul className="mt-8 space-y-4">
-                  {[
-                    "Deschidere și administrare completă dosar RCA",
-                    "Constatare și reparație la standard corect",
-                    "Comunicare transparentă pe toată durata lucrării",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#C9A84C]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-white/60">{item}</span>
-                    </li>
-                  ))}
-                  <li className="flex items-start gap-3">
-                    <svg className="mt-0.5 h-5 w-5 shrink-0 text-[#C9A84C]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-white/60">
-                      Mașină la schimb{" "}
-                      <span className="font-semibold text-[#C9A84C]">GRATUIT</span>{" "}
-                      pe perioada reparației
-                    </span>
-                  </li>
-                </ul>
-
-                <div className="mt-10 rounded-xl border border-white/[0.08] bg-white/[0.03] p-6">
-                  <p className="text-lg font-medium text-white">
-                    Tu aduci mașina.
-                  </p>
-                  <p className="text-lg text-white/50">
-                    Noi rezolvăm restul.
-                  </p>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <Link href="/programare">
-                    <Button
-                      size="lg"
-                      className="bg-[#C9A84C] px-8 py-6 text-base font-semibold text-black hover:bg-[#d4b155] transition-colors"
-                    >
-                      Programează constatare
-                    </Button>
-                  </Link>
-                  <a href="tel:+40723177032">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-white/15 px-8 py-6 text-base text-white hover:bg-white/5 hover:border-white/25 transition-colors"
-                    >
-                      Sună acum — 0723 177 032
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Right — AI Estimator + mockup */}
-            <FadeIn delay={0.2}>
-              <div className="space-y-6">
-                {/* AI Estimator card */}
-                <div className="rounded-xl border border-[#C9A84C]/20 bg-[#C9A84C]/[0.04] p-6">
-                  <p className="font-[family-name:var(--font-space-grotesk)] text-xs font-medium uppercase tracking-[0.2em] text-[#C9A84C]">
-                    Estimator AI Daune
-                  </p>
-                  <p className="mt-2 text-sm text-white/50">
-                    Încarcă fotografii cu avariile și primești estimare de cost
-                    instant — gratuit, fără obligații.
-                  </p>
-                  <Link href="/estimator" className="mt-4 inline-block">
-                    <Button className="bg-[#C9A84C] text-black font-semibold hover:bg-[#d4b155] transition-colors">
-                      Estimează gratuit online
-                    </Button>
-                  </Link>
-                </div>
-
-                {/* Mockup — damage assessment */}
-                <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
-                  <div className="mb-4 flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-white/10" />
-                    <div className="h-2 w-2 rounded-full bg-white/10" />
-                    <div className="h-2 w-2 rounded-full bg-white/10" />
-                    <div className="ml-2 h-5 flex-1 rounded bg-white/[0.04] px-2 flex items-center">
-                      <span className="text-[10px] text-white/15">albatrosa.ro/estimator</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="rounded-lg bg-white/[0.02] border border-white/[0.06] p-3 space-y-2.5">
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-white/40">Bară față</span>
-                        <span className="rounded bg-[#F59E0B]/10 px-2 py-0.5 text-[11px] text-[#F59E0B]">Medie</span>
-                      </div>
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-white/40">Aripă stânga</span>
-                        <span className="rounded bg-[#F59E0B]/10 px-2 py-0.5 text-[11px] text-[#F59E0B]">Ușoară</span>
-                      </div>
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-white/40">Far stânga</span>
-                        <span className="rounded bg-[#C9A84C]/10 px-2 py-0.5 text-[11px] text-[#C9A84C]">Severă</span>
-                      </div>
-                    </div>
-
-                    <div className="rounded-lg bg-white/[0.03] border border-white/[0.06] p-3 text-center">
-                      <p className="text-[10px] uppercase tracking-widest text-white/20">Estimare cost</p>
-                      <p className="mt-0.5 font-[family-name:var(--font-space-grotesk)] text-xl font-bold text-white">
-                        2.800 — 4.200 LEI
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
           </div>
         </div>
       </section>

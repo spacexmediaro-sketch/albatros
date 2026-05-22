@@ -48,9 +48,9 @@ export function Footer() {
               <Image
                 src="/logo-albatros.png"
                 alt="Albatros'A Auto Service"
-                width={300}
-                height={90}
-                className="h-24 w-auto object-contain drop-shadow-[0_0_15px_rgba(201,168,76,0.3)]"
+                width={380}
+                height={114}
+                className="h-28 w-auto object-contain drop-shadow-[0_0_15px_rgba(201,168,76,0.3)]"
               />
             </div>
 
