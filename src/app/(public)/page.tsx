@@ -174,10 +174,8 @@ export default function HomePage() {
           {/* Video — full bleed background, scrubbed by scroll */}
           <video
             ref={videoRef}
-            src="/hero-video.mp4"
             muted
             playsInline
-            preload="auto"
             className="absolute inset-0 h-full w-full object-cover"
             style={{ willChange: "transform" }}
           />
