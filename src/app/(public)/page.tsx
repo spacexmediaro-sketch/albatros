@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useRef, useState, useEffect } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { TextRotator } from "@/components/public/text-rotator";
-import { ScrollVideo } from "@/components/public/scroll-video";
 
 /* ------------------------------------------------------------------ */
 /*  DATA                                                               */
@@ -39,13 +38,42 @@ const blogArticles = [
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const heroInView = useInView(heroRef, { once: true });
-  const { scrollYProgress } = useScroll();
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
-  const heroY = useTransform(scrollYProgress, [0, 0.12], [0, -80]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  /* RAF scroll-scrubbing — triggers only on scroll, not in a tight loop */
+  useEffect(() => {
+    let rafId: number;
+    let ticking = false;
+
+    const update = () => {
+      const el = containerRef.current;
+      const video = videoRef.current;
+      if (el && video && video.duration) {
+        const scrollable = el.offsetHeight - window.innerHeight;
+        const progress = Math.max(0, Math.min(1, -el.getBoundingClientRect().top / scrollable));
+        video.currentTime = progress * video.duration;
+      }
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        rafId = requestAnimationFrame(update);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   const [showPill, setShowPill] = useState(false);
   useEffect(() => {
-    const onScroll = () => setShowPill(window.scrollY > window.innerHeight * 0.5);
+    const onScroll = () => setShowPill(window.scrollY > window.innerHeight * 2);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -53,77 +81,107 @@ export default function HomePage() {
   return (
     <>
       {/* ────────────────────────────────────────────────────────── */}
-      {/* HERO                                                      */}
+      {/* HERO — scroll-driven video background                    */}
       {/* ────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[100svh] flex flex-col justify-end bg-[#09090b] overflow-hidden">
-        {/* Ambient light — very subtle, top-right */}
-        <div className="pointer-events-none absolute -top-[30%] right-[10%] w-[60vw] h-[60vw] rounded-full bg-[#C9A84C]/[0.03] blur-[120px]" />
 
-        <motion.div
-          ref={heroRef}
-          style={{ opacity: heroOpacity, y: heroY }}
-          className="relative z-10 mx-auto w-full max-w-[88rem] px-6 pb-16 pt-44 lg:px-12 lg:pb-24"
-        >
-          <div className="grid lg:grid-cols-2 lg:gap-16 lg:items-end">
-            {/* Left — headline */}
-            <div>
-              <motion.h1
-                initial={{ opacity: 0, y: 50 }}
+      {/* Tall container gives scroll distance for video scrubbing */}
+      <div ref={containerRef} className="relative h-[400vh]">
+        <section className="sticky top-0 h-screen flex flex-col justify-end overflow-hidden bg-[#09090b]">
+
+          {/* Video — full bleed background, scrubbed by scroll */}
+          <video
+            ref={videoRef}
+            src="/hero-video.mp4"
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ willChange: "transform" }}
+          />
+
+          {/* Gradient overlay — darker at bottom for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/60 to-[#09090b]/20 pointer-events-none" />
+
+          {/* Ambient light — preserved from original design */}
+          <div className="pointer-events-none absolute -top-[30%] right-[10%] w-[60vw] h-[60vw] rounded-full bg-[#C9A84C]/[0.04] blur-[120px]" />
+
+          {/* Hero content */}
+          <div
+            ref={heroRef}
+            className="relative z-10 mx-auto w-full max-w-[88rem] px-6 pb-16 pt-44 lg:px-12 lg:pb-24"
+          >
+            <div className="grid lg:grid-cols-2 lg:gap-16 lg:items-end">
+              {/* Left — headline */}
+              <div>
+                <motion.h1
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="font-[family-name:var(--font-space-grotesk)] text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.92] tracking-[-0.04em] text-white"
+                >
+                  Service
+                  <br />
+                  auto <TextRotator />
+                </motion.h1>
+              </div>
+
+              {/* Right — description + CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="font-[family-name:var(--font-space-grotesk)] text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.92] tracking-[-0.04em] text-white"
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="mt-8 lg:mt-0"
               >
-                Service
-                <br />
-                auto <TextRotator />
-              </motion.h1>
+                <p className="text-base leading-relaxed text-white/40 max-w-sm lg:text-lg">
+                  Repari mașina o singură dată, cum trebuie.
+                  Diagnoză gratuită, piese originale, tracking live.
+                </p>
+                <div className="mt-8 flex items-center gap-5">
+                  <Link href="/programare">
+                    <Button className="rounded-full bg-white px-7 py-5 text-sm font-semibold text-black hover:bg-white/90 transition-colors">
+                      Programează
+                    </Button>
+                  </Link>
+                  <a href="tel:+40723177032" className="text-sm text-white/30 hover:text-white transition-colors">
+                    0723 177 032
+                  </a>
+                </div>
+              </motion.div>
             </div>
 
-            {/* Right — description + CTA */}
+            {/* Trust line */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-8 lg:mt-0"
+              initial={{ opacity: 0 }}
+              animate={heroInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="mt-20 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-white/15"
             >
-              <p className="text-base leading-relaxed text-white/40 max-w-sm lg:text-lg">
-                Repari mașina o singură dată, cum trebuie.
-                Diagnoză gratuită, piese originale, tracking live.
-              </p>
-              <div className="mt-8 flex items-center gap-5">
-                <Link href="/programare">
-                  <Button className="rounded-full bg-white px-7 py-5 text-sm font-semibold text-black hover:bg-white/90 transition-colors">
-                    Programează
-                  </Button>
-                </Link>
-                <a href="tel:+40723177032" className="text-sm text-white/30 hover:text-white transition-colors">
-                  0723 177 032
-                </a>
-              </div>
+              {["Q-SERVICE Romania", "Din 1992", "Multimarcă", "5.000+ clienți"].map((t, i) => (
+                <span key={t} className="flex items-center gap-2">
+                  {i > 0 && <span className="h-3 w-px bg-white/10" />}
+                  {t}
+                </span>
+              ))}
             </motion.div>
           </div>
 
-          {/* Trust line */}
+          {/* Scroll indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={heroInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-20 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-white/15"
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
           >
-            {["Q-SERVICE Romania", "Din 1992", "Multimarcă", "5.000+ clienți"].map((t, i) => (
-              <span key={t} className="flex items-center gap-2">
-                {i > 0 && <span className="h-3 w-px bg-white/10" />}
-                {t}
-              </span>
-            ))}
+            <span className="text-[10px] uppercase tracking-[0.2em] text-white/15">scroll</span>
+            <motion.div
+              animate={{ y: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+              className="h-6 w-px bg-gradient-to-b from-white/20 to-transparent"
+            />
           </motion.div>
-        </motion.div>
-      </section>
 
-      {/* ────────────────────────────────────────────────────────── */}
-      {/* SCROLL VIDEO                                              */}
-      {/* ────────────────────────────────────────────────────────── */}
-      <ScrollVideo />
+        </section>
+      </div>
 
       {/* ────────────────────────────────────────────────────────── */}
       {/* CENTRU DAUNE — Gold card, sales-focused                   */}
