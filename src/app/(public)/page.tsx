@@ -92,7 +92,8 @@ export default function HomePage() {
 
   /* Step 2 — wire up RAF scrubbing after blob is ready */
   function startScrubbing(video: HTMLVideoElement) {
-    const SENSITIVITY = 0.00045;
+    /* 2 × screen height of scroll = full video in both directions */
+    const SENSITIVITY = 1 / (2 * window.innerHeight);
     let lastTouchY = 0;
     let rafId: number;
 
