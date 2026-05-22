@@ -40,30 +40,54 @@ export default function HomePage() {
   const heroInView = useInView(heroRef, { once: true });
   const videoRef = useRef<HTMLVideoElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
-  /* mutable state kept in refs — no re-render cost per scroll event */
-  const progressRef = useRef(0);
+  const targetProgressRef = useRef(0);
+  const currentProgressRef = useRef(0);
   const releasedRef = useRef(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    /* Lock scroll while video plays */
     document.body.style.overflow = "hidden";
 
-    /* ~2200px of wheel delta = full video */
     const SENSITIVITY = 0.00045;
+    const LERP = 0.15;
     let lastTouchY = 0;
+    let rafId: number;
 
-    const applyDelta = (pixels: number) => {
-      const next = Math.max(0, Math.min(1, progressRef.current + pixels * SENSITIVITY));
-      progressRef.current = next;
-      if (video.duration) video.currentTime = next * video.duration;
-      if (progressBarRef.current) progressBarRef.current.style.width = `${next * 100}%`;
-      if (next >= 0.999) {
+    const tick = () => {
+      const cur = currentProgressRef.current;
+      const tgt = targetProgressRef.current;
+      const next = cur + (tgt - cur) * LERP;
+      currentProgressRef.current = next;
+
+      if (video.duration) {
+        const t = next * video.duration;
+        /* fastSeek is less precise but avoids decode stalls on chromium */
+        if (typeof (video as HTMLVideoElement & { fastSeek?: (t: number) => void }).fastSeek === "function") {
+          (video as HTMLVideoElement & { fastSeek: (t: number) => void }).fastSeek(t);
+        } else {
+          video.currentTime = t;
+        }
+      }
+
+      if (progressBarRef.current) {
+        progressBarRef.current.style.width = `${next * 100}%`;
+      }
+
+      if (next >= 0.999 && !releasedRef.current) {
         releasedRef.current = true;
         cleanup();
+        return;
       }
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+
+    const applyDelta = (pixels: number) => {
+      targetProgressRef.current = Math.max(0, Math.min(1, targetProgressRef.current + pixels * SENSITIVITY));
     };
 
     const onWheel = (e: WheelEvent) => {
@@ -86,6 +110,7 @@ export default function HomePage() {
     };
 
     const cleanup = () => {
+      cancelAnimationFrame(rafId);
       document.body.style.overflow = "";
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
