@@ -62,13 +62,7 @@ export default function HomePage() {
       currentProgressRef.current = next;
 
       if (video.duration) {
-        const t = next * video.duration;
-        /* fastSeek is less precise but avoids decode stalls on chromium */
-        if (typeof (video as HTMLVideoElement & { fastSeek?: (t: number) => void }).fastSeek === "function") {
-          (video as HTMLVideoElement & { fastSeek: (t: number) => void }).fastSeek(t);
-        } else {
-          video.currentTime = t;
-        }
+        video.currentTime = next * video.duration;
       }
 
       if (progressBarRef.current) {
